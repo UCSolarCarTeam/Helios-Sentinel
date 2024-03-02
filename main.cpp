@@ -117,23 +117,35 @@ void sendData(QSerialPort& serial)
     QByteArray auxBMS("\x0F\x0B\x01\x04\x05\x06\x07\x08\x08\x08"
                       "\x0B\x0C\x0D\x01\x00", 15);
 
-    QByteArray package1 = keyMotorData;
-    package1.append(motor0Details);
-    package1.append(motor1Details);
-    package1.append(driverControls);
-    package1.append(motorFaults);
-    package1.append(batteryFaults);
-    package1.append(battery);
-    package1.append(MPPT0);
-    package1.append(MPPT1);
-    package1.append(MPPT2);
-    package1.append(MPPT3);
-    package1.append(lights);
-    package1.append(auxBMS);
+    // QByteArray package1 = keyMotorData;
+    // package1.append(lights);
+    // package1.append(motorFaults);
+
+    // package1.append(motor0Details);
+    // package1.append(motor1Details);
+    // package1.append(driverControls);
+
+    // package1.append(batteryFaults);
+    // package1.append(battery);
+    // package1.append(MPPT0);
+    // package1.append(MPPT1);
+    // package1.append(MPPT2);
+    // package1.append(MPPT3);
+
+    // package1.append(auxBMS);
 
     // Write to serial port
-    serial.write(package1);
-    qDebug() << "Sent data: " << package1;
+    serial.write(keyMotorData);
+    serial.write(lights);
+    serial.write(motorFaults);
+    serial.write(batteryFaults);
+    serial.write(driverControls);
+    serial.write(battery);
+    serial.write(auxBMS);
+    serial.write(motor1Details);
+    serial.write(MPPT2);
+    serial.write(MPPT3);
+    qDebug() << "Sent data: " << keyMotorData;
 }
 
 
