@@ -1,6 +1,7 @@
 #include <QCoreApplication>
 #include <QSerialPort>
 #include <QTimer>
+// #include <QChecksum>
 
 // Taken from the Embedded Repo
 union DataUnion
@@ -112,7 +113,10 @@ void sendData(QSerialPort& serial)
     QByteArray MPPT3("\x0E\x09\x03\x04\x05\x06\x07\x08\x08\x08"
                      "\x0B\x0C\x0D\x00", 14);
 
-    QByteArray lights("\x07\x0A\x03\x04\x05\x06\x00", 7);
+    QByteArray lights("\x07\x0A\x03\x04\xFA\xD9\x00", 7);
+    // QByteArray abc("\x0A\x03\x04", 3);
+    // quint16 checksum = qChecksum(abc.constData(), abc.size());
+    // qDebug() << "Lights checksum: " << checksum;
 
     QByteArray auxBMS("\x0F\x0B\x01\x04\x05\x06\x07\x08\x08\x08"
                       "\x0B\x0C\x0D\x01\x00", 15);
@@ -145,6 +149,7 @@ void sendData(QSerialPort& serial)
     serial.write(motor1Details);
     serial.write(MPPT2);
     serial.write(MPPT3);
+
     qDebug() << "Sent data: " << keyMotorData;
 }
 
