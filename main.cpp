@@ -33,45 +33,48 @@ void writeFloatIntoArray(unsigned char* data, int index, float value)
 
 void sendData(QSerialPort& serial)
 {
-    // QSerialPort requires const char * or QByteArray
-    // Might cause issues with unsigned char data
+    char sizeBytye = 0x2F;
+    char packageID = 0x01;
+    char M0Alive = 0x01;    // Alive
+    // char M0SetCurrent = 0x428b6148;  // 69.69? (%)
+    // char M0BusCurrent = 0x428b6148;
+    // char M0BusVoltage = 0x428b6148;
+    // char M0VehicleVelocity = 0x428b6148;
+    // char M1Alive = 0x01;    // Alive
+    // char M1SetCurrent = 0x428b6148;  // 69.69? (%)
+    // char M1BusCurrent = 0x428b6148;
+    // char M1BusVoltage = 0x428b6148;
+    // char M1VehicleVelocity = 0x428b6148;
 
+    float M0SetCurrent = 69.69f;  // 69.69? (%)
+    float M0BusCurrent = 69.69f;
+    float M0BusVoltage = 69.69f;
+    float M0VehicleVelocity = 69.69f;
+    char M1Alive = 0x01;    // Alive
+    float M1SetCurrent = 69.69f;  // 69.69? (%)
+    float M1BusCurrent = 69.69f;
+    float M1BusVoltage = 69.69f;
+    float M1VehicleVelocity = 69.69f;
 
-    // QByteArray keyMotorData;
-    // keyMotorData.append(1);
-    // keyMotorData.append(1);
-    // keyMotorData.append(0x45);
-
-    /*unsigned char keyMotorData[47];
-    for (int i = 0; i < 47; i++) {
-        keyMotorData[i] = 0;
-    }
-    keyMotorData[0] = 1;                            // PackageID = 1
-    keyMotorData[1] = 1; */                           // M0 Alive (0x01)
-
-    // writeFloatIntoArray(keyMotorData, 2, 69);       // M0 Set Current = 69
-    // writeFloatIntoArray(keyMotorData, 6, 69);       // M0 Set Velocity = 69
-    // writeFloatIntoArray(keyMotorData, 10, 69);      // M0 Bus Current = 69
-    // writeFloatIntoArray(keyMotorData, 14, 69);      // M0 Bus Voltage
-    // writeFloatIntoArray(keyMotorData, 18, 69);      // M0 Vehicle Veolcity
-
-    // keyMotorData[22] = 1;                           // M1 Alive
-    // writeFloatIntoArray(keyMotorData, 23, 69);
-    // writeFloatIntoArray(keyMotorData, 27, 69);
-    // writeFloatIntoArray(keyMotorData, 31, 69);
-    // writeFloatIntoArray(keyMotorData, 35, 69);
-    // writeFloatIntoArray(keyMotorData, 39, 69);
-
-
-
-    // Convert unsigned char array to QByteArray to send through serial port
-    // QByteArray data = QByteArray((char*)keyMotorData, 47);
-
-    QByteArray keyMotorData("\x2F\x01\x01\x04\x05\x06\x07\x08\x08\x08"
-                            "\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x14"
-                            "\x15\x16\x01\x18\x19\x1A\x1B\x1C\x1D\x1E"
-                            "\x1F\x20\x21\x22\x23\x24\x25\x26\x27\x28"
-                            "\x29\x29\x2A\x2B\xB3\xD9\x00", 47);
+    // Define the byte array with packageID variable
+    QByteArray keyMotorData;
+    keyMotorData.append(sizeBytye);
+    keyMotorData.append(packageID);
+    keyMotorData.append(M0Alive);
+    keyMotorData.append(reinterpret_cast<const char*>(&M0SetCurrent), sizeof(M0SetCurrent));
+    keyMotorData.append(reinterpret_cast<const char*>(&M0BusCurrent), sizeof(M0BusCurrent));
+    keyMotorData.append(reinterpret_cast<const char*>(&M0BusVoltage), sizeof(M0BusVoltage));
+    keyMotorData.append(reinterpret_cast<const char*>(&M0VehicleVelocity), sizeof(M0VehicleVelocity));
+    keyMotorData.append(M1Alive);
+    keyMotorData.append(reinterpret_cast<const char*>(&M1SetCurrent), sizeof(M1SetCurrent));
+    keyMotorData.append(reinterpret_cast<const char*>(&M1BusCurrent), sizeof(M1BusCurrent));
+    keyMotorData.append(reinterpret_cast<const char*>(&M1BusVoltage), sizeof(M1BusVoltage));
+    keyMotorData.append(reinterpret_cast<const char*>(&M1VehicleVelocity), sizeof(M1VehicleVelocity));
+    // QByteArray keyMotorData("\x2F\x01\x01\x04\x05\x06\x07\x08\x08\x08"
+    //                         "\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x14"
+    //                         "\x15\x16\x01\x18\x19\x1A\x1B\x1C\x1D\x1E"
+    //                         "\x1F\x20\x21\x22\x23\x24\x25\x26\x27\x28"
+    //                         "\x29\x29\x2A\x2B\xB3\xD9\x00", 47);
 
     QByteArray motor0Details("\x45\x02\x01\x04\x05\x06\x07\x08\x08\x08"
                              "\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x14"
@@ -169,7 +172,7 @@ int main(int argc, char *argv[])
 
         // Use a QTimer to send data every 1 seconds
         QTimer timer;
-        timer.setInterval(200);  // 1 seconds interval
+        timer.setInterval(1000);  // 1 seconds interval
         QObject::connect(&timer, &QTimer::timeout, [&]() {
             sendData(serial);
         });
