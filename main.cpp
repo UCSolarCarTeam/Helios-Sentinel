@@ -1,6 +1,7 @@
 #include <QCoreApplication>
 #include <QSerialPort>
 #include <QTimer>
+// #include <QChecksum>
 
 // Taken from the Embedded Repo
 union DataUnion
@@ -32,45 +33,127 @@ void writeFloatIntoArray(unsigned char* data, int index, float value)
 
 void sendData(QSerialPort& serial)
 {
-    // QSerialPort requires const char * or QByteArray
-    // Might cause issues with unsigned char data
+    char sizeBytye = 0x2F;
+    char packageID = 0x01;
+    char M0Alive = 0x01;    // Alive
+    // char M0SetCurrent = 0x428b6148;  // 69.69? (%)
+    // char M0BusCurrent = 0x428b6148;
+    // char M0BusVoltage = 0x428b6148;
+    // char M0VehicleVelocity = 0x428b6148;
+    // char M1Alive = 0x01;    // Alive
+    // char M1SetCurrent = 0x428b6148;  // 69.69? (%)
+    // char M1BusCurrent = 0x428b6148;
+    // char M1BusVoltage = 0x428b6148;
+    // char M1VehicleVelocity = 0x428b6148;
 
+    float M0SetCurrent = 69.69f;  // 69.69? (%)
+    float M0BusCurrent = 69.69f;
+    float M0BusVoltage = 69.69f;
+    float M0VehicleVelocity = 69.69f;
+    char M1Alive = 0x01;    // Alive
+    float M1SetCurrent = 69.69f;  // 69.69? (%)
+    float M1BusCurrent = 69.69f;
+    float M1BusVoltage = 69.69f;
+    float M1VehicleVelocity = 69.69f;
 
+    // Define the byte array with packageID variable
     QByteArray keyMotorData;
-    keyMotorData.append(1);
-    keyMotorData.append(1);
-    keyMotorData.append(0x45);
+    keyMotorData.append(sizeBytye);
+    keyMotorData.append(packageID);
+    keyMotorData.append(M0Alive);
+    keyMotorData.append(reinterpret_cast<const char*>(&M0SetCurrent), sizeof(M0SetCurrent));
+    keyMotorData.append(reinterpret_cast<const char*>(&M0BusCurrent), sizeof(M0BusCurrent));
+    keyMotorData.append(reinterpret_cast<const char*>(&M0BusVoltage), sizeof(M0BusVoltage));
+    keyMotorData.append(reinterpret_cast<const char*>(&M0VehicleVelocity), sizeof(M0VehicleVelocity));
+    keyMotorData.append(M1Alive);
+    keyMotorData.append(reinterpret_cast<const char*>(&M1SetCurrent), sizeof(M1SetCurrent));
+    keyMotorData.append(reinterpret_cast<const char*>(&M1BusCurrent), sizeof(M1BusCurrent));
+    keyMotorData.append(reinterpret_cast<const char*>(&M1BusVoltage), sizeof(M1BusVoltage));
+    keyMotorData.append(reinterpret_cast<const char*>(&M1VehicleVelocity), sizeof(M1VehicleVelocity));
+    // QByteArray keyMotorData("\x2F\x01\x01\x04\x05\x06\x07\x08\x08\x08"
+    //                         "\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x14"
+    //                         "\x15\x16\x01\x18\x19\x1A\x1B\x1C\x1D\x1E"
+    //                         "\x1F\x20\x21\x22\x23\x24\x25\x26\x27\x28"
+    //                         "\x29\x29\x2A\x2B\xB3\xD9\x00", 47);
 
-    /*unsigned char keyMotorData[47];
-    for (int i = 0; i < 47; i++) {
-        keyMotorData[i] = 0;
-    }
-    keyMotorData[0] = 1;                            // PackageID = 1
-    keyMotorData[1] = 1; */                           // M0 Alive (0x01)
+    QByteArray motor0Details("\x45\x02\x01\x04\x05\x06\x07\x08\x08\x08"
+                             "\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x14"
+                             "\x15\x16\x01\x18\x19\x1A\x1B\x1C\x1D\x1E"
+                             "\x1F\x20\x21\x22\x23\x24\x25\x26\x27\x28"
+                             "\x29\x29\x2A\x2B\xB3\xD9\x25\x26\x27\x28"
+                             "\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x14"
+                             "\x15\x16\x01\x18\x19\x1A\x1B\x1C\x00", 69);
 
-    // writeFloatIntoArray(keyMotorData, 2, 69);       // M0 Set Current = 69
-    // writeFloatIntoArray(keyMotorData, 6, 69);       // M0 Set Velocity = 69
-    // writeFloatIntoArray(keyMotorData, 10, 69);      // M0 Bus Current = 69
-    // writeFloatIntoArray(keyMotorData, 14, 69);      // M0 Bus Voltage
-    // writeFloatIntoArray(keyMotorData, 18, 69);      // M0 Vehicle Veolcity
+    QByteArray motor1Details("\x45\x03\x01\x04\x05\x06\x07\x08\x08\x08"
+                             "\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x14"
+                             "\x15\x16\x01\x18\x19\x1A\x1B\x1C\x1D\x1E"
+                             "\x1F\x20\x21\x22\x23\x24\x25\x26\x27\x28"
+                             "\x29\x29\x2A\x2B\xB3\xD9\x25\x26\x27\x28"
+                             "\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x14"
+                             "\x15\x16\x01\x18\x19\x1A\x1B\x1C\x00", 69);
 
-    // keyMotorData[22] = 1;                           // M1 Alive
-    // writeFloatIntoArray(keyMotorData, 23, 69);
-    // writeFloatIntoArray(keyMotorData, 27, 69);
-    // writeFloatIntoArray(keyMotorData, 31, 69);
-    // writeFloatIntoArray(keyMotorData, 35, 69);
-    // writeFloatIntoArray(keyMotorData, 39, 69);
+    QByteArray driverControls("\x0D\x04\x01\x04\x05\x06\x07\x08\x08\x08"
+                              "\x0B\x0C\x00", 13);
 
+    QByteArray motorFaults("\x0D\x05\x01\x04\x05\x06\x07\x08\x08\x08"
+                           "\x0B\x0C\x00", 13);
 
+    QByteArray batteryFaults("\x0D\x06\x01\x04\x05\x06\x07\x08\x08\x00", 10);
 
-    // Convert unsigned char array to QByteArray to send through serial port
-    // QByteArray data = QByteArray((char*)keyMotorData, 47);
+    QByteArray battery("\x34\x07\x01\x04\x05\x06\x07\x08\x08\x08"
+                       "\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x14"
+                       "\x15\x16\x01\x18\x19\x1A\x1B\x1C\x1D\x1E"
+                       "\x1F\x20\x21\x22\x23\x24\x25\x26\x27\x28"
+                       "\x29\x29\x2A\x2B\xB3\xD9\x25\x26\x27\x28"
+                       "\x0B\x00", 52);
 
+    QByteArray MPPT0("\x0E\x09\x00\x04\x05\x06\x07\x08\x08\x08"
+                     "\x0B\x0C\x0D\x00", 14);
+    QByteArray MPPT1("\x0E\x09\x01\x04\x05\x06\x07\x08\x08\x08"
+                     "\x0B\x0C\x0D\x00", 14);
+    QByteArray MPPT2("\x0E\x09\x02\x04\x05\x06\x07\x08\x08\x08"
+                     "\x0B\x0C\x0D\x00", 14);
+    QByteArray MPPT3("\x0E\x09\x03\x04\x05\x06\x07\x08\x08\x08"
+                     "\x0B\x0C\x0D\x00", 14);
 
+    QByteArray lights("\x07\x0A\x03\x04\xFA\xD9\x00", 7);
+    // QByteArray abc("\x0A\x03\x04", 3);
+    // quint16 checksum = qChecksum(abc.constData(), abc.size());
+    // qDebug() << "Lights checksum: " << checksum;
+
+    QByteArray auxBMS("\x0F\x0B\x01\x04\x05\x06\x07\x08\x08\x08"
+                      "\x0B\x0C\x0D\x01\x00", 15);
+
+    // QByteArray package1 = keyMotorData;
+    // package1.append(lights);
+    // package1.append(motorFaults);
+
+    // package1.append(motor0Details);
+    // package1.append(motor1Details);
+    // package1.append(driverControls);
+
+    // package1.append(batteryFaults);
+    // package1.append(battery);
+    // package1.append(MPPT0);
+    // package1.append(MPPT1);
+    // package1.append(MPPT2);
+    // package1.append(MPPT3);
+
+    // package1.append(auxBMS);
 
     // Write to serial port
     serial.write(keyMotorData);
-    qDebug() << "Sent data: " << keyMotorData.toHex();
+    serial.write(lights);
+    serial.write(motorFaults);
+    serial.write(batteryFaults);
+    serial.write(driverControls);
+    serial.write(battery);
+    serial.write(auxBMS);
+    serial.write(motor1Details);
+    serial.write(MPPT2);
+    serial.write(MPPT3);
+
+    qDebug() << "Sent data: " << keyMotorData;
 }
 
 
@@ -78,7 +161,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     QSerialPort serial;
-    serial.setPortName("/dev/ttys001");
+    serial.setPortName("/dev/ttys006");
     serial.setBaudRate(115200);
     serial.setDataBits(QSerialPort::Data8);
     serial.setParity(QSerialPort::NoParity);
