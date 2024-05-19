@@ -79,7 +79,7 @@ public:
     bool dclCclCommunication() const;
     bool cclSoc() const;
     bool cclCellResistance() const;
-    bool cclChargerVoltage() const;
+    // bool cclChargerVoltage() const;
     bool cclTemperature() const;
     bool cclCellVoltage() const;
     bool cclPackVoltage() const;
@@ -123,7 +123,7 @@ public slots:
     void setDclCclCommunication(bool on);
     void setCclSoc(bool on);
     void setCclCellResistance(bool on);
-    void setCclChargerVoltage(bool on);
+    // void setCclChargerVoltage(bool on);
     void setCclTemperature(bool on);
     void setCclCellVoltage(bool on);
     void setCclPackVoltage(bool on);
