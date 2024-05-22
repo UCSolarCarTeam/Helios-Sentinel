@@ -159,7 +159,8 @@ QByteArray BatteryFaults::encodedByteStream() const{
 }
 
 QString BatteryFaults::encodedByteStreamStr() const {
-    return(encodedByteStream_.toHex(' '));
+    return(encodedByteStream_.toHex(' '));    // bool cclChargerVoltage() const;
+
 }
 
 QString BatteryFaults::byteStreamStr() const {
@@ -167,49 +168,49 @@ QString BatteryFaults::byteStreamStr() const {
 }
 
 void BatteryFaults::setInternalCommunication(bool on){
-    byteStream_[4] += on ? 0x01 : -0x01;
+    byteStream_[2] += on ? 0x01 : -0x01;
     internalCommunication_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setInternalConversion(bool on){
-    byteStream_[4] += on ? 0x02 : -0x02;
+    byteStream_[2] += on ? 0x02 : -0x02;
     internalConversion_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setWeakCell(bool on){
-    byteStream_[4] += on ? 0x04 : -0x04;
+    byteStream_[2] += on ? 0x04 : -0x04;
     weakCell_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setLowCellVoltage(bool on){
-    byteStream_[4] += on ? 0x08 : -0x08;
+    byteStream_[2] += on ? 0x08 : -0x08;
     lowCellVoltage_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setOpenWiring(bool on){
-    byteStream_[4] += on ? 0x10 : -0x10;
+    byteStream_[2] += on ? 0x10 : -0x10;
     openWiring_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCurrentSensor(bool on){
-    byteStream_[4] += on ? 0x20 : -0x20;
+    byteStream_[2] += on ? 0x20 : -0x20;
     openWiring_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setPackVoltageSensor(bool on){
-    byteStream_[4] += on ? 0x40 : -0x40;
+    byteStream_[2] += on ? 0x40 : -0x40;
     packVoltageSensor_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setWeakPack(bool on){
-    byteStream_[4] += on ? 0x80 : -0x80;
+    byteStream_[2] += on ? 0x80 : -0x80;
     weakPack_ = on;
     updateByteStream();
 }
@@ -263,115 +264,115 @@ void BatteryFaults::setChargeLimitEnforcement(bool on){
 }
 
 void BatteryFaults::setDischargeLimitEnforcement(bool on){
-    byteStream_[2] += on ? 0x01 : -0x01;
+    byteStream_[4] += on ? 0x01 : -0x01;
     dischargeLimitEnforcement_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setChargerSafetyRelay(bool on){
-    byteStream_[2] += on ? 0x02 : -0x02;
+    byteStream_[4] += on ? 0x02 : -0x02;
     chargerSafetyRelay_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setInternalMemory(bool on){
-    byteStream_[2] += on ? 0x04 : -0x04;
+    byteStream_[4] += on ? 0x04 : -0x04;
     internalMemory_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setInternalThermistor(bool on){
-    byteStream_[2] += on ? 0x08 : -0x08;
+    byteStream_[4] += on ? 0x08 : -0x08;
     internalThermistor_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setInternalLogic(bool on){
-    byteStream_[2] += on ? 0x10 : -0x10;
+    byteStream_[4] += on ? 0x10 : -0x10;
     internalLogic_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclSoc(bool on){
-    byteStream_[6] += on ? 0x01 : -0x01;
+    byteStream_[5] += on ? 0x01 : -0x01;
     dclSoc_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclCellResistance(bool on){
-    byteStream_[6] += on ? 0x02 : -0x02;
+    byteStream_[5] += on ? 0x02 : -0x02;
     dclCellResistance_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclTemperature(bool on){
-    byteStream_[6] += on ? 0x04 : -0x04;
+    byteStream_[5] += on ? 0x04 : -0x04;
     dclTemperature_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclCellVoltage(bool on){
-    byteStream_[6] += on ? 0x08 : -0x08;
+    byteStream_[5] += on ? 0x08 : -0x08;
     dclCellVoltage_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclPackVoltage(bool on){
-    byteStream_[6] += on ? 0x10 : -0x10;
+    byteStream_[5] += on ? 0x10 : -0x10;
     dclPackVoltage_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclCclVoltage(bool on){
-    byteStream_[6] += on ? 0x40 : -0x40;
+    byteStream_[5] += on ? 0x40 : -0x40;
     dclCclVoltage_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclCclCommunication(bool on){
-    byteStream_[6] += on ? 0x80 : -0x80;
+    byteStream_[5] += on ? 0x80 : -0x80;
     dclCclCommunication_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclSoc(bool on){
-    byteStream_[5] += on ? 0x02 : -0x02;
+    byteStream_[6] += on ? 0x02 : -0x02;
     cclSoc_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclCellResistance(bool on){
-    byteStream_[5] += on ? 0x04 : -0x04;
+    byteStream_[6] += on ? 0x04 : -0x04;
     cclCellResistance_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclTemperature(bool on){
-    byteStream_[5] += on ? 0x08 : -0x08;
+    byteStream_[6] += on ? 0x08 : -0x08;
     cclTemperature_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclCellVoltage(bool on){
-    byteStream_[5] += on ? 0x10 : -0x10;
+    byteStream_[6] += on ? 0x10 : -0x10;
     cclCellVoltage_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclPackVoltage(bool on){
-    byteStream_[5] += on ? 0x20 : -0x20;
+    byteStream_[6] += on ? 0x20 : -0x20;
     cclPackVoltage_  = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclChargerLatch(bool on){
-    byteStream_[5] += on ? 0x40 : -0x40;
+    byteStream_[6] += on ? 0x40 : -0x40;
     cclChargerLatch_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclCurrent(bool on){
-    byteStream_[5] += on ? 0x80 : -0x80;
+    byteStream_[6] += on ? 0x80 : -0x80;
     cclCurrent_ = on;
     updateByteStream();
 }

@@ -79,7 +79,6 @@ public:
     bool dclCclCommunication() const;
     bool cclSoc() const;
     bool cclCellResistance() const;
-    // bool cclChargerVoltage() const;
     bool cclTemperature() const;
     bool cclCellVoltage() const;
     bool cclPackVoltage() const;
@@ -123,7 +122,6 @@ public slots:
     void setDclCclCommunication(bool on);
     void setCclSoc(bool on);
     void setCclCellResistance(bool on);
-    // void setCclChargerVoltage(bool on);
     void setCclTemperature(bool on);
     void setCclCellVoltage(bool on);
     void setCclPackVoltage(bool on);
@@ -173,44 +171,44 @@ signals:
     void encodedByteStreamStrChanged();
 
 private:
+    // I am much too lazy to set these in the constructor
+    bool internalCommunication_ = 0;
+    bool internalConversion_ = 0;
+    bool weakCell_ = 0;
+    bool lowCellVoltage_ = 0;
+    bool openWiring_ = 0;
+    bool currentSensor_ = 0;
+    bool packVoltageSensor_ = 0;
+    bool weakPack_ = 0;
+    bool voltageRedundancy_ = 0;
+    bool fanMonitor_ = 0;
+    bool thermistor_ = 0;
+    bool canbusCommunications_ = 0;
+    bool alwaysOnSupply_ = 0;
+    bool highVoltageIsolation_ = 0;
+    bool powerSupply12V_ = 0;
+    bool chargeLimitEnforcement_ = 0;
+    bool dischargeLimitEnforcement_ = 0;
+    bool chargerSafetyRelay_ = 0;
+    bool internalMemory_ = 0;
+    bool internalThermistor_ = 0;
+    bool internalLogic_ = 0;
 
-    bool internalCommunication_;
-    bool internalConversion_;
-    bool weakCell_;
-    bool lowCellVoltage_;
-    bool openWiring_;
-    bool currentSensor_;
-    bool packVoltageSensor_;
-    bool weakPack_;
-    bool voltageRedundancy_;
-    bool fanMonitor_;
-    bool thermistor_;
-    bool canbusCommunications_;
-    bool alwaysOnSupply_;
-    bool highVoltageIsolation_;
-    bool powerSupply12V_;
-    bool chargeLimitEnforcement_;
-    bool dischargeLimitEnforcement_;
-    bool chargerSafetyRelay_;
-    bool internalMemory_;
-    bool internalThermistor_;
-    bool internalLogic_;
-
-    bool dclSoc_;
-    bool dclCellResistance_;
-    bool dclTemperature_;
-    bool dclPackVoltage_;
-    bool dclCellVoltage_;
-    bool dclCclVoltage_;
-    bool dclCclCommunication_;
-    bool cclSoc_;
-    bool cclCellResistance_;
-    bool cclChargerVoltage_;
-    bool cclTemperature_;
-    bool cclCellVoltage_;
-    bool cclPackVoltage_;
-    bool cclChargerLatch_;
-    bool cclCurrent_;
+    bool dclSoc_ = 0;
+    bool dclCellResistance_ = 0;
+    bool dclTemperature_ = 0;
+    bool dclPackVoltage_ = 0;
+    bool dclCellVoltage_ = 0;
+    bool dclCclVoltage_ = 0;
+    bool dclCclCommunication_ = 0;
+    bool cclSoc_ = 0;
+    bool cclCellResistance_ = 0;
+    bool cclChargerVoltage_ = 0;
+    bool cclTemperature_ = 0;
+    bool cclCellVoltage_ = 0;
+    bool cclPackVoltage_ = 0;
+    bool cclChargerLatch_ = 0;
+    bool cclCurrent_ = 0;
 
     QByteArray byteStream_;
     QByteArray encodedByteStream_;
