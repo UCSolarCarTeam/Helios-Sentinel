@@ -41,3 +41,10 @@ QByteArray Util::formatInt(int num, int bytes){
 
     return res;
 }
+
+QByteArray Util::formatFloat(float num){
+    QByteArray res(4, 0);
+    std::memcpy(res.data(), &num, sizeof(float));
+
+    return res;
+}

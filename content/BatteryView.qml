@@ -10,6 +10,8 @@ Item {
         x: 38
         y: 27
         text: qsTr("BMU")
+        checked: battery.bmuAlive
+        onClicked: battery.setBmuAlive(checked)
     }
 
     Switch {
@@ -17,6 +19,8 @@ Item {
         x: 173
         y: 27
         text: qsTr("Discharge Relay")
+        checked: battery.dischargeRelay
+        onClicked: battery.setDischargeRelay(checked)
     }
 
     Switch {
@@ -24,6 +28,8 @@ Item {
         x: 173
         y: 74
         text: qsTr("Charge Relay")
+        checked: battery.chargeRelay
+        onClicked: battery.setChargeRelay(checked)
     }
 
     Switch {
@@ -31,6 +37,8 @@ Item {
         x: 173
         y: 121
         text: qsTr("Charger Safety")
+        checked: battery.chargerSafety
+        onClicked: battery.setChargerSafety(checked)
     }
 
     Switch {
@@ -38,6 +46,8 @@ Item {
         x: 173
         y: 175
         text: qsTr("Malfunction Indicator")
+        checked: battery.malfunctionIndicator
+        onClicked: battery.setMalfunctionIndicator(checked)
     }
 
     Switch {
@@ -45,6 +55,8 @@ Item {
         x: 386
         y: 27
         text: qsTr("Multi-Purpose Input Signal")
+        checked: battery.multiPurposeInputSignal
+        onClicked: battery.setMultiPurposeInputSignal(checked)
     }
 
     Switch {
@@ -52,6 +64,8 @@ Item {
         x: 386
         y: 74
         text: qsTr("Always-on Signal")
+        checked: battery.alwaysOnSignal
+        onClicked: battery.setAlwaysOnSignal(checked)
     }
 
     Switch {
@@ -59,6 +73,8 @@ Item {
         x: 386
         y: 121
         text: qsTr("Is-Ready Signal")
+        checked: battery.isReadySignal
+        onClicked: battery.setIsReadySignal(checked)
     }
 
     Switch {
@@ -66,6 +82,8 @@ Item {
         x: 386
         y: 175
         text: qsTr("Is-Charging Signal")
+        checked: battery.isChargingSignal
+        onClicked: battery.setIsChargingSignal(checked)
     }
 
     SpinBox {
@@ -74,6 +92,8 @@ Item {
         y: 259
         width: 94
         height: 36
+        value: battery.populatedCells
+        onValueChanged: battery.setPopulatedCells(value)
     }
 
     Text {
@@ -90,6 +110,8 @@ Item {
         y: 259
         width: 94
         height: 36
+        value: battery.input12V
+        onValueChanged: battery.setInput12V(value)
     }
 
     Text {
@@ -106,6 +128,8 @@ Item {
         y: 259
         width: 94
         height: 36
+        value: battery.fanVoltage
+        onValueChanged: battery.setFanVoltage(value)
     }
 
     Text {
@@ -122,6 +146,8 @@ Item {
         y: 259
         width: 94
         height: 36
+        value: battery.packCurrent
+        onValueChanged: battery.setPackCurrent(value)
     }
 
     Text {
@@ -138,6 +164,8 @@ Item {
         y: 259
         width: 94
         height: 36
+        value: battery.packVoltage
+        onValueChanged: battery.setPackVoltage(value)
     }
 
     Text {
@@ -154,6 +182,8 @@ Item {
         y: 259
         width: 94
         height: 36
+        value: battery.packSoc
+        onValueChanged: battery.setPackSoc(value)
     }
 
     Text {
@@ -170,6 +200,8 @@ Item {
         y: 259
         width: 94
         height: 36
+        value: battery.packAmphours
+        onValueChanged: battery.setPackAmphours(value)
     }
 
     Text {
@@ -186,6 +218,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        value: battery.setPackDod
+        onValueChanged: battery.setPackDod(value)
     }
 
     Text {
@@ -202,6 +236,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        value: battery.highTemp
+        onValueChanged: battery.setHighTemp(value)
     }
 
     Text {
@@ -218,6 +254,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        value: battery.highThermistorId
+        onValueChanged: battery.setHighThermistorId(value)
     }
 
     Text {
@@ -234,6 +272,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        value: battery.lowTemp
+        onValueChanged: battery.setLowTemp(value)
     }
 
     Text {
@@ -250,6 +290,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        value: battery.lowThermistorId
+        onValueChanged: battery.setLowThermistorId(value)
     }
 
     Text {
@@ -266,6 +308,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        value: battery.avgTemp
+        onValueChanged: battery.setAvgTemp(value)
     }
 
     Text {
@@ -282,6 +326,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        value: battery.internalTemp
+        onValueChanged: battery.setInternalTemp(value)
     }
 
     Text {
@@ -298,6 +344,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        value: battery.fanSpeed
+        onValueChanged: battery.setFanSpeed(value)
     }
 
     Text {
@@ -314,6 +362,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        value: battery.reqFanSpeed
+        onValueChanged: battery.setReqFanSpeed(value)
     }
 
     Text {
@@ -330,6 +380,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        value: battery.lowCellVoltage
+        onValueChanged: battery.setLowCellVoltage(value)
     }
 
     Text {
@@ -346,6 +398,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        value: battery.lowCellVoltageId
+        onValueChanged: battery.setLowCellVoltageId(value)
     }
 
     Text {
@@ -362,6 +416,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        value: battery.highCellVoltage
+        onValueChanged: battery.setHighCellVoltage(value)
     }
 
     Text {
@@ -378,6 +434,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        value: battery.highCellVoltageId
+        onValueChanged: battery.setHighCellVoltageId(value)
     }
 
     Text {
@@ -394,6 +452,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        value: battery.avgCellVoltage
+        onValueChanged: battery.setAvgCellVoltage(value)
     }
 
     Text {
@@ -421,7 +481,7 @@ Item {
         y: 444
         width: 442
         height: 14
-        text: "Byte Stream: " + lights.byteStreamStr
+        text: "Byte Stream: " + battery.byteStreamStr
         font.pixelSize: 16
     }
 
@@ -431,7 +491,7 @@ Item {
         y: 469
         width: 442
         height: 14
-        text: "Encoded Stream: " + lights.encodedByteStreamStr
+        text: "Encoded Stream: " + battery.encodedByteStreamStr
         font.pixelSize: 16
     }
 }

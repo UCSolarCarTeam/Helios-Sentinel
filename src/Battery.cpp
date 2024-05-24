@@ -207,28 +207,28 @@ void Battery::setPopulatedCells(int i){
 }
 
 void Battery::setInput12V(int i){
-    QByteArray in = Util::formatInt(i, 4);
+    QByteArray in = Util::formatFloat(i);
     byteStream_.replace(5, 4, in);
     input12V_ = i;
     updateByteStream();
 }
 
 void Battery::setFanVoltage(int i){
-    QByteArray in = Util::formatInt(i, 4);
+    QByteArray in = Util::formatFloat(i);
     byteStream_.replace(9, 4, in);
     fanVoltage_ = i;
     updateByteStream();
 }
 
 void Battery::setPackCurrent(int i){
-    QByteArray in = Util::formatInt(i, 4);
+    QByteArray in = Util::formatFloat(i);
     byteStream_.replace(13, 4, in);
     packCurrent_ = i;
     updateByteStream();
 }
 
 void Battery::setPackVoltage(int i){
-    QByteArray in = Util::formatInt(i, 4);
+    QByteArray in = Util::formatFloat(i);
     byteStream_.replace(17, 4, in);
     packCurrent_ = i;
     updateByteStream();
@@ -242,14 +242,14 @@ void Battery::setPackSoc(int i){
 }
 
 void Battery::setPackAmphours(int i){
-    QByteArray in = Util::formatInt(i, 4);
+    QByteArray in = Util::formatFloat(i);
     byteStream_.replace(25, 4, in);
     packAmphours_ = i;
     updateByteStream();
 }
 
 void Battery::setPackDod(int i){
-    QByteArray in = Util::formatInt(i, 4);
+    QByteArray in = Util::formatFloat(i);
     byteStream_.replace(29, 4, in);
     packDod_ = i;
     updateByteStream();
