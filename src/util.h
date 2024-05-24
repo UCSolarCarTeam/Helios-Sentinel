@@ -11,6 +11,7 @@ public:
 
     static QByteArray encodeByteStream(QByteArray bs);
     static QByteArray generateChecksum(QByteArray bs, int bodyStartIndex, int bodyEndIndex);
+    static QByteArray formatInt(int num, int bytes);
 
 signals:
 };
