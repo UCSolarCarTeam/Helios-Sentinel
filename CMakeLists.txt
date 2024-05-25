@@ -20,6 +20,7 @@ qt_add_executable(ViscommTesterApp src/main.cpp
     src/DriverControls.h src/DriverControls.cpp
     src/util.h src/util.cpp
     src/BatteryFaults.h src/BatteryFaults.cpp
+    src/KeyMotor.h src/KeyMotor.cpp
 )
 
 qt_add_resources(ViscommTesterApp "configuration"

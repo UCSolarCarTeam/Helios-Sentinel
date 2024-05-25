@@ -75,6 +75,11 @@ signals:
     void m1BusVoltageChanged(int value);
     void m1VehicleVelocityChanged(int value);
 
+    // void byteStreamChanged();
+    void byteStreamStrChanged();
+    void encodedByteStreamStrChanged();
+
+
 private:
     bool m0Alive_;
     int m0SetCurrent_;

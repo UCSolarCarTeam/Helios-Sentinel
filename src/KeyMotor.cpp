@@ -11,13 +11,13 @@ KeyMotor::KeyMotor(QObject *parent)
     m0SetVelocity_(0),
     m0BusCurrent_(0),
     m0BusVoltage_(0),
-    m0VehicleVelocity(0),
+    m0VehicleVelocity_(0),
     m1Alive_(false),
     m1SetCurrent_(0),
     m1SetVelocity_(0),
     m1BusCurrent_(0),
     m1BusVoltage_(0),
-    m1VehicleVelocity(0)
+    m1VehicleVelocity_(0)
 {
     byteStream_.fill(0x00, 47); // packet size 47 - fill zeros by defualt
     byteStream_[0] = 0x2F;      // packet size 47
@@ -55,83 +55,92 @@ QByteArray KeyMotor::encodedByteStream() const { return encodedByteStream_; }
 
 void KeyMotor::setM0Alive(bool alive) {
     byteStream_[2] = alive ? 0x01 : 0x00;
-    lightsAlive_ = alive;
+    m0Alive_ = alive;
     updateByteStream();
-
 }
 
 void KeyMotor::setM0SetCurrent(int value) {
-    byteStream_[3] += on ? 0x01 : -0x01;
-    lowBeams_ = on;
+    QByteArray in = Util::formatFloat(value);
+    byteStream_.replace(3, 4, in);
+    m0SetCurrent_ = value;
     updateByteStream();
 }
 
 void KeyMotor::setM0SetVelocity(int value) {
-    byteStream_[3] += on ? 0x02 : -0x02;
-    highBeams_ = on;
+    QByteArray in = Util::formatFloat(value);
+    byteStream_.replace(7, 4, in);
+    m0SetVelocity_ = value;
     updateByteStream();
 }
 
 void KeyMotor::setM0BusCurrent(int value) {
-    byteStream_[3] += on ? 0x04 : -0x04;
-    brakeLights_ = on;
+    QByteArray in = Util::formatFloat(value);
+    byteStream_.replace(11, 4, in);
+    m0BusCurrent_ = value;
     updateByteStream();
 }
 
 void KeyMotor::setM0BusVoltage(int value) {
-    byteStream_[3] += on ? 0x04 : -0x04;
-    brakeLights_ = on;
+    QByteArray in = Util::formatFloat(value);
+    byteStream_.replace(15, 4, in);
+    m0BusVoltage_ = value;
     updateByteStream();
 }
 
 void KeyMotor::setM0VehicleVelocity(int value) {
-    byteStream_[3] += on ? 0x04 : -0x04;
-    brakeLights_ = on;
+    QByteArray in = Util::formatFloat(value);
+    byteStream_.replace(19, 4, in);
+    m0VehicleVelocity_ = value;
     updateByteStream();
 }
 
 void KeyMotor::setM1Alive(bool alive) {
-    byteStream_[2] = alive ? 0x01 : 0x00;
-    lightsAlive_ = alive;
+    byteStream_[21] = alive ? 0x01 : 0x00;
+    m1Alive_ = alive;
     updateByteStream();
-
 }
 
 void KeyMotor::setM1SetCurrent(int value) {
-    byteStream_[3] += on ? 0x01 : -0x01;
-    lowBeams_ = on;
+    QByteArray in = Util::formatFloat(value);
+    byteStream_.replace(24, 4, in);
+    m1SetCurrent_ = value;
     updateByteStream();
 }
 
 void KeyMotor::setM1SetVelocity(int value) {
-    byteStream_[3] += on ? 0x02 : -0x02;
-    highBeams_ = on;
+    QByteArray in = Util::formatFloat(value);
+    byteStream_.replace(28, 4, in);
+    m1SetVelocity_ = value;
     updateByteStream();
 }
 
 void KeyMotor::setM1BusCurrent(int value) {
-    byteStream_[3] += on ? 0x04 : -0x04;
-    brakeLights_ = on;
+    QByteArray in = Util::formatFloat(value);
+    byteStream_.replace(32, 4, in);
+    m1BusCurrent_ = value;
     updateByteStream();
 }
 
 void KeyMotor::setM1BusVoltage(int value) {
-    byteStream_[3] += on ? 0x04 : -0x04;
-    brakeLights_ = on;
+    QByteArray in = Util::formatFloat(value);
+    byteStream_.replace(36, 4, in);
+    m1BusVoltage_ = value;
     updateByteStream();
 }
 
 void KeyMotor::setM1VehicleVelocity(int value) {
-    byteStream_[3] += on ? 0x04 : -0x04;
-    brakeLights_ = on;
+    QByteArray in = Util::formatFloat(value);
+    byteStream_.replace(40, 4, in);
+    m1VehicleVelocity_ = value;
     updateByteStream();
 }
 
-// Fix hardcode sizes
 void KeyMotor::updateByteStream(){
-    QByteArray checksum = Util::generateChecksum(byteStream_, 1, 3);
-    byteStream_[4] = checksum.at(0);
-    byteStream_[5] = checksum.at(1);
+    // (1, size - 4)
+    QByteArray checksum = Util::generateChecksum(byteStream_, 1, 43);
+    // size - 3 and size - 2
+    byteStream_[44] = checksum.at(0);
+    byteStream_[45] = checksum.at(1);
     encodedByteStream_ = Util::encodeByteStream(byteStream_);
     emit encodedByteStreamStrChanged();
     emit byteStreamChangedStr();
