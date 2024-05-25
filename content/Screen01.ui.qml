@@ -10,32 +10,70 @@ import QtQuick 6.2
 import QtQuick.Controls 6.2
 import ViscommTester
 import QtQuick.Studio.Components 1.0
+import QtQuick.Layouts
 
 Rectangle {
     id: rectangle
-    width: Constants.width
-    height: Constants.height
+    width: Screen.width
+    height: Screen.height
 
     color: Constants.backgroundColor
     z: -2
+    ColumnLayout{
+        TabBar {
+            id: bar
+            width: parent.width
+            TabButton {
+                text: qsTr("Battery Fault View")
+                width: implicitWidth
+            }
+            TabButton {
+                text: qsTr("Driver Control View")
+                width: implicitWidth
+            }
+            TabButton {
+                text: qsTr("Lights View")
+                width: implicitWidth
+            }
+        }
+        StackLayout {
+            width: parent.width
+            currentIndex: bar.currentIndex
 
-    LightsView {
-        id: lightsView
-        x: 0
-        y: 0
+            Item {
+                Loader {
+                              anchors.fill: parent
+                              source: "BatteryFaultsView.qml"
+                          }
+            }
+            Item {
+                id: discoverTab
+            }
+            Item {
+                id: ddd
+            }
+        }
     }
 
-    DriverControlsView {
-        id: driverControlsView
-        x: 0
-        y: 200
-    }
 
-    BatteryFaultsView {
-        id: batteryFaultsView
-        x: 886
-        y: 0
-    }
+
+    // LightsView {
+    //     id: lightsView
+    //     x: 0
+    //     y: 0
+    // }
+
+    // DriverControlsView {
+    //     id: driverControlsView
+    //     x: 0
+    //     y: 200
+    // }
+
+    // BatteryFaultsView {
+    //     id: batteryFaultsView
+    //     x: 886
+    //     y: 0
+    // }
 
     states: [
         State {

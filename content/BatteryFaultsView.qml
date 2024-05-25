@@ -2,9 +2,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 Item {
-    width: 900
-    height: 775
-
     Switch {
         id: switch1
         x: 60

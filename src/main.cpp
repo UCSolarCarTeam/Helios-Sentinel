@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("driverControls", &driverControls);
 
     // const QUrl url(u"qrc:/qt/Serialqml/Main/main.qml"_qs);
-    const QUrl url(QStringLiteral("/home/mason/ViscommTester/main.qml"));
+    const QUrl url(QStringLiteral("/Users/johnnytran/Desktop/Helios-Hermes-Test-Tool/main.qml"));
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreated,
