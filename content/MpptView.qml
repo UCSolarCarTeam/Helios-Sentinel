@@ -75,6 +75,7 @@ Item {
         y: 94
         width: 90
         height: 35
+        to: 10000
         value: mppt.temp
         onValueChanged: mppt.setTemp(value)
     }

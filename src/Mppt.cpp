@@ -49,7 +49,7 @@ QString Mppt::encodedByteStreamStr() const{
 }
 
 void Mppt::setAlive(bool on){
-    byteStream_[2] += on ? 0x08 : -0x08;
+    byteStream_[2] += on ? 0x80 : -0x80;
     alive_ = on;
     updateByteStream();
 }
