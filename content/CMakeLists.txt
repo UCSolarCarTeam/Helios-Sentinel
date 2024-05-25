@@ -18,4 +18,5 @@ qt6_add_qml_module(content
         SOURCES
         QML_FILES BatteryFaultsView.qml
         QML_FILES BatteryView.qml
+        QML_FILES AuxBmsView.qml
 )
