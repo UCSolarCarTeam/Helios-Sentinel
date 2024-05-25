@@ -18,312 +18,244 @@ Item {
 
         Rectangle {
             id: rectangle1
-            x: 56
+            x: 90
             y: 28
-            width: 313
+            width: 279
             height: 298
             color: "#74a2e3"
             radius: 25
 
             Switch {
                 id: switch1
-                x: 89
-                y: 35
+                x: 72
+                y: 26
                 width: 135
                 height: 37
                 text: qsTr("M0 Alive")
+                checked: keyMotor.m0Alive
+                onClicked: keyMotor.setM0Alive(checked)
             }
 
             GroupItem {
-                x: 0
-                y: 0
+                x: 51
+                y: 83
 
-                Rectangle {
-                    id: rectangle2
-                    x: 59
-                    y: 90
-                    width: 80
-                    height: 15
-                    color: "#ffffff"
-                }
-
-                TextInput {
-                    id: textInput
+                SpinBox {
+                    id: spinBox
                     x: 0
                     y: 0
-                    width: 80
-                    height: 15
-                    font.pixelSize: 12
+                    width: 87
+                    height: 28
+                    value: keyMotor.m0SetCurrent
+                    onValueChanged: keyMotor.setM0SetCurrent(value)
                 }
 
                 Text {
                     id: text1
-                    x: 165
-                    y: 90
+                    x: 112
+                    y: 6
                     text: qsTr("Set Current")
                     font.pixelSize: 12
                 }
             }
 
             GroupItem {
-                x: 0
-                y: 38
-                Rectangle {
-                    x: 59
-                    y: 90
-                    width: 80
-                    height: 15
-                    color: "#ffffff"
-                }
-
-                TextInput {
+                x: 51
+                y: 123
+                SpinBox {
                     x: 0
                     y: 0
-                    width: 80
-                    height: 15
-                    font.pixelSize: 12
+                    width: 87
+                    height: 28
+                    value: keyMotor.m0SetVelocity
+                    onValueChanged: keyMotor.setM0SetVelocity(value)
                 }
 
                 Text {
-                    x: 165
-                    y: 90
+                    x: 112
+                    y: 6
                     text: qsTr("Set Velocity")
                     font.pixelSize: 12
                 }
             }
 
             GroupItem {
-                x: 0
-                y: 78
-                Rectangle {
-                    x: 59
-                    y: 90
-                    width: 80
-                    height: 15
-                    color: "#ffffff"
-                }
-
-                TextInput {
+                x: 51
+                y: 163
+                SpinBox {
                     x: 0
                     y: 0
-                    width: 80
-                    height: 15
-                    font.pixelSize: 12
+                    width: 87
+                    height: 28
+                    value: keyMotor.m0BusCurrent
+                    onValueChanged: keyMotor.setM0BusCurrent(value)
                 }
 
                 Text {
-                    x: 165
-                    y: 90
+                    x: 112
+                    y: 6
                     text: qsTr("Bus Current")
                     font.pixelSize: 12
                 }
             }
 
             GroupItem {
-                x: 0
-                y: 122
-                Rectangle {
-                    x: 59
-                    y: 90
-                    width: 80
-                    height: 15
-                    color: "#ffffff"
-                }
-
-                TextInput {
+                x: 51
+                y: 203
+                SpinBox {
                     x: 0
                     y: 0
-                    width: 80
-                    height: 15
-                    font.pixelSize: 12
+                    width: 87
+                    height: 28
+                    value: keyMotor.m0BusVoltage
+                    onValueChanged: keyMotor.setM0BusVoltage(value)
                 }
 
                 Text {
-                    x: 165
-                    y: 90
+                    x: 112
+                    y: 6
                     text: qsTr("Bus Voltage")
                     font.pixelSize: 12
                 }
             }
 
             GroupItem {
-                x: 0
-                y: 164
-                Rectangle {
-                    x: 59
-                    y: 90
-                    width: 80
-                    height: 15
-                    color: "#ffffff"
-                }
-
-                TextInput {
+                x: 51
+                y: 244
+                SpinBox {
                     x: 0
                     y: 0
-                    width: 80
-                    height: 15
-                    font.pixelSize: 12
+                    width: 87
+                    height: 28
+                    value: keyMotor.m0VehicleVelocity
+                    onValueChanged: keyMotor.setM0VehicleVelocity(value)
                 }
 
                 Text {
-                    x: 165
-                    y: 90
+                    x: 112
+                    y: 6
                     text: qsTr("Vehicle Velocity")
                     font.pixelSize: 12
                 }
             }
         }
+    }
 
-        Rectangle {
-            id: rectangle3
-            x: 460
-            y: 28
-            width: 313
-            height: 298
-            color: "#74a2e3"
-            radius: 25
-            Switch {
-                x: 89
-                y: 35
-                width: 135
-                height: 37
-                text: qsTr("M0 Alive")
-            }
+    Rectangle {
+        id: rectangle2
+        x: 450
+        y: 28
+        width: 279
+        height: 298
+        color: "#74a2e3"
+        radius: 25
+        Switch {
+            x: 72
+            y: 26
+            width: 135
+            height: 37
+            text: qsTr("M1 Alive")
+            checked: keyMotor.m1Alive
+            onClicked: keyMotor.setM1Alive(checked)
+        }
 
-            GroupItem {
+        GroupItem {
+            x: 51
+            y: 83
+            SpinBox {
                 x: 0
                 y: 0
-                Rectangle {
-                    x: 59
-                    y: 90
-                    width: 80
-                    height: 15
-                    color: "#ffffff"
-                }
-
-                TextInput {
-                    x: 0
-                    y: 0
-                    width: 80
-                    height: 15
-                    font.pixelSize: 12
-                }
-
-                Text {
-                    x: 165
-                    y: 90
-                    text: qsTr("Set Current")
-                    font.pixelSize: 12
-                }
+                width: 87
+                height: 28
+                value: keyMotor.m1SetCurrent
+                onValueChanged: keyMotor.setM1SetCurrent(value)
             }
 
-            GroupItem {
+            Text {
+                x: 112
+                y: 6
+                text: qsTr("Set Current")
+                font.pixelSize: 12
+            }
+        }
+
+        GroupItem {
+            x: 51
+            y: 123
+            SpinBox {
                 x: 0
-                y: 38
-                Rectangle {
-                    x: 59
-                    y: 90
-                    width: 80
-                    height: 15
-                    color: "#ffffff"
-                }
-
-                TextInput {
-                    x: 0
-                    y: 0
-                    width: 80
-                    height: 15
-                    font.pixelSize: 12
-                }
-
-                Text {
-                    x: 165
-                    y: 90
-                    text: qsTr("Set Velocity")
-                    font.pixelSize: 12
-                }
+                y: 0
+                width: 87
+                height: 28
+                value: keyMotor.m1SetVelocity
+                onValueChanged: keyMotor.setM1SetVelocity(value)
             }
 
-            GroupItem {
+            Text {
+                x: 112
+                y: 6
+                text: qsTr("Set Velocity")
+                font.pixelSize: 12
+            }
+        }
+
+        GroupItem {
+            x: 51
+            y: 163
+            SpinBox {
                 x: 0
-                y: 78
-                Rectangle {
-                    x: 59
-                    y: 90
-                    width: 80
-                    height: 15
-                    color: "#ffffff"
-                }
-
-                TextInput {
-                    x: 0
-                    y: 0
-                    width: 80
-                    height: 15
-                    font.pixelSize: 12
-                }
-
-                Text {
-                    x: 165
-                    y: 90
-                    text: qsTr("Bus Current")
-                    font.pixelSize: 12
-                }
+                y: 0
+                width: 87
+                height: 28
+                value: keyMotor.m1BusCurrent
+                onValueChanged: keyMotor.setM1BusCurrent(value)
             }
 
-            GroupItem {
+            Text {
+                x: 112
+                y: 6
+                text: qsTr("Bus Current")
+                font.pixelSize: 12
+            }
+        }
+
+        GroupItem {
+            x: 51
+            y: 203
+            SpinBox {
                 x: 0
-                y: 122
-                Rectangle {
-                    x: 59
-                    y: 90
-                    width: 80
-                    height: 15
-                    color: "#ffffff"
-                }
-
-                TextInput {
-                    x: 0
-                    y: 0
-                    width: 80
-                    height: 15
-                    font.pixelSize: 12
-                }
-
-                Text {
-                    x: 165
-                    y: 90
-                    text: qsTr("Bus Voltage")
-                    font.pixelSize: 12
-                }
+                y: 0
+                width: 87
+                height: 28
+                value: keyMotor.m1BusVoltage
+                onValueChanged: keyMotor.setM1BusVoltage(value)
             }
 
-            GroupItem {
+            Text {
+                x: 112
+                y: 6
+                text: qsTr("Bus Voltage")
+                font.pixelSize: 12
+            }
+        }
+
+        GroupItem {
+            x: 51
+            y: 244
+            SpinBox {
                 x: 0
-                y: 164
-                height: 44
-                Rectangle {
-                    x: 59
-                    y: 90
-                    width: 80
-                    height: 15
-                    color: "#ffffff"
-                }
+                y: 0
+                width: 87
+                height: 28
+                value: keyMotor.m1VehicleVelocity
+                onValueChanged: keyMotor.setM1VehicleVelocity(value)
+            }
 
-                TextInput {
-                    x: 0
-                    y: 0
-                    width: 80
-                    height: 15
-                    font.pixelSize: 12
-                }
-
-                Text {
-                    x: 165
-                    y: 90
-                    text: qsTr("Vehicle Velocity")
-                    font.pixelSize: 12
-                }
+            Text {
+                x: 112
+                y: 6
+                text: qsTr("Vehicle Velocity")
+                font.pixelSize: 12
             }
         }
     }
