@@ -11,6 +11,7 @@
 #include "import_qml_plugins.h"
 
 #include "./SerialPortForwarder.h"
+#include "Motor0Details.h"
 #include "lights.h"
 #include "DriverControls.h"
 
@@ -21,6 +22,9 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+
+    Motor0Details motor0Details;
+    engine.rootContext()->setContextProperty("motor0Details", &motor0Details);
 
     Lights lights;
     engine.rootContext()->setContextProperty("lights", &lights);

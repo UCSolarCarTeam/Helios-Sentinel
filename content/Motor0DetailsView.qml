@@ -37,6 +37,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.phaseCCurrent
+                    onValueChanged: motor0Details.setPhaseCCurrent(value)
                 }
 
                 Text {
@@ -55,6 +57,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.phaseBCurrent
+                    onValueChanged: motor0Details.setPhaseBCurrent(value)
                 }
 
                 Text {
@@ -73,6 +77,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.motorVoltageReal
+                    onValueChanged: motor0Details.setMotorVoltageReal(value)
                 }
 
                 Text {
@@ -91,6 +97,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.motorVoltageImag
+                    onValueChanged: motor0Details.setMotorVoltageImag(value)
                 }
 
                 Text {
@@ -109,6 +117,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.motorCurrentReal
+                    onValueChanged: motor0Details.setMotorCurrentReal(value)
                 }
 
                 Text {
@@ -127,6 +137,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.motorCurrentReal
+                    onValueChanged: motor0Details.setMotorCurrentReal(value)
                 }
 
                 Text {
@@ -145,6 +157,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.blackEMF
+                    onValueChanged: motor0Details.setBlackEMF(value)
                 }
 
                 Text {
@@ -163,6 +177,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.voltageRailSupply15
+                    onValueChanged: motor0Details.setVoltageRailSupply15(value)
                 }
 
                 Text {
@@ -185,6 +201,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.voltageRailSupply3
+                    onValueChanged: motor0Details.setVoltageRailSupply3(value)
                 }
 
                 Text {
@@ -203,6 +221,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.voltageRailSupply2
+                    onValueChanged: motor0Details.setVoltageRailSupply2(value)
                 }
 
                 Text {
@@ -221,6 +241,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.heatSinkTemp
+                    onValueChanged: motor0Details.setHeatSinkTemp(value)
                 }
 
                 Text {
@@ -239,6 +261,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.motorTemp
+                    onValueChanged: motor0Details.setMotorTemp(value)
                 }
 
                 Text {
@@ -257,6 +281,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.dspBoardTemp
+                    onValueChanged: motor0Details.setDspBoardTemp(value)
                 }
 
                 Text {
@@ -275,6 +301,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.dcBusAmpHours
+                    onValueChanged: motor0Details.setDcBusAmpHours(value)
                 }
 
                 Text {
@@ -293,6 +321,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.odometer
+                    onValueChanged: motor0Details.setOdometer(value)
                 }
 
                 Text {
@@ -311,6 +341,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
+                    value: motor0Details.slipSpeed
+                    onValueChanged: motor0Details.setSlipSpeed(value)
                 }
 
                 Text {
