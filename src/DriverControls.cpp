@@ -260,21 +260,25 @@ void DriverControls::setLap(bool on){
 }
 
 void DriverControls::setAcceleration(unsigned short accel){
-    qDebug() << "ACCEL: " << accel;
-    unsigned char highByte = (accel >> 8) & 0xFF;  // Most significant byte
-    unsigned char lowByte = accel & 0xFF;
-    byteStream_[5] = lowByte;
-    byteStream_[6] = highByte;
+    // qDebug() << "ACCEL: " << accel;
+    // unsigned char highByte = (accel >> 8) & 0xFF;  // Most significant byte
+    // unsigned char lowByte = accel & 0xFF;
+    // byteStream_[5] = lowByte;
+    // byteStream_[6] = highByte;
+    QByteArray in = Util::formatInt(accel, 2);
+    byteStream_.replace(5, 2, in);
     acceleration_ = accel;
     updateByteStream();
 }
 
 void DriverControls::setRegenBraking(unsigned short rg){
-    qDebug() << "RG: " << rg;
-    unsigned char highByte = (rg >> 8) & 0xFF;  // Most significant byte
-    unsigned char lowByte = rg & 0xFF;
-    byteStream_[7] = lowByte;
-    byteStream_[8] = highByte;
+    // qDebug() << "RG: " << rg;
+    // unsigned char highByte = (rg >> 8) & 0xFF;  // Most significant byte
+    // unsigned char lowByte = rg & 0xFF;
+    // byteStream_[7] = lowByte;
+    // byteStream_[8] = highByte;
+    QByteArray in = Util::formatInt(rg, 2);
+    byteStream_.replace(7, 2, in);
     regenBraking_ = rg;
     updateByteStream();
 }
