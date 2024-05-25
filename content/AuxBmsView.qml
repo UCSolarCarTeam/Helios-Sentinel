@@ -12,6 +12,8 @@ Item {
         y: 39
         width: 119
         height: 37
+        value: bms.prechargeState
+        onValueChanged: bms.setPrechargeState(value)
     }
 
     Text {
@@ -28,6 +30,8 @@ Item {
         y: 102
         width: 119
         height: 37
+        value: bms.auxVoltage
+        onValueChanged: bms.setAuxVoltage(value)
     }
 
     Text {
@@ -43,6 +47,8 @@ Item {
         x: 181
         y: 42
         text: qsTr("Aux BMS Alive")
+        checked: bms.bmsAlive
+        onClicked: bms.setBmsAlive(checked)
     }
 
     Switch {
@@ -52,6 +58,8 @@ Item {
         width: 188
         height: 32
         text: qsTr("Strobe BMS Light")
+        checked: bms.strobeLight
+        onClicked: bms.setStrobeLight(checked)
     }
 
     Switch {
@@ -59,6 +67,8 @@ Item {
         x: 181
         y: 118
         text: qsTr("Allow Charge")
+        checked: bms.allowCharge
+        onClicked: bms.setAllowCharge(checked)
     }
 
     Switch {
@@ -68,6 +78,8 @@ Item {
         width: 214
         height: 32
         text: qsTr("High Voltage Enable")
+        checked: bms.highVoltageEnable
+        onClicked: bms.setHighVoltageEnable(checked)
     }
 
     Switch {
@@ -77,6 +89,8 @@ Item {
         width: 197
         height: 32
         text: qsTr("Allow Discharge")
+        checked: bms.allowDischarge
+        onClicked: bms.setAllowDischarge(checked)
     }
 
     Switch {
@@ -86,6 +100,8 @@ Item {
         width: 205
         height: 32
         text: qsTr("Orion Can Recieved")
+        checked: bms.orionRecieved
+        onClicked: bms.setOrionRecieved(checked)
     }
 
     Switch {
@@ -95,6 +111,8 @@ Item {
         width: 188
         height: 32
         text: qsTr("Charge Contactor")
+        checked: bms.chargeContactor
+        onClicked: bms.setChargeContactor(checked)
     }
 
     Switch {
@@ -104,6 +122,8 @@ Item {
         width: 188
         height: 32
         text: qsTr("Discharge Contactor")
+        checked: bms.dischargeContactor
+        onClicked: bms.setDischargeContactor(checked)
     }
 
     Switch {
@@ -111,6 +131,8 @@ Item {
         x: 409
         y: 118
         text: qsTr("Common Contactor")
+        checked: bms.commonContactor
+        onClicked: bms.setCommonContactor(checked)
     }
 
     Switch {
@@ -120,6 +142,8 @@ Item {
         width: 214
         height: 32
         text: qsTr("Discharge Should")
+        checked: bms.dischargeShould
+        onClicked: bms.setDischargeShould(checked)
     }
 
     Switch {
@@ -129,6 +153,8 @@ Item {
         width: 197
         height: 32
         text: qsTr("Charge Should")
+        checked: bms.chargeShould
+        onClicked: bms.setChargeShould(checked)
     }
 
     Switch {
@@ -138,6 +164,8 @@ Item {
         width: 305
         height: 32
         text: qsTr("Charge Open But Should Be Closed")
+        checked: bms.chargeOpen
+        onClicked: bms.setChargeOpen(checked)
     }
 
     Switch {
@@ -147,6 +175,8 @@ Item {
         width: 321
         height: 32
         text: qsTr("Discharge Open But Should Be Closed")
+        checked: bms.dischargeOpen
+        onClicked: bms.setDischargeOpen(checked)
     }
 
     Switch {
@@ -156,6 +186,8 @@ Item {
         width: 209
         height: 32
         text: qsTr("CT High Cell Voltage")
+        checked: bms.ctHighCellVoltage
+        onClicked: bms.setCtHighCellVoltage(checked)
     }
 
     Switch {
@@ -165,6 +197,8 @@ Item {
         width: 221
         height: 32
         text: qsTr("CT High Temp/Current")
+        checked: bms.ctHighTempCurrent
+        onClicked: bms.setCtHighTempCurrent(checked)
     }
 
     Switch {
@@ -172,6 +206,8 @@ Item {
         x: 181
         y: 403
         text: qsTr("CT Pack Current")
+        checked: bms.ctPackCurrent
+        onClicked: bms.setCtPackCurrent(checked)
     }
 
     Switch {
@@ -181,6 +217,8 @@ Item {
         width: 214
         height: 32
         text: qsTr("DT Low Cell Voltage")
+        checked: bms.dtLowCellVoltage
+        onClicked: bms.setDtLowCellVoltage(checked)
     }
 
     Switch {
@@ -190,6 +228,8 @@ Item {
         width: 221
         height: 32
         text: qsTr("DT High Temp/Current")
+        checked: bms.dtHighTempCurrent
+        onClicked: bms.setDtHighTempCurrent(checked)
     }
 
     Switch {
@@ -199,6 +239,8 @@ Item {
         width: 181
         height: 32
         text: qsTr("DT Pack Current")
+        checked: bms.dtPackCurrent
+        onClicked: bms.setDtPackCurrent(checked)
     }
 
     Switch {
@@ -208,6 +250,8 @@ Item {
         width: 150
         height: 32
         text: qsTr("Protection")
+        checked: bms.protection
+        onClicked: bms.setProtection(checked)
     }
 
     Switch {
@@ -217,6 +261,8 @@ Item {
         width: 181
         height: 32
         text: qsTr("Orion Timeout")
+        checked: bms.orionTimeout
+        onClicked: bms.setOrionTimeout(checked)
     }
 
     Switch {
@@ -226,6 +272,8 @@ Item {
         width: 201
         height: 32
         text: qsTr("CNC High Current")
+        checked: bms.cncHighCurrent
+        onClicked: bms.setCncHighCurrent(checked)
     }
 
     Switch {
@@ -235,6 +283,8 @@ Item {
         width: 201
         height: 32
         text: qsTr("DNC High Current")
+        checked: bms.dncHighCurrent
+        onClicked: bms.setDncHighCurrent(checked)
     }
 
     Switch {
@@ -244,6 +294,8 @@ Item {
         width: 233
         height: 32
         text: qsTr("Contactor Disconnected")
+        checked: bms.contactorDisconnected
+        onClicked: bms.setContactorDisconnected(checked)
     }
 
     Rectangle {
@@ -296,7 +348,7 @@ Item {
         y: 586
         width: 665
         height: 14
-        text: "Byte Stream: " + driverControls.byteStreamStr
+        text: "Byte Stream: " + bms.byteStreamStr
         font.pixelSize: 16
     }
 
@@ -306,7 +358,7 @@ Item {
         y: 606
         width: 665
         height: 14
-        text: "Encoded Stream: " + driverControls.encodedByteStreamStr
+        text: "Encoded Stream: " + bms.encodedByteStreamStr
         font.pixelSize: 16
     }
 }
