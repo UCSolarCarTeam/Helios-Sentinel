@@ -32,3 +32,19 @@ QByteArray Util::generateChecksum(QByteArray bs, int bodyStartIndex, int bodyEnd
     //qDebug() << "First element of checksumArray: " << QString::number(static_cast<unsigned char>(checksumHex.at(0)), 16);
     return checksumHex;
 }
+
+QByteArray Util::formatInt(int num, int bytes){
+    QByteArray res;
+    for(int i = 0; i < bytes; ++i){
+        res.append(static_cast<char>((num >> (8 * i)) & 0xFF));
+    }
+
+    return res;
+}
+
+QByteArray Util::formatFloat(float num){
+    QByteArray res(4, 0);
+    std::memcpy(res.data(), &num, sizeof(float));
+
+    return res;
+}
