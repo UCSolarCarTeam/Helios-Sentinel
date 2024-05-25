@@ -83,9 +83,9 @@ void Mppt::setTemp(int i){
 }
 
 void Mppt::updateByteStream(){
-    QByteArray checksum = Util::generateChecksum(byteStream_, 1, 11);
-    byteStream_[12] = checksum.at(0);
-    byteStream_[13] = checksum.at(1);
+    QByteArray checksum = Util::generateChecksum(byteStream_, 1, 10);
+    byteStream_[11] = checksum.at(0);
+    byteStream_[12] = checksum.at(1);
     encodedByteStream_ = Util::encodeByteStream(byteStream_);
     emit encodedByteStreamStrChanged();
     emit byteStreamStrChanged();

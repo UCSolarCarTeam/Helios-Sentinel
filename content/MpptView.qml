@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 Item {
+    property var mppt
     width: 375
     height: 175
 
@@ -10,6 +11,8 @@ Item {
         x: 7
         y: 36
         text: qsTr("Alive")
+        checked: mppt.alive
+        onClicked: mppt.setAlive(checked)
     }
 
     SpinBox {
@@ -18,6 +21,8 @@ Item {
         y: 33
         width: 90
         height: 35
+        value: mppt.arrayVoltage
+        onValueChanged: mppt.setArrayVoltage(value)
     }
 
     Text {
@@ -34,6 +39,8 @@ Item {
         y: 33
         width: 90
         height: 35
+        value: mppt.arrayCurrent
+        onValueChanged: mppt.setArrayCurrent(value)
     }
 
     Text {
@@ -50,6 +57,8 @@ Item {
         y: 94
         width: 90
         height: 35
+        value: mppt.batteryVoltage
+        onValueChanged: mppt.setBatteryVoltage(value)
     }
 
     Text {
@@ -66,6 +75,8 @@ Item {
         y: 94
         width: 90
         height: 35
+        value: mppt.temp
+        onValueChanged: mppt.setTemp(value)
     }
 
     Text {
@@ -93,7 +104,7 @@ Item {
         y: 135
         width: 348
         height: 14
-        text: "Byte Stream: " + driverControls.byteStreamStr
+        text: "Byte Stream: " + mppt.byteStreamStr
         font.pixelSize: 16
     }
 
@@ -103,7 +114,7 @@ Item {
         y: 155
         width: 348
         height: 14
-        text: "Encoded Stream: " + driverControls.encodedByteStreamStr
+        text: "Encoded Stream: " + mppt.encodedByteStreamStr
         font.pixelSize: 16
     }
 }
