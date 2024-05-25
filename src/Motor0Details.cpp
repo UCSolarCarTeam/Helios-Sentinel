@@ -36,112 +36,112 @@ QByteArray Motor0Details::encodedByteStream() const { return encodedByteStream_;
 void Motor0Details::setPhaseCCurrent(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(2, 4, in);
-    m0SetCurrent_ = value;
+    phaseCCurrent_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setPhaseBCurrent(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(6, 4, in);
-    m0SetVelocity_ = value;
+    phaseBCurrent_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setMotorVoltageReal(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(10, 4, in);
-    m0BusCurrent_ = value;
+    motorVoltageReal_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setMotorVoltageImag(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(14, 4, in);
-    m0BusVoltage_ = value;
+    motorVoltageImag_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setMotorCurrentReal(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(18, 4, in);
-    m0VehicleVelocity_ = value;
+    motorCurrentReal_ = value;
     updateByteStream();
 }
 
-void Motor0Details::setMotorCurrentImag(bool alive) {
+void Motor0Details::setMotorCurrentImag(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(22, 4, in);
-    m0VehicleVelocity_ = value;
+    motorCurrentImag_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setBlackEMF(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(26, 4, in);
-    m1SetCurrent_ = value;
+    blackEMF_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setVoltageRailSupply15(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(30, 4, in);
-    m1SetVelocity_ = value;
+    voltageRailSupply15_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setVoltageRailSupply3(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(34, 4, in);
-    m1BusCurrent_ = value;
+    voltageRailSupply3_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setVoltageRailSupply2(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(38, 4, in);
-    m1BusVoltage_ = value;
+    voltageRailSupply2_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setHeatSinkTemp(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(42, 4, in);
-    m1VehicleVelocity_ = value;
+    heatSinkTemp_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setMotorTemp(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(46, 4, in);
-    m1VehicleVelocity_ = value;
+    motorTemp_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setDspBoardTemp(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(50, 4, in);
-    m1VehicleVelocity_ = value;
+    dspBoardTemp_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setDcBusAmpHours(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(54, 4, in);
-    m1VehicleVelocity_ = value;
+    dcBusAmpHours_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setOdometer(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(58, 4, in);
-    m1VehicleVelocity_ = value;
+    odometer_ = value;
     updateByteStream();
 }
 
 void Motor0Details::setSlipSpeed(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(62, 4, in);
-    m1VehicleVelocity_ = value;
+    slipSpeed_ = value;
     updateByteStream();
 }
 
