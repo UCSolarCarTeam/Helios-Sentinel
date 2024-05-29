@@ -138,8 +138,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motor1Details.motorCurrentReal
-                    onValueChanged: motor1Details.setMotorCurrentReal(value)
+                    value: motor1Details.motorCurrentImag
+                    onValueChanged: motor1Details.setMotorCurrentImag(value)
                 }
 
                 Text {
