@@ -101,43 +101,43 @@ void MotorFaults::setMotorOverSpeedM0(bool on) {
 }
 
 void MotorFaults::setSoftwareOverCurrentM0(bool on) {
-    byteStream_[2] += on ? 0x01 : -0x01;
+    byteStream_[2] += on ? 0x02 : -0x02;
     softwareOverCurrentM0_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setDcBusOverVoltageM0(bool on) {
-    byteStream_[2] += on ? 0x01 : -0x01;
+    byteStream_[2] += on ? 0x04 : -0x04;
     dcBusOverVoltageM0_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setBadMotorPHSM0(bool on) {
-    byteStream_[2] += on ? 0x01 : -0x01;
+    byteStream_[2] += on ? 0x08 : -0x08;
     badMotorPHSM0_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setWatchdogCausedLastResetM0(bool on) {
-    byteStream_[2] += on ? 0x01 : -0x01;
+    byteStream_[2] += on ? 0x10 : -0x10;
     watchdogCausedLastResetM0_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setConfigReadErrorM0(bool on) {
-    byteStream_[2] += on ? 0x01 : -0x01;
+    byteStream_[2] += on ? 0x20 : -0x20;
     configReadErrorM0_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setRailUnderVoltageLockM0(bool on) {
-    byteStream_[2] += on ? 0x01 : -0x01;
+    byteStream_[2] += on ? 0x40 : -0x40;
     railUnderVoltageLockM0_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setDesaturationFaultM0(bool on) {
-    byteStream_[2] += on ? 0x01 : -0x01;
+    byteStream_[2] += on ? 0x80 : -0x80;
     desaturationFaultM0_ = on;
     updateByteStream();
 }
@@ -149,43 +149,43 @@ void MotorFaults::setMotorOverSpeedM1(bool on) {
 }
 
 void MotorFaults::setSoftwareOverCurrentM1(bool on) {
-    byteStream_[3] += on ? 0x01 : -0x01;
+    byteStream_[3] += on ? 0x02 : -0x02;
     softwareOverCurrentM1_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setDcBusOverVoltageM1(bool on) {
-    byteStream_[3] += on ? 0x01 : -0x01;
+    byteStream_[3] += on ? 0x04 : -0x04;
     dcBusOverVoltageM1_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setBadMotorPHSM1(bool on) {
-    byteStream_[3] += on ? 0x01 : -0x01;
+    byteStream_[3] += on ? 0x08 : -0x08;
     badMotorPHSM1_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setWatchdogCausedLastResetM1(bool on) {
-    byteStream_[3] += on ? 0x01 : -0x01;
+    byteStream_[3] += on ? 0x10 : -0x10;
     watchdogCausedLastResetM1_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setConfigReadErrorM1(bool on) {
-    byteStream_[3] += on ? 0x01 : -0x01;
+    byteStream_[3] += on ? 0x20 : -0x20;
     configReadErrorM1_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setRailUnderVoltageLockM1(bool on) {
-    byteStream_[3] += on ? 0x01 : -0x01;
+    byteStream_[3] += on ? 0x40 : -0x40;
     railUnderVoltageLockM1_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setDesaturationFaultM1(bool on) {
-    byteStream_[3] += on ? 0x01 : -0x01;
+    byteStream_[3] += on ? 0x80 : -0x80;
     desaturationFaultM1_ = on;
     updateByteStream();
 }
@@ -197,37 +197,37 @@ void MotorFaults::setOutputVoltagePWMM0(bool on) {
 }
 
 void MotorFaults::setMotorCurrentM0(bool on) {
-    byteStream_[4] += on ? 0x01 : -0x01;
+    byteStream_[4] += on ? 0x02 : -0x02;
     motorCurrentM0_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setVelocityM0(bool on) {
-    byteStream_[4] += on ? 0x01 : -0x01;
+    byteStream_[4] += on ? 0x04 : -0x04;
     velocityM0_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setBusCurrentM0(bool on) {
-    byteStream_[4] += on ? 0x01 : -0x01;
+    byteStream_[4] += on ? 0x08 : -0x08;
     busCurrentM0_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setBusVoltageUpperM0(bool on) {
-    byteStream_[4] += on ? 0x01 : -0x01;
+    byteStream_[4] += on ? 0x10 : -0x10;
     busVoltageUpperM0_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setBusVoltageLowerM0(bool on) {
-    byteStream_[4] += on ? 0x01 : -0x01;
+    byteStream_[4] += on ? 0x20 : -0x20;
     busVoltageLowerM0_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setMotorTemperatureIPMM0(bool on) {
-    byteStream_[4] += on ? 0x01 : -0x01;
+    byteStream_[4] += on ? 0x40 : -0x40;
     motorTemperatureIPMM0_ = on;
     updateByteStream();
 }
@@ -239,37 +239,37 @@ void MotorFaults::setOutputVoltagePWMM1(bool on) {
 }
 
 void MotorFaults::setMotorCurrentM1(bool on) {
-    byteStream_[5] += on ? 0x01 : -0x01;
+    byteStream_[5] += on ? 0x02 : -0x02;
     motorCurrentM1_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setVelocityM1(bool on) {
-    byteStream_[5] += on ? 0x01 : -0x01;
+    byteStream_[5] += on ? 0x04 : -0x04;
     velocityM1_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setBusCurrentM1(bool on) {
-    byteStream_[5] += on ? 0x01 : -0x01;
+    byteStream_[5] += on ? 0x08 : -0x08;
     busCurrentM1_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setBusVoltageUpperM1(bool on) {
-    byteStream_[5] += on ? 0x01 : -0x01;
+    byteStream_[5] += on ? 0x10 : -0x10;
     busVoltageUpperM1_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setBusVoltageLowerM1(bool on) {
-    byteStream_[5] += on ? 0x01 : -0x01;
+    byteStream_[5] += on ? 0x20 : -0x20;
     busVoltageLowerM1_ = on;
     updateByteStream();
 }
 
 void MotorFaults::setMotorTemperatureIPMM1(bool on) {
-    byteStream_[5] += on ? 0x01 : -0x01;
+    byteStream_[5] += on ? 0x40 : -0x40;
     motorTemperatureIPMM1_ = on;
     updateByteStream();
 }
