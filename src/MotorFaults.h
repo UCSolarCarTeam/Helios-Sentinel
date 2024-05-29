@@ -180,44 +180,44 @@ signals:
     void encodedByteStreamStrChanged();
 
 private:
-    bool motorOverSpeedM0_;
-    bool softwareOverCurrentM0_;
-    bool dcBusOverVoltageM0_;
-    bool badMotorPHSM0_;
-    bool watchdogCausedLastResetM0_;
-    bool configReadErrorM0_;
-    bool railUnderVoltageLockM0_;
-    bool desaturationFaultM0_;
+    bool motorOverSpeedM0_ = false;
+    bool softwareOverCurrentM0_ = false;
+    bool dcBusOverVoltageM0_ = false;
+    bool badMotorPHSM0_ = false;
+    bool watchdogCausedLastResetM0_ = false;
+    bool configReadErrorM0_ = false;
+    bool railUnderVoltageLockM0_ = false;
+    bool desaturationFaultM0_ = false;
 
-    bool motorOverSpeedM1_;
-    bool softwareOverCurrentM1_;
-    bool dcBusOverVoltageM1_;
-    bool badMotorPHSM1_;
-    bool watchdogCausedLastResetM1_;
-    bool configReadErrorM1_;
-    bool railUnderVoltageLockM1_;
-    bool desaturationFaultM1_;
+    bool motorOverSpeedM1_ = false;
+    bool softwareOverCurrentM1_ = false;
+    bool dcBusOverVoltageM1_ = false;
+    bool badMotorPHSM1_ = false;
+    bool watchdogCausedLastResetM1_ = false;
+    bool configReadErrorM1_ = false;
+    bool railUnderVoltageLockM1_ = false;
+    bool desaturationFaultM1_ = false;
 
-    bool outputVoltagePWMM0_;
-    bool motorCurrentM0_;
-    bool velocityM0_;
-    bool busCurrentM0_;
-    bool busVoltageUpperM0_;
-    bool busVoltageLowerM0_;
-    bool motorTemperatureIPMM0_;
+    bool outputVoltagePWMM0_ = false;
+    bool motorCurrentM0_ = false;
+    bool velocityM0_ = false;
+    bool busCurrentM0_ = false;
+    bool busVoltageUpperM0_ = false;
+    bool busVoltageLowerM0_ = false;
+    bool motorTemperatureIPMM0_ = false;
 
-    bool outputVoltagePWMM1_;
-    bool motorCurrentM1_;
-    bool velocityM1_;
-    bool busCurrentM1_;
-    bool busVoltageUpperM1_;
-    bool busVoltageLowerM1_;
-    bool motorTemperatureIPMM1_;
+    bool outputVoltagePWMM1_ = false;
+    bool motorCurrentM1_ = false;
+    bool velocityM1_ = false;
+    bool busCurrentM1_ = false;
+    bool busVoltageUpperM1_ = false;
+    bool busVoltageLowerM1_ = false;
+    bool motorTemperatureIPMM1_ = false;
 
-    int CANRXErrorCountM0_;
-    int CANTXErrorCountM0_;
-    int CANRXErrorCountM1_;
-    int CANTXErrorCountM1_;
+    int CANRXErrorCountM0_ = 0;
+    int CANTXErrorCountM0_ = 0;
+    int CANRXErrorCountM1_ = 0;
+    int CANTXErrorCountM1_ = 0;
 
     QByteArray byteStream_;
     QByteArray encodedByteStream_;
