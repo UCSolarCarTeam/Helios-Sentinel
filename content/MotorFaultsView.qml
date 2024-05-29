@@ -3,7 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Studio.Components 1.0
 
 Item {
-    width: 1920
+    width: 1092
     height: 1080
 
     Rectangle {
