@@ -1,4 +1,4 @@
-#include "MotorFaults.h".h"
+#include "MotorFaults.h"
 #include "util.h"
 
 #include <QIODevice>
@@ -308,5 +308,5 @@ void MotorFaults::updateByteStream(){
     byteStream_[11] = checksum.at(1);
     encodedByteStream_ = Util::encodeByteStream(byteStream_);
     emit encodedByteStreamStrChanged();
-    emit byteStreamChangedStr();
+    emit byteStreamStrChanged();
 }

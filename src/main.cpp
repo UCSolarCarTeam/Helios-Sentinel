@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 
     QTimer timer;
     bool firstRun = true;
-    QObject::connect(&timer, &QTimer::timeout, [&forwarder, &lights, &driverControls]() {
+    QObject::connect(&timer, &QTimer::timeout, [&forwarder, &motorFaults, &lights, &driverControls]() {
 
         forwarder.forwardData(motorFaults.encodedByteStream());
         forwarder.forwardData(lights.encodedByteStream());

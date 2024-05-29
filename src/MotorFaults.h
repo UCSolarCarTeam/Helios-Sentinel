@@ -17,7 +17,7 @@ public:
     Q_PROPERTY(bool watchdogCausedLastResetM0 READ watchdogCausedLastResetM0 WRITE setWatchdogCausedLastResetM0 NOTIFY watchdogCausedLastResetM0Changed FINAL)
     Q_PROPERTY(bool configReadErrorM0 READ configReadErrorM0 WRITE setConfigReadErrorM0 NOTIFY configReadErrorM0Changed FINAL)
     Q_PROPERTY(bool railUnderVoltageLockM0 READ railUnderVoltageLockM0 WRITE setRailUnderVoltageLockM0 NOTIFY railUnderVoltageLockM0Changed FINAL)
-    Q_PROPERTY(bool desaturationFaultM0 READ desaturationFaultM0 WRITE setdesaturationFaultM0 NOTIFY desaturationFaultM0Changed FINAL)
+    Q_PROPERTY(bool desaturationFaultM0 READ desaturationFaultM0 WRITE setDesaturationFaultM0 NOTIFY desaturationFaultM0Changed FINAL)
 
     Q_PROPERTY(bool motorOverSpeedM1 READ motorOverSpeedM1 WRITE setMotorOverSpeedM1 NOTIFY motorOverSpeedM1Changed FINAL)
     Q_PROPERTY(bool softwareOverCurrentM1 READ softwareOverCurrentM1 WRITE setSoftwareOverCurrentM1 NOTIFY softwareOverCurrentM1Changed FINAL)
@@ -42,14 +42,14 @@ public:
     Q_PROPERTY(bool busCurrentM1 READ busCurrentM1 WRITE setBusCurrentM1 NOTIFY busCurrentM1Changed FINAL)
     Q_PROPERTY(bool busVoltageUpperM1 READ busVoltageUpperM1 WRITE setBusVoltageUpperM1 NOTIFY busVoltageUpperM1Changed FINAL)
     Q_PROPERTY(bool busVoltageLowerM1 READ busVoltageLowerM1 WRITE setBusVoltageLowerM1 NOTIFY busVoltageLowerM1Changed FINAL)
-    Q_PROPERTY(bool motorTemperatureIPMM1 READ motorTemperatureIPMM1 WRITE setmotorTemperatureIPMM0 NOTIFY motorTemperatureIPMM1Changed FINAL)
+    Q_PROPERTY(bool motorTemperatureIPMM1 READ motorTemperatureIPMM1 WRITE setMotorTemperatureIPMM0 NOTIFY motorTemperatureIPMM1Changed FINAL)
 
     Q_PROPERTY(int CANRXErrorCountM0 READ CANRXErrorCountM0 WRITE setCANRXErrorCountM0 NOTIFY CANRXErrorCountM0Changed FINAL)
     Q_PROPERTY(int CANTXErrorCountM0 READ CANTXErrorCountM0 WRITE setCANTXErrorCountM0 NOTIFY CANTXErrorCountM0Changed FINAL)
     Q_PROPERTY(int CANRXErrorCountM1 READ CANRXErrorCountM1 WRITE setCANRXErrorCountM1 NOTIFY CANRXErrorCountM1Changed FINAL)
     Q_PROPERTY(int CANTXErrorCountM1 READ CANTXErrorCountM1 WRITE setCANTXErrorCountM1 NOTIFY CANTXErrorCountM1Changed FINAL)
 
-    Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamChangedStr)
+    Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged)
     Q_PROPERTY(QString encodedByteStreamStr READ encodedByteStreamStr NOTIFY encodedByteStreamStrChanged FINAL)
 
     bool motorOverSpeedM0() const;
@@ -104,7 +104,7 @@ public slots:
     void setWatchdogCausedLastResetM0(bool alive);
     void setConfigReadErrorM0(bool alive);
     void setRailUnderVoltageLockM0(bool alive);
-    void setdesaturationFaultM0(bool alive);
+    void setDesaturationFaultM0(bool alive);
 
     void setMotorOverSpeedM1(bool alive);
     void setSoftwareOverCurrentM1(bool alive);
@@ -113,7 +113,7 @@ public slots:
     void setWatchdogCausedLastResetM1(bool alive);
     void setConfigReadErrorM1(bool alive);
     void setRailUnderVoltageLockM1(bool alive);
-    void setdesaturationFaultM1(bool alive);
+    void setDesaturationFaultM1(bool alive);
 
     void setOutputVoltagePWMM0(bool alive);
     void setMotorCurrentM0(bool alive);
