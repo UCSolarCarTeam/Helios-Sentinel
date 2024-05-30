@@ -73,7 +73,7 @@ Item {
         id: spinBox3
         x: 242
         y: 94
-        width: 90
+        width: 100
         height: 35
         to: 10000
         value: mppt.temp
