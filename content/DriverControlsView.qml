@@ -3,12 +3,12 @@ import QtQuick.Controls 2.15
 
 Item {
     width: 880
-    height: 400
+    height: 500
 
     Switch {
         id: switch1
         x: 8
-        y: 60
+        y: 16
         text: qsTr("Driver Controls")
         checked: driverControls.driverControlsAlive
         onClicked: driverControls.setDriverControlsAlive(checked)
@@ -315,8 +315,8 @@ Item {
         x: 0
         y: 0
         width: 880
-        height: 400
-        color: "#fcffc2"
+        height: 600
+        color: "#ffffff"
         radius: 25
         z: -2
     }
@@ -327,8 +327,10 @@ Item {
         y: 358
         width: 665
         height: 14
-        text: "Byte Stream: " + driverControls.byteStreamStr
+        text: "#\"Byte Stream: \" + driverControls.byteStreamStr#"
         font.pixelSize: 16
+        font.styleName: "Bold"
+        font.family: "Arial"
 
     }
 
@@ -336,9 +338,10 @@ Item {
         id: driverControlsStream1
         x: 8
         y: 378
-        width: 665
-        height: 14
-        text: "Encoded Stream: " + driverControls.encodedByteStreamStr
+        width: 702
+        height: 78
+        text: "#\"Encoded Stream: \" + driverControls.encodedByteStreamStr#"
         font.pixelSize: 16
+        font.family: "Arial"
     }
 }

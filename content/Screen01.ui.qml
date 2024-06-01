@@ -17,64 +17,57 @@ Rectangle {
     width: Screen.width
     height: Screen.height
 
-    color: Constants.backgroundColor
-    z: -2
-    ColumnLayout{
-        TabBar {
-            id: bar
-            width: parent.width
-            TabButton {
-                text: qsTr("Battery Fault View")
-                width: implicitWidth
-            }
-            TabButton {
-                text: qsTr("Driver Control View")
-                width: implicitWidth
-            }
-            TabButton {
-                text: qsTr("Lights View")
-                width: implicitWidth
-            }
-        }
-        StackLayout {
-            width: parent.width
-            currentIndex: bar.currentIndex
+    color: "#000000"
 
-            Item {
-                Loader {
-                              anchors.fill: parent
-                              source: "BatteryFaultsView.qml"
-                          }
-            }
-            Item {
-                id: discoverTab
-            }
-            Item {
-                id: ddd
-            }
+    z: -2
+
+    TabBar {
+        id: tabBar
+        x: 0
+        y: 0
+        width: 379
+        height: 48
+        currentIndex: 0
+
+        TabButton {
+            id: lightsTab
+            text: qsTr("Lights ")
+        }
+
+        TabButton {
+            id: driverTab
+            x: 0
+            y: 0
+            text: qsTr("Driver Controls")
+        }
+
+        TabButton {
+            id: batteryTab
+            text: qsTr("Battery Faults")
         }
     }
 
+    StackLayout {
+        id: stackLayout
+        x: 8
+        y: 54
+        width: 1000
+        height: 500
+        rotation: 0
+        currentIndex: tabBar.currentIndex
 
+        LightsView {
+            id: lightsView
+        }
 
-    // LightsView {
-    //     id: lightsView
-    //     x: 0
-    //     y: 0
-    // }
+        DriverControlsView {
+            id: driverControlsView
+        }
 
-    // DriverControlsView {
-    //     id: driverControlsView
-    //     x: 0
-    //     y: 200
-    // }
-
-    // BatteryFaultsView {
-    //     id: batteryFaultsView
-    //     x: 886
-    //     y: 0
-    // }
-
+        BatteryFaultsView {
+            id: batteryFaultsView
+        }
+    }
     states: [
         State {
             name: "clicked"
