@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("batteryFaults", &batteryFaults);
 
     // const QUrl url(u"qrc:/qt/Serialqml/Main/main.qml"_qs);
-    const QUrl url(QStringLiteral("/home/mason/ViscommTester/main.qml"));
+    const QUrl url(QStringLiteral("qml/Main/main.qml"));
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreated,
