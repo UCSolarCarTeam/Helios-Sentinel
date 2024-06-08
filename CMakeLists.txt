@@ -14,7 +14,7 @@ if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
 endif()
 
 qt_add_executable(ViscommTesterApp src/main.cpp
-    src/lights.h src/lights.cpp
+
     src/SerialPortForwarder.cpp
     src/SerialPortForwarder.h
     src/DriverControls.h src/DriverControls.cpp
