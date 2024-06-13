@@ -420,4 +420,23 @@ Item {
             }
         }
     }
+    Text {
+        id: text3
+        x: 315
+        y: 984
+        width: 442
+        height: 14
+        text: "Byte Stream: " + motorFaults.byteStreamStr
+        font.pixelSize: 16
+    }
+
+    Text {
+        id: text4
+        x: 315
+        y: 1020
+        width: 442
+        height: 14
+        text: "Encoded Stream: " + motorFaults.encodedByteStreamStr
+        font.pixelSize: 16
+    }
 }
