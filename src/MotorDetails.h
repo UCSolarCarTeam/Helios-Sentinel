@@ -1,13 +1,13 @@
-#ifndef MOTOR0DETAILS_H
-#define MOTOR0DETAILS_H
+#ifndef MOTORDETAILS_H
+#define MOTORDETAILS_H
 
 #include <QObject>
 
-class Motor0Details : public QObject
+class MotorDetails : public QObject
 {
     Q_OBJECT
 public:
-    explicit Motor0Details(QObject *parent = nullptr);
+    explicit MotorDetails(int motor, QObject *parent = nullptr);
 
     Q_PROPERTY(int phaseCCurrent READ phaseCCurrent WRITE setPhaseCCurrent NOTIFY phaseCCurrentChanged FINAL)
     Q_PROPERTY(int phaseBCurrent READ phaseBCurrent WRITE setPhaseBCurrent NOTIFY phaseBCurrentChanged FINAL)
@@ -27,6 +27,7 @@ public:
     Q_PROPERTY(int odometer READ odometer WRITE setOdometer NOTIFY odometerChanged FINAL)
     Q_PROPERTY(int slipSpeed READ slipSpeed WRITE setSlipSpeed NOTIFY slipSpeedChanged FINAL)
 
+    Q_PROPERTY(int motorNum READ motorNum WRITE setMotorNum NOTIFY motorNumChanged FINAL)
     Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged FINAL)
     Q_PROPERTY(QString encodedByteStreamStr READ encodedByteStreamStr NOTIFY encodedByteStreamStrChanged FINAL)
 
@@ -48,6 +49,7 @@ public:
     int odometer() const;
     int slipSpeed() const;
 
+    int motorNum() const;
     QByteArray byteStream() const;
     QByteArray encodedByteStream() const;
     QString byteStreamStr() const;
@@ -71,6 +73,7 @@ public slots:
     void setDcBusAmpHours(int i);
     void setOdometer(int i);
     void setSlipSpeed(int i);
+    void setMotorNum(int i);
 
 signals:
     void phaseCCurrentChanged(int i);
@@ -91,6 +94,7 @@ signals:
     void odometerChanged(int i);
     void slipSpeedChanged(int i);
 
+    void motorNumChanged(int i);
     void byteStreamStrChanged();
     void encodedByteStreamStrChanged();
 
@@ -113,6 +117,7 @@ private:
     int odometer_ = 0;
     int slipSpeed_ = 0;
 
+    int motorNum_;
     QByteArray byteStream_;
     QByteArray encodedByteStream_;
 
@@ -120,4 +125,4 @@ private:
 
 };
 
-#endif // MOTOR0DETAILS_H
+#endif // MOTORDETAILS_H
