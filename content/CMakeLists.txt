@@ -13,7 +13,7 @@ qt6_add_qml_module(content
         fonts/fonts.txt
         QML_FILES
         QML_FILES Screen01.ui.qml
-        QML_FILES LightsView.qml
+        QML_FILES
         QML_FILES DriverControlsView.qml
         SOURCES
         QML_FILES BatteryFaultsView.qml

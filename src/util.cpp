@@ -4,47 +4,59 @@ Util::Util(QObject *parent)
     : QObject{parent}
 {}
 
-QByteArray Util::encodeByteStream(QByteArray bs){
-    QByteArray encoded(bs);
-    int lastIndex = 0;
-    int nextIndex = encoded.indexOf('\0', lastIndex);
+QByteArray Util::encodeByteStream(QByteArray bs) {
+    QByteArray encodedByteStream(bs); // creates a copy of bs called encodedByteStream
 
-    while (nextIndex != -1) {
-        char distance = nextIndex - lastIndex;
-        //qDebug() << "ENCODING: Index" << lastIndex << "with" << QString::number(distance);
-        encoded[lastIndex] = distance;
+    int cur = 0;
+    int next = encodedByteStream.indexOf('\0', cur); // finds index of the first \0 starting from position cur
 
-        lastIndex = nextIndex; // Move to the next byte after the null byte
-        nextIndex = encoded.indexOf('\0', lastIndex+1);
+    // loop continues as long as there is a \0 in the byte stream
+    while (next != -1) {
+        char distance = next - cur;
+
+        encodedByteStream[cur] = distance; // replaces byte at position cur with the calculate distance
+
+        cur = next;
+        next = encodedByteStream.indexOf('\0', cur + 1); // finds next \0
     }
 
-    // Set the last byte to 0x00
-    encoded.back() = '\0';
+    encodedByteStream.back() = '\0'; // sets last byte to \0
 
-    //qDebug() << "ENCODED: " << encoded;
-
-    return encoded;
+    return encodedByteStream;
 }
 
 QByteArray Util::generateChecksum(QByteArray bs, int bodyStartIndex, int bodyEndIndex){
-    quint16 checksum = qChecksum(bs.mid(bodyStartIndex,bodyEndIndex));
-    QByteArray checksumHex(reinterpret_cast<const char*>(&checksum), sizeof(checksum));
-    //qDebug() << "First element of checksumArray: " << QString::number(static_cast<unsigned char>(checksumHex.at(0)), 16);
+    // ensure bodyEndIndex is greater than or equal to bodyStartIndex, if not, return empty array of bytes
+    if (bodyEndIndex < bodyStartIndex) {
+        return QByteArray(1, 0x00);
+    }
+
+    int length = bodyEndIndex - bodyStartIndex + 1;
+
+    // extract the portion of interest from the byte array
+    QByteArray portion = bs.mid(bodyStartIndex, length);
+
+    quint16 checksum = qChecksum(portion.constData(), portion.size());
+
+    // convert checksum to hexadeciaml QByteArray
+    QByteArray checksumHex;
+
+    checksumHex.append(static_cast<char>(checksum & 0xFF));
+    checksumHex.append(static_cast<char>((checksum >> 8) & 0xFF));
+
     return checksumHex;
 }
 
 QByteArray Util::formatInt(int num, int bytes){
-    QByteArray res;
-    for(int i = 0; i < bytes; ++i){
-        res.append(static_cast<char>((num >> (8 * i)) & 0xFF));
+    QByteArray formatted;
+
+    for(int i = 0; i < bytes; ++i) {
+        formatted.append(static_cast<char>((num >> (8 * i)) & 0xFF));
     }
 
-    return res;
+    return formatted;
 }
 
 QByteArray Util::formatFloat(float num){
-    QByteArray res(4, 0);
-    std::memcpy(res.data(), &num, sizeof(float));
-
-    return res;
+    return QByteArray(1, 0x00);
 }
