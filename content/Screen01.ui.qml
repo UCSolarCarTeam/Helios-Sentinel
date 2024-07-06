@@ -19,8 +19,6 @@ Rectangle {
     color: Constants.backgroundColor
     z: -2
 
-
-
     DriverControlsView {
         id: driverControlsView
         x: 0
@@ -30,6 +28,12 @@ Rectangle {
     BatteryFaultsView {
         id: batteryFaultsView
         x: 886
+        y: 0
+    }
+
+    LightsView {
+        id: lightsView
+        x: 150
         y: 0
     }
 

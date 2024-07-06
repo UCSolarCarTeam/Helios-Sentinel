@@ -21,4 +21,5 @@ qt6_add_qml_module(content
         QML_FILES BatteryView.qml
         QML_FILES AuxBmsView.qml
         QML_FILES MpptView.qml
+        QML_FILES LightsView.qml
 )

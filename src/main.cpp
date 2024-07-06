@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 
     engine.load(url);
 
-    SerialPortForwarder forwarder("/dev/pts/3");
+    SerialPortForwarder forwarder("/dev/pts/4");
 
     QTimer timer;
     bool firstRun = true;
