@@ -21,7 +21,7 @@ KeyMotor::KeyMotor(QObject *parent)
 {
     byteStream_.fill(0x00, 47); // packet size 47 - fill zeros by defualt
     byteStream_[0] = 0x2F;      // packet size 47
-    byteStream_[1] = 0x00;      // packet ID (0)
+    byteStream_[1] = 0x01;      // packet ID (1)
 
     updateByteStream();         //generate checksum and encode empty packet
 }
@@ -95,7 +95,7 @@ void KeyMotor::setM0VehicleVelocity(int value) {
 }
 
 void KeyMotor::setM1Alive(bool alive) {
-    byteStream_[21] = alive ? 0x01 : 0x00;
+    byteStream_[23] = alive ? 0x01 : 0x00;
     m1Alive_ = alive;
     updateByteStream();
 }
