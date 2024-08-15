@@ -3,16 +3,15 @@ import QtQuick.Controls 2.15
 import QtQuick.Studio.Components 1.0
 
 Item {
-    id: keyMotor
     width: 820
-    height: 370
+    height: 450
 
     Rectangle {
         id: rectangle
         x: 0
         y: 0
         width: 820
-        height: 370
+        height: 450
         color: "#89f0a7"
         radius: 25
 
@@ -258,6 +257,25 @@ Item {
                 font.pixelSize: 12
             }
         }
+    }
+    Text {
+        id: text3
+        x: 8
+        y: 344
+        width: 442
+        height: 14
+        text: "Byte Stream: " + keyMotor.byteStreamStr
+        font.pixelSize: 16
+    }
+
+    Text {
+        id: text2
+        x: 8
+        y: 380
+        width: 442
+        height: 14
+        text: "Encoded Stream: " + keyMotor.encodedByteStreamStr
+        font.pixelSize: 16
     }
 }
 

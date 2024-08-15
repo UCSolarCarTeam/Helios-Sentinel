@@ -95,7 +95,7 @@ void KeyMotor::setM0VehicleVelocity(int value) {
 }
 
 void KeyMotor::setM1Alive(bool alive) {
-    byteStream_[21] = alive ? 0x01 : 0x00;
+    byteStream_[23] = alive ? 0x01 : 0x00;
     m1Alive_ = alive;
     updateByteStream();
 }
