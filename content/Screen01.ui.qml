@@ -19,28 +19,95 @@ Rectangle {
     color: Constants.backgroundColor
     z: -2
 
-    LightsView {
-        id: lightsView
-        x: 0
-        y: 0
-    }
-
-    DriverControlsView {
-        id: driverControlsView
-        x: 0
-        y: 200
-    }
-
-    BatteryFaultsView {
-        id: batteryFaultsView
-        x: 886
-        y: 0
-    }
-
-    KeyMotorView {
-        id: keyMotorView
+    ScrollView {
+        id: scrollView
         x: 8
-        y: 606
+        y: 0
+        width: 1904
+        height: 4000
+        focusPolicy: Qt.TabFocus
+        rightPadding: 0
+        z: 100
+        contentHeight: 7500
+        contentWidth: 2750
+
+        BatteryFaultsView {
+            id: batteryFaultsView
+            x: 918
+            y: 0
+        }
+
+        KeyMotorView {
+            id: keyMotorView
+            x: 22
+            y: 2342
+        }
+
+        DriverControlsView {
+            id: driverControlsView
+            x: -8
+            y: 200
+        }
+
+        LightsView {
+            id: lightsView
+            x: 0
+            y: 0
+        }
+
+        MpptView {
+            id: mpptView
+            mppt: mppt0
+            x: 14
+            y: 813
+        }
+
+        MpptView {
+            id: mpptView1
+            mppt: mppt1
+            x: 504
+            y: 813
+        }
+
+        MpptView {
+            id: mpptView2
+            mppt: mppt2
+            x: 989
+            y: 813
+        }
+
+        MpptView {
+            id: mpptView3
+            mppt: mppt3
+            x: 1443
+            y: 813
+        }
+
+        MotorDetailsView {
+            id: motorDetailsView
+            motorDetails: motor0
+            x: 7
+            y: 1084
+        }
+
+        MotorDetailsView {
+            id: motorDetailsView1
+            motorDetails: motor1
+            x: 7
+            y: 1710
+        }
+
+        AuxBmsView {
+            id: auxBmsView
+            x: 22
+            y: 2815
+        }
+
+        BatteryView {
+            id: batteryView
+            x: 14
+            y: 3471
+        }
     }
 
     states: [
