@@ -11,12 +11,15 @@
 #include "import_qml_plugins.h"
 
 #include "./SerialPortForwarder.h"
-#include "Motor0Details.h"
-#include "Motor1Details.h"
+#include "MotorDetails.h"
 #include "KeyMotor.h"
-#include "lights.h"
 #include "DriverControls.h"
 #include "BatteryFaults.h"
+#include "Battery.h"
+#include "Mppt.h"
+#include "lights.h"
+#include "AuxBms.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -25,15 +28,15 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-
-    Motor0Details motor0Details;
-    engine.rootContext()->setContextProperty("motor0Details", &motor0Details);
-
-    Motor1Details motor1Details;
-    engine.rootContext()->setContextProperty("motor1Details", &motor1Details);
   
     KeyMotor keyMotor;
     engine.rootContext()->setContextProperty("keyMotor", &keyMotor);
+
+    MotorDetails motor0Details(0);
+    engine.rootContext()->setContextProperty("motor0Details", &motor0Details);
+
+    MotorDetails motor1Details(1);
+    engine.rootContext()->setContextProperty("motor1Details", &motor1Details);
 
     Lights lights;
     engine.rootContext()->setContextProperty("lights", &lights);
@@ -43,6 +46,10 @@ int main(int argc, char *argv[])
 
     BatteryFaults batteryFaults;
     engine.rootContext()->setContextProperty("batteryFaults", &batteryFaults);
+
+    Battery battery;
+    engine.rootContext()->setContextProperty("battery", &battery);
+
 
     // const QUrl url(u"qrc:/qt/Serialqml/Main/main.qml"_qs);
 
@@ -69,13 +76,15 @@ int main(int argc, char *argv[])
     QTimer timer;
     bool firstRun = true;
 
-    QObject::connect(&timer, &QTimer::timeout, [&forwarder, &lights, &driverControls, &batteryFaults]() {
+    QObject::connect(&timer, &QTimer::timeout, [&forwarder, &keyMotor, &motor0Details, &motor1Details, &driverControls, &batteryFaults, &battery, &lights]() {
 
         forwarder.forwardData(keyMotor.encodedByteStream());
-
-        forwarder.forwardData(lights.encodedByteStream());
+        forwarder.forwardData(motor0Details.encodedByteStream());
+        forwarder.forwardData(motor1Details.encodedByteStream());
         forwarder.forwardData(driverControls.encodedByteStream());
         forwarder.forwardData(batteryFaults.encodedByteStream());
+        forwarder.forwardData(battery.encodedByteStream());
+        forwarder.forwardData(lights.encodedByteStream());
     });
     timer.start(500);
 
