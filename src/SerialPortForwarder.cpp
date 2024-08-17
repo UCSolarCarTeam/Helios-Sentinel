@@ -1,5 +1,5 @@
 #include "SerialPortForwarder.h"
-
+#include <stdexcept>
 #include <QDebug>
 
 SerialPortForwarder::SerialPortForwarder(const QString &portName, QObject *parent)
@@ -13,6 +13,9 @@ SerialPortForwarder::SerialPortForwarder(const QString &portName, QObject *paren
 
     if (!serialPort_->open(QIODevice::ReadWrite)) {
         qDebug() << "Failed to open port" << portName << ", error:" << serialPort_->errorString();
+        throw std::runtime_error("Failed to connect to serial port");
+    }else{
+        qDebug() << "Succefully opened Port";
     }
 }
 
@@ -21,6 +24,6 @@ SerialPortForwarder::~SerialPortForwarder() {}
 void SerialPortForwarder::forwardData(const QByteArray &data){
     if(serialPort_->isOpen()){
         serialPort_->write(data);
-        qDebug() << "Data Forwarded: " << data;
+        qDebug() << "Packet Forwarded: "; //<< data;
     }
 }
