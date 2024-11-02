@@ -30,9 +30,9 @@ Item {
                 y: 26
                 width: 135
                 height: 37
-                text: qsTr("M0 Alive")
-                checked: keyMotor.m0Alive
-                onClicked: keyMotor.setM0Alive(checked)
+                text: qsTr("Control Mode")
+                checked: keyMotor.controlMode
+                onClicked: keyMotor.setControlMode(checked)
             }
 
             GroupItem {
@@ -45,219 +45,52 @@ Item {
                     y: 0
                     width: 87
                     height: 28
-                    value: keyMotor.m0SetCurrent
-                    onValueChanged: keyMotor.setM0SetCurrent(value)
+                    value: keyMotor.motorSetpoint
+                    onValueChanged: keyMotor.setMotorSetpoint(value)
                 }
 
                 Text {
                     id: text1
                     x: 112
                     y: 6
-                    text: qsTr("Set Current")
+                    text: qsTr("Set Motor Setpoint")
                     font.pixelSize: 12
                 }
             }
 
-            GroupItem {
+            Switch {
+                id:switch2
                 x: 51
                 y: 123
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 87
-                    height: 28
-                    value: keyMotor.m0SetVelocity
-                    onValueChanged: keyMotor.setM0SetVelocity(value)
-                }
-
-                Text {
-                    x: 112
-                    y: 6
-                    text: qsTr("Set Velocity")
-                    font.pixelSize: 12
-                }
+                width: 135
+                height: 37
+                text: qsTr("Motor Mode")
+                checked: keyMotor.motorMode
+                onClicked: keyMotor.setMotorMode(checked)
             }
-
-            GroupItem {
+            Switch {
+                id:switch3
                 x: 51
                 y: 163
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 87
-                    height: 28
-                    value: keyMotor.m0BusCurrent
-                    onValueChanged: keyMotor.setM0BusCurrent(value)
-                }
-
-                Text {
-                    x: 112
-                    y: 6
-                    text: qsTr("Bus Current")
-                    font.pixelSize: 12
-                }
+                width: 135
+                height: 37
+                text: qsTr("Software Enable")
+                checked: keyMotor.softwareEnable
+                onClicked: keyMotor.setSoftwareEnable(checked)
             }
-
-            GroupItem {
+            Switch {
+                id:switch4
                 x: 51
                 y: 203
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 87
-                    height: 28
-                    value: keyMotor.m0BusVoltage
-                    onValueChanged: keyMotor.setM0BusVoltage(value)
-                }
-
-                Text {
-                    x: 112
-                    y: 6
-                    text: qsTr("Bus Voltage")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 51
-                y: 244
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 87
-                    height: 28
-                    value: keyMotor.m0VehicleVelocity
-                    onValueChanged: keyMotor.setM0VehicleVelocity(value)
-                }
-
-                Text {
-                    x: 112
-                    y: 6
-                    text: qsTr("Vehicle Velocity")
-                    font.pixelSize: 12
-                }
+                width: 135
+                height: 37
+                text: qsTr("Debug Mode")
+                checked: keyMotor.debugMode()
+                onClicked: keyMotor.setDebugMode(checked)
             }
         }
     }
 
-    Rectangle {
-        id: rectangle2
-        x: 450
-        y: 28
-        width: 279
-        height: 298
-        color: "#74a2e3"
-        radius: 25
-        Switch {
-            x: 72
-            y: 26
-            width: 135
-            height: 37
-            text: qsTr("M1 Alive")
-            checked: keyMotor.m1Alive
-            onClicked: keyMotor.setM1Alive(checked)
-        }
-
-        GroupItem {
-            x: 51
-            y: 83
-            SpinBox {
-                x: 0
-                y: 0
-                width: 87
-                height: 28
-                value: keyMotor.m1SetCurrent
-                onValueChanged: keyMotor.setM1SetCurrent(value)
-            }
-
-            Text {
-                x: 112
-                y: 6
-                text: qsTr("Set Current")
-                font.pixelSize: 12
-            }
-        }
-
-        GroupItem {
-            x: 51
-            y: 123
-            SpinBox {
-                x: 0
-                y: 0
-                width: 87
-                height: 28
-                value: keyMotor.m1SetVelocity
-                onValueChanged: keyMotor.setM1SetVelocity(value)
-            }
-
-            Text {
-                x: 112
-                y: 6
-                text: qsTr("Set Velocity")
-                font.pixelSize: 12
-            }
-        }
-
-        GroupItem {
-            x: 51
-            y: 163
-            SpinBox {
-                x: 0
-                y: 0
-                width: 87
-                height: 28
-                value: keyMotor.m1BusCurrent
-                onValueChanged: keyMotor.setM1BusCurrent(value)
-            }
-
-            Text {
-                x: 112
-                y: 6
-                text: qsTr("Bus Current")
-                font.pixelSize: 12
-            }
-        }
-
-        GroupItem {
-            x: 51
-            y: 203
-            SpinBox {
-                x: 0
-                y: 0
-                width: 87
-                height: 28
-                value: keyMotor.m1BusVoltage
-                onValueChanged: keyMotor.setM1BusVoltage(value)
-            }
-
-            Text {
-                x: 112
-                y: 6
-                text: qsTr("Bus Voltage")
-                font.pixelSize: 12
-            }
-        }
-
-        GroupItem {
-            x: 51
-            y: 244
-            SpinBox {
-                x: 0
-                y: 0
-                width: 87
-                height: 28
-                value: keyMotor.m1VehicleVelocity
-                onValueChanged: keyMotor.setM1VehicleVelocity(value)
-            }
-
-            Text {
-                x: 112
-                y: 6
-                text: qsTr("Vehicle Velocity")
-                font.pixelSize: 12
-            }
-        }
-    }
     Text {
         id: text3
         x: 8
