@@ -147,8 +147,8 @@ private:
     bool brakeLightSignal_;
     bool hornSignal_;
 
-    QString byteStreamStr_;
-    QString encodedByteStreamStr_;
+    QByteArray byteStream_;
+    QByteArray encodedByteStream_;
 
     void updateByteStream();
 
