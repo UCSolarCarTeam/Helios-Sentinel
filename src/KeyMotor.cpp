@@ -13,8 +13,8 @@ KeyMotor::KeyMotor(QObject *parent)
     debugMode_(false)
 
 {
-    byteStream_.fill(0x00, 8); // packet size 47 - fill zeros by defualt
-    byteStream_[0] = 0x08;      // packet size 47
+    byteStream_.fill(0x00, 8); // packet size 8 - fill zeros by defualt
+    byteStream_[0] = 0x08;      // packet size 8
     byteStream_[1] = 0x01;      // packet ID (1)
     updateByteStream();         //generate checksum and encode empty packet
 }
