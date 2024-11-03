@@ -30,8 +30,8 @@ B3::B3(QObject *parent)
           brakeLightSignal_(false),
           hornSignal_(false)
 {
-    byteStream_.fill(0x00, 11); // packet size 11 - fill zeros by defualt
-    byteStream_[0] = 0x0B;      // packet size 11
+    byteStream_.fill(0x00, 12); // packet size 11 - fill zeros by defualt
+    byteStream_[0] = 0x0C;      // packet size 11
     byteStream_[1] = 0x04;      // packet ID (4)
 
     updateByteStream();         //generate checksum and encode empty packet
@@ -191,47 +191,47 @@ void B3::setRegenBraking(unsigned short regen) {
 }
 
 void B3::setRightSignalOut(bool on) {
-    byteStream_[7] += on ? 0x01 : -0x01;
+    byteStream_[8] += on ? 0x01 : -0x01;
     rightSignalOut_ = on;
     updateByteStream();
 }
 
 void B3::setLeftSignalOut(bool on) {
-    byteStream_[7] += on ? 0x02 : -0x02;
+    byteStream_[8] += on ? 0x02 : -0x02;
     leftSignalOut_ = on;
     updateByteStream();
 }
 
 void B3::setDaytimeRunningLightSignal(bool on) {
-    byteStream_[7] += on ? 0x04 : -0x04;
+    byteStream_[8] += on ? 0x04 : -0x04;
     daytimeRunningLightSignal_ = on;
     updateByteStream();
 }
 
 void B3::setHeadlightSignal(bool on) {
-    byteStream_[7] += on ? 0x08 : -0x08;
+    byteStream_[8] += on ? 0x08 : -0x08;
     headlightSignal_ = on;
     updateByteStream();
 }
 
 void B3::setBrakeLightSignal(bool on) {
-    byteStream_[7] += on ? 0x10 : -0x10;
+    byteStream_[8] += on ? 0x10 : -0x10;
     brakeLightSignal_ = on;
     updateByteStream();
 }
 
 void B3::setHornSignal(bool on) {
-    byteStream_[7] += on ? 0x20 : -0x20;
+    byteStream_[8] += on ? 0x20 : -0x20;
     hornSignal_ = on;
     updateByteStream();
 }
 
 void B3::updateByteStream(){
     // (1, size - 4)
-    QByteArray checksum = Util::generateChecksum(byteStream_, 1, 7);
+    QByteArray checksum = Util::generateChecksum(byteStream_, 1, 8);
     // size - 3 and size - 2
-    byteStream_[8] = checksum.at(0);
-    byteStream_[9] = checksum.at(1);
+    byteStream_[9] = checksum.at(0);
+    byteStream_[10] = checksum.at(1);
     encodedByteStream_ = Util::encodeByteStream(byteStream_);
     emit encodedByteStreamStrChanged();
     emit byteStreamStrChanged();
