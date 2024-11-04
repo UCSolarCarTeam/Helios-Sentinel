@@ -659,8 +659,8 @@ void MotorDetails::updateByteStream(){
     // (1, size - 4)
     QByteArray checksum = Util::generateChecksum(byteStream_, 1, 33);
     // size - 3 and size - 2
-    byteStream_[33] = checksum.at(0);
-    byteStream_[34] = checksum.at(1);
+    byteStream_[34] = checksum.at(0);
+    byteStream_[35] = checksum.at(1);
     encodedByteStream_ = Util::encodeByteStream(byteStream_);
     emit encodedByteStreamStrChanged();
     emit byteStreamStrChanged();
