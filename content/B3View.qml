@@ -37,10 +37,7 @@ Item {
                 text: "Left Signal"
                 font.pointSize: 14
                 checked: b3.leftSignalIn
-                onClicked: {
-                    console.log("Left Signal clicked:", checked);
-                    b3.setLeftSignalIn(checked);
-                }
+                onClicked: b3.setLeftSignalIn(checked)
             }
 
             Switch {
@@ -120,10 +117,7 @@ Item {
             from: 0
             to: 255
             value: b3.acceleration
-            onValueChanged: {
-                    b3.setAcceleration(value);
-                    console.log("Acceleration value changed to:", value);
-                }
+            onValueChanged: b3.setAcceleration(value)
         }
 
         SpinBox {
@@ -133,10 +127,7 @@ Item {
             from: 0
             to: 255
             value: b3.regenBraking
-            onValueChanged: {
-                b3.setRegenBraking(value);
-                console.log("Regen Braking value changed to:", value);
-            }
+            onValueChanged: b3.setRegenBraking(value)
         }
 
         Text {
@@ -285,10 +276,7 @@ Item {
                 text: qsTr("Handbrake Switch")
                 font.pointSize: 10
                 checked: b3.handbrakeSwitch
-                onClicked: {
-                    console.log("Handbrake Switch clicked:", checked);
-                    b3.setHandbrakeSwitch(checked);
-                }
+                onClicked: b3.setHandbrakeSwitch(checked)
             }
 
             Switch {
