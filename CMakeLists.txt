@@ -25,6 +25,7 @@ qt_add_executable(ViscommTesterApp src/main.cpp
     src/MotorDetails.h src/MotorDetails.cpp
     src/AuxBms.h src/AuxBms.cpp
     src/Mppt.h src/Mppt.cpp
+    src/ProximitySensors.h src/ProximitySensors.cpp
 )
 
 qt_add_resources(ViscommTesterApp "configuration"
