@@ -18,13 +18,13 @@ ProximitySensors::ProximitySensors(QObject *parent)
     updateByteStream();         //generate checksum and encode empty packet
 }
 
-unsigned short ProximitySensors::proximitySensor1() const { proximitySensor1_; }
+unsigned short ProximitySensors::proximitySensor1() const { return proximitySensor1_; }
 
-unsigned short ProximitySensors::proximitySensor1() const { proximitySensor2_; }
+unsigned short ProximitySensors::proximitySensor2() const { return proximitySensor2_; }
 
-unsigned short ProximitySensors::proximitySensor1() const { proximitySensor3_; }
+unsigned short ProximitySensors::proximitySensor3() const { return proximitySensor3_; }
 
-unsigned short ProximitySensors::proximitySensor1() const { proximitySensor4_; }
+unsigned short ProximitySensors::proximitySensor4() const { return proximitySensor4_; }
 
 QByteArray ProximitySensors::encodedByteStream() const { return encodedByteStream_; }
 

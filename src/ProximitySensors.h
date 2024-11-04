@@ -1,6 +1,9 @@
 #ifndef PROXIMITYSENSORS_H
 #define PROXIMITYSENSORS_H
 
+
+#include <QObject>
+
 class ProximitySensors : public QObject
 {
     Q_OBJECT
