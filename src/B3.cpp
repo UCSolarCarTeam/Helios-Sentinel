@@ -30,8 +30,8 @@ B3::B3(QObject *parent)
           brakeLightSignal_(false),
           hornSignal_(false)
 {
-    byteStream_.fill(0x00, 12); // packet size 11 - fill zeros by defualt
-    byteStream_[0] = 0x0C;      // packet size 11
+    byteStream_.fill(0x00, 12); // packet size 12 - fill zeros by defualt
+    byteStream_[0] = 0x0C;      // packet size 12
     byteStream_[1] = 0x04;      // packet ID (4)
 
     updateByteStream();         //generate checksum and encode empty packet
