@@ -15,25 +15,6 @@ MotorDetails::MotorDetails(int motor, QObject *parent)
     updateByteStream();         //generate checksum and encode empty packet
 }
 
-
-// int MotorDetails::phaseBCurrent() const { return phaseBCurrent_; }
-// int MotorDetails::phaseCCurrent() const { return phaseCCurrent_; }
-// int MotorDetails::motorVoltageReal() const { return motorVoltageReal_; }
-// int MotorDetails::motorVoltageImag() const { return motorVoltageImag_; }
-// int MotorDetails::motorCurrentReal() const { return motorCurrentReal_; }
-// int MotorDetails::motorCurrentImag() const { return motorCurrentImag_; }
-// int MotorDetails::blackEMF() const { return blackEMF_; }
-// int MotorDetails::voltageRailSupply15() const { return voltageRailSupply15_; }
-// int MotorDetails::voltageRailSupply3() const { return voltageRailSupply3_; }
-// int MotorDetails::voltageRailSupply2() const { return voltageRailSupply2_; }
-// int MotorDetails::heatSinkTemp() const { return heatSinkTemp_; }
-// int MotorDetails::motorTemp() const { return motorTemp_; }
-// int MotorDetails::dspBoardTemp() const { return dspBoardTemp_; }
-// int MotorDetails::dcBusAmpHours() const { return dcBusAmpHours_; }
-// int MotorDetails::odometer() const { return odometer_; }
-// int MotorDetails::slipSpeed() const { return slipSpeed_; }
-
-// NOT SURE BOUT
 int MotorDetails::motorNum() const { return motorNum_; }
 
 short MotorDetails::controlValue() const { return controlValue_; }
@@ -125,7 +106,7 @@ bool MotorDetails::canCommsTimeoutError() const { return canCommsTimeoutError_; 
 
 
 QByteArray MotorDetails::encodedByteStream() const { return encodedByteStream_; }
-// MAY BE ISSUE WITH SHORT?
+
 void MotorDetails::setControlValue(short newControlValue) {
     QByteArray in = Util::formatInt(newControlValue,2);
     byteStream_.replace(2, 2, in);
@@ -159,14 +140,14 @@ void MotorDetails::setDebugMode(bool status) {
 
 void MotorDetails::setCurrentMotorTorque(short newCurrentMotorTorque) {
     QByteArray in = Util::formatInt(newCurrentMotorTorque,2);
-    byteStream_.replace(5, 7, in);
+    byteStream_.replace(5, 2, in);
     currentMotorTorque_ = newCurrentMotorTorque;
     updateByteStream();
 }
 
 void MotorDetails::setCurrentRpmValue(short newCurrentRpmValue) {
     QByteArray in = Util::formatInt(newCurrentRpmValue,2);
-    byteStream_.replace(7, 9, in);
+    byteStream_.replace(7, 2, in);
     currentRpmValue_ = newCurrentRpmValue;
     updateByteStream();
 }
@@ -179,21 +160,21 @@ void MotorDetails::setMotorTemperature(char newMotorTemperature) {
 
 void MotorDetails::setInverterPeakCurrent(short newInverterPeakCurrent) {
     QByteArray in = Util::formatInt(newInverterPeakCurrent,2);
-    byteStream_.replace(10, 12, in);
+    byteStream_.replace(10, 2, in);
     inverterPeakCurrent_ = newInverterPeakCurrent;
     updateByteStream();
 }
 
 void MotorDetails::setCurrentMotorPower(short newCurrentMotorPower) {
     QByteArray in = Util::formatInt(newCurrentMotorPower,2);
-    byteStream_.replace(12, 14, in);
+    byteStream_.replace(12, 2, in);
     currentMotorPower_ = newCurrentMotorPower;
     updateByteStream();
 }
 
 void MotorDetails::setAbsoluteAngle(unsigned short newAbsoluteAngle) {
     QByteArray in = Util::formatInt(newAbsoluteAngle,2);
-    byteStream_.replace(14, 16, in);
+    byteStream_.replace(14, 2, in);
     absoluteAngle_ = newAbsoluteAngle;
     updateByteStream();
 }
@@ -224,26 +205,26 @@ void MotorDetails::setInverter1TempVeryHigh(bool status) {
 }
 
 void MotorDetails::setInverter2TempVeryHigh(bool status) {
-    byteStream_[17] += status ? 0x01:-0x01;
+    byteStream_[17] += status ? 0x10:-0x10;
     inverter2TempVeryHigh_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter3TempVeryHigh(bool status) {
-    byteStream_[17] += status ? 0x02:-0x02;
+    byteStream_[17] += status ? 0x20:-0x20;
     inverter3TempVeryHigh_ = status;
     updateByteStream();
 }
 
 
 void MotorDetails::setInverter4TempVeryHigh(bool status) {
-    byteStream_[17] += status ? 0x04:-0x04;
+    byteStream_[17] += status ? 0x40:-0x40;
     inverter4TempVeryHigh_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter5TempVeryHigh(bool status) {
-    byteStream_[17] += status ? 0x08:-0x08;
+    byteStream_[17] += status ? 0x80:-0x80;
     inverter5TempTooHigh_ = status;
     updateByteStream();
 }
@@ -273,25 +254,25 @@ void MotorDetails::setDclinkTemperatureVeryHigh(bool status) {
 }
 
 void MotorDetails::setDelayInDclinkCommunication(bool status) {
-    byteStream_[19] += status ? 0x01:-0x01;
+    byteStream_[19] += status ? 0x10:-0x10;
     delayInDclinkCommunication_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter1OverCurrent(bool status) {
-    byteStream_[19] += status ? 0x02:-0x02;
+    byteStream_[19] += status ? 0x20:-0x20;
     inverter1OverCurrent_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter2OverCurrent(bool status) {
-    byteStream_[19] += status ? 0x04:-0x04;
+    byteStream_[19] += status ? 0x40:-0x40;
     inverter2OverCurrent_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter3OverCurrent(bool status) {
-    byteStream_[19] += status ? 0x08:-0x08;
+    byteStream_[19] += status ? 0x80:-0x80;
     inverter3OverCurrent_ = status;
     updateByteStream();
 }
@@ -321,25 +302,25 @@ void MotorDetails::setDcOvervoltageWarning(bool status) {
 }
 
 void MotorDetails::setDcUndervoltageWarning(bool status) {
-    byteStream_[21] += status ? 0x01:-0x01;
+    byteStream_[21] += status ? 0x10:-0x10;
     dcUndervoltageWarning_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setCanCommsTimeout(bool status) {
-    byteStream_[21] += status ? 0x02:-0x02;
-    dcUndervoltageWarning_ = status;
+    byteStream_[21] += status ? 0x20:-0x20;
+    canCommsTimeout_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter1FaultWarning(bool status) {
-    byteStream_[21] += status ? 0x04:-0x04;
+    byteStream_[21] += status ? 0x40:-0x40;
     inverter1FaultWarning_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter2FaultWarning(bool status) {
-    byteStream_[21] += status ? 0x08:-0x08;
+    byteStream_[21] += status ? 0x80:-0x80;
     inverter2FaultWarning_ = status;
     updateByteStream();
 }
@@ -370,25 +351,25 @@ void MotorDetails::setInverter6FaultWarning(bool status) {
 }
 
 void MotorDetails::setCanSendWarning(bool status) {
-    byteStream_[23] += status ? 0x01:-0x01;
+    byteStream_[23] += status ? 0x10:-0x10;
     canSendWarning_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setLostFramesOnCanBusWarning(bool status) {
-    byteStream_[23] += status ? 0x02:-0x02;
+    byteStream_[23] += status ? 0x20:-0x20;
     lostFramesOnCanBusWarning_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setOverspeedWarning(bool status) {
-    byteStream_[23] += status ? 0x04:-0x04;
+    byteStream_[23] += status ? 0x40:-0x40;
     overspeedWarning_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setCpuOverload(bool status) {
-    byteStream_[23] += status ? 0x08:-0x08;
+    byteStream_[23] += status ? 0x80:-0x80;
     cpuOverload_ = status;
     updateByteStream();
 }
@@ -431,25 +412,25 @@ void MotorDetails::setControllerDataReadingTimeout(bool status) {
 }
 
 void MotorDetails::setInvalidHallSensorSequence(bool status) {
-    byteStream_[26] += status ? 0x01:-0x01;
+    byteStream_[26] += status ? 0x10:-0x10;
     invalidHallSensorSequence_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInvalidHallSector(bool status) {
-    byteStream_[26] += status ? 0x02:-0x02;
+    byteStream_[26] += status ? 0x20:-0x20;
     invalidHallSector_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setErrorReadingTempSensor(bool status) {
-    byteStream_[26] += status ? 0x04:-0x04;
+    byteStream_[26] += status ? 0x40:-0x40;
     errorReadingTempSensor_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setPositionSensorReadingError(bool status) {
-    byteStream_[26] += status ? 0x08:-0x08;
+    byteStream_[26] += status ? 0x80:-0x80;
     positionSensorReadingError_ = status;
     updateByteStream();
 }
@@ -479,25 +460,25 @@ void MotorDetails::setInverter1TempTooHigh(bool status) {
 }
 
 void MotorDetails::setInverter2TempTooHigh(bool status) {
-    byteStream_[28] += status ? 0x01:-0x01;
+    byteStream_[28] += status ? 0x10:-0x10;
     inverter2TempTooHigh_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter3TempTooHigh(bool status) {
-    byteStream_[28] += status ? 0x02:-0x02;
+    byteStream_[28] += status ? 0x20:-0x20;
     inverter3TempTooHigh_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter4TempTooHigh(bool status) {
-    byteStream_[28] += status ? 0x04:-0x04;
+    byteStream_[28] += status ? 0x40:-0x40;
     inverter4TempTooHigh_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter5TempTooHigh(bool status) {
-    byteStream_[28] += status ? 0x08:-0x08;
+    byteStream_[28] += status ? 0x80:-0x80;
     inverter5TempTooHigh_ = status;
     updateByteStream();
 }
@@ -527,29 +508,28 @@ void MotorDetails::setDclinkTemperatureTooHigh(bool status) {
 }
 
 void MotorDetails::setErrorInDclinkCommunication(bool status) {
-    byteStream_[30] += status ? 0x01:-0x01;
+    byteStream_[30] += status ? 0x10:-0x10;
     errorInDclinkCommunication_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter1Overcurrent(bool status) {
-    byteStream_[30] += status ? 0x02:-0x02;
+    byteStream_[30] += status ? 0x20:-0x20;
     inverter1OverCurrent_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter2Overcurrent(bool status) {
-    byteStream_[30] += status ? 0x04:-0x04;
+    byteStream_[30] += status ? 0x40:-0x40;
     inverter2OverCurrent_ = status;
     updateByteStream();
 }
 
 void MotorDetails::setInverter3Overcurrent(bool status) {
-    byteStream_[30] += status ? 0x08:-0x08;
+    byteStream_[30] += status ? 0x80:-0x80;
     inverter3OverCurrent_ = status;
     updateByteStream();
 }
-// LIKELY WILL HAVE TO FIX ABOVE THIS
 void MotorDetails::setInverter4Overcurrent(bool status) {
     byteStream_[31] += status ? 0x01:-0x01;
     inverter4OverCurrent_ = status;
@@ -647,10 +627,10 @@ void MotorDetails::setOverspeedError(bool status) {
 
 void MotorDetails::setCpuOverloaded(bool status) {
     byteStream_[33] = status ? 0x01: 0x00;
+    cpuOverloaded_ = status;
+    updateByteStream();
 }
 
-
-// Not sure about
 void MotorDetails::setMotorNum(int value) {
     motorNum_ = value;
 }
