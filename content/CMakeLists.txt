@@ -23,5 +23,6 @@ qt6_add_qml_module(content
         SOURCES
         QML_FILES AuxBmsView.qml
         QML_FILES MpptView.qml
+        QML_FILES MbmsView.qml
         QML_FILES TelemetryView.qml
 )

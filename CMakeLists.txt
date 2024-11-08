@@ -25,6 +25,7 @@ qt_add_executable(ViscommTesterApp src/main.cpp
     src/MotorDetails.h src/MotorDetails.cpp
     src/AuxBms.h src/AuxBms.cpp
     src/Mppt.h src/Mppt.cpp
+    src/Mbms.h src/Mbms.cpp
     src/Telemetry.h src/Telemetry.cpp
 )
 
