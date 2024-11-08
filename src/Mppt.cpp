@@ -6,7 +6,7 @@ Mppt::Mppt(int channel, QObject *parent)
 {
     byteStream_.fill(0x00, 14);
     byteStream_[0] = 0x0E;
-    byteStream_[1] = 0x09;
+    byteStream_[1] = 0x08;
     QByteArray channelByte = Util::formatInt(channel, 1);
     byteStream_[2] = channelByte[0];
     updateByteStream();
