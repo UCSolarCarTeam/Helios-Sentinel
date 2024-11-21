@@ -12,6 +12,8 @@ Item {
         y: 39
         width: 119
         height: 37
+        to: 255
+        editable: true
         value: bms.prechargeState
         onValueChanged: bms.setPrechargeState(value)
     }
@@ -30,6 +32,8 @@ Item {
         y: 102
         width: 119
         height: 37
+        to: 255
+        editable: true
         value: bms.auxVoltage
         onValueChanged: bms.setAuxVoltage(value)
     }
