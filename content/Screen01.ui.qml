@@ -108,6 +108,30 @@ Rectangle {
             x: 14
             y: 3471
         }
+
+        B3View {
+            id: b3View
+            x: 872
+            y: 1143
+        }
+
+        TelemetryView {
+            id: telemetryView
+            x: 989
+            y: 1673
+        }
+
+        MbmsView {
+            id: mbmsView
+            x: 952
+            y: 2477
+        }
+
+        ProximitySensorsView {
+            id: proximitySensorsView
+            x: 952
+            y: 3361
+        }
     }
 
     states: [
