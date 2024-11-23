@@ -11,14 +11,15 @@
 #include "import_qml_plugins.h"
 
 #include "./SerialPortForwarder.h"
-#include "lights.h"
-#include "DriverControls.h"
-#include "BatteryFaults.h"
-#include "MotorDetails.h"
 #include "KeyMotor.h"
-#include "Mppt.h"
+#include "MotorDetails.h"
+#include "B3.h"
+#include "Telemetry.h"
+#include "BatteryFaults.h"
 #include "Battery.h"
-#include "AuxBms.h"
+#include "Mppt.h"
+#include "Mbms.h"
+#include "ProximitySensors.h"
 
 int main(int argc, char *argv[])
 {
@@ -36,22 +37,25 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    Lights lights;
-    engine.rootContext()->setContextProperty("lights", &lights);
-
-    DriverControls driverControls;
-    engine.rootContext()->setContextProperty("driverControls", &driverControls);
-
-    BatteryFaults batteryFaults;
-    engine.rootContext()->setContextProperty("batteryFaults", &batteryFaults);
+    KeyMotor keyMotor;
+    engine.rootContext()->setContextProperty("keyMotor", &keyMotor);
 
     MotorDetails m0(0);
     MotorDetails m1(1);
     engine.rootContext()->setContextProperty("motor0", &m0);
     engine.rootContext()->setContextProperty("motor1", &m1);
 
-    KeyMotor keyMotor;
-    engine.rootContext()->setContextProperty("keyMotor", &keyMotor);
+    B3 b3;
+    engine.rootContext()->setContextProperty("b3", &b3);
+
+    Telemetry telemetry;
+    engine.rootContext()->setContextProperty("telemetry", &telemetry);
+
+    BatteryFaults batteryFaults;
+    engine.rootContext()->setContextProperty("batteryFaults", &batteryFaults);
+
+    Battery battery;
+    engine.rootContext()->setContextProperty("battery", &battery);
 
     Mppt mppt0(0);
     Mppt mppt1(1);
@@ -62,13 +66,11 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("mppt2", &mppt2);
     engine.rootContext()->setContextProperty("mppt3", &mppt3);
 
-    Battery battery;
-    engine.rootContext()->setContextProperty("battery", &battery);
+    Mbms mbms;
+    engine.rootContext()->setContextProperty("mbms", &mbms);
 
-    AuxBms auxBms;
-    engine.rootContext()->setContextProperty("bms", &auxBms);
-
-    // const QUrl url(u"qrc:/qt/Serialqml/Main/main.qml"_qs);
+    ProximitySensors proximitySensors;
+    engine.rootContext()->setContextProperty("proximitySensors", &proximitySensors);
 
     const QUrl url(QStringLiteral("qml/Main/main.qml"));
 
@@ -88,31 +90,23 @@ int main(int argc, char *argv[])
     engine.load(url);
 
     QTimer timer;
-    bool firstRun = true;
-    int count = 0;
 
-    QObject::connect(&timer, &QTimer::timeout, [&count, &forwarder, &lights, &driverControls, &batteryFaults, &keyMotor, &m0, &m1, &mppt0, &mppt1, &mppt2, &mppt3, &battery, &auxBms]() {
+    QObject::connect(&timer, &QTimer::timeout, [&forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
+        // Packet rotation subject to change
         forwarder.forwardData(keyMotor.encodedByteStream());
-        forwarder.forwardData(lights.encodedByteStream());
-        //TODO: MOTOR FAULTS HERE
+        forwarder.forwardData(b3.encodedByteStream());
+        forwarder.forwardData(telemetry.encodedByteStream());
         forwarder.forwardData(batteryFaults.encodedByteStream());
-        forwarder.forwardData(driverControls.encodedByteStream());
-
-        if(count % 2 == 0){
-            forwarder.forwardData(battery.encodedByteStream());
-            forwarder.forwardData(auxBms.encodedByteStream());
-            forwarder.forwardData(m1.encodedByteStream());
-            forwarder.forwardData(mppt2.encodedByteStream());
-            forwarder.forwardData(mppt3.encodedByteStream());
-            qDebug() << "Forwardered Package 2";
-        } else{
-            forwarder.forwardData(m0.encodedByteStream());
-            forwarder.forwardData(mppt0.encodedByteStream());
-            forwarder.forwardData(mppt1.encodedByteStream());
-            qDebug() << "Forwardered Package 1";
-        }
-
-        count++;
+        forwarder.forwardData(mbms.encodedByteStream());
+        forwarder.forwardData(proximitySensors.encodedByteStream());
+        forwarder.forwardData(battery.encodedByteStream());
+        forwarder.forwardData(m1.encodedByteStream());
+        forwarder.forwardData(mppt2.encodedByteStream());
+        forwarder.forwardData(mppt3.encodedByteStream());
+        forwarder.forwardData(m0.encodedByteStream());
+        forwarder.forwardData(mppt0.encodedByteStream());
+        forwarder.forwardData(mppt1.encodedByteStream());
+        qDebug() << "Forwardered";
     });
     timer.start(500);
 
