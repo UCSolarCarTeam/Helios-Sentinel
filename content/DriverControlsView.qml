@@ -174,7 +174,8 @@ Item {
         y: 244
         width: 140
         height: 38
-        to: 4095
+        to: 65535
+        editable: true
         value: driverControls.acceleration
         onValueChanged: driverControls.setAcceleration(value)
     }
@@ -193,7 +194,8 @@ Item {
         y: 308
         width: 140
         height: 38
-        to: 4095
+        to: 65535
+        editable: true
         value: driverControls.regenBraking
         onValueChanged: driverControls.setRegenBraking(value)
     }
