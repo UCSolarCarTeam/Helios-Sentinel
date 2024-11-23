@@ -72,8 +72,6 @@ int main(int argc, char *argv[])
     ProximitySensors proximitySensors;
     engine.rootContext()->setContextProperty("proximitySensors", &proximitySensors);
 
-    // const QUrl url(u"qrc:/qt/Serialqml/Main/main.qml"_qs);
-
     const QUrl url(QStringLiteral("qml/Main/main.qml"));
 
     QObject::connect(
@@ -92,10 +90,8 @@ int main(int argc, char *argv[])
     engine.load(url);
 
     QTimer timer;
-    bool firstRun = true;
-    int count = 0;
 
-    QObject::connect(&timer, &QTimer::timeout, [&count, &forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
+    QObject::connect(&timer, &QTimer::timeout, [&forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
         // Packet rotation subject to change
         forwarder.forwardData(keyMotor.encodedByteStream());
         forwarder.forwardData(b3.encodedByteStream());
@@ -103,21 +99,14 @@ int main(int argc, char *argv[])
         forwarder.forwardData(batteryFaults.encodedByteStream());
         forwarder.forwardData(mbms.encodedByteStream());
         forwarder.forwardData(proximitySensors.encodedByteStream());
-
-        if(count % 2 == 0){
-            forwarder.forwardData(battery.encodedByteStream());
-            forwarder.forwardData(m1.encodedByteStream());
-            forwarder.forwardData(mppt2.encodedByteStream());
-            forwarder.forwardData(mppt3.encodedByteStream());
-            qDebug() << "Forwardered Package 2";
-        } else{
-            forwarder.forwardData(m0.encodedByteStream());
-            forwarder.forwardData(mppt0.encodedByteStream());
-            forwarder.forwardData(mppt1.encodedByteStream());
-            qDebug() << "Forwardered Package 1";
-        }
-
-        count++;
+        forwarder.forwardData(battery.encodedByteStream());
+        forwarder.forwardData(m1.encodedByteStream());
+        forwarder.forwardData(mppt2.encodedByteStream());
+        forwarder.forwardData(mppt3.encodedByteStream());
+        forwarder.forwardData(m0.encodedByteStream());
+        forwarder.forwardData(mppt0.encodedByteStream());
+        forwarder.forwardData(mppt1.encodedByteStream());
+        qDebug() << "Forwardered";
     });
     timer.start(500);
 
