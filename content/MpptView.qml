@@ -21,6 +21,8 @@ Item {
         y: 33
         width: 90
         height: 35
+        to: 65535
+        editable: true
         value: mppt.arrayVoltage
         onValueChanged: mppt.setArrayVoltage(value)
     }
@@ -39,6 +41,8 @@ Item {
         y: 33
         width: 90
         height: 35
+        to: 65535
+        editable: true
         value: mppt.arrayCurrent
         onValueChanged: mppt.setArrayCurrent(value)
     }
@@ -57,6 +61,8 @@ Item {
         y: 94
         width: 90
         height: 35
+        to: 65535
+        editable: true
         value: mppt.batteryVoltage
         onValueChanged: mppt.setBatteryVoltage(value)
     }
@@ -75,7 +81,8 @@ Item {
         y: 94
         width: 100
         height: 35
-        to: 10000
+        to: 65535
+        editable: true
         value: mppt.temp
         onValueChanged: mppt.setTemp(value)
     }
