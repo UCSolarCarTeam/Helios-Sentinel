@@ -98,6 +98,7 @@ Item {
         onValueChanged: battery.setPopulatedCells(value)
     }
 
+
     Text {
         id: text1
         x: 43
@@ -106,18 +107,18 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox1
-        x: 138
-        y: 259
-        width: 94
-        height: 36
-        from: -2147483648
-        to: 2147483647
-        editable: true
-        value: battery.input12V
-        onValueChanged: battery.setInput12V(value)
+    FloatSpinBox {
+        id: floatSpinBox1
+        x:138
+        y:259
+        width:94
+        height:36
+        value: decimalToInt(battery.input12V)
+        stepSize: decimalToInt(0.5)
+        onValueChanged: battery.setInput12V(value / decimalFactor)
     }
+
+
 
     Text {
         id: text2
@@ -127,17 +128,15 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox2
+    FloatSpinBox {
+        id: floatSpinBox2
         x: 238
         y: 259
         width: 94
         height: 36
-        from: -2147483648
-        to: 2147483647
-        editable: true
-        value: battery.fanVoltage
-        onValueChanged: battery.setFanVoltage(value)
+        value: decimalToInt(battery.fanVoltage)
+        onValueChanged: battery.setFanVoltage(value/decimalFactor)
+        stepSize: decimalToInt(0.5)
     }
 
     Text {
@@ -148,17 +147,15 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox3
+    FloatSpinBox {
+        id: floatSpinBox3
         x: 338
         y: 259
         width: 94
         height: 36
-        from: -2147483648
-        to: 2147483647
-        editable: true
-        value: battery.packCurrent
-        onValueChanged: battery.setPackCurrent(value)
+        value: decimalToInt(battery.packCurrent)
+        onValueChanged: battery.setPackCurrent(value/decimalFactor)
+        stepSize: decimalToInt(0.5)
     }
 
     Text {
@@ -169,17 +166,16 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox4
+    FloatSpinBox {
+        id: floatSpinBox4
         x: 438
         y: 259
         width: 94
         height: 36
-        from: -2147483648
-        to: 2147483647
         editable: true
-        value: battery.packVoltage
-        onValueChanged: battery.setPackVoltage(value)
+        value: decimalToInt(battery.packVoltage)
+        onValueChanged: battery.setPackVoltage(value/decimalFactor)
+        stepSize: decimalToInt(0.5)
     }
 
     Text {
@@ -190,17 +186,16 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox5
+    FloatSpinBox {
+        id: floatSpinBox5
         x: 538
         y: 259
         width: 94
         height: 36
-        from: -2147483648
-        to: 2147483647
         editable: true
-        value: battery.packSoc
-        onValueChanged: battery.setPackSoc(value)
+        value: decimalToInt(battery.packSoc)
+        onValueChanged: battery.setPackSoc(value/decimalFactor)
+        stepSize: decimalToInt(0.5)
     }
 
     Text {
@@ -211,17 +206,16 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox6
+    FloatSpinBox {
+        id: floatSpinBox6
         x: 638
         y: 259
         width: 94
         height: 36
-        from: -2147483648
-        to: 2147483647
         editable: true
-        value: battery.packAmphours
-        onValueChanged: battery.setPackAmphours(value)
+        value: decimalToInt(battery.packAmphours)
+        onValueChanged: battery.setPackAmphours(value/decimalFactor)
+         stepSize: decimalToInt(0.5)
     }
 
     Text {
@@ -232,17 +226,14 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox7
+    FloatSpinBox {
+        id: floatSpinBox7
         x: 42
         y: 326
         width: 94
         height: 36
-        from: -2147483648
-        to: 2147483647
-        editable: true
-        value: battery.setPackDod
-        onValueChanged: battery.setPackDod(value)
+        value: decimalToInt(battery.setPackDod)
+        onValueChanged: battery.setPackDod(value/decimalFactor)
     }
 
     Text {

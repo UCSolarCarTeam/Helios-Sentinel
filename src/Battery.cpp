@@ -50,31 +50,31 @@ int Battery::populatedCells() const{
     return populatedCells_;
 }
 
-int Battery::input12V() const{
+float Battery::input12V() const{
     return input12V_;
 }
 
-int Battery::fanVoltage() const{
+float Battery::fanVoltage() const{
     return fanVoltage_;
 }
 
-int Battery::packCurrent() const{
+float Battery::packCurrent() const{
     return packCurrent_;
 }
 
-int Battery::packVoltage() const{
+float Battery::packVoltage() const{
     return packVoltage_;
 }
 
-int Battery::packSoc() const{
+float Battery::packSoc() const{
     return packSoc_;
 }
 
-int Battery::packAmphours() const{
+float Battery::packAmphours() const{
     return packAmphours_;
 }
 
-int Battery::packDod() const{
+float Battery::packDod() const{
     return packDod_;
 }
 
@@ -206,49 +206,49 @@ void Battery::setPopulatedCells(int i){
     updateByteStream();
 }
 
-void Battery::setInput12V(int i){
+void Battery::setInput12V(float i){
     QByteArray in = Util::formatFloat(i);
     byteStream_.replace(5, 4, in);
     input12V_ = i;
     updateByteStream();
 }
 
-void Battery::setFanVoltage(int i){
+void Battery::setFanVoltage(float i){
     QByteArray in = Util::formatFloat(i);
     byteStream_.replace(9, 4, in);
     fanVoltage_ = i;
     updateByteStream();
 }
 
-void Battery::setPackCurrent(int i){
+void Battery::setPackCurrent(float i){
     QByteArray in = Util::formatFloat(i);
     byteStream_.replace(13, 4, in);
     packCurrent_ = i;
     updateByteStream();
 }
 
-void Battery::setPackVoltage(int i){
+void Battery::setPackVoltage(float i){
     QByteArray in = Util::formatFloat(i);
     byteStream_.replace(17, 4, in);
     packCurrent_ = i;
     updateByteStream();
 }
 
-void Battery::setPackSoc(int i){
+void Battery::setPackSoc(float i){
     QByteArray in = Util::formatInt(i, 4);
     byteStream_.replace(21, 4, in);
     packSoc_ = i;
     updateByteStream();
 }
 
-void Battery::setPackAmphours(int i){
+void Battery::setPackAmphours(float i){
     QByteArray in = Util::formatFloat(i);
     byteStream_.replace(25, 4, in);
     packAmphours_ = i;
     updateByteStream();
 }
 
-void Battery::setPackDod(int i){
+void Battery::setPackDod(float i){
     QByteArray in = Util::formatFloat(i);
     byteStream_.replace(29, 4, in);
     packDod_ = i;
