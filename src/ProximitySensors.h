@@ -15,6 +15,8 @@ public:
     Q_PROPERTY(unsigned short proximitySensor3 READ proximitySensor3 WRITE setProximitySensor3 NOTIFY proximitySensor3Changed FINAL)
     Q_PROPERTY(unsigned short proximitySensor4 READ proximitySensor4 WRITE setProximitySensor4 NOTIFY proximitySensor4Changed FINAL)
 
+    Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged FINAL)
+    Q_PROPERTY(QString encodedByteStreamStr READ encodedByteStreamStr NOTIFY encodedByteStreamStrChanged FINAL)
 
     unsigned short proximitySensor1() const;
     unsigned short proximitySensor2() const;
