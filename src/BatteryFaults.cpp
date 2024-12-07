@@ -5,8 +5,8 @@
 BatteryFaults::BatteryFaults(QObject *parent)
     : QObject{parent}
 {
-    byteStream_.fill(0x00, 10);
-    byteStream_[0] = 0x0A;
+    byteStream_.fill(0x00, 11);
+    byteStream_[0] = 0x0B;
     byteStream_[1] = 0x06;
 }
 
@@ -294,85 +294,85 @@ void BatteryFaults::setInternalLogic(bool on){
 }
 
 void BatteryFaults::setDclSoc(bool on){
-    byteStream_[5] += on ? 0x01 : -0x01;
+    byteStream_[6] += on ? 0x01 : -0x01;
     dclSoc_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclCellResistance(bool on){
-    byteStream_[5] += on ? 0x02 : -0x02;
+    byteStream_[6] += on ? 0x02 : -0x02;
     dclCellResistance_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclTemperature(bool on){
-    byteStream_[5] += on ? 0x04 : -0x04;
+    byteStream_[6] += on ? 0x04 : -0x04;
     dclTemperature_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclCellVoltage(bool on){
-    byteStream_[5] += on ? 0x08 : -0x08;
+    byteStream_[6] += on ? 0x08 : -0x08;
     dclCellVoltage_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclPackVoltage(bool on){
-    byteStream_[5] += on ? 0x10 : -0x10;
+    byteStream_[6] += on ? 0x10 : -0x10;
     dclPackVoltage_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclCclVoltage(bool on){
-    byteStream_[5] += on ? 0x40 : -0x40;
+    byteStream_[6] += on ? 0x40 : -0x40;
     dclCclVoltage_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setDclCclCommunication(bool on){
-    byteStream_[5] += on ? 0x80 : -0x80;
+    byteStream_[6] += on ? 0x80 : -0x80;
     dclCclCommunication_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclSoc(bool on){
-    byteStream_[6] += on ? 0x02 : -0x02;
+    byteStream_[7] += on ? 0x02 : -0x02;
     cclSoc_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclCellResistance(bool on){
-    byteStream_[6] += on ? 0x04 : -0x04;
+    byteStream_[7] += on ? 0x04 : -0x04;
     cclCellResistance_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclTemperature(bool on){
-    byteStream_[6] += on ? 0x08 : -0x08;
+    byteStream_[7] += on ? 0x08 : -0x08;
     cclTemperature_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclCellVoltage(bool on){
-    byteStream_[6] += on ? 0x10 : -0x10;
+    byteStream_[7] += on ? 0x10 : -0x10;
     cclCellVoltage_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclPackVoltage(bool on){
-    byteStream_[6] += on ? 0x20 : -0x20;
+    byteStream_[7] += on ? 0x20 : -0x20;
     cclPackVoltage_  = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclChargerLatch(bool on){
-    byteStream_[6] += on ? 0x40 : -0x40;
+    byteStream_[7] += on ? 0x40 : -0x40;
     cclChargerLatch_ = on;
     updateByteStream();
 }
 
 void BatteryFaults::setCclCurrent(bool on){
-    byteStream_[6] += on ? 0x80 : -0x80;
+    byteStream_[7] += on ? 0x80 : -0x80;
     cclCurrent_ = on;
     updateByteStream();
 }
@@ -380,9 +380,9 @@ void BatteryFaults::setCclCurrent(bool on){
 
 
 void BatteryFaults::updateByteStream(){
-    QByteArray checksum = Util::generateChecksum(byteStream_, 1, 6);
-    byteStream_[7] = checksum.at(0);
-    byteStream_[8] = checksum.at(1);
+    QByteArray checksum = Util::generateChecksum(byteStream_, 1, 7);
+    byteStream_[8] = checksum.at(0);
+    byteStream_[9] = checksum.at(1);
     encodedByteStream_ = Util::encodeByteStream(byteStream_);
     emit encodedByteStreamStrChanged();
     emit byteStreamStrChanged();
