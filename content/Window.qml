@@ -1,0 +1,177 @@
+import QtQuick.Studio.Components
+import QtQuick 2.15
+
+Rectangle {
+    id: rectangle
+    width: 575
+    height: 700
+    color: "#00000000"
+    z: -2
+
+    property int selectedButton: 0
+
+    Row {
+        id: row
+        x: 0
+        y: selectedButton <= 4 ? 35 : 0
+        width: 200
+        height: 35
+        z:20
+        TabBtn {
+            id: button
+            buttonText: qsTr("Key Motor")
+            isSelected: selectedButton === 0
+            onClicked: selectedButton = 0
+        }
+
+        TabBtn {
+            id: button1
+            buttonText: qsTr("Motor Details")
+            isSelected: selectedButton === 1
+            onClicked: selectedButton = 1
+        }
+
+        TabBtn {
+            id: button2
+            buttonText: qsTr("B^3")
+            isSelected: selectedButton === 2
+            onClicked: selectedButton = 2
+        }
+
+        TabBtn {
+            id: button3
+            buttonText: qsTr("Telemetry")
+            isSelected: selectedButton === 3
+            onClicked: selectedButton = 3
+        }
+
+        TabBtn {
+            id: button4
+            buttonText: qsTr("Battery Faults")
+            isSelected: selectedButton === 4
+            onClicked: selectedButton = 4
+        }
+    }
+
+    Row {
+        id: row1
+        x: 0
+        y: selectedButton > 4 ? 35 : 0
+        width: 200
+        height: 35
+        z: 20
+        TabBtn {
+            id: button5
+            buttonText: qsTr("Battery")
+            isSelected: selectedButton === 5
+            onClicked: selectedButton = 5
+        }
+
+        TabBtn {
+            id: button6
+            buttonText: qsTr("MPPT")
+            isSelected: selectedButton === 6
+            onClicked: selectedButton = 6
+        }
+
+        TabBtn {
+            id: button7
+            buttonText: qsTr("MBMS")
+            isSelected: selectedButton === 7
+            onClicked: selectedButton = 7
+        }
+
+        TabBtn {
+            id: button8
+            buttonText: qsTr("Proximity Sensors")
+            isSelected: selectedButton === 8
+            onClicked: selectedButton = 8
+        }
+        TabBtn {
+            id: button9
+            buttonText: qsTr("Settings")
+            isSelected: selectedButton === 9
+            onClicked: selectedButton = 9
+        }
+    }
+
+    Loader {
+        id: contentLoader
+        y: 75
+        width: parent.width
+        sourceComponent: selectedButton === 0 ? keyMotorView :
+                            selectedButton === 1 ? motorDetailsView :
+                            selectedButton === 2 ? b3View :
+                            selectedButton === 3 ? telemetryView :
+                            selectedButton === 4 ? batteryFaultsView :
+                            selectedButton === 5 ? batteryView :
+                            selectedButton === 6 ? mpptView :
+                            selectedButton === 7 ? mbmsView :
+                            selectedButton === 8 ? proximitySensorsView :
+                            selectedButton === 9 ? settingsView : null
+    }
+
+    Component {
+        id: keyMotorView
+        KeyMotorView{}
+    }
+
+    Component {
+        id: motorDetailsView
+        MotorDetailsView{}
+    }
+
+    Component {
+        id: b3View
+        B3View{}
+    }
+
+    Component {
+        id: telemetryView
+        TelemetryView{}
+    }
+
+    Component {
+        id: batteryFaultsView
+        BatteryFaultsView{}
+    }
+
+    Component {
+        id: batteryView
+        BatteryView{}
+    }
+
+    Component {
+        id: mpptView
+        MpptView{}
+    }
+
+    Component {
+        id: mbmsView
+        MbmsView{}
+    }
+
+    Component {
+        id: proximitySensorsView
+        ProximitySensorsView{}
+    }
+
+    Component {
+        id: settingsView
+        Text {
+            id: name
+            text: qsTr("TODO")
+        }
+    }
+
+    Rectangle {
+        id: rectangle1
+        x: 0
+        y: 68
+        width: 575
+        height: 633
+        color: "#A9A9A9"
+        border.color: "black"
+        border.width: 2
+    }
+}
