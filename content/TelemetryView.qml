@@ -20,7 +20,8 @@ Item {
                 x: 0
                 y: 0
                 from: 0
-                to: 2200
+                to: 65535
+                editable: true
                 value: telemetry.gpsYear
                 onValueChanged: telemetry.setGpsYear(value)
             }

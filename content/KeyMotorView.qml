@@ -45,6 +45,8 @@ Item {
                     y: 0
                     width: 87
                     height: 28
+                    to: 65535
+                    editable: true
                     value: keyMotor.motorSetpoint
                     onValueChanged: keyMotor.setMotorSetpoint(value)
                 }

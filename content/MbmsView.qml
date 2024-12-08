@@ -301,7 +301,8 @@ Item {
                 x: 0
                 y: 0
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: mbms.auxillaryBatteryVoltage
                 onValueChanged: mbms.setAuxillaryBatteryVoltage(value)
             }
@@ -311,7 +312,8 @@ Item {
                 x: 161
                 y: 0
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: mbms.motorVoltage
                 onValueChanged: mbms.setMotorVoltage(value)
             }
@@ -321,7 +323,8 @@ Item {
                 x: 323
                 y: 0
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: mbms.arrayVoltage
                 onValueChanged: mbms.setArrayVoltage(value)
             }
@@ -331,7 +334,8 @@ Item {
                 x: 490
                 y: 0
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: mbms.lvVoltage
                 onValueChanged: mbms.setLvVoltage(value)
             }
@@ -341,7 +345,8 @@ Item {
                 x: 662
                 y: 0
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: mbms.chargeVoltage
                 onValueChanged: mbms.setChargeVoltage(value)
             }
@@ -396,7 +401,8 @@ Item {
                 x: 0
                 y: 0
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: mbms.commonCurrent
                 onValueChanged: mbms.setCommonCurrent(value)
             }
@@ -406,7 +412,8 @@ Item {
                 x: 161
                 y: 0
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: mbms.motorCurrent
                 onValueChanged: mbms.setMotorCurrent(value)
             }
@@ -416,7 +423,8 @@ Item {
                 x: 323
                 y: 0
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: mbms.arrayCurrent
                 onValueChanged: mbms.setArrayCurrent(value)
             }
@@ -426,7 +434,8 @@ Item {
                 x: 490
                 y: 0
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: mbms.lvCurrent
                 onValueChanged: mbms.setLvCurrent(value)
             }
@@ -436,7 +445,8 @@ Item {
                 x: 662
                 y: 0
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: mbms.chargeCurrent
                 onValueChanged: mbms.setChargeCurrent(value)
             }

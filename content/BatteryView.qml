@@ -92,9 +92,12 @@ Item {
         y: 259
         width: 94
         height: 36
+        to: 255
+        editable: true
         value: battery.populatedCells
         onValueChanged: battery.setPopulatedCells(value)
     }
+
 
     Text {
         id: text1
@@ -104,15 +107,18 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox1
-        x: 138
-        y: 259
-        width: 94
-        height: 36
-        value: battery.input12V
-        onValueChanged: battery.setInput12V(value)
+    FloatSpinBox {
+        id: floatSpinBox1
+        x:138
+        y:259
+        width:94
+        height:36
+        value: decimalToInt(battery.input12V)
+        stepSize: decimalToInt(0.5)
+        onValueChanged: battery.setInput12V(value / decimalFactor)
     }
+
+
 
     Text {
         id: text2
@@ -122,14 +128,15 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox2
+    FloatSpinBox {
+        id: floatSpinBox2
         x: 238
         y: 259
         width: 94
         height: 36
-        value: battery.fanVoltage
-        onValueChanged: battery.setFanVoltage(value)
+        value: decimalToInt(battery.fanVoltage)
+        onValueChanged: battery.setFanVoltage(value/decimalFactor)
+        stepSize: decimalToInt(0.5)
     }
 
     Text {
@@ -140,14 +147,15 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox3
+    FloatSpinBox {
+        id: floatSpinBox3
         x: 338
         y: 259
         width: 94
         height: 36
-        value: battery.packCurrent
-        onValueChanged: battery.setPackCurrent(value)
+        value: decimalToInt(battery.packCurrent)
+        onValueChanged: battery.setPackCurrent(value/decimalFactor)
+        stepSize: decimalToInt(0.5)
     }
 
     Text {
@@ -158,14 +166,16 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox4
+    FloatSpinBox {
+        id: floatSpinBox4
         x: 438
         y: 259
         width: 94
         height: 36
-        value: battery.packVoltage
-        onValueChanged: battery.setPackVoltage(value)
+        editable: true
+        value: decimalToInt(battery.packVoltage)
+        onValueChanged: battery.setPackVoltage(value/decimalFactor)
+        stepSize: decimalToInt(0.5)
     }
 
     Text {
@@ -176,14 +186,16 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox5
+    FloatSpinBox {
+        id: floatSpinBox5
         x: 538
         y: 259
         width: 94
         height: 36
-        value: battery.packSoc
-        onValueChanged: battery.setPackSoc(value)
+        editable: true
+        value: decimalToInt(battery.packSoc)
+        onValueChanged: battery.setPackSoc(value/decimalFactor)
+        stepSize: decimalToInt(0.5)
     }
 
     Text {
@@ -194,14 +206,16 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox6
+    FloatSpinBox {
+        id: floatSpinBox6
         x: 638
         y: 259
         width: 94
         height: 36
-        value: battery.packAmphours
-        onValueChanged: battery.setPackAmphours(value)
+        editable: true
+        value: decimalToInt(battery.packAmphours)
+        onValueChanged: battery.setPackAmphours(value/decimalFactor)
+         stepSize: decimalToInt(0.5)
     }
 
     Text {
@@ -212,14 +226,14 @@ Item {
         font.pixelSize: 12
     }
 
-    SpinBox {
-        id: spinBox7
+    FloatSpinBox {
+        id: floatSpinBox7
         x: 42
         y: 326
         width: 94
         height: 36
-        value: battery.setPackDod
-        onValueChanged: battery.setPackDod(value)
+        value: decimalToInt(battery.setPackDod)
+        onValueChanged: battery.setPackDod(value/decimalFactor)
     }
 
     Text {
@@ -236,6 +250,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        to: 255
+        editable: true
         value: battery.highTemp
         onValueChanged: battery.setHighTemp(value)
     }
@@ -254,6 +270,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        to: 255
+        editable: true
         value: battery.highThermistorId
         onValueChanged: battery.setHighThermistorId(value)
     }
@@ -272,6 +290,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        to: 255
+        editable: true
         value: battery.lowTemp
         onValueChanged: battery.setLowTemp(value)
     }
@@ -290,6 +310,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        to: 255
+        editable: true
         value: battery.lowThermistorId
         onValueChanged: battery.setLowThermistorId(value)
     }
@@ -308,6 +330,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        to: 255
+        editable: true
         value: battery.avgTemp
         onValueChanged: battery.setAvgTemp(value)
     }
@@ -326,6 +350,8 @@ Item {
         y: 326
         width: 94
         height: 36
+        to: 255
+        editable: true
         value: battery.internalTemp
         onValueChanged: battery.setInternalTemp(value)
     }
@@ -344,6 +370,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        to: 255
+        editable: true
         value: battery.fanSpeed
         onValueChanged: battery.setFanSpeed(value)
     }
@@ -362,6 +390,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        to: 255
+        editable: true
         value: battery.reqFanSpeed
         onValueChanged: battery.setReqFanSpeed(value)
     }
@@ -380,6 +410,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        to: 65535
+        editable: true
         value: battery.lowCellVoltage
         onValueChanged: battery.setLowCellVoltage(value)
     }
@@ -398,6 +430,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        to: 255
+        editable: true
         value: battery.lowCellVoltageId
         onValueChanged: battery.setLowCellVoltageId(value)
     }
@@ -416,6 +450,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        to: 65535
+        editable: true
         value: battery.highCellVoltage
         onValueChanged: battery.setHighCellVoltage(value)
     }
@@ -434,6 +470,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        to: 255
+        editable: true
         value: battery.highCellVoltageId
         onValueChanged: battery.setHighCellVoltageId(value)
     }
@@ -452,6 +490,8 @@ Item {
         y: 394
         width: 94
         height: 36
+        to: 65535
+        editable: true
         value: battery.avgCellVoltage
         onValueChanged: battery.setAvgCellVoltage(value)
     }

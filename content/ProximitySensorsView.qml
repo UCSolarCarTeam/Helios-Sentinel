@@ -20,7 +20,8 @@ Item {
                 x: -102
                 y: -207
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: proximitySensors.proximitySensor1
                 onValueChanged: proximitySensors.setProximitySensor1(value)
             }
@@ -41,7 +42,8 @@ Item {
                 x: -102
                 y: -207
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: proximitySensors.proximitySensor1
                 onValueChanged: proximitySensors.setProximitySensor2(value)
             }
@@ -61,7 +63,8 @@ Item {
                 x: -102
                 y: -207
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: proximitySensors.proximitySensor3
                 onValueChanged: proximitySensors.setProximitySensor3(value)
             }
@@ -81,7 +84,8 @@ Item {
                 x: -102
                 y: -207
                 from: 0
-                to: 255
+                to: 65535
+                editable: true
                 value: proximitySensors.proximitySensor4
                 onValueChanged: proximitySensors.setProximitySensor4(value)
             }

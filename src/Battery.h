@@ -20,14 +20,14 @@ public:
     Q_PROPERTY(bool isChargingSignal READ isChargingSignal WRITE setIsChargingSignal NOTIFY isChargingSignalChanged FINAL)
 
     Q_PROPERTY(int populatedCells READ populatedCells WRITE setPopulatedCells NOTIFY populatedCellsChanged FINAL)
-    Q_PROPERTY(int input12V READ input12V WRITE setInput12V NOTIFY input12VChanged FINAL)
-    Q_PROPERTY(int fanVoltage READ fanVoltage WRITE setFanVoltage NOTIFY fanVoltageChanged FINAL)
-    Q_PROPERTY(int packCurrent READ packCurrent WRITE setPackCurrent NOTIFY packCurrentChanged FINAL)
-    Q_PROPERTY(int packVoltage READ packVoltage WRITE setPackVoltage NOTIFY packVoltageChanged FINAL)
-    Q_PROPERTY(int packSoc READ packSoc WRITE setPackSoc NOTIFY packSocChanged FINAL)
-    Q_PROPERTY(int packAmphours READ packAmphours WRITE setPackAmphours NOTIFY packAmphoursChanged FINAL)
+    Q_PROPERTY(float input12V READ input12V WRITE setInput12V NOTIFY input12VChanged FINAL)
+    Q_PROPERTY(float fanVoltage READ fanVoltage WRITE setFanVoltage NOTIFY fanVoltageChanged FINAL)
+    Q_PROPERTY(float packCurrent READ packCurrent WRITE setPackCurrent NOTIFY packCurrentChanged FINAL)
+    Q_PROPERTY(float packVoltage READ packVoltage WRITE setPackVoltage NOTIFY packVoltageChanged FINAL)
+    Q_PROPERTY(float packSoc READ packSoc WRITE setPackSoc NOTIFY packSocChanged FINAL)
+    Q_PROPERTY(float packAmphours READ packAmphours WRITE setPackAmphours NOTIFY packAmphoursChanged FINAL)
 
-    Q_PROPERTY(int packDod READ packDod WRITE setPackDod NOTIFY packDodChanged FINAL)
+    Q_PROPERTY(float packDod READ packDod WRITE setPackDod NOTIFY packDodChanged FINAL)
     Q_PROPERTY(int highTemp READ highTemp WRITE setHighTemp NOTIFY highTempChanged FINAL)
     Q_PROPERTY(int highThermistorId READ highThermistorId WRITE setHighThermistorId NOTIFY highThermistorIdChanged FINAL)
     Q_PROPERTY(int lowTemp READ lowTemp WRITE setLowTemp NOTIFY lowTempChanged FINAL)
@@ -57,14 +57,14 @@ public:
     bool isChargingSignal() const;
 
     int populatedCells() const;
-    int input12V() const;
-    int fanVoltage() const;
-    int packCurrent() const;
-    int packVoltage() const;
-    int packSoc() const;
-    int packAmphours() const;
+    float input12V() const;
+    float fanVoltage() const;
+    float packCurrent() const;
+    float packVoltage() const;
+    float packSoc() const;
+    float packAmphours() const;
 
-    int packDod() const;
+    float packDod() const;
     int highTemp() const;
     int highThermistorId() const;
     int lowTemp() const;
@@ -97,14 +97,14 @@ public slots:
     void setIsChargingSignal(bool on);
 
     void setPopulatedCells(int i);
-    void setInput12V(int i);
-    void setFanVoltage(int i);
-    void setPackCurrent(int i);
-    void setPackVoltage(int i);
-    void setPackSoc(int i);
-    void setPackAmphours(int i);
+    void setInput12V(float i);
+    void setFanVoltage(float i);
+    void setPackCurrent(float i);
+    void setPackVoltage(float i);
+    void setPackSoc(float i);
+    void setPackAmphours(float i);
 
-    void setPackDod(int i);
+    void setPackDod(float i);
     void setHighTemp(int i);
     void setHighThermistorId(int i);
     void setLowTemp(int i);
@@ -132,14 +132,14 @@ signals:
     void isChargingSignalChanged(bool on);
 
     void populatedCellsChanged(int i);
-    void input12VChanged(int i);
-    void fanVoltageChanged(int i);
-    void packCurrentChanged(int i);
-    void packVoltageChanged(int i);
-    void packSocChanged(int i);
-    void packAmphoursChanged(int i);
+    void input12VChanged(float i);
+    void fanVoltageChanged(float i);
+    void packCurrentChanged(float i);
+    void packVoltageChanged(float i);
+    void packSocChanged(float i);
+    void packAmphoursChanged(float i);
 
-    void packDodChanged(int i);
+    void packDodChanged(float i);
     void highTempChanged(int i);
     void highThermistorIdChanged(int i);
     void lowTempChanged(int i);
@@ -170,14 +170,14 @@ private:
     bool isChargingSignal_ = false;
 
     int populatedCells_ = 0;
-    int input12V_ = 0;
-    int fanVoltage_ = 0;
-    int packCurrent_ = 0;
-    int packVoltage_ = 0;
-    int packSoc_ = 0;
-    int packAmphours_ = 0;
+    float input12V_ = 0.0;
+    float fanVoltage_ = 0.0;
+    float packCurrent_ = 0;
+    float packVoltage_ = 0;
+    float packSoc_ = 0;
+    float packAmphours_ = 0;
 
-    int packDod_ = 0;
+    float packDod_ = 0;
     int highTemp_ = 0;
     int highThermistorId_ = 0;
     int lowTemp_ = 0;
