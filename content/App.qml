@@ -13,10 +13,6 @@ Window {
 
     Screen01 {
         id: mainScreen
-        Text {
-            id: label
-            text: qsTr("Hello ViscommTester")
-        }
     }
 
 }

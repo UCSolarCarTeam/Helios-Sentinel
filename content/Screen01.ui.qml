@@ -11,75 +11,15 @@ import QtQuick.Controls
 import ViscommTester
 import QtQuick.Studio.Components
 
-Rectangle {
-    id: rectangle
-    width: Constants.width
-    height: Constants.height
-    color: Constants.backgroundColor
-    z: -2
+Item {
+    id: screen
+    width: 575
+    height: 700
 
-    property bool isRowButtonSelected: false
-
-    Row {
-        id: row
-        x: 0
-        y: isRowButtonSelected ? 210 : 0
-        width: 870
-        height: 77
-
-        Button {
-            id: button
-            text: qsTr("Button")
-            background: Rectangle {
-                color: "lightgray"
-                radius: 0
-            }
-            onClicked: isRowButtonSelected = true
-        }
-
-        Button {
-            id: button1
-            text: qsTr("Button")
-            background: Rectangle {
-                color: "lightgray"
-                radius: 0
-            }
-            onClicked: isRowButtonSelected = false
-        }
-
-        Button {
-            id: button2
-            text: qsTr("Button")
-            background: Rectangle {
-                color: "lightgray"
-                radius: 0
-            }
-            onClicked: isRowButtonSelected = true
-        }
-    }
-
-    Row {
-        id: row1
-        x: 0
-        y: isRowButtonSelected ? 0 : 210
-        width: 870
-        height: 77
-        Button {
-            id: button3
-            text: qsTr("test")
-            onClicked: isRowButtonSelected = false
-        }
-
-        Button {
-            id: button4
-            text: qsTr("test3")
-            onClicked: isRowButtonSelected = false
-        }
-
-        Button {
-            id: button5
-            text: qsTr("test4")
-            onClicked: isRowButtonSelected = false
-        }
+    Loader {
+        id: toolWinLoader
+        source: "Window.qml"
+        anchors.top: parent.top
+        anchors.left: parent.left
     }
 }

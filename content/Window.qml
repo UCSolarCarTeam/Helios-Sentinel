@@ -1,14 +1,13 @@
 import QtQuick.Studio.Components
 import QtQuick 2.15
 
-Rectangle {
-    id: rectangle
+Item {
+    id: toolWin
     width: 575
     height: 700
-    color: "#00000000"
     z: -2
 
-    property int selectedButton: 0
+    property int selectedButton: 8
 
     Row {
         id: row
@@ -98,7 +97,9 @@ Rectangle {
     Loader {
         id: contentLoader
         y: 75
-        width: parent.width
+        x: 10
+        z:100
+        width: parent.width - 20
         sourceComponent: selectedButton === 0 ? keyMotorView :
                             selectedButton === 1 ? motorDetailsView :
                             selectedButton === 2 ? b3View :
