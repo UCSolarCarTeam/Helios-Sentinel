@@ -6,53 +6,50 @@ Item {
     width: 550
     height: 500
 
-    Text {
-        text: "Proximity Sensors Packet"
-        font.family: "Verdana"
-        font.bold: true
-    }
+    Column {
+            anchors.fill: parent
+            anchors.margins: 10
+            spacing: 20
 
-    IntSpinBox {
-        id: proximitySensor1
-        x: 0
-        y: 30
-        text: qsTr("Proximity Sensor 1")
-        value: proximitySensors.proximitySensor1
-        onValueChanged: proximitySensors.setProximitySensor1(value)
-    }
+            Text {
+                text: "Proximity Sensors Packet"
+                font.family: "Verdana"
+                font.bold: true
 
-    IntSpinBox {
-        id: proximitySensor2
-        x: 0
-        y: 70
-        text: qsTr("Proximity Sensor 2")
-        value: proximitySensors.proximitySensor2
-        onValueChanged: proximitySensors.setProximitySensor2(value)
-    }
+            }
 
-    IntSpinBox {
-        id: proximitySensor3
-        x: 0
-        y: 111
-        text: qsTr("Proximity Sensor 3")
-        value: proximitySensors.proximitySensor3
-        onValueChanged: proximitySensors.setProximitySensor3(value)
-    }
+            IntSpinBox {
+                id: proximitySensor1
+                text: qsTr("Proximity Sensor 1")
+                value: proximitySensors.proximitySensor1
+                onValueChanged: proximitySensors.setProximitySensor1(value)
+            }
 
-    IntSpinBox {
-        id: proximitySensor4
-        x: 0
-        y: 151
-        text: qsTr("Proximity Sensor 4")
-        value: proximitySensors.proximitySensor4
-        onValueChanged: proximitySensors.setProximitySensor4(value)
-    }
+            IntSpinBox {
+                id: proximitySensor2
+                text: qsTr("Proximity Sensor 2")
+                value: proximitySensors.proximitySensor2
+                onValueChanged: proximitySensors.setProximitySensor2(value)
+            }
 
-    BytePreview {
-        id: bytePreview
-        x: 0
-        y: 190
-        raw: proximitySensors.byteStreamStr
-        encoded: proximitySensors.encodedByteStreamStr
-    }
+            IntSpinBox {
+                id: proximitySensor3
+                text: qsTr("Proximity Sensor 3")
+                value: proximitySensors.proximitySensor3
+                onValueChanged: proximitySensors.setProximitySensor3(value)
+            }
+
+            IntSpinBox {
+                id: proximitySensor4
+                text: qsTr("Proximity Sensor 4")
+                value: proximitySensors.proximitySensor4
+                onValueChanged: proximitySensors.setProximitySensor4(value)
+            }
+
+            BytePreview {
+                id: bytePreview
+                raw: proximitySensors.byteStreamStr
+                encoded: proximitySensors.encodedByteStreamStr
+            }
+        }
 }

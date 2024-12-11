@@ -8,6 +8,8 @@ Window {
     width: mainScreen.width
     height: mainScreen.height
 
+    maximumWidth: 575
+
     visible: true
     title: "ViscommTester"
 
