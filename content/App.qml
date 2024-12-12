@@ -9,13 +9,13 @@ Window {
     height: mainScreen.height
 
     visible: true
-    title: "ViscommTester"
+    title: "Sentinel"
 
     Screen01 {
         id: mainScreen
         Text {
             id: label
-            text: qsTr("Hello ViscommTester")
+            text: qsTr("Hello Sentinel")
         }
     }
 
