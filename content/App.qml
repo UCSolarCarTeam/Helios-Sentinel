@@ -2,8 +2,7 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 
 import QtQuick 6.2
-import ViscommTester
-
+import SentinelModule
 Window {
     width: mainScreen.width
     height: mainScreen.height
