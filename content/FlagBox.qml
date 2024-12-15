@@ -43,9 +43,14 @@ Item {
                 CheckBox {
                     text: modelData.text
                     checked: modelData.checked
-                    onCheckedChanged: modelData.onClicked
                     height: 30
                     font.pointSize: 8
+                    onCheckedChanged: {
+                        modelData.checked = checked
+                        if (modelData.onClicked) {
+                            modelData.onClicked(checked)
+                        }
+                    }
                 }
             }
         }

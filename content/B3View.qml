@@ -107,17 +107,32 @@ Item {
                 ]
             }
 
-            IntSpinBox {
-                text: qsTr("Acceleration")
-                value: b3.acceleration
-                onValueChanged: b3.setAcceleration(value)
-            }
 
-            IntSpinBox {
-                text: qsTr("Regen Braking")
-                value: b3.regenBraking
-                onValueChanged: b3.setRegenBraking(value)
+            Row {
+                spacing: 20
+                Column{
+                    spacing: 20
+                    width: 245
+
+                    IntSpinBox {
+                        text: qsTr("Acceleration")
+                        value: b3.acceleration
+                        onValueChanged: b3.setAcceleration(value)
+                    }
+                }
+                Column{
+                    spacing: 20
+                    width: 245
+
+                    IntSpinBox {
+                            text: qsTr("Regen Braking")
+                            value: b3.regenBraking
+                            onValueChanged: b3.setRegenBraking(value)
+                        }
+                    }
             }
+            
+            
 
             FlagBox {
                 title: "Lights Output"
