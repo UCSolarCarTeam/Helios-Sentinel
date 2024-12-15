@@ -4,7 +4,7 @@ import QtQuick.Studio.Components 1.0
 
 Item {
     width: 550
-    height: 500
+    height: 350
 
     Column {
             anchors.fill: parent

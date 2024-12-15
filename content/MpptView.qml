@@ -4,7 +4,7 @@ import QtQuick.Controls 2.15
 Item {
     property var mppt : mppt0
     width: 550
-    height: 600
+    height: 475
 
     Column {
         anchors.fill: parent

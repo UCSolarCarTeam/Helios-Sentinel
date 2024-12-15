@@ -4,7 +4,7 @@ import QtQuick 2.15
 Item {
     id: toolWin
     width: 575
-    height: 700
+    height: 1000
     z: -2
 
     property int selectedButton: 8
@@ -189,7 +189,7 @@ Item {
         x: 0
         y: 68
         width: 575
-        height: 633
+        height: 932
         color: "#A9A9A9"
         border.color: "black"
         border.width: 2

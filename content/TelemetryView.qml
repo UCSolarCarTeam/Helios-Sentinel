@@ -3,11 +3,8 @@ import QtQuick.Controls 6.2
 import QtQuick.Studio.Components 1.0
 
 Item {
-    id: test123
-    x: 0
-    y: 0
     width: 550
-    height: 718
+    height: 575
 
     Column {
         anchors.fill: parent

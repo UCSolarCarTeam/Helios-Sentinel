@@ -3,7 +3,7 @@ import QtQuick.Controls 2.15
 
 Item {
     width: 550
-    height: 500
+    height: 450
 
     Column {
         anchors.fill: parent
