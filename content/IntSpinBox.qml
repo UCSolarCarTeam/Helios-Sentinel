@@ -4,6 +4,8 @@ import QtQuick.Controls
 Item {
     id: intSpinBox
     height: 25
+    anchors.right: parent.right
+    anchors.rightMargin: 0
 
     property alias text: text1.text
     property alias value: spinBox.value

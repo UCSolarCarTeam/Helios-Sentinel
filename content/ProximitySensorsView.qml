@@ -18,32 +18,36 @@ Item {
 
             }
 
-            IntSpinBox {
-                id: proximitySensor1
-                text: qsTr("Proximity Sensor 1")
-                value: proximitySensors.proximitySensor1
-                onValueChanged: proximitySensors.setProximitySensor1(value)
-            }
+            Column {
+                spacing: 20
 
-            IntSpinBox {
-                id: proximitySensor2
-                text: qsTr("Proximity Sensor 2")
-                value: proximitySensors.proximitySensor2
-                onValueChanged: proximitySensors.setProximitySensor2(value)
-            }
+                IntSpinBox {
+                    id: proximitySensor1
+                    text: qsTr("Proximity Sensor 1")
+                    value: proximitySensors.proximitySensor1
+                    onValueChanged: proximitySensors.setProximitySensor1(value)
+                }
 
-            IntSpinBox {
-                id: proximitySensor3
-                text: qsTr("Proximity Sensor 3")
-                value: proximitySensors.proximitySensor3
-                onValueChanged: proximitySensors.setProximitySensor3(value)
-            }
+                IntSpinBox {
+                    id: proximitySensor2
+                    text: qsTr("Proximity Sensor 2")
+                    value: proximitySensors.proximitySensor2
+                    onValueChanged: proximitySensors.setProximitySensor2(value)
+                }
 
-            IntSpinBox {
-                id: proximitySensor4
-                text: qsTr("Proximity Sensor 4")
-                value: proximitySensors.proximitySensor4
-                onValueChanged: proximitySensors.setProximitySensor4(value)
+                IntSpinBox {
+                    id: proximitySensor3
+                    text: qsTr("Proximity Sensor 3")
+                    value: proximitySensors.proximitySensor3
+                    onValueChanged: proximitySensors.setProximitySensor3(value)
+                }
+
+                IntSpinBox {
+                    id: proximitySensor4
+                    text: qsTr("Proximity Sensor 4")
+                    value: proximitySensors.proximitySensor4
+                    onValueChanged: proximitySensors.setProximitySensor4(value)
+                }
             }
 
             BytePreview {

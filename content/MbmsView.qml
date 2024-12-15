@@ -4,13 +4,11 @@ import QtQuick.Studio.Components 1.0
 
 
 Item {
-    Rectangle {
         id: rectangle
         x: 0
         y: 0
         width: 818
         height: 691
-        color: "#74cced"
 
         GroupItem {
             x: 72
@@ -502,5 +500,4 @@ Item {
             text: qsTr("Encoded ByteStream: " + mbms.encodedByteStreamStr)
             font.pixelSize: 12
         }
-    }
 }

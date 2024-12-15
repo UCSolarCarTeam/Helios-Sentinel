@@ -3,7 +3,7 @@ import QtQuick.Controls
 
 Rectangle {
     id: root
-    width: 550
+    width: 530
     height: 100
     color: "lightgrey"
     border.width: 1.5
