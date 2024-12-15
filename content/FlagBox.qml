@@ -3,7 +3,7 @@ import QtQuick.Controls
 
 Item {
     id: root
-    width: 550
+    width: 530
     height: 125
 
     property string title: "PLACEHOLDER"

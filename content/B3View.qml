@@ -8,6 +8,8 @@ Item {
     height: 480
     
     Column {
+        anchors.fill: parent
+        anchors.margins: 10
         spacing: 20
 
         Text {
