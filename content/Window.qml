@@ -92,6 +92,25 @@ Item {
             isSelected: selectedButton === 9
             onClicked: selectedButton = 9
         }
+        Rectangle{
+            width: 2
+            height: 33
+            color: "transparent"
+        }
+
+        Rectangle {
+            width: 36
+            height: 34
+            color: "black"
+            radius: 10
+            Image {
+                source: "images/solarCarLogo.png"
+                anchors.verticalCenterOffset: 1
+                anchors.centerIn: parent
+                width: 21
+                height: 25
+            }
+        }
     }
 
     Loader {
