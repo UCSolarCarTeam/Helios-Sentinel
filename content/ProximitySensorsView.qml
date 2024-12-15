@@ -15,7 +15,6 @@ Item {
                 text: "Proximity Sensors Packet"
                 font.family: "Verdana"
                 font.bold: true
-
             }
 
             Column {
