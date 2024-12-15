@@ -4,8 +4,6 @@ import QtQuick.Studio.Components 1.0
 
 
 Item {
-    property var motorDetails0
-    property var motorDetails1
     property var motorDetails : motorDetails0
     width: 550
     height: 620
