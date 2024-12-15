@@ -28,5 +28,5 @@ qt6_add_qml_module(content
         QML_FILES MbmsView.qml
         QML_FILES TelemetryView.qml
         QML_FILES FloatSpinBox.qml
-        QML_FILES BytePreview.qml IntSpinBox.qml TabBtn.qml Window.qml
+        QML_FILES BytePreview.qml IntSpinBox.qml TabBtn.qml Window.qml FlagBox.qml
 )

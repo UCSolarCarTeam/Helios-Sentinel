@@ -25,7 +25,6 @@ Rectangle {
         text: qsTr("PLACEHOLDER 1234134214124124")
         font.pixelSize: 12
         elide: Text.ElideRight
-        ToolTip.visible: hovered
         ToolTip.text: text
     }
 
@@ -43,7 +42,6 @@ Rectangle {
         text: qsTr("PLACEHOLDER !@#$!@#%#@$@#$@#")
         font.pixelSize: 12
         elide: Text.ElideRight
-        ToolTip.visible: hovered
         ToolTip.text: text
     }
 }
