@@ -42,8 +42,8 @@ int main(int argc, char *argv[])
 
     MotorDetails m0(0);
     MotorDetails m1(1);
-    engine.rootContext()->setContextProperty("motor0", &m0);
-    engine.rootContext()->setContextProperty("motor1", &m1);
+    engine.rootContext()->setContextProperty("motorDetails0", &m0);
+    engine.rootContext()->setContextProperty("motorDetails1", &m1);
 
     B3 b3;
     engine.rootContext()->setContextProperty("b3", &b3);

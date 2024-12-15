@@ -8,15 +8,13 @@ Window {
     width: mainScreen.width
     height: mainScreen.height
 
+    maximumWidth: 575
+
     visible: true
     title: "ViscommTester"
 
     Screen01 {
         id: mainScreen
-        Text {
-            id: label
-            text: qsTr("Hello ViscommTester")
-        }
     }
 
 }
