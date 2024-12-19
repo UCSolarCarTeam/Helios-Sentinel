@@ -4,7 +4,6 @@
 import QtQuick 6.2
 import SentinelModule
 
-
 Window {
     width: mainScreen.width
     height: mainScreen.height
