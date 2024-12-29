@@ -3,8 +3,7 @@
 
 #include <QObject>
 
-class MotorDetails : public QObject
-{
+class MotorDetails : public QObject {
     Q_OBJECT
 
     Q_PROPERTY(short controlValue READ controlValue WRITE setControlValue NOTIFY controlValueChanged FINAL)
@@ -19,7 +18,7 @@ class MotorDetails : public QObject
     Q_PROPERTY(char motorTemperature READ motorTemperature WRITE setMotorTemperature NOTIFY motorTemperatureChanged FINAL)
     Q_PROPERTY(short inverterPeakCurrent READ inverterPeakCurrent WRITE setInverterPeakCurrent NOTIFY inverterPeakCurrentChanged FINAL)
     Q_PROPERTY(short currentMotorPower READ currentMotorPower WRITE setCurrentMotorPower NOTIFY currentMotorPowerChanged FINAL)
-    Q_PROPERTY(unsigned short absuluteAngle READ absuluteAngle WRITE setAbsuluteAngle NOTIFY absuluteAngleChanged FINAL)
+    Q_PROPERTY(unsigned short absoluteAngle READ absoluteAngle WRITE setAbsoluteAngle NOTIFY absoluteAngleChanged FINAL)
 
     Q_PROPERTY(bool motorAboutToStall READ motorAboutToStall WRITE setMotorAboutToStall NOTIFY motorAboutToStallChanged FINAL)
     Q_PROPERTY(bool delayInReadingTempSensor READ delayInReadingTempSensor WRITE setDelayInReadingTempSensor NOTIFY delayInReadingTempSensorChanged FINAL)
@@ -113,7 +112,7 @@ public:
     char motorTemperature() const { return motorTemperature_; }
     short inverterPeakCurrent() const { return inverterPeakCurrent_; }
     short currentMotorPower() const { return currentMotorPower_; }
-    unsigned short absuluteAngle() const { return absuluteAngle_; }
+    unsigned short absoluteAngle() const { return absoluteAngle_; }
     bool motorAboutToStall() const { return motorAboutToStall_; }
     bool delayInReadingTempSensor() const { return delayInReadingTempSensor_; }
     bool delayInReadingPosSensor() const { return delayInReadingPosSensor_; }
@@ -207,7 +206,7 @@ public slots:
     void setMotorTemperature(char temperature);
     void setInverterPeakCurrent(short current);
     void setCurrentMotorPower(short power);
-    void setAbsuluteAngle(unsigned short angle);
+    void setAbsoluteAngle(unsigned short angle);
     void setMotorAboutToStall(bool stall);
     void setDelayInReadingTempSensor(bool delay);
     void setDelayInReadingPosSensor(bool delay);
@@ -295,7 +294,7 @@ signals:
     void motorTemperatureChanged();
     void inverterPeakCurrentChanged();
     void currentMotorPowerChanged();
-    void absuluteAngleChanged();
+    void absoluteAngleChanged();
     void motorAboutToStallChanged();
     void delayInReadingTempSensorChanged();
     void delayInReadingPosSensorChanged();
@@ -375,92 +374,92 @@ signals:
     void encodedByteStreamStrChanged();
 
 private:
-    short controlValue_;
-    bool controlMode_;
-    bool motorMode_;
-    bool softwareEnable_;
-    bool debugMode_;
-    short currentMotorTorque_;
-    short currentRpmValue_;
-    char motorTemperature_;
-    short inverterPeakCurrent_;
-    short currentMotorPower_;
-    unsigned short absuluteAngle_;
-    bool motorAboutToStall_;
-    bool delayInReadingTempSensor_;
-    bool delayInReadingPosSensor_;
-    bool inverter1TempVeryHigh_;
-    bool inverter2TempVeryHigh_;
-    bool inverter3TempVeryHigh_;
-    bool inverter4TempVeryHigh_;
-    bool inverter5TempVeryHigh_;
-    bool inverter6TempVeryHigh_;
-    bool cpuTemperatureVeryHigh_;
-    bool hallTemperatureVeryHigh_;
-    bool dclinkTemperatureVeryHigh_;
-    bool delayInDclinkCommunication_;
-    bool inverter1OverCurrentWarning_;
-    bool inverter2OverCurrentWarning_;
-    bool inverter3OverCurrentWarning_;
-    bool inverter4OverCurrentWarning_;
-    bool inverter5OverCurrentWarning_;
-    bool inverter6OverCurrentWarning_;
-    bool dcOvervoltageWarning_;
-    bool dcUndervoltageWarning_;
-    bool canCommsTimeout_;
-    bool inverter1faultWarning_;
-    bool inverter2faultWarning_;
-    bool inverter3faultWarning_;
-    bool inverter4faultWarning_;
-    bool inverter5faultWarning_;
-    bool inverter6faultWarning_;
-    bool canSendWarning_;
-    bool lostFramesOnCanBusWarning_;
-    bool overspeedWarning_;
-    bool cpuOverload_;
-    bool torqueLimited_;
-    bool startAtHighRpm_;
-    bool initError_;
-    bool settingsNotFound_;
-    bool motorStalled_;
-    bool controllerDataReadingTimeout_;
-    bool invalidHallSensorSequence_;
-    bool invalidHallSector_;
-    bool errorReadingTempSensor_;
-    bool positionSensorReadingError_;
-    bool errorReadingEncoder_;
-    bool zeroPositionOffsetNotSet_;
-    bool hwEnableNotSet_;
-    bool inverter1TempTooHigh_;
-    bool inverter2TempTooHigh_;
-    bool inverter3TempTooHigh_;
-    bool inverter4TempTooHigh_;
-    bool inverter5TempTooHigh_;
-    bool inverter6TempTooHigh_;
-    bool cpuTemperatureTooHigh_;
-    bool hallTemperatureTooHigh_;
-    bool dclinkTemperatureTooHigh_;
-    bool errorInDclinkCommunication_;
-    bool inverter1OvercurrentError_;
-    bool inverter2OvercurrentError_;
-    bool inverter3OvercurrentError_;
-    bool inverter4OvercurrentError_;
-    bool inverter5OvercurrentError_;
-    bool inverter6OvercurrentError_;
-    bool dcOvervoltageError_;
-    bool dcUndervoltageError_;
-    bool doubleCanIdOnBus_;
-    bool canCommsTimeoutError_;
-    bool inverter1FaultError_;
-    bool inverter2FaultError_;
-    bool inverter3FaultError_;
-    bool inverter4FaultError_;
-    bool inverter5FaultError_;
-    bool inverter6FaultError_;
-    bool canSendError_;
-    bool lostFramesOnCanBusError_;
-    bool overspeedError_;
-    bool cpuOverloaded_;
+    short controlValue_ = 0;
+    bool controlMode_ = false;
+    bool motorMode_ = false;
+    bool softwareEnable_ = false;
+    bool debugMode_ = false;
+    short currentMotorTorque_ = 0;
+    short currentRpmValue_ = 0;
+    char motorTemperature_ = 0;
+    short inverterPeakCurrent_ = 0;
+    short currentMotorPower_ = 0;
+    unsigned short absoluteAngle_ = 0;
+    bool motorAboutToStall_ = false;
+    bool delayInReadingTempSensor_ = false;
+    bool delayInReadingPosSensor_ = false;
+    bool inverter1TempVeryHigh_ = false;
+    bool inverter2TempVeryHigh_ = false;
+    bool inverter3TempVeryHigh_ = false;
+    bool inverter4TempVeryHigh_ = false;
+    bool inverter5TempVeryHigh_ = false;
+    bool inverter6TempVeryHigh_ = false;
+    bool cpuTemperatureVeryHigh_ = false;
+    bool hallTemperatureVeryHigh_ = false;
+    bool dclinkTemperatureVeryHigh_ = false;
+    bool delayInDclinkCommunication_ = false;
+    bool inverter1OverCurrentWarning_ = false;
+    bool inverter2OverCurrentWarning_ = false;
+    bool inverter3OverCurrentWarning_ = false;
+    bool inverter4OverCurrentWarning_ = false;
+    bool inverter5OverCurrentWarning_ = false;
+    bool inverter6OverCurrentWarning_ = false;
+    bool dcOvervoltageWarning_ = false;
+    bool dcUndervoltageWarning_ = false;
+    bool canCommsTimeout_ = false;
+    bool inverter1faultWarning_ = false;
+    bool inverter2faultWarning_ = false;
+    bool inverter3faultWarning_ = false;
+    bool inverter4faultWarning_ = false;
+    bool inverter5faultWarning_ = false;
+    bool inverter6faultWarning_ = false;
+    bool canSendWarning_ = false;
+    bool lostFramesOnCanBusWarning_ = false;
+    bool overspeedWarning_ = false;
+    bool cpuOverload_ = false;
+    bool torqueLimited_ = false;
+    bool startAtHighRpm_ = false;
+    bool initError_ = false;
+    bool settingsNotFound_ = false;
+    bool motorStalled_ = false;
+    bool controllerDataReadingTimeout_ = false;
+    bool invalidHallSensorSequence_ = false;
+    bool invalidHallSector_ = false;
+    bool errorReadingTempSensor_ = false;
+    bool positionSensorReadingError_ = false;
+    bool errorReadingEncoder_ = false;
+    bool zeroPositionOffsetNotSet_ = false;
+    bool hwEnableNotSet_ = false;
+    bool inverter1TempTooHigh_ = false;
+    bool inverter2TempTooHigh_ = false;
+    bool inverter3TempTooHigh_ = false;
+    bool inverter4TempTooHigh_ = false;
+    bool inverter5TempTooHigh_ = false;
+    bool inverter6TempTooHigh_ = false;
+    bool cpuTemperatureTooHigh_ = false;
+    bool hallTemperatureTooHigh_ = false;
+    bool dclinkTemperatureTooHigh_ = false;
+    bool errorInDclinkCommunication_ = false;
+    bool inverter1OvercurrentError_ = false;
+    bool inverter2OvercurrentError_ = false;
+    bool inverter3OvercurrentError_ = false;
+    bool inverter4OvercurrentError_ = false;
+    bool inverter5OvercurrentError_ = false;
+    bool inverter6OvercurrentError_ = false;
+    bool dcOvervoltageError_ = false;
+    bool dcUndervoltageError_ = false;
+    bool doubleCanIdOnBus_ = false;
+    bool canCommsTimeoutError_ = false;
+    bool inverter1FaultError_ = false;
+    bool inverter2FaultError_ = false;
+    bool inverter3FaultError_ = false;
+    bool inverter4FaultError_ = false;
+    bool inverter5FaultError_ = false;
+    bool inverter6FaultError_ = false;
+    bool canSendError_ = false;
+    bool lostFramesOnCanBusError_ = false;
+    bool overspeedError_ = false;
+    bool cpuOverloaded_ = false;
 
     QByteArray byteStream_;
     QByteArray encodedByteStream_;
