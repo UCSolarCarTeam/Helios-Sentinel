@@ -1,6 +1,6 @@
 build*
 *.user*
-
+logs/
 # Windows-specific files
 Thumbs.db
 desktop.ini
