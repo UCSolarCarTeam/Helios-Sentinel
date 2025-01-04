@@ -1,14 +1,5 @@
-*.pro.*
-*.autosave
-Makefile*
-*.o
 build*
 *.user*
-
-# Generated MOC, resource and UI files
-moc_*
-qrc_*
-ui_*
 
 # Windows-specific files
 Thumbs.db
