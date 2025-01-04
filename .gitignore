@@ -2,14 +2,26 @@
 *.autosave
 Makefile*
 *.o
-moc_*
-.tags*
 build*
 *.user*
-*.orig
-logs/
-src/Tests/target_wrapper.sh
-.qmake.stash
-*.gch
-.fuse_hidden*
 
+# Generated MOC, resource and UI files
+moc_*
+qrc_*
+ui_*
+
+# Windows-specific files
+Thumbs.db
+desktop.ini
+# Mac-specific 
+.DS_Store
+
+# QML auto generated
+*.db
+*.db-*
+*.cflags
+*.creator
+*.cxxflags
+*.files
+*.includes
+*.qtds
