@@ -1,15 +1,18 @@
-*.pro.*
-*.autosave
-Makefile*
-*.o
-moc_*
-.tags*
 build*
 *.user*
-*.orig
 logs/
-src/Tests/target_wrapper.sh
-.qmake.stash
-*.gch
-.fuse_hidden*
+# Windows-specific files
+Thumbs.db
+desktop.ini
+# Mac-specific 
+.DS_Store
 
+# QML auto generated
+*.db
+*.db-*
+*.cflags
+*.creator
+*.cxxflags
+*.files
+*.includes
+*.qtds
