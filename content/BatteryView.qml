@@ -22,8 +22,8 @@ Item {
             Switch {
                 id: switch1
                 text: qsTr("BMU Alive")
-                checked: battery.alive
-                onClicked: battery.setAlive(checked)
+                checked: battery.bmuAlive
+                onClicked: battery.setBmuAlive(checked)
             }
 
             FlagBox {
@@ -85,46 +85,46 @@ Item {
                         onValueChanged: battery.setPopulatedCells(value)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("12V Input")
-                        value: battery.input12V
-                        onValueChanged: battery.setInput12V(value)
+                        inputValue: battery.input12V
+                        onInputValueUpdated: battery.setInput12V(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Fan Voltage")
-                        value: battery.fanVoltage
-                        onValueChanged: battery.setFanVoltage(value)
+                        inputValue: battery.fanVoltage
+                        onInputValueChanged: battery.setFanVoltage(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Pack Current")
-                        value: battery.packCurrent
-                        onValueChanged: battery.setPackCurrent(value)
+                        inputValue: battery.packCurrent
+                        onInputValueChanged: battery.setPackCurrent(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Pack Voltage")
-                        value: battery.packVoltage
-                        onValueChanged: battery.setPackVoltage(value)
+                        inputValue: battery.packVoltage
+                        onInputValueChanged: battery.setPackVoltage(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Pack SOC")
-                        value: battery.packSoc
-                        onValueChanged: battery.setPackSoc(value)
+                        inputValue: battery.packSoc
+                        onInputValueChanged: battery.setPackSoc(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Pack Amphours")
-                        value: battery.packAmphours
-                        onValueChanged: battery.setPackAmphours(value)
+                        inputValue: battery.packAmphours
+                        onInputValueChanged: battery.setPackAmphours(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Pack DOD")
-                        value: battery.packDod
-                        onValueChanged: battery.setPackDod(value)
+                        inputValue: battery.packDod
+                        onInputValueChanged: battery.setPackDod(inputValue)
                     }
 
                     IntSpinBox {

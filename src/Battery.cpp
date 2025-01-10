@@ -1,6 +1,8 @@
 #include "Battery.h"
 #include "util.h"
 
+#include <QDebug>
+
 Battery::Battery(QObject *parent)
     : QObject{parent}
 {
@@ -51,6 +53,7 @@ int Battery::populatedCells() const{
 }
 
 float Battery::input12V() const{
+    qDebug() << "GETTING" << input12V_;
     return input12V_;
 }
 
@@ -207,6 +210,7 @@ void Battery::setPopulatedCells(int i){
 }
 
 void Battery::setInput12V(float i){
+    qDebug() << "CAHNTGEd" << i;
     QByteArray in = Util::formatFloat(i);
     byteStream_.replace(5, 4, in);
     input12V_ = i;
@@ -235,7 +239,7 @@ void Battery::setPackVoltage(float i){
 }
 
 void Battery::setPackSoc(float i){
-    QByteArray in = Util::formatInt(i, 4);
+    QByteArray in = Util::formatFloat(i);
     byteStream_.replace(21, 4, in);
     packSoc_ = i;
     updateByteStream();
