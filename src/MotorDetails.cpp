@@ -84,14 +84,14 @@ namespace {
     const short DOUBLE_CAN_ID_ON_BUS_MASK = 0x0020;
     const short CAN_COMMS_TIMEOUT_ERROR_MASK = 0x0040;
     const short INVERTER_1_FAULT_ERROR_MASK = 0x0080;
-    const short INVERTER_2_FAULT_ERROR_MASK = 0x0100;
-    const short INVERTER_3_FAULT_ERROR_MASK = 0x0200;
-    const short INVERTER_4_FAULT_ERROR_MASK = 0x0400;
-    const short INVERTER_5_FAULT_ERROR_MASK = 0x0800;
-    const short INVERTER_6_FAULT_ERROR_MASK = 0x1000;
-    const short CAN_SEND_ERROR_MASK = 0x2000;
-    const short LOST_FRAMES_ON_CAN_BUS_ERROR_MASK = 0x4000;
-    const short OVERSPEED_ERROR_MASK = 0x8000;
+    const short INVERTER_2_FAULT_ERROR_MASK = 0x0001;
+    const short INVERTER_3_FAULT_ERROR_MASK = 0x0002;
+    const short INVERTER_4_FAULT_ERROR_MASK = 0x0004;
+    const short INVERTER_5_FAULT_ERROR_MASK = 0x0008;
+    const short INVERTER_6_FAULT_ERROR_MASK = 0x0010;
+    const short CAN_SEND_ERROR_MASK = 0x0020;
+    const short LOST_FRAMES_ON_CAN_BUS_ERROR_MASK = 0x0040;
+    const short OVERSPEED_ERROR_MASK = 0x0080;
 
     const char CPU_OVERLOADED_MASK = 0x01;
 }
@@ -665,7 +665,6 @@ void MotorDetails::setInverter1FaultError(bool on) {
     updateByteStream();
 }
 
-// Flags at offset 32 not properly being set in Mercury
 void MotorDetails::setInverter2FaultError(bool on) {
     byteStream_[32] = on ? (byteStream_[32] | INVERTER_2_FAULT_ERROR_MASK)
                            : (byteStream_[32] & ~INVERTER_2_FAULT_ERROR_MASK);
