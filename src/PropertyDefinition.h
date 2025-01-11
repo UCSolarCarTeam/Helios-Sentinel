@@ -19,7 +19,7 @@
 */
 #define DEFINE_PROPERTY(type, name) \
 Q_SIGNALS:\
-    void name##Changed(bool on);\
+    void name##Changed(type on);\
 private:\
     type name##_; \
 \
