@@ -19,13 +19,14 @@
 */
 #define DEFINE_PROPERTY(type, name) \
 Q_SIGNALS:\
-    void RightSignalInChanged(bool on);\
+    void name##Changed(bool on);\
 private:\
     type name##_; \
 \
 public Q_SLOTS: \
     void set##name(type on); \
 public: \
+type name() const; \
 Q_PROPERTY(bool name READ name WRITE set##name NOTIFY name##Changed); \
 
 
