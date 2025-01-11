@@ -23,7 +23,7 @@ Item {
                 id: switch1
                 text: qsTr("BMU Alive")
                 checked: battery.alive
-                onClicked: battery.setAlive(checked)
+                onClicked: battery.setBmuAlive(checked)
             }
 
             FlagBox {
