@@ -683,12 +683,14 @@ void MotorDetails::setInverter3FaultError(bool on) {
 void MotorDetails::setInverter4FaultError(bool on) {
     byteStream_[32] = on ? (byteStream_[32] | INVERTER_4_FAULT_ERROR_MASK)
                            : (byteStream_[32] & ~INVERTER_4_FAULT_ERROR_MASK);
+    inverter4FaultError_ = on;
     updateByteStream();
 }
 
 void MotorDetails::setInverter5FaultError(bool on) {
     byteStream_[32] = on ? (byteStream_[32] | INVERTER_5_FAULT_ERROR_MASK)
                            : (byteStream_[32] & ~INVERTER_5_FAULT_ERROR_MASK);
+    inverter5FaultError_ = on;
     updateByteStream();
 }
 
