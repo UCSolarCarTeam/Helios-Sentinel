@@ -5,10 +5,10 @@
 #include <QDebug>
 
 namespace {
-    const char CONTROL_on_MASK = 0x01;
-    const char MOTOR_on_MASK = 0x02;
+    const char CONTROL_ON_MASK = 0x01;
+    const char MOTOR_ON_MASK = 0x02;
     const char SOFTWARE_ENABLE_MASK = 0x04;
-    const char DEBUG_on_MASK = 0x08;
+    const char DEBUG_ON_MASK = 0x08;
 
     const short MOTOR_ABOUT_TO_STALL_MASK = 0x0001;
     const short DELAY_IN_READING_TEMP_SENSOR_MASK = 0x0002;
@@ -135,15 +135,15 @@ void MotorDetails::setControlValue(short controlValue) {
 }
 
 void MotorDetails::setControlMode(bool mode) {
-    byteStream_[4] = mode ? (byteStream_[4] | CONTROL_on_MASK)
-                          : (byteStream_[4] & ~CONTROL_on_MASK);
+    byteStream_[4] = mode ? (byteStream_[4] | CONTROL_ON_MASK)
+                          : (byteStream_[4] & ~CONTROL_ON_MASK);
     controlMode_ = mode;
     updateByteStream();
 }
 
 void MotorDetails::setMotorMode(bool mode) {
-    byteStream_[4] = mode ? (byteStream_[4] | MOTOR_on_MASK)
-                          : (byteStream_[4] & ~MOTOR_on_MASK);
+    byteStream_[4] = mode ? (byteStream_[4] | MOTOR_ON_MASK)
+                          : (byteStream_[4] & ~MOTOR_ON_MASK);
     motorMode_ = mode;
     updateByteStream();
 }
@@ -156,8 +156,8 @@ void MotorDetails::setSoftwareEnable(bool enable) {
 }
 
 void MotorDetails::setDebugMode(bool mode) {
-    byteStream_[4] = mode ? (byteStream_[4] | DEBUG_on_MASK)
-                          : (byteStream_[4] & ~DEBUG_on_MASK);
+    byteStream_[4] = mode ? (byteStream_[4] | DEBUG_ON_MASK)
+                          : (byteStream_[4] & ~DEBUG_ON_MASK);
     debugMode_ = mode;
     updateByteStream();
 }
