@@ -135,15 +135,15 @@ void MotorDetails::setControlValue(short controlValue) {
 }
 
 void MotorDetails::setControlMode(bool mode) {
-    byteStream_[4] = mode ? (byteStream_[4] | CONTROL_ON_MASK)
-                          : (byteStream_[4] & ~CONTROL_ON_MASK);
+    byteStream_[4] = mode ? (byteStream_[4] | CONTROL_MODE_MASK)
+                          : (byteStream_[4] & ~CONTROL_MODE_MASK);
     controlMode_ = mode;
     updateByteStream();
 }
 
 void MotorDetails::setMotorMode(bool mode) {
-    byteStream_[4] = mode ? (byteStream_[4] | MOTOR_ON_MASK)
-                          : (byteStream_[4] & ~MOTOR_ON_MASK);
+    byteStream_[4] = mode ? (byteStream_[4] | MOTOR_MODE_MASK)
+                          : (byteStream_[4] & ~MOTOR_MODE_MASK);
     motorMode_ = mode;
     updateByteStream();
 }
@@ -156,8 +156,8 @@ void MotorDetails::setSoftwareEnable(bool enable) {
 }
 
 void MotorDetails::setDebugMode(bool mode) {
-    byteStream_[4] = mode ? (byteStream_[4] | DEBUG_ON_MASK)
-                          : (byteStream_[4] & ~DEBUG_ON_MASK);
+    byteStream_[4] = mode ? (byteStream_[4] | DEBUG_MODE_MASK)
+                          : (byteStream_[4] & ~DEBUG_MODE_MASK);
     debugMode_ = mode;
     updateByteStream();
 }
