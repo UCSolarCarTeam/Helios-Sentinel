@@ -32,7 +32,7 @@ Item {
             Switch {
                 id: switch1
                 text: qsTr("Is Alive")
-                checked: mppt.alive
+                checked: mppt.Alive
                 onClicked: mppt.setAlive(checked)
             }
 

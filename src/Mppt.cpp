@@ -12,25 +12,6 @@ Mppt::Mppt(int channel, QObject *parent)
     updateByteStream();
 }
 
-bool Mppt::alive() const{
-    return alive_;
-}
-
-int Mppt::arrayVoltage() const{
-    return arrayVoltage_;
-}
-
-int Mppt::arrayCurrent() const{
-    return arrayCurrent_;
-}
-
-int Mppt::batteryVoltage() const{
-    return batteryVoltage_;
-}
-
-int Mppt::temp() const{
-    return temp_;
-}
 
 QByteArray Mppt::byteStream() const{
     return byteStream_;
@@ -48,39 +29,6 @@ QString Mppt::encodedByteStreamStr() const{
     return QString(encodedByteStream_.toHex(' '));
 }
 
-void Mppt::setAlive(bool on){
-    byteStream_[2] += on ? 0x80 : -0x80;
-    alive_ = on;
-    updateByteStream();
-}
-
-void Mppt::setArrayVoltage(int i){
-    QByteArray in = Util::formatInt(i, 2);
-    byteStream_.replace(3, 2, in);
-    arrayVoltage_ = i;
-    updateByteStream();
-}
-
-void Mppt::setArrayCurrent(int i){
-    QByteArray in = Util::formatInt(i, 2);
-    byteStream_.replace(5, 2, in);
-    arrayCurrent_ = i;
-    updateByteStream();
-}
-
-void Mppt::setBatteryVoltage(int i){
-    QByteArray in = Util::formatInt(i, 2);
-    byteStream_.replace(7, 2, in);
-    batteryVoltage_ = i;
-    updateByteStream();
-}
-
-void Mppt::setTemp(int i){
-    QByteArray in = Util::formatInt(i, 2);
-    byteStream_.replace(9, 2, in);
-    temp_ = i;
-    updateByteStream();
-}
 
 void Mppt::updateByteStream(){
     QByteArray checksum = Util::generateChecksum(byteStream_, 1, 10);
