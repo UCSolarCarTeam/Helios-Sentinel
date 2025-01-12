@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     /*************************************************
         SET PORT HERE
     */
-    SerialPortForwarder forwarder("/dev/pts/3");
+    SerialPortForwarder forwarder("/dev/ttys002");
 
     /*************************************************/
 

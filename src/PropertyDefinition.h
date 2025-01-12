@@ -4,20 +4,20 @@
 #include "util.h"
 
 /**
- *  Defines Boolean,Int (Unsigned Int),Float  Packet Attribute Properties for linking to qml
- *  Creates Q_PROPERY with getter, setter, and signal, as well as the
- *  private class var (type name_)
+ * Defines Boolean Packet Attribute Properties for linking of qml
+ * Creates Q_PROPERTY with getter,setter, and signal.
  *
- *  Defines:
- *  public getter Name()
- *  public setter setName(type)
- *  private var Name_
- *  public slot: void setName(type i)
- *  signals: void NameChanged(type i
+ * Parameters:
+ * name - The name of the property. This will be used to generate the getter, setter, and signal names.
+ * position - The index of the byte in byteStream_ where the property’s value is stored.
+ * offset - value used to locate the position within the byte.
  *
- *  Note that name should be capilized in current state to follow
- *  best naming conventions
-*/
+ * Defines:
+ * public getter = name() which returns the current value of the private member variable
+ * public setter setName(bool on) which updates the specific bit in byteStream_ at the given position using the offset
+ * private bool name_ with default value of false
+ *
+**/
 
 #define DEFINE_PROPERTY_BOOL(name, position, offset) \
 Q_SIGNALS:\
@@ -35,6 +35,24 @@ public: \
 Q_PROPERTY(bool name READ name WRITE set##name NOTIFY name##Changed);\
 bool name() const {return name##_;}
 
+/**
+ * Defines Boolean Packet Attribute Properties for linking of qml
+ * Creates Q_PROPERTY with getter,setter, and signal.
+ *
+ * Differs from DEFINE_PROPERTY_BOOL in that it has specific Mask
+ * constant needed to be passed in.
+ *
+ * Parameters:
+ * name - The name of the property. This will be used to generate the getter, setter, and signal names.
+ * position - The index of the byte in byteStream_ where the property’s value is stored.
+ * mask - A bitmask constant (e.g., CONTROL_MODE_MASK) used to toggle a specific bit within the byte at passed in position.
+ *
+ * Defines:
+ * public getter = name() which returns the current value of the private member variable
+ * public setter setName(bool on) which updates the specific bit in byteStream_ at the given position using the mask
+ * private bool name_ with default value of false
+ *
+**/
 #define DEFINE_PROPERTY_MASK_BOOL(name,position,mask)\
 Q_SIGNALS:\
     void name##Changed(bool on);\
@@ -51,8 +69,23 @@ Q_SIGNALS:\
     Q_PROPERTY(bool name READ name WRITE set##name NOTIFY name##Changed);\
     bool name() const {return name##_;}
 
-
-#define DEFINE_PROPERTY_INT(type, name, position, size)\
+/**
+ * Defines int,unsigned char, unsigned int or short Packet Attribute Properties for linking of qml
+ * Creates Q_PROPERTY with getter,setter, and signal.
+ *
+ * Parameters:
+ * type - the expected type of this attribute parameter
+ * name - The name of the property. This will be used to generate the getter, setter, and signal names.
+ * position - The index of the byte in byteStream_ where the property’s value is stored.
+ * size - The expected byte size of the type(ex int = 4).
+ *
+ * Defines:
+ * public getter = name() which returns the current value of the private member variable
+ * public setter setName(type value) which updates the specific bit in byteStream_ at the given position using the position and size.
+ * private type name_ with default value of 0
+ *
+**/
+#define DEFINE_PROPERTY_WHOLE_NUMBER(type, name, position, size)\
 Q_SIGNALS:\
     void name##Changed(type on);\
     private:\
@@ -68,7 +101,22 @@ Q_SIGNALS:\
     public: \
     Q_PROPERTY(type name READ name WRITE set##name NOTIFY name##Changed);\
     type name() const {return name##_;}
-
+/**
+ * Defines float Packet Attribute Properties for linking ot qml
+ * Creates Q_PROPERTY with getter,setter, and signal.
+ *
+ * Parameters:
+ * type - the expected type of this Attribute parameter
+ * name - The name of the property. This will be used to generate the getter, setter, and signal names.
+ * position - The index of the byte in byteStream_ where the property’s value is stored.
+ * size - The expected byte size of the type.
+ *
+ * Defines:
+ * public getter = name() which returns the current value of the private member variable
+ * public setter setName(bool on) which updates the specific bit in byteStream_ at the given position using the position and size.
+ * private type name_ with default value of 0.0
+ *
+**/
 
 
 #define DEFINE_PROPERTY_FLOAT(type, name, position, size)\

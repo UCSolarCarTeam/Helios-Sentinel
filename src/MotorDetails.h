@@ -96,18 +96,18 @@ const char CPU_OVERLOADED_MASK = 0x01;
 class MotorDetails : public QObject {
     Q_OBJECT
 
-    DEFINE_PROPERTY_INT(short, ControlValue, 2, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(short, ControlValue, 2, 2)
     DEFINE_PROPERTY_BOOL(ControlMode, 4, 0x01)
     DEFINE_PROPERTY_BOOL(MotorMode, 4, 0x02)
     DEFINE_PROPERTY_BOOL(SoftwareEnable, 4, 0x04)
     DEFINE_PROPERTY_BOOL(DebugMode, 4, 0x08)
 
-    DEFINE_PROPERTY_INT(short, CurrentMotorTorque, 5, 2)
-    DEFINE_PROPERTY_INT(short, CurrentRpmValue, 7, 2)
-    DEFINE_PROPERTY_INT(char, MotorTemperature, 9, 1)
-    DEFINE_PROPERTY_INT(short, InverterPeakCurrent, 10, 2)
-    DEFINE_PROPERTY_INT(short, CurrentMotorPower, 12, 2)
-    DEFINE_PROPERTY_INT(unsigned short, AbsoluteAngle, 14, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(short, CurrentMotorTorque, 5, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(short, CurrentRpmValue, 7, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(char, MotorTemperature, 9, 1)
+    DEFINE_PROPERTY_WHOLE_NUMBER(short, InverterPeakCurrent, 10, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(short, CurrentMotorPower, 12, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, AbsoluteAngle, 14, 2)
 
     DEFINE_PROPERTY_MASK_BOOL(MotorAboutToStall, 16, MOTOR_ABOUT_TO_STALL_MASK)
     DEFINE_PROPERTY_MASK_BOOL(DelayInReadingTempSensor, 16, DELAY_IN_READING_TEMP_SENSOR_MASK)

@@ -30,8 +30,8 @@ public:
     DEFINE_PROPERTY_BOOL(Aux, 9, 0x40)
     DEFINE_PROPERTY_BOOL(Lap, 9, 0x80)
 
-    DEFINE_PROPERTY_INT(unsigned short, Acceleration, 5, 2)
-    DEFINE_PROPERTY_INT(unsigned short, RegenBraking, 5, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, Acceleration, 5, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, RegenBraking, 5, 2)
 
     Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged FINAL)
     Q_PROPERTY(QString encodedByteStreamStr READ encodedByteStreamStr NOTIFY encodedByteStreamStrChanged FINAL)

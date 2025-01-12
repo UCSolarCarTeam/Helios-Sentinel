@@ -10,10 +10,10 @@ public:
     explicit Mppt(int channel, QObject *parent = nullptr);
 
     DEFINE_PROPERTY_BOOL(Alive,2, 0x80)
-    DEFINE_PROPERTY_INT(int, ArrayVoltage, 3, 2)
-    DEFINE_PROPERTY_INT(int, ArrayCurrent, 5, 2)
-    DEFINE_PROPERTY_INT(int, BatteryVoltage, 7, 2)
-    DEFINE_PROPERTY_INT(int, Temp, 9, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(int, ArrayVoltage, 3, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(int, ArrayCurrent, 5, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(int, BatteryVoltage, 7, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(int, Temp, 9, 2)
 
 
     Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged FINAL)

@@ -9,7 +9,7 @@ class KeyMotor : public QObject
 public:
     explicit KeyMotor(QObject *parent = nullptr);
 
-    DEFINE_PROPERTY_INT(unsigned short, MotorSetpoint, 2, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, MotorSetpoint, 2, 2)
     DEFINE_PROPERTY_BOOL(ControlMode, 4, 0x01)
     DEFINE_PROPERTY_BOOL(MotorMode, 4, 0x02)
     DEFINE_PROPERTY_BOOL(SoftwareEnable, 4, 0x04)

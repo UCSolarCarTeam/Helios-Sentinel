@@ -9,8 +9,8 @@ class AuxBms : public QObject
 public:
     explicit AuxBms(QObject *parent = nullptr);
 
-    DEFINE_PROPERTY_INT(int, PrechargeState,2,1 )
-    DEFINE_PROPERTY_INT(int, AuxVoltage, 3,1)
+    DEFINE_PROPERTY_WHOLE_NUMBER(int, PrechargeState,2,1 )
+    DEFINE_PROPERTY_WHOLE_NUMBER(int, AuxVoltage, 3,1)
     DEFINE_PROPERTY_BOOL(BmsAlive, 4, 0x01)
     DEFINE_PROPERTY_BOOL(StrobeLight, 5, 0x01)
     DEFINE_PROPERTY_BOOL(AllowCharge, 6, 0x01)
