@@ -33,7 +33,23 @@ public Q_SLOTS: \
         }; \
 public: \
 Q_PROPERTY(bool name READ name WRITE set##name NOTIFY name##Changed);\
-bool name() const {return name##_;} \
+bool name() const {return name##_;}
+
+#define DEFINE_PROPERTY_MASK_BOOL(name,position,mask)\
+Q_SIGNALS:\
+    void name##Changed(bool on);\
+    private:\
+    bool name##_ = false; \
+\
+    public Q_SLOTS: \
+    void set##name(bool on){\
+        byteStream_[position] = on ?(byteStream_[position]| mask):(byteStream_[16]& ~mask);\
+        name##_ = on; \
+        updateByteStream(); \
+}; \
+    public: \
+    Q_PROPERTY(bool name READ name WRITE set##name NOTIFY name##Changed);\
+    bool name() const {return name##_;}
 
 
 #define DEFINE_PROPERTY_INT(type, name, position, size)\
