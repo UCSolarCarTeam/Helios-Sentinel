@@ -1,6 +1,6 @@
 #ifndef KEYMOTOR_H
 #define KEYMOTOR_H
-
+#include "PropertyDefinition.h"
 #include <QObject>
 
 class KeyMotor : public QObject
@@ -9,40 +9,22 @@ class KeyMotor : public QObject
 public:
     explicit KeyMotor(QObject *parent = nullptr);
 
-    Q_PROPERTY(unsigned short motorSetpoint READ motorSetpoint WRITE setMotorSetpoint NOTIFY motorSetpointChanged);
-    Q_PROPERTY(bool controlMode READ controlMode WRITE setControlMode NOTIFY controlModeChanged);
-    Q_PROPERTY(bool motorMode READ motorMode WRITE setMotorMode NOTIFY motorModeChanged);
-    Q_PROPERTY(bool softwareEnable READ softwareEnable WRITE setSoftwareEnable NOTIFY softwareEnableChanged);
-    Q_PROPERTY(bool debugMode READ debugMode WRITE setDebugMode NOTIFY debugModeChanged);
+    DEFINE_PROPERTY_INT(unsigned short, MotorSetpoint, 2, 2)
+    DEFINE_PROPERTY_BOOL(ControlMode, 4, 0x01)
+    DEFINE_PROPERTY_BOOL(MotorMode, 4, 0x02)
+    DEFINE_PROPERTY_BOOL(SoftwareEnable, 4, 0x04)
+    DEFINE_PROPERTY_BOOL(DebugMode, 4, 0x08)
 
     Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged)
     Q_PROPERTY(QString encodedByteStreamStr READ encodedByteStreamStr NOTIFY encodedByteStreamStrChanged FINAL)
-
-    unsigned short motorSetpoint() const;
-    bool controlMode() const;
-    bool motorMode() const;
-    bool softwareEnable() const;
-    bool debugMode() const;
 
     QByteArray byteStream() const;
     QByteArray encodedByteStream() const;
     QString byteStreamStr() const;
     QString encodedByteStreamStr() const;
 
-public slots:
-    void setMotorSetpoint(unsigned short motorSetpoint);
-    void setControlMode(bool controlMode);
-    void setMotorMode(bool motorMode);
-    void setSoftwareEnable(bool softwareEnable);
-    void setDebugMode(bool debugMode);
 
 signals:
-    void motorSetpointChanged(unsigned short motorSetpoint);
-    void controlModeChanged(bool value);
-    void motorModeChanged(bool value);
-    void softwareEnableChanged(bool value);
-    void debugModeChanged(bool value);
-
     void byteStreamChanged();
     void byteStreamStrChanged();
     void encodedByteStreamStrChanged();
@@ -50,11 +32,6 @@ signals:
 
 private:
 
-    unsigned short motorSetpoint_;
-    bool controlMode_;
-    bool motorMode_;
-    bool softwareEnable_;
-    bool debugMode_;
     QByteArray byteStream_;
     QByteArray encodedByteStream_;
     void updateByteStream();
