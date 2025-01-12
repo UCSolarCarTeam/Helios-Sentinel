@@ -30,6 +30,8 @@ qt_add_executable(Sentinel src/main.cpp
     src/Mbms.h src/Mbms.cpp
     src/Telemetry.h src/Telemetry.cpp
     src/PropertyDefinition.h
+
+
 )
 
 qt_add_resources(Sentinel "configuration"
