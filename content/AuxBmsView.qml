@@ -14,7 +14,7 @@ Item {
         height: 37
         to: 255
         editable: true
-        value: bms.prechargeState
+        value: bms.PrechargeState
         onValueChanged: bms.setPrechargeState(value)
     }
 
@@ -34,7 +34,7 @@ Item {
         height: 37
         to: 255
         editable: true
-        value: bms.auxVoltage
+        value: bms.AuxVoltage
         onValueChanged: bms.setAuxVoltage(value)
     }
 
@@ -51,7 +51,7 @@ Item {
         x: 181
         y: 42
         text: qsTr("Aux BMS Alive")
-        checked: bms.bmsAlive
+        checked: bms.BmsAlive
         onClicked: bms.setBmsAlive(checked)
     }
 
@@ -62,7 +62,7 @@ Item {
         width: 188
         height: 32
         text: qsTr("Strobe BMS Light")
-        checked: bms.strobeLight
+        checked: bms.StrobeLight
         onClicked: bms.setStrobeLight(checked)
     }
 
@@ -71,7 +71,7 @@ Item {
         x: 181
         y: 118
         text: qsTr("Allow Charge")
-        checked: bms.allowCharge
+        checked: bms.AllowCharge
         onClicked: bms.setAllowCharge(checked)
     }
 
@@ -82,7 +82,7 @@ Item {
         width: 214
         height: 32
         text: qsTr("High Voltage Enable")
-        checked: bms.highVoltageEnable
+        checked: bms.HighVoltageEnable
         onClicked: bms.setHighVoltageEnable(checked)
     }
 
@@ -93,7 +93,7 @@ Item {
         width: 197
         height: 32
         text: qsTr("Allow Discharge")
-        checked: bms.allowDischarge
+        checked: bms.AllowDischarge
         onClicked: bms.setAllowDischarge(checked)
     }
 
@@ -104,7 +104,7 @@ Item {
         width: 205
         height: 32
         text: qsTr("Orion Can Recieved")
-        checked: bms.orionRecieved
+        checked: bms.OrionRecieved
         onClicked: bms.setOrionRecieved(checked)
     }
 
@@ -115,7 +115,7 @@ Item {
         width: 188
         height: 32
         text: qsTr("Charge Contactor")
-        checked: bms.chargeContactor
+        checked: bms.ChargeContactor
         onClicked: bms.setChargeContactor(checked)
     }
 
@@ -126,7 +126,7 @@ Item {
         width: 188
         height: 32
         text: qsTr("Discharge Contactor")
-        checked: bms.dischargeContactor
+        checked: bms.DischargeContactor
         onClicked: bms.setDischargeContactor(checked)
     }
 
@@ -135,7 +135,7 @@ Item {
         x: 409
         y: 118
         text: qsTr("Common Contactor")
-        checked: bms.commonContactor
+        checked: bms.CommonContactor
         onClicked: bms.setCommonContactor(checked)
     }
 
@@ -146,7 +146,7 @@ Item {
         width: 214
         height: 32
         text: qsTr("Discharge Should")
-        checked: bms.dischargeShould
+        checked: bms.DischargeShould
         onClicked: bms.setDischargeShould(checked)
     }
 
@@ -157,7 +157,7 @@ Item {
         width: 197
         height: 32
         text: qsTr("Charge Should")
-        checked: bms.chargeShould
+        checked: bms.ChargeShould
         onClicked: bms.setChargeShould(checked)
     }
 
@@ -168,7 +168,7 @@ Item {
         width: 305
         height: 32
         text: qsTr("Charge Open But Should Be Closed")
-        checked: bms.chargeOpen
+        checked: bms.ChargeOpen
         onClicked: bms.setChargeOpen(checked)
     }
 
@@ -179,7 +179,7 @@ Item {
         width: 321
         height: 32
         text: qsTr("Discharge Open But Should Be Closed")
-        checked: bms.dischargeOpen
+        checked: bms.DischargeOpen
         onClicked: bms.setDischargeOpen(checked)
     }
 
@@ -190,7 +190,7 @@ Item {
         width: 209
         height: 32
         text: qsTr("CT High Cell Voltage")
-        checked: bms.ctHighCellVoltage
+        checked: bms.CtHighCellVoltage
         onClicked: bms.setCtHighCellVoltage(checked)
     }
 
@@ -201,7 +201,7 @@ Item {
         width: 221
         height: 32
         text: qsTr("CT High Temp/Current")
-        checked: bms.ctHighTempCurrent
+        checked: bms.CtHighTempCurrent
         onClicked: bms.setCtHighTempCurrent(checked)
     }
 
@@ -210,7 +210,7 @@ Item {
         x: 181
         y: 403
         text: qsTr("CT Pack Current")
-        checked: bms.ctPackCurrent
+        checked: bms.CtPackCurrent
         onClicked: bms.setCtPackCurrent(checked)
     }
 
@@ -221,7 +221,7 @@ Item {
         width: 214
         height: 32
         text: qsTr("DT Low Cell Voltage")
-        checked: bms.dtLowCellVoltage
+        checked: bms.DtLowCellVoltage
         onClicked: bms.setDtLowCellVoltage(checked)
     }
 
@@ -232,7 +232,7 @@ Item {
         width: 221
         height: 32
         text: qsTr("DT High Temp/Current")
-        checked: bms.dtHighTempCurrent
+        checked: bms.DtHighTempCurrent
         onClicked: bms.setDtHighTempCurrent(checked)
     }
 
@@ -243,7 +243,7 @@ Item {
         width: 181
         height: 32
         text: qsTr("DT Pack Current")
-        checked: bms.dtPackCurrent
+        checked: bms.DtPackCurrent
         onClicked: bms.setDtPackCurrent(checked)
     }
 
@@ -254,7 +254,7 @@ Item {
         width: 150
         height: 32
         text: qsTr("Protection")
-        checked: bms.protection
+        checked: bms.Protection
         onClicked: bms.setProtection(checked)
     }
 
@@ -265,7 +265,7 @@ Item {
         width: 181
         height: 32
         text: qsTr("Orion Timeout")
-        checked: bms.orionTimeout
+        checked: bms.OrionTimeout
         onClicked: bms.setOrionTimeout(checked)
     }
 
@@ -276,7 +276,7 @@ Item {
         width: 201
         height: 32
         text: qsTr("CNC High Current")
-        checked: bms.cncHighCurrent
+        checked: bms.CncHighCurrent
         onClicked: bms.setCncHighCurrent(checked)
     }
 
@@ -287,7 +287,7 @@ Item {
         width: 201
         height: 32
         text: qsTr("DNC High Current")
-        checked: bms.dncHighCurrent
+        checked: bms.DncHighCurrent
         onClicked: bms.setDncHighCurrent(checked)
     }
 
@@ -298,7 +298,7 @@ Item {
         width: 233
         height: 32
         text: qsTr("Contactor Disconnected")
-        checked: bms.contactorDisconnected
+        checked: bms.ContactorDisconnected
         onClicked: bms.setContactorDisconnected(checked)
     }
 
