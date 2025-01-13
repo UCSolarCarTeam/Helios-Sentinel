@@ -31,42 +31,42 @@ Item {
                 flags: [
                     {
                         text: qsTr("Discharge Relay"),
-                        checked: battery.dischargeRelay,
+                        checked: battery.DischargeRelay,
                         onClicked: function(checked) { battery.setDischargeRelay(checked) }
                     },
                     {
                         text: qsTr("Charge Relay"),
-                        checked: battery.chargeRelay,
+                        checked: battery.ChargeRelay,
                         onClicked: function(checked) { battery.setChargeRelay(checked) }
                     },
                     {
                         text: qsTr("Charger Safety"),
-                        checked: battery.chargerSafety,
+                        checked: battery.ChargerSafety,
                         onClicked: function(checked) { battery.setChargerSafety(checked) }
                     },
                     {
                         text: qsTr("Malfunction Indicator"),
-                        checked: battery.malfunctionIndicator,
+                        checked: battery.MalfunctionIndicator,
                         onClicked: function(checked) { battery.setMalfunctionIndicator(checked) }
                     },
                     {
                         text: qsTr("Multi-Purpose Input Signal"),
-                        checked: battery.multiPurposeInputSignal,
+                        checked: battery.MultiPurposeInputSignal,
                         onClicked: function(checked) { battery.setMultiPurposeInputSignal(checked) }
                     },
                     {
                         text: qsTr("Always-on Signal"),
-                        checked: battery.alwaysOnSignal,
+                        checked: battery.AlwaysOnSignal,
                         onClicked: function(checked) { battery.setAlwaysOnSignal(checked) }
                     },
                     {
                         text: qsTr("Is-Ready Signal"),
-                        checked: battery.isReadySignal,
+                        checked: battery.IsReadySignal,
                         onClicked: function(checked) { battery.setIsReadySignal(checked) }
                     },
                     {
                         text: qsTr("Is-Charging Signal"),
-                        checked: battery.isChargingSignal,
+                        checked: battery.IsChargingSignal,
                         onClicked: function(checked) { battery.setIsChargingSignal(checked) }
                     }
                 ]
@@ -81,61 +81,61 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("Populated Cells")
-                        value: battery.populatedCells
+                        value: battery.PopulatedCells
                         onValueChanged: battery.setPopulatedCells(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("12V Input")
-                        value: battery.input12V
+                        value: battery.Input12V
                         onValueChanged: battery.setInput12V(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Fan Voltage")
-                        value: battery.fanVoltage
+                        value: battery.FanVoltage
                         onValueChanged: battery.setFanVoltage(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Pack Current")
-                        value: battery.packCurrent
+                        value: battery.PackCurrent
                         onValueChanged: battery.setPackCurrent(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Pack Voltage")
-                        value: battery.packVoltage
+                        value: battery.PackVoltage
                         onValueChanged: battery.setPackVoltage(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Pack SOC")
-                        value: battery.packSoc
+                        value: battery.PackSoc
                         onValueChanged: battery.setPackSoc(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Pack Amphours")
-                        value: battery.packAmphours
+                        value: battery.PackAmphours
                         onValueChanged: battery.setPackAmphours(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Pack DOD")
-                        value: battery.packDod
+                        value: battery.PackDod
                         onValueChanged: battery.setPackDod(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("High Temp")
-                        value: battery.highTemp
+                        value: battery.HighTemp
                         onValueChanged: battery.setHighTemp(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("High Thermistor ID")
-                        value: battery.highThermistorId
+                        value: battery.HighThermistorId
                         onValueChanged: battery.setHighThermistorId(value)
                     }
                 }
@@ -146,67 +146,67 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("Low Temp")
-                        value: battery.lowTemp
+                        value: battery.LowTemp
                         onValueChanged: battery.setLowTemp(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Low Thermistor ID")
-                        value: battery.lowThermistorId
+                        value: battery.LowThermistorId
                         onValueChanged: battery.setLowThermistorId(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Avg Temp")
-                        value: battery.avgTemp
+                        value: battery.AvgTemp
                         onValueChanged: battery.setAvgTemp(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Internal Temp")
-                        value: battery.internalTemp
+                        value: battery.InternalTemp
                         onValueChanged: battery.setInternalTemp(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Fan Speed")
-                        value: battery.fanSpeed
+                        value: battery.FanSpeed
                         onValueChanged: battery.setFanSpeed(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Req. Fan Speed")
-                        value: battery.reqFanSpeed
+                        value: battery.ReqFanSpeed
                         onValueChanged: battery.setReqFanSpeed(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Low Cell Voltage")
-                        value: battery.lowCellVoltage
+                        value: battery.LowCellVoltage
                         onValueChanged: battery.setLowCellVoltage(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Low Cell Voltage ID")
-                        value: battery.lowCellVoltageId
+                        value: battery.LowCellVoltageId
                         onValueChanged: battery.setLowCellVoltageId(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("High Cell Voltage")
-                        value: battery.highCellVoltage
+                        value: battery.HighCellVoltage
                         onValueChanged: battery.setHighCellVoltage(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("High Cell Voltage ID")
-                        value: battery.highCellVoltageId
+                        value: battery.HighCellVoltageId
                         onValueChanged: battery.setHighCellVoltageId(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Avg Cell Voltage")
-                        value: battery.avgCellVoltage
+                        value: battery.AvgCellVoltage
                         onValueChanged: battery.setAvgCellVoltage(value)
                     }
                 }
