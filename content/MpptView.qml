@@ -39,28 +39,28 @@ Item {
             IntSpinBox {
                 id: box1
                 text: qsTr("Array Voltage")
-                value: mppt.arrayVoltage
+                value: mppt.ArrayVoltage
                 onValueChanged: mppt.setArrayVoltage(value)
             }
 
             IntSpinBox {
                 id: box2
                 text: qsTr("Array Current")
-                value: mppt.arrayCurrent
+                value: mppt.ArrayCurrent
                 onValueChanged: mppt.setArrayCurrent(value)
             }
 
             IntSpinBox {
                 id: box3
                 text: qsTr("Battery Voltage")
-                value: mppt.batteryVoltage
+                value: mppt.BatteryVoltage
                 onValueChanged: mppt.setBatteryVoltage(value)
             }
 
             IntSpinBox {
                 id: box4
                 text: qsTr("Temperature")
-                value: mppt.temp
+                value: mppt.Temp
                 onValueChanged: mppt.setTemp(value)
             }
         }
