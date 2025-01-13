@@ -25,7 +25,7 @@ Item {
                 IntSpinBox {
                     id: spinBox
                     text: qsTr("Motor Setpoint")
-                    value: keyMotor.motorSetpoint
+                    value: keyMotor.MotorSetpoint
                     onValueChanged: keyMotor.setMotorSetpoint(value)
                 }
             }
@@ -35,22 +35,22 @@ Item {
                 flags: [
                     {
                         text: qsTr("Control Mode"),
-                        checked: keyMotor.controlMode,
+                        checked: keyMotor.ControlMode,
                         onClicked: function(checked) { keyMotor.setControlMode(checked) }
                     },
                     {
                         text: qsTr("Motor Mode"),
-                        checked: keyMotor.motorMode,
+                        checked: keyMotor.MotorMode,
                         onClicked: function(checked) { keyMotor.setMotorMode(checked) }
                     },
                     {
                         text: qsTr("Software Enable"),
-                        checked: keyMotor.softwareEnable,
+                        checked: keyMotor.SoftwareEnable,
                         onClicked: function(checked) { keyMotor.setSoftwareEnable(checked) }
                     },
                     {
                         text: qsTr("Debug Mode"),
-                        checked: keyMotor.debugMode,
+                        checked: keyMotor.DebugMode,
                         onClicked: function(checked) { keyMotor.setDebugMode(checked) }
                     }
                 ]
