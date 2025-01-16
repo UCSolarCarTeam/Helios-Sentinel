@@ -31,4 +31,5 @@ qt6_add_qml_module(content
         QML_FILES BytePreview.qml IntSpinBox.qml TabBtn.qml Window.qml FlagBox.qml
         RESOURCES images/solarCarLogo.png
         QML_FILES KeyMotorElysiaView.qml
+        QML_FILES MotorFaults.qml
 )
