@@ -106,7 +106,6 @@ int main(int argc, char *argv[])
         forwarder.forwardData(m0.encodedByteStream());
         forwarder.forwardData(mppt0.encodedByteStream());
         forwarder.forwardData(mppt1.encodedByteStream());
-        qDebug() << "Forwardered";
     });
     timer.start(500);
 

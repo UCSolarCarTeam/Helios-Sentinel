@@ -24,8 +24,6 @@ void MotorDetails::updateByteStream(){
     encodedByteStream_ = Util::encodeByteStream(byteStream_);
     emit encodedByteStreamStrChanged();
     emit byteStreamStrChanged();
-    qDebug() << "BS: " << byteStream_.toHex(' ');
-    qDebug() << "EBS: " << encodedByteStream_.toHex(' ');
 }
 
 QString MotorDetails::encodedByteStreamStr() const {

@@ -24,7 +24,7 @@ Item {
                 flags: [
                     {
                         text: qsTr("Internal Communication"),
-                        checked: batteryFaults.InternalCommunications,
+                        checked: batteryFaults.InternalCommunication,
                         onClicked: function(checked) { batteryFaults.setInternalCommunication(checked) }
                     },
                     {

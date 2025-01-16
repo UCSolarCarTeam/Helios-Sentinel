@@ -22,7 +22,7 @@ Item {
             Switch {
                 id: switch1
                 text: qsTr("BMU Alive")
-                checked: battery.alive
+                checked: battery.BmuAlive
                 onClicked: battery.setBmuAlive(checked)
             }
 

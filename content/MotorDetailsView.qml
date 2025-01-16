@@ -35,7 +35,7 @@ Item {
             IntSpinBox {
                 id: spinBox
                 text: qsTr("Control Value")
-                value: motorDetails.controlValue
+                value: motorDetails.ControlValue
                 onValueChanged: motorDetails.setControlValue(value)
             }
 

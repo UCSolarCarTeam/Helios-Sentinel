@@ -116,7 +116,7 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("Acceleration")
-                        value: b3.acceleration
+                        value: b3.Acceleration
                         onValueChanged: b3.setAcceleration(value)
                     }
                 }
@@ -126,7 +126,7 @@ Item {
 
                     IntSpinBox {
                             text: qsTr("Regen Braking")
-                            value: b3.regenBraking
+                            value: b3.RegenBraking
                             onValueChanged: b3.setRegenBraking(value)
                         }
                     }
