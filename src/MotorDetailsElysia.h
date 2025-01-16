@@ -1,15 +1,14 @@
 #ifndef MOTORDETAILSELYSIA_H
 #define MOTORDETAILSELYSIA_H
-#ifndef MOTORDETAILS_H
-#define MOTORDETAILS_H
+
 
 #include <QObject>
 
-class MotorDetails : public QObject
+class MotorDetailsElysia : public QObject
 {
     Q_OBJECT
 public:
-    explicit MotorDetails(int motor, QObject *parent = nullptr);
+    explicit MotorDetailsElysia(int motor, QObject *parent = nullptr);
 
     Q_PROPERTY(int phaseCCurrent READ phaseCCurrent WRITE setPhaseCCurrent NOTIFY phaseCCurrentChanged FINAL)
     Q_PROPERTY(int phaseBCurrent READ phaseBCurrent WRITE setPhaseBCurrent NOTIFY phaseBCurrentChanged FINAL)
@@ -127,5 +126,4 @@ private:
 
 };
 
-#endif // MOTORDETAILS_H
 #endif // MOTORDETAILSELYSIA_H

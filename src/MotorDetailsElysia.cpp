@@ -4,7 +4,7 @@
 #include <QIODevice>
 #include <QDebug>
 
-MotorDetails::MotorDetails(int motor, QObject *parent)
+MotorDetailsElysia::MotorDetailsElysia(int motor, QObject *parent)
     : QObject{parent}
 {
     byteStream_.fill(0x00, 69); // packet size 69 - fill zeros by defualt
@@ -15,143 +15,143 @@ MotorDetails::MotorDetails(int motor, QObject *parent)
     updateByteStream();         //generate checksum and encode empty packet
 }
 
-int MotorDetails::phaseBCurrent() const { return phaseBCurrent_; }
-int MotorDetails::phaseCCurrent() const { return phaseCCurrent_; }
-int MotorDetails::motorVoltageReal() const { return motorVoltageReal_; }
-int MotorDetails::motorVoltageImag() const { return motorVoltageImag_; }
-int MotorDetails::motorCurrentReal() const { return motorCurrentReal_; }
-int MotorDetails::motorCurrentImag() const { return motorCurrentImag_; }
-int MotorDetails::blackEMF() const { return blackEMF_; }
-int MotorDetails::voltageRailSupply15() const { return voltageRailSupply15_; }
-int MotorDetails::voltageRailSupply3() const { return voltageRailSupply3_; }
-int MotorDetails::voltageRailSupply2() const { return voltageRailSupply2_; }
-int MotorDetails::heatSinkTemp() const { return heatSinkTemp_; }
-int MotorDetails::motorTemp() const { return motorTemp_; }
-int MotorDetails::dspBoardTemp() const { return dspBoardTemp_; }
-int MotorDetails::dcBusAmpHours() const { return dcBusAmpHours_; }
-int MotorDetails::odometer() const { return odometer_; }
-int MotorDetails::slipSpeed() const { return slipSpeed_; }
-int MotorDetails::motorNum() const { return motorNum_; }
+int MotorDetailsElysia::phaseBCurrent() const { return phaseBCurrent_; }
+int MotorDetailsElysia::phaseCCurrent() const { return phaseCCurrent_; }
+int MotorDetailsElysia::motorVoltageReal() const { return motorVoltageReal_; }
+int MotorDetailsElysia::motorVoltageImag() const { return motorVoltageImag_; }
+int MotorDetailsElysia::motorCurrentReal() const { return motorCurrentReal_; }
+int MotorDetailsElysia::motorCurrentImag() const { return motorCurrentImag_; }
+int MotorDetailsElysia::blackEMF() const { return blackEMF_; }
+int MotorDetailsElysia::voltageRailSupply15() const { return voltageRailSupply15_; }
+int MotorDetailsElysia::voltageRailSupply3() const { return voltageRailSupply3_; }
+int MotorDetailsElysia::voltageRailSupply2() const { return voltageRailSupply2_; }
+int MotorDetailsElysia::heatSinkTemp() const { return heatSinkTemp_; }
+int MotorDetailsElysia::motorTemp() const { return motorTemp_; }
+int MotorDetailsElysia::dspBoardTemp() const { return dspBoardTemp_; }
+int MotorDetailsElysia::dcBusAmpHours() const { return dcBusAmpHours_; }
+int MotorDetailsElysia::odometer() const { return odometer_; }
+int MotorDetailsElysia::slipSpeed() const { return slipSpeed_; }
+int MotorDetailsElysia::motorNum() const { return motorNum_; }
 
-QByteArray MotorDetails::encodedByteStream() const { return encodedByteStream_; }
+QByteArray MotorDetailsElysia::encodedByteStream() const { return encodedByteStream_; }
 
-void MotorDetails::setPhaseCCurrent(int value) {
+void MotorDetailsElysia::setPhaseCCurrent(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(2, 4, in);
     phaseCCurrent_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setPhaseBCurrent(int value) {
+void MotorDetailsElysia::setPhaseBCurrent(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(6, 4, in);
     phaseBCurrent_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setMotorVoltageReal(int value) {
+void MotorDetailsElysia::setMotorVoltageReal(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(10, 4, in);
     motorVoltageReal_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setMotorVoltageImag(int value) {
+void MotorDetailsElysia::setMotorVoltageImag(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(14, 4, in);
     motorVoltageImag_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setMotorCurrentReal(int value) {
+void MotorDetailsElysia::setMotorCurrentReal(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(18, 4, in);
     motorCurrentReal_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setMotorCurrentImag(int value) {
+void MotorDetailsElysia::setMotorCurrentImag(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(22, 4, in);
     motorCurrentImag_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setBlackEMF(int value) {
+void MotorDetailsElysia::setBlackEMF(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(26, 4, in);
     blackEMF_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setVoltageRailSupply15(int value) {
+void MotorDetailsElysia::setVoltageRailSupply15(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(30, 4, in);
     voltageRailSupply15_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setVoltageRailSupply3(int value) {
+void MotorDetailsElysia::setVoltageRailSupply3(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(34, 4, in);
     voltageRailSupply3_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setVoltageRailSupply2(int value) {
+void MotorDetailsElysia::setVoltageRailSupply2(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(38, 4, in);
     voltageRailSupply2_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setHeatSinkTemp(int value) {
+void MotorDetailsElysia::setHeatSinkTemp(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(42, 4, in);
     heatSinkTemp_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setMotorTemp(int value) {
+void MotorDetailsElysia::setMotorTemp(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(46, 4, in);
     motorTemp_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setDspBoardTemp(int value) {
+void MotorDetailsElysia::setDspBoardTemp(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(50, 4, in);
     dspBoardTemp_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setDcBusAmpHours(int value) {
+void MotorDetailsElysia::setDcBusAmpHours(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(54, 4, in);
     dcBusAmpHours_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setOdometer(int value) {
+void MotorDetailsElysia::setOdometer(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(58, 4, in);
     odometer_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setSlipSpeed(int value) {
+void MotorDetailsElysia::setSlipSpeed(int value) {
     QByteArray in = Util::formatFloat(value);
     byteStream_.replace(62, 4, in);
     slipSpeed_ = value;
     updateByteStream();
 }
 
-void MotorDetails::setMotorNum(int value) {
+void MotorDetailsElysia::setMotorNum(int value) {
     motorNum_ = value;
 }
 
-void MotorDetails::updateByteStream(){
+void MotorDetailsElysia::updateByteStream(){
     // (1, size - 4)
     QByteArray checksum = Util::generateChecksum(byteStream_, 1, 65);
     // size - 3 and size - 2
@@ -162,10 +162,10 @@ void MotorDetails::updateByteStream(){
     emit byteStreamStrChanged();
 }
 
-QString MotorDetails::encodedByteStreamStr() const {
+QString MotorDetailsElysia::encodedByteStreamStr() const {
     return(encodedByteStream_.toHex(' '));
 }
 
-QString MotorDetails::byteStreamStr() const {
+QString MotorDetailsElysia::byteStreamStr() const {
     return QString(byteStream_.toHex(' '));
 }

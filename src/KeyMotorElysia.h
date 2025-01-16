@@ -3,11 +3,11 @@
 
 #include <QObject>
 
-class KeyMotor : public QObject
+class KeyMotorElysia : public QObject
 {
     Q_OBJECT
 public:
-    explicit KeyMotor(QObject *parent = nullptr);
+    explicit KeyMotorElysia(QObject *parent = nullptr);
 
     Q_PROPERTY(bool m0Alive READ m0Alive WRITE setM0Alive NOTIFY m0AliveChanged)
     Q_PROPERTY(int m0SetCurrent READ m0SetCurrent WRITE setM0SetCurrent NOTIFY m0SetCurrentChanged)
