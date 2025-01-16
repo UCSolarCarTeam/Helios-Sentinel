@@ -1,10 +1,11 @@
 import QtQuick.Studio.Components
 import QtQuick 2.15
+import QtQuick.Controls 6.2
 
 Item {
     id: toolWin
     width: 575
-    height: 1000
+    height: 1065
     z: -2
 
     property int selectedButton: 8
@@ -13,7 +14,6 @@ Item {
         id: row
         x: 0
         y: selectedButton <= 4 ? 35 : 0
-        width: 200
         height: 35
         z:20
         TabBtn {
@@ -56,7 +56,6 @@ Item {
         id: row1
         x: 0
         y: selectedButton > 4 ? 35 : 0
-        width: 200
         height: 35
         z: 20
         TabBtn {
@@ -113,74 +112,81 @@ Item {
         }
     }
 
-    Loader {
-        id: contentLoader
-        y: 75
-        x: 10
+    ScrollView{
+        width: parent.width
+        height: 600
         z:100
-        width: parent.width - 20
-        sourceComponent: selectedButton === 0 ? keyMotorView :
-                            selectedButton === 1 ? motorDetailsView :
-                            selectedButton === 2 ? b3View :
-                            selectedButton === 3 ? telemetryView :
-                            selectedButton === 4 ? batteryFaultsView :
-                            selectedButton === 5 ? batteryView :
-                            selectedButton === 6 ? mpptView :
-                            selectedButton === 7 ? mbmsView :
-                            selectedButton === 8 ? proximitySensorsView :
-                            selectedButton === 9 ? settingsView : null
-    }
+        y: 75
 
-    Component {
-        id: keyMotorView
-        KeyMotorView{}
-    }
+        Loader {
+            id: contentLoader
+            x: 10
+            z:100
+            width: parent.width - 20
+            sourceComponent: selectedButton === 0 ? keyMotorView :
+                                selectedButton === 1 ? motorDetailsView :
+                                selectedButton === 2 ? b3View :
+                                selectedButton === 3 ? telemetryView :
+                                selectedButton === 4 ? batteryFaultsView :
+                                selectedButton === 5 ? batteryView :
+                                selectedButton === 6 ? mpptView :
+                                selectedButton === 7 ? mbmsView :
+                                selectedButton === 8 ? proximitySensorsView :
+                                selectedButton === 9 ? settingsView : null
+        }
 
-    Component {
-        id: motorDetailsView
-        MotorDetailsView{}
-    }
 
-    Component {
-        id: b3View
-        B3View{}
-    }
+        Component {
+            id: keyMotorView
+            KeyMotorView{}
+        }
 
-    Component {
-        id: telemetryView
-        TelemetryView{}
-    }
+        Component {
+            id: motorDetailsView
+            MotorDetailsView{}
+        }
 
-    Component {
-        id: batteryFaultsView
-        BatteryFaultsView{}
-    }
+        Component {
+            id: b3View
+            B3View{}
+        }
 
-    Component {
-        id: batteryView
-        BatteryView{}
-    }
+        Component {
+            id: telemetryView
+            TelemetryView{}
+        }
 
-    Component {
-        id: mpptView
-        MpptView{}
-    }
+        Component {
+            id: batteryFaultsView
+            BatteryFaultsView{}
+        }
 
-    Component {
-        id: mbmsView
-        MbmsView{}
-    }
+        Component {
+            id: batteryView
+            BatteryView{}
+        }
 
-    Component {
-        id: proximitySensorsView
-        ProximitySensorsView{}
-    }
+        Component {
+            id: mpptView
+            MpptView{}
+        }
 
-    Component {
-        id: settingsView
-        Text {
-            id: name
-            text: qsTr("TODO")
+        Component {
+            id: mbmsView
+            MbmsView{}
+        }
+
+        Component {
+            id: proximitySensorsView
+            ProximitySensorsView{}
+        }
+
+        Component {
+            id: settingsView
+            Text {
+                id: name
+                text: qsTr("TODO")
+            }
         }
     }
 
@@ -189,7 +195,7 @@ Item {
         x: 0
         y: 68
         width: 575
-        height: 932
+        height: 1000
         color: "#A9A9A9"
         border.color: "black"
         border.width: 2

@@ -13,7 +13,7 @@ Item {
         y: 25
         text: qsTr("Lights")
         z: 1
-        checked: lights.lightsAlive
+        checked: lights.LightsAlive
         onClicked: lights.setLightsAlive(checked)
     }
 
@@ -23,7 +23,7 @@ Item {
         y: 25
         text: qsTr("Low Beams")
         z: 1
-        checked: lights.lowBeams
+        checked: lights.LowBeams
         onClicked: lights.setLowBeams(checked)
     }
 
@@ -35,7 +35,7 @@ Item {
         height: 32
         text: qsTr("Left Signal")
         z: 1
-        checked: lights.leftSignal
+        checked: lights.LeftSignal
         onClicked: lights.setLeftSignal(checked)
     }
 
@@ -47,7 +47,7 @@ Item {
         height: 32
         text: qsTr("High Beams")
         z: 1
-        checked: lights.highBeams
+        checked: lights.HighBeams
         onClicked: lights.setHighBeams(checked)
     }
 
@@ -59,7 +59,7 @@ Item {
         height: 32
         text: qsTr("Right Signal")
         z: 1
-        checked: lights.rightSignal
+        checked: lights.RightSignal
         onClicked: lights.setRightSignal(checked)
     }
 
@@ -71,7 +71,7 @@ Item {
         height: 32
         text: qsTr("Brake Lights")
         z: 1
-        checked: lights.brakeLights
+        checked: lights.BrakeLights
         onClicked: lights.setBrakeLights(checked)
     }
 
@@ -83,7 +83,7 @@ Item {
         height: 32
         text: qsTr("BMS Light")
         z: 1
-        checked: lights.bmsLight
+        checked: lights.BmsLight
         onClicked: lights.setBmsLight(checked)
     }
 
