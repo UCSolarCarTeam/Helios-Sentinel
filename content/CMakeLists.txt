@@ -32,4 +32,5 @@ qt6_add_qml_module(content
         RESOURCES images/solarCarLogo.png
         QML_FILES KeyMotorElysiaView.qml
         QML_FILES MotorFaults.qml
+        QML_FILES MotorDetailsElysia.qml
 )
