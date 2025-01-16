@@ -85,46 +85,46 @@ Item {
                         onValueChanged: battery.setPopulatedCells(value)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("12V Input")
-                        value: battery.Input12V
-                        onValueChanged: battery.setInput12V(value)
+                        inputValue: battery.Input12V
+                        onInputValueUpdated: battery.setInput12V(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Fan Voltage")
-                        value: battery.FanVoltage
-                        onValueChanged: battery.setFanVoltage(value)
+                        inputValue: battery.FanVoltage
+                        onInputValueChanged: battery.setFanVoltage(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Pack Current")
-                        value: battery.PackCurrent
-                        onValueChanged: battery.setPackCurrent(value)
+                        inputValue: battery.PackCurrent
+                        onInputValueChanged: battery.setPackCurrent(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Pack Voltage")
-                        value: battery.PackVoltage
-                        onValueChanged: battery.setPackVoltage(value)
+                        inputValue: battery.PackVoltage
+                        onInputValueChanged: battery.setPackVoltage(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Pack SOC")
-                        value: battery.PackSoc
-                        onValueChanged: battery.setPackSoc(value)
+                        inputValue: battery.PackSoc
+                        onInputValueChanged: battery.setPackSoc(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Pack Amphours")
-                        value: battery.PackAmphours
-                        onValueChanged: battery.setPackAmphours(value)
+                        inputValue: battery.PackAmphours
+                        onInputValueChanged: battery.setPackAmphours(inputValue)
                     }
 
-                    IntSpinBox {
+                    FloatSpinBox {
                         text: qsTr("Pack DOD")
-                        value: battery.PackDod
-                        onValueChanged: battery.setPackDod(value)
+                        inputValue: battery.PackDod
+                        onInputValueChanged: battery.setPackDod(inputValue)
                     }
 
                     IntSpinBox {

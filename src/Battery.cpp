@@ -1,6 +1,8 @@
 #include "Battery.h"
 #include "util.h"
 
+#include <QDebug>
+
 Battery::Battery(QObject *parent)
     : QObject{parent}
 {

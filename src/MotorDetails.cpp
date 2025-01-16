@@ -14,7 +14,6 @@ MotorDetails::MotorDetails(int motor, QObject *parent)
     updateByteStream();         //generate checksum and encode empty packet
 }
 
-
 void MotorDetails::updateByteStream(){
     // (1, size - 4)
     QByteArray checksum = Util::generateChecksum(byteStream_, 1, 33);
