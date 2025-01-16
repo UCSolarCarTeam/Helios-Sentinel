@@ -10,7 +10,7 @@ Item {
         x: 8
         y: 60
         text: qsTr("Driver Controls")
-        checked: driverControls.driverControlsAlive
+        checked: driverControls.DriverControlsAlive
         onClicked: driverControls.setDriverControlsAlive(checked)
 
     }
@@ -20,7 +20,7 @@ Item {
         x: 224
         y: 60
         text: qsTr("Headlights Off")
-        checked: driverControls.headlightsOff
+        checked: driverControls.HeadlightsOff
         onClicked: driverControls.setHeadlightsOff(checked)
     }
 
@@ -29,7 +29,7 @@ Item {
         x: 224
         y: 98
         text: qsTr("Headlights Low")
-        checked: driverControls.headlightsLow
+        checked: driverControls.HeadlightsLow
         onClicked: driverControls.setHeadlightsLow(checked)
     }
 
@@ -40,7 +40,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Headlights High")
-        checked: driverControls.headlightsHigh
+        checked: driverControls.HeadlightsHigh
         onClicked: driverControls.setHeadlightsHigh(checked)
     }
 
@@ -51,7 +51,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Signal Right")
-        checked: driverControls.signalRight
+        checked: driverControls.SignalRight
         onClicked: driverControls.setSignalRight(checked)
     }
 
@@ -62,7 +62,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Signal Left")
-        checked: driverControls.signalLeft
+        checked: driverControls.SignalLeft
         onClicked: driverControls.setSignalLeft(checked)
     }
 
@@ -73,7 +73,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Hazard")
-        checked: driverControls.hazards
+        checked: driverControls.Hazards
         onClicked: driverControls.setHazards(checked);
     }
 
@@ -84,7 +84,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Interior")
-        checked: driverControls.interior
+        checked: driverControls.Interior
         onClicked: driverControls.setInterior(checked)
     }
 
@@ -113,7 +113,7 @@ Item {
         x: 446
         y: 60
         text: qsTr("Volume Up")
-        checked: driverControls.volumeUp
+        checked: driverControls.VolumeUp
         onClicked: driverControls.setVolumeUp(checked)
     }
 
@@ -122,7 +122,7 @@ Item {
         x: 446
         y: 98
         text: qsTr("Volume Down")
-        checked: driverControls.volumeDown
+        checked: driverControls.VolumeDown
         onClicked: driverControls.setVolumeDown(checked)
     }
 
@@ -133,7 +133,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Next Song")
-        checked: driverControls.next
+        checked: driverControls.Next
         onClicked: driverControls.setNext(checked)
     }
 
@@ -144,7 +144,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Prev Song")
-        checked: driverControls.prev
+        checked: driverControls.Prev
         onClicked: driverControls.setPrev(checked)
     }
 
@@ -176,7 +176,7 @@ Item {
         height: 38
         to: 65535
         editable: true
-        value: driverControls.acceleration
+        value: driverControls.Acceleration
         onValueChanged: driverControls.setAcceleration(value)
     }
 
@@ -196,7 +196,7 @@ Item {
         height: 38
         to: 65535
         editable: true
-        value: driverControls.regenBraking
+        value: driverControls.RegenBraking
         onValueChanged: driverControls.setRegenBraking(value)
     }
 
@@ -213,7 +213,7 @@ Item {
         x: 666
         y: 51
         text: qsTr("Brakes")
-        checked: driverControls.brakes
+        checked: driverControls.Brakes
         onClicked: driverControls.setBrakes(checked)
     }
 
@@ -222,7 +222,7 @@ Item {
         x: 666
         y: 89
         text: qsTr("Forward")
-        checked: driverControls.forward
+        checked: driverControls.Forward
         onClicked: driverControls.setForward(checked)
     }
 
@@ -233,7 +233,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Reverse")
-        checked: driverControls.reverse
+        checked: driverControls.Reverse
         onClicked: driverControls.setReverse(checked)
     }
 
@@ -244,7 +244,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Push To Talk")
-        checked: driverControls.pushToTalk
+        checked: driverControls.PushToTalk
         onClicked: driverControls.setPushToTalk(checked)
     }
 
@@ -255,7 +255,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Horn")
-        checked: driverControls.horn
+        checked: driverControls.Horn
         onClicked: driverControls.setHorn(checked)
     }
 
@@ -266,7 +266,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Reset")
-        checked: driverControls.reset
+        checked: driverControls.Reset
         onClicked: driverControls.setReset(checked)
     }
 
@@ -277,7 +277,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Aux")
-        checked: driverControls.aux
+        checked: driverControls.Aux
         onClicked: driverControls.setAux(checked)
     }
 
@@ -308,7 +308,7 @@ Item {
         width: 186
         height: 32
         text: qsTr("Lap")
-        checked: driverControls.lap
+        checked: driverControls.Lap
         onClicked: driverControls.setLap(checked)
     }
 

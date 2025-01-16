@@ -24,6 +24,5 @@ SerialPortForwarder::~SerialPortForwarder() {}
 void SerialPortForwarder::forwardData(const QByteArray &data){
     if(serialPort_->isOpen()){
         serialPort_->write(data);
-        qDebug() << "Packet Forwarded: "; //<< data;
     }
 }

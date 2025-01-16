@@ -26,27 +26,27 @@ Item {
                 flags: [
                     {
                         text: qsTr("Common"),
-                        checked: mbms.commonContactorState,
+                        checked: mbms.CommonContactorState,
                         onClicked: function(checked) { mbms.setCommonContactorState(checked) }
                     },
                     {
                         text: qsTr("Motor"),
-                        checked: mbms.motorContactorState,
+                        checked: mbms.MotorContactorState,
                         onClicked: function(checked) { mbms.setMotorContactorState(checked) }
                     },
                     {
                         text: qsTr("Array"),
-                        checked: mbms.arrayContactorState,
+                        checked: mbms.ArrayContactorState,
                         onClicked: function(checked) { mbms.setArrayContactorState(checked) }
                     },
                     {
                         text: qsTr("LV"),
-                        checked: mbms.lvContactorState,
+                        checked: mbms.LvContactorState,
                         onClicked: function(checked) { mbms.setLvContactorState(checked) }
                     },
                     {
                         text: qsTr("Charge"),
-                        checked: mbms.chargeContactorState,
+                        checked: mbms.ChargeContactorState,
                         onClicked: function(checked) { mbms.setChargeContactorState(checked) }
                     }
                 ]
@@ -57,27 +57,27 @@ Item {
                 flags: [
                     {
                         text: qsTr("Common"),
-                        checked: mbms.commonContactorError,
+                        checked: mbms.CommonContactorError,
                         onClicked: function(checked) { mbms.setCommonContactorError(checked) }
                     },
                     {
                         text: qsTr("Motor"),
-                        checked: mbms.motorContactorError,
+                        checked: mbms.MotorContactorError,
                         onClicked: function(checked) { mbms.setMotorContactorError(checked) }
                     },
                     {
                         text: qsTr("Array"),
-                        checked: mbms.arrayContactorError,
+                        checked: mbms.ArrayContactorError,
                         onClicked: function(checked) { mbms.setArrayContactorError(checked) }
                     },
                     {
                         text: qsTr("LV"),
-                        checked: mbms.lvContactorError,
+                        checked: mbms.LvContactorError,
                         onClicked: function(checked) { mbms.setLvContactorError(checked) }
                     },
                     {
                         text: qsTr("Charge"),
-                        checked: mbms.chargeContactorError,
+                        checked: mbms.ChargeContactorError,
                         onClicked: function(checked) { mbms.setChargeContactorError(checked) }
                     }
                 ]
@@ -88,37 +88,37 @@ Item {
                 flags: [
                     {
                         text: qsTr("Strobe BMS Light"),
-                        checked: mbms.strobeBmsLight,
+                        checked: mbms.StrobeBmsLight,
                         onClicked: function(checked) { mbms.setStrobeBmsLight(checked) }
                     },
                     {
                         text: qsTr("Allow Charge"),
-                        checked: mbms.allowCharge,
+                        checked: mbms.AllowCharge,
                         onClicked: function(checked) { mbms.setAllowCharge(checked) }
                     },
                     {
                         text: qsTr("High Voltage Enable"),
-                        checked: mbms.highVoltageEnableState,
+                        checked: mbms.HighVoltageEnableState,
                         onClicked: function(checked) { mbms.setHighVoltageEnableState(checked) }
                     },
                     {
                         text: qsTr("Allow Discharge"),
-                        checked: mbms.allowDischarge,
+                        checked: mbms.AllowDischarge,
                         onClicked: function(checked) { mbms.setAllowDischarge(checked) }
                     },
                     {
                         text: qsTr("OrionCAN Received Recently"),
-                        checked: mbms.orionCanReceivedRecently,
+                        checked: mbms.OrionCanReceivedRecently,
                         onClicked: function(checked) { mbms.setOrionCanReceivedRecently(checked) }
                     },
                     {
                         text: qsTr("Discharge Should Trip"),
-                        checked: mbms.dischargeShouldTrip,
+                        checked: mbms.DischargeShouldTrip,
                         onClicked: function(checked) { mbms.setDischargeShouldTrip(checked) }
                     },
                     {
                         text: qsTr("Charge Should Trip"),
-                        checked: mbms.chargeShouldTrip,
+                        checked: mbms.ChargeShouldTrip,
                         onClicked: function(checked) { mbms.setChargeShouldTrip(checked) }
                     }
                 ]
@@ -133,31 +133,31 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("Aux Battery Voltage")
-                        value: mbms.auxillaryBatteryVoltage
+                        value: mbms.AuxillaryBatteryVoltage
                         onValueChanged: mbms.setAuxillaryBatteryVoltage(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Motor Voltage")
-                        value: mbms.motorVoltage
+                        value: mbms.MotorVoltage
                         onValueChanged: mbms.setMotorVoltage(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Array Voltage")
-                        value: mbms.arrayVoltage
+                        value: mbms.ArrayVoltage
                         onValueChanged: mbms.setArrayVoltage(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("LV Voltage")
-                        value: mbms.lvVoltage
+                        value: mbms.LvVoltage
                         onValueChanged: mbms.setLvVoltage(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Charge Voltage")
-                        value: mbms.chargeVoltage
+                        value: mbms.ChargeVoltage
                         onValueChanged: mbms.setChargeVoltage(value)
                     }
                 }
@@ -168,31 +168,31 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("Common Current")
-                        value: mbms.commonCurrent
+                        value: mbms.CommonCurrent
                         onValueChanged: mbms.setCommonCurrent(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Motor Current")
-                        value: mbms.motorCurrent
+                        value: mbms.MotorCurrent
                         onValueChanged: mbms.setMotorCurrent(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Array Current")
-                        value: mbms.arrayCurrent
+                        value: mbms.ArrayCurrent
                         onValueChanged: mbms.setArrayCurrent(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("LV Current")
-                        value: mbms.lvCurrent
+                        value: mbms.LvCurrent
                         onValueChanged: mbms.setLvCurrent(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Charge Current")
-                        value: mbms.chargeCurrent
+                        value: mbms.ChargeCurrent
                         onValueChanged: mbms.setChargeCurrent(value)
                     }
                 }
@@ -203,52 +203,52 @@ Item {
                 flags: [
                     {
                         text: qsTr("High Cell Voltage"),
-                        checked: mbms.highCellVoltageTrip,
+                        checked: mbms.HighCellVoltageTrip,
                         onClicked: function(checked) { mbms.setHighCellVoltageTrip(checked) }
                     },
                     {
                         text: qsTr("Low Cell Voltage"),
-                        checked: mbms.lowCellVoltageTrip,
+                        checked: mbms.LowCellVoltageTrip,
                         onClicked: function(checked) { mbms.setLowCellVoltageTrip(checked) }
                     },
                     {
                         text: qsTr("High Common Current"),
-                        checked: mbms.highCommonCurrentTrip,
+                        checked: mbms.HighCommonCurrentTrip,
                         onClicked: function(checked) { mbms.setHighCommonCurrentTrip(checked) }
                     },
                     {
                         text: qsTr("Motor High TC"),
-                        checked: mbms.motorTCTrip,
+                        checked: mbms.MotorTCTrip,
                         onClicked: function(checked) { mbms.setMotorTCTrip(checked) }
                     },
                     {
                         text: qsTr("Array High TC"),
-                        checked: mbms.arrayTCTrip,
+                        checked: mbms.ArrayTCTrip,
                         onClicked: function(checked) { mbms.setArrayTCTrip(checked) }
                     },
                     {
                         text: qsTr("LV High TC"),
-                        checked: mbms.lvTCTrip,
+                        checked: mbms.LvTCTrip,
                         onClicked: function(checked) { mbms.setLvTCTrip(checked) }
                     },
                     {
                         text: qsTr("Charge High/Temp"),
-                        checked: mbms.chargeTCTrip,
+                        checked: mbms.ChargeTCTrip,
                         onClicked: function(checked) { mbms.setChargeTCTrip(checked) }
                     },
                     {
                         text: qsTr("Protection"),
-                        checked: mbms.protectionTrip,
+                        checked: mbms.ProtectionTrip,
                         onClicked: function(checked) { mbms.setProtectionTrip(checked) }
                     },
                     {
                         text: qsTr("Orion Message Timeout"),
-                        checked: mbms.orionMessageTimeoutTrip,
+                        checked: mbms.OrionMessageTimeoutTrip,
                         onClicked: function(checked) { mbms.setOrionMessageTimeoutTrip(checked) }
                     },
                     {
                         text: qsTr("Contactor Disconnect"),
-                        checked: mbms.contactorDisconnectedTrip,
+                        checked: mbms.ContactorDisconnectedTrip,
                         onClicked: function(checked) { mbms.setContactorDisconnectedTrip(checked) }
                     }
                 ]
