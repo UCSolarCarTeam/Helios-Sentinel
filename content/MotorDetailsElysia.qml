@@ -38,7 +38,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.phaseCCurrent
+                    value: motorDetailsElysia.PhaseCCurrent
                     onValueChanged: motorDetailsElysia.setPhaseCCurrent(value)
                 }
 
@@ -58,7 +58,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.phaseBCurrent
+                    value: motorDetailsElysia.PhaseBCurrent
                     onValueChanged: motorDetailsElysia.setPhaseBCurrent(value)
                 }
 
@@ -78,7 +78,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.motorVoltageReal
+                    value: motorDetailsElysia.MotorVoltageReal
                     onValueChanged: motorDetailsElysia.setMotorVoltageReal(value)
                 }
 
@@ -98,7 +98,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.motorVoltageImag
+                    value: motorDetailsElysia.MotorVoltageImag
                     onValueChanged: motorDetailsElysia.setMotorVoltageImag(value)
                 }
 
@@ -118,7 +118,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.motorCurrentReal
+                    value: motorDetailsElysia.MotorCurrentReal
                     onValueChanged: motorDetailsElysia.setMotorCurrentReal(value)
                 }
 
@@ -138,7 +138,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.motorCurrentImag
+                    value: motorDetailsElysia.MotorCurrentImag
                     onValueChanged: motorDetailsElysia.setMotorCurrentImag(value)
                 }
 
@@ -158,7 +158,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.blackEMF
+                    value: motorDetailsElysia.BlackEMF
                     onValueChanged: motorDetailsElysia.setBlackEMF(value)
                 }
 
@@ -178,7 +178,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.voltageRailSupply15
+                    value: motorDetailsElysia.VoltageRailSupply15
                     onValueChanged: motorDetailsElysia.setVoltageRailSupply15(value)
                 }
 
@@ -202,7 +202,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.voltageRailSupply3
+                    value: motorDetailsElysia.VoltageRailSupply3
                     onValueChanged: motorDetailsElysia.setVoltageRailSupply3(value)
                 }
 
@@ -222,7 +222,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.voltageRailSupply2
+                    value: motorDetailsElysia.VoltageRailSupply2
                     onValueChanged: motorDetailsElysia.setVoltageRailSupply2(value)
                 }
 
@@ -242,7 +242,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.heatSinkTemp
+                    value: motorDetailsElysia.HeatSinkTemp
                     onValueChanged: motorDetailsElysia.setHeatSinkTemp(value)
                 }
 
@@ -262,7 +262,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.motorTemp
+                    value: motorDetailsElysia.MotorTemp
                     onValueChanged: motorDetailsElysia.setMotorTemp(value)
                 }
 
@@ -282,7 +282,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.dspBoardTemp
+                    value: motorDetailsElysia.DspBoardTemp
                     onValueChanged: motorDetailsElysia.setDspBoardTemp(value)
                 }
 
@@ -302,7 +302,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.dcBusAmpHours
+                    value: motorDetailsElysia.DcBusAmpHours
                     onValueChanged: motorDetailsElysia.setDcBusAmpHours(value)
                 }
 
@@ -322,7 +322,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.odometer
+                    value: motorDetailsElysia.Odometer
                     onValueChanged: motorDetailsElysia.setOdometer(value)
                 }
 
@@ -342,7 +342,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetailsElysia.slipSpeed
+                    value: motorDetailsElysia.SlipSpeed
                     onValueChanged: motorDetails.setSlipSpeed(value)
                 }
 

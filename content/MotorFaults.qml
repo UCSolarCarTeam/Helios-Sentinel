@@ -29,7 +29,7 @@ Item {
                 x: 30
                 y: 55
                 text: qsTr("Motor Over Speed")
-                checked: motorFaults.motorOverSpeedM0
+                checked: motorFaults.MotorOverSpeedM0
                 onClicked: motorFaults.setMotorOverSpeedM0(checked)
             }
 
@@ -38,7 +38,7 @@ Item {
                 x: 29
                 y: 157
                 text: qsTr("DC Bus OVer Voltage")
-                checked: motorFaults.dcBusOverVoltageM0
+                checked: motorFaults.DcBusOverVoltageM0
                 onClicked: motorFaults.setDcBusOverVoltageM0(checked)
             }
 
@@ -47,7 +47,7 @@ Item {
                 x: 30
                 y: 105
                 text: qsTr("Software Over Current")
-                checked: motorFaults.softwareOverCurrentM0
+                checked: motorFaults.SoftwareOverCurrentM0
                 onClicked: motorFaults.setSoftwareOverCurrentM0(checked)
             }
 
@@ -56,7 +56,7 @@ Item {
                 x: 29
                 y: 207
                 text: qsTr("Bad Motor Position HS")
-                checked: motorFaults.badMotorPHSM0
+                checked: motorFaults.BadMotorPHSM0
                 onClicked: motorFaults.setBadMotorPHSM0(checked)
             }
 
@@ -65,7 +65,7 @@ Item {
                 x: 29
                 y: 256
                 text: qsTr("Watchdog Caused Last Reset")
-                checked: motorFaults.watchdogCausedLastResetM0
+                checked: motorFaults.WatchdogCausedLastResetM0
                 onClicked: motorFaults.setWatchdogCausedLastResetM0(checked)
             }
 
@@ -74,7 +74,7 @@ Item {
                 x: 30
                 y: 365
                 text: qsTr("15V Rail Under Voltage Lock")
-                checked: motorFaults.railUnderVoltageLockM0
+                checked: motorFaults.RailUnderVoltageLockM0
                 onClicked: motorFaults.setRailUnderVoltageLockM0(checked)
             }
 
@@ -83,7 +83,7 @@ Item {
                 x: 31
                 y: 421
                 text: qsTr("Desaturation Fault")
-                checked: motorFaults.desaturationFaultM0
+                checked: motorFaults.DesaturationFaultM0
                 onClicked: motorFaults.setDesaturationFaultM0(checked)
             }
 
@@ -92,7 +92,7 @@ Item {
                 x: 30
                 y: 311
                 text: qsTr("Config Read Error")
-                checked: motorFaults.configReadErrorM0
+                checked: motorFaults.ConfigReadErrorM0
                 onClicked: motorFaults.setConfigReadErrorM0(checked)
             }
 
@@ -142,7 +142,7 @@ Item {
                 x: 30
                 y: 55
                 text: qsTr("Motor Over Speed")
-                checked: motorFaults.motorOverSpeedM1
+                checked: motorFaults.MotorOverSpeedM1
                 onClicked: motorFaults.setMotorOverSpeedM1(checked)
             }
 
@@ -150,7 +150,7 @@ Item {
                 x: 29
                 y: 157
                 text: qsTr("DC Bus OVer Voltage")
-                checked: motorFaults.dcBusOverVoltageM1
+                checked: motorFaults.DcBusOverVoltageM1
                 onClicked: motorFaults.setDcBusOverVoltageM1(checked)
             }
 
@@ -158,7 +158,7 @@ Item {
                 x: 30
                 y: 105
                 text: qsTr("Software Over Current")
-                checked: motorFaults.softwareOverCurrentM1
+                checked: motorFaults.SoftwareOverCurrentM1
                 onClicked: motorFaults.setSoftwareOverCurrentM1(checked)
             }
 
@@ -166,7 +166,7 @@ Item {
                 x: 29
                 y: 207
                 text: qsTr("Bad Motor Position HS")
-                checked: motorFaults.badMotorPHSM1
+                checked: motorFaults.BadMotorPHSM1
                 onClicked: motorFaults.setBadMotorPHSM1(checked)
             }
 
@@ -174,7 +174,7 @@ Item {
                 x: 29
                 y: 256
                 text: qsTr("Watchdog Caused Last Reset")
-                checked: motorFaults.watchdogCausedLastResetM1
+                checked: motorFaults.WatchdogCausedLastResetM1
                 onClicked: motorFaults.setWatchdogCausedLastResetM1(checked)
             }
 
@@ -182,7 +182,7 @@ Item {
                 x: 30
                 y: 365
                 text: qsTr("15V Rail Under Voltage Lock")
-                checked: motorFaults.railUnderVoltageLockM1
+                checked: motorFaults.RailUnderVoltageLockM1
                 onClicked: motorFaults.setRailUnderVoltageLockM1(checked)
             }
 
@@ -190,7 +190,7 @@ Item {
                 x: 31
                 y: 421
                 text: qsTr("Desaturation Fault")
-                checked: motorFaults.desaturationFaultM1
+                checked: motorFaults.DesaturationFaultM1
                 onClicked: motorFaults.setDesaturationFaultM1(checked)
             }
 
@@ -198,7 +198,7 @@ Item {
                 x: 30
                 y: 311
                 text: qsTr("Config Read Error")
-                checked: motorFaults.configReadErrorM1
+                checked: motorFaults.ConfigReadErrorM1
                 onClicked: motorFaults.setConfigReadErrorM1(checked)
             }
 
@@ -222,7 +222,7 @@ Item {
                 x: 30
                 y: 55
                 text: qsTr("Output Voltage PWM")
-                checked: motorFaults.outputVoltagePWMM0
+                checked: motorFaults.OutputVoltagePWMM0
                 onClicked: motorFaults.setOutputVoltagePWMM0(checked)
             }
 
@@ -230,7 +230,7 @@ Item {
                 x: 29
                 y: 157
                 text: qsTr("Velocity")
-                checked: motorFaults.velocityM0
+                checked: motorFaults.VelocityM0
                 onClicked: motorFaults.setVelocityM0(checked)
             }
 
@@ -238,7 +238,7 @@ Item {
                 x: 30
                 y: 105
                 text: qsTr("Motor Current ")
-                checked: motorFaults.motorCurrentM0
+                checked: motorFaults.MotorCurrentM0
                 onClicked: motorFaults.setMotorCurrentM0(checked)
             }
 
@@ -246,7 +246,7 @@ Item {
                 x: 29
                 y: 207
                 text: qsTr("Bus Current")
-                checked: motorFaults.busCurrentM0
+                checked: motorFaults.BusCurrentM0
                 onClicked: motorFaults.setBusCurrentM0(checked)
             }
 
@@ -254,7 +254,7 @@ Item {
                 x: 29
                 y: 256
                 text: qsTr("Bus Voltage Upper")
-                checked: motorFaults.busVoltageUpperM0
+                checked: motorFaults.BusVoltageUpperM0
                 onClicked: motorFaults.setBusVoltageUpperM0(checked)
             }
 
@@ -262,7 +262,7 @@ Item {
                 x: 30
                 y: 365
                 text: qsTr("IPM or Motor Temperature")
-                checked: motorFaults.motorTemperatureIPMM0
+                checked: motorFaults.MotorTemperatureIPMM0
                 onClicked: motorFaults.setMotorTemperatureIPMM0(checked)
             }
 
@@ -270,7 +270,7 @@ Item {
                 x: 30
                 y: 311
                 text: qsTr("Bus Voltage Lower")
-                checked: motorFaults.busVoltageLowerM0
+                checked: motorFaults.BusVoltageLowerM0
                 onClicked: motorFaults.setBusVoltageLowerM0(checked)
             }
 
@@ -294,7 +294,7 @@ Item {
                 x: 30
                 y: 55
                 text: qsTr("Output Voltage PWM")
-                checked: motorFaults.outputVoltagePWMM1
+                checked: motorFaults.OutputVoltagePWMM1
                 onClicked: motorFaults.setOutputVoltagePWMM1(checked)
             }
 
@@ -302,7 +302,7 @@ Item {
                 x: 29
                 y: 157
                 text: qsTr("Velocity")
-                checked: motorFaults.velocityM1
+                checked: motorFaults.VelocityM1
                 onClicked: motorFaults.setVelocityM1(checked)
             }
 
@@ -310,7 +310,7 @@ Item {
                 x: 30
                 y: 105
                 text: qsTr("Motor Current ")
-                checked: motorFaults.motorCurrentM1
+                checked: motorFaults.MotorCurrentM1
                 onClicked: motorFaults.setMotorCurrentM1(checked)
             }
 
@@ -318,7 +318,7 @@ Item {
                 x: 29
                 y: 207
                 text: qsTr("Bus Current")
-                checked: motorFaults.busCurrentM1
+                checked: motorFaults.BusCurrentM1
                 onClicked: motorFaults.setBusCurrentM1(checked)
             }
 
@@ -326,7 +326,7 @@ Item {
                 x: 29
                 y: 256
                 text: qsTr("Bus Voltage Upper")
-                checked: motorFaults.busVoltageUpperM1
+                checked: motorFaults.BusVoltageUpperM1
                 onClicked: motorFaults.setBusVoltageUpperM1(checked)
             }
 
@@ -334,7 +334,7 @@ Item {
                 x: 30
                 y: 365
                 text: qsTr("IPM or Motor Temperature")
-                checked: motorFaults.motorTemperatureIPMM1
+                checked: motorFaults.MotorTemperatureIPMM1
                 onClicked: motorFaults.setMotorTemperatureIPMM1(checked)
             }
 
@@ -342,7 +342,7 @@ Item {
                 x: 30
                 y: 311
                 text: qsTr("Bus Voltage Lower")
-                checked: motorFaults.busVoltageLowerM1
+                checked: motorFaults.BusVoltageLowerM1
                 onClicked: motorFaults.setBusVoltageLowerM1(checked)
             }
 
