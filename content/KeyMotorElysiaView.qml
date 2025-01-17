@@ -32,8 +32,8 @@ Item {
                 width: 135
                 height: 37
                 text: qsTr("M0 Alive")
-                checked: keyMotor.m0Alive
-                onClicked: keyMotor.setM0Alive(checked)
+                checked: keyMotorElysia.m0Alive
+                onClicked: keyMotorElysia.setM0Alive(checked)
             }
 
             GroupItem {
@@ -46,8 +46,8 @@ Item {
                     y: 0
                     width: 87
                     height: 28
-                    value: keyMotor.m0SetCurrent
-                    onValueChanged: keyMotor.setM0SetCurrent(value)
+                    value: keyMotorElysia.m0SetCurrent
+                    onValueChanged: keyMotorElysia.setM0SetCurrent(value)
                 }
 
                 Text {
@@ -67,8 +67,8 @@ Item {
                     y: 0
                     width: 87
                     height: 28
-                    value: keyMotor.m0SetVelocity
-                    onValueChanged: keyMotor.setM0SetVelocity(value)
+                    value: keyMotorElysia.m0SetVelocity
+                    onValueChanged: keyMotorElysia.setM0SetVelocity(value)
                 }
 
                 Text {
@@ -87,8 +87,8 @@ Item {
                     y: 0
                     width: 87
                     height: 28
-                    value: keyMotor.m0BusCurrent
-                    onValueChanged: keyMotor.setM0BusCurrent(value)
+                    value: keyMotorElysia.m0BusCurrent
+                    onValueChanged: keyMotorElysia.setM0BusCurrent(value)
                 }
 
                 Text {
@@ -107,8 +107,8 @@ Item {
                     y: 0
                     width: 87
                     height: 28
-                    value: keyMotor.m0BusVoltage
-                    onValueChanged: keyMotor.setM0BusVoltage(value)
+                    value: keyMotorElysia.m0BusVoltage
+                    onValueChanged: keyMotorElysia.setM0BusVoltage(value)
                 }
 
                 Text {
@@ -127,8 +127,8 @@ Item {
                     y: 0
                     width: 87
                     height: 28
-                    value: keyMotor.m0VehicleVelocity
-                    onValueChanged: keyMotor.setM0VehicleVelocity(value)
+                    value: keyMotorElysia.m0VehicleVelocity
+                    onValueChanged: keyMotorElysia.setM0VehicleVelocity(value)
                 }
 
                 Text {
@@ -155,8 +155,8 @@ Item {
             width: 135
             height: 37
             text: qsTr("M1 Alive")
-            checked: keyMotor.m1Alive
-            onClicked: keyMotor.setM1Alive(checked)
+            checked: keyMotorElysia.m1Alive
+            onClicked: keyMotorElysia.setM1Alive(checked)
         }
 
         GroupItem {
@@ -167,8 +167,8 @@ Item {
                 y: 0
                 width: 87
                 height: 28
-                value: keyMotor.m1SetCurrent
-                onValueChanged: keyMotor.setM1SetCurrent(value)
+                value: keyMotorElysia.m1SetCurrent
+                onValueChanged: keyMotorElysia.setM1SetCurrent(value)
             }
 
             Text {
@@ -187,8 +187,8 @@ Item {
                 y: 0
                 width: 87
                 height: 28
-                value: keyMotor.m1SetVelocity
-                onValueChanged: keyMotor.setM1SetVelocity(value)
+                value: keyMotorElysia.m1SetVelocity
+                onValueChanged: keyMotorElysia.setM1SetVelocity(value)
             }
 
             Text {
@@ -207,8 +207,8 @@ Item {
                 y: 0
                 width: 87
                 height: 28
-                value: keyMotor.m1BusCurrent
-                onValueChanged: keyMotor.setM1BusCurrent(value)
+                value: keyMotorElysia.m1BusCurrent
+                onValueChanged: keyMotorElysia.setM1BusCurrent(value)
             }
 
             Text {
@@ -227,8 +227,8 @@ Item {
                 y: 0
                 width: 87
                 height: 28
-                value: keyMotor.m1BusVoltage
-                onValueChanged: keyMotor.setM1BusVoltage(value)
+                value: keyMotorElysia.m1BusVoltage
+                onValueChanged: keyMotorElysia.setM1BusVoltage(value)
             }
 
             Text {
@@ -247,8 +247,8 @@ Item {
                 y: 0
                 width: 87
                 height: 28
-                value: keyMotor.m1VehicleVelocity
-                onValueChanged: keyMotor.setM1VehicleVelocity(value)
+                value: keyMotorElysia.m1VehicleVelocity
+                onValueChanged: keyMotorElysia.setM1VehicleVelocity(value)
             }
 
             Text {
