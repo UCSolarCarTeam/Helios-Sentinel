@@ -5,7 +5,7 @@ import QtQuick.Studio.Components 1.0
 
 
 Item {
-    property var motorDetails
+    property var motorDetailsElysia
     width: 660
     height: 620
 
@@ -22,7 +22,7 @@ Item {
             id: text2
             x: 267
             y: 22
-            text: qsTr("Motor " + motorDetails.motorNum + " Details")
+            text: qsTr("Motor " + motorDetailsElysia.motorNum + " Details")
             font.pixelSize: 20
         }
 
@@ -38,8 +38,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.phaseCCurrent
-                    onValueChanged: motorDetails.setPhaseCCurrent(value)
+                    value: motorDetailsElysia.phaseCCurrent
+                    onValueChanged: motorDetailsElysia.setPhaseCCurrent(value)
                 }
 
                 Text {
@@ -58,8 +58,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.phaseBCurrent
-                    onValueChanged: motorDetails.setPhaseBCurrent(value)
+                    value: motorDetailsElysia.phaseBCurrent
+                    onValueChanged: motorDetailsElysia.setPhaseBCurrent(value)
                 }
 
                 Text {
@@ -78,8 +78,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.motorVoltageReal
-                    onValueChanged: motorDetails.setMotorVoltageReal(value)
+                    value: motorDetailsElysia.motorVoltageReal
+                    onValueChanged: motorDetailsElysia.setMotorVoltageReal(value)
                 }
 
                 Text {
@@ -98,8 +98,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.motorVoltageImag
-                    onValueChanged: motorDetails.setMotorVoltageImag(value)
+                    value: motorDetailsElysia.motorVoltageImag
+                    onValueChanged: motorDetailsElysia.setMotorVoltageImag(value)
                 }
 
                 Text {
@@ -118,8 +118,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.motorCurrentReal
-                    onValueChanged: motorDetails.setMotorCurrentReal(value)
+                    value: motorDetailsElysia.motorCurrentReal
+                    onValueChanged: motorDetailsElysia.setMotorCurrentReal(value)
                 }
 
                 Text {
@@ -138,8 +138,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.motorCurrentImag
-                    onValueChanged: motorDetails.setMotorCurrentImag(value)
+                    value: motorDetailsElysia.motorCurrentImag
+                    onValueChanged: motorDetailsElysia.setMotorCurrentImag(value)
                 }
 
                 Text {
@@ -158,8 +158,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.blackEMF
-                    onValueChanged: motorDetails.setBlackEMF(value)
+                    value: motorDetailsElysia.blackEMF
+                    onValueChanged: motorDetailsElysia.setBlackEMF(value)
                 }
 
                 Text {
@@ -178,8 +178,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.voltageRailSupply15
-                    onValueChanged: motorDetails.setVoltageRailSupply15(value)
+                    value: motorDetailsElysia.voltageRailSupply15
+                    onValueChanged: motorDetailsElysia.setVoltageRailSupply15(value)
                 }
 
                 Text {
@@ -202,8 +202,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.voltageRailSupply3
-                    onValueChanged: motorDetails.setVoltageRailSupply3(value)
+                    value: motorDetailsElysia.voltageRailSupply3
+                    onValueChanged: motorDetailsElysia.setVoltageRailSupply3(value)
                 }
 
                 Text {
@@ -222,8 +222,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.voltageRailSupply2
-                    onValueChanged: motorDetails.setVoltageRailSupply2(value)
+                    value: motorDetailsElysia.voltageRailSupply2
+                    onValueChanged: motorDetailsElysia.setVoltageRailSupply2(value)
                 }
 
                 Text {
@@ -242,8 +242,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.heatSinkTemp
-                    onValueChanged: motorDetails.setHeatSinkTemp(value)
+                    value: motorDetailsElysia.heatSinkTemp
+                    onValueChanged: motorDetailsElysia.setHeatSinkTemp(value)
                 }
 
                 Text {
@@ -262,8 +262,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.motorTemp
-                    onValueChanged: motorDetails.setMotorTemp(value)
+                    value: motorDetailsElysia.motorTemp
+                    onValueChanged: motorDetailsElysia.setMotorTemp(value)
                 }
 
                 Text {
@@ -282,8 +282,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.dspBoardTemp
-                    onValueChanged: motorDetails.setDspBoardTemp(value)
+                    value: motorDetailsElysia.dspBoardTemp
+                    onValueChanged: motorDetailsElysia.setDspBoardTemp(value)
                 }
 
                 Text {
@@ -302,8 +302,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.dcBusAmpHours
-                    onValueChanged: motorDetails.setDcBusAmpHours(value)
+                    value: motorDetailsElysia.dcBusAmpHours
+                    onValueChanged: motorDetailsElysia.setDcBusAmpHours(value)
                 }
 
                 Text {
@@ -322,8 +322,8 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.odometer
-                    onValueChanged: motorDetails.setOdometer(value)
+                    value: motorDetailsElysia.odometer
+                    onValueChanged: motorDetailsElysia.setOdometer(value)
                 }
 
                 Text {
@@ -342,7 +342,7 @@ Item {
                     y: 0
                     width: 99
                     height: 30
-                    value: motorDetails.slipSpeed
+                    value: motorDetailsElysia.slipSpeed
                     onValueChanged: motorDetails.setSlipSpeed(value)
                 }
 
@@ -361,7 +361,7 @@ Item {
         y: 550
         width: 442
         height: 14
-        text: "Byte Stream: " + motorDetails.byteStreamStr
+        text: "Byte Stream: " + motorDetailsElysia.byteStreamStr
         font.pixelSize: 16
     }
 
@@ -371,7 +371,7 @@ Item {
         y: 580
         width: 442
         height: 14
-        text: "Encoded Stream: " + motorDetails.encodedByteStreamStr
+        text: "Encoded Stream: " + motorDetailsElysia.encodedByteStreamStr
         font.pixelSize: 16
     }
 }
