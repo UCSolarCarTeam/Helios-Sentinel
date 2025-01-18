@@ -143,50 +143,6 @@ Item {
         ]
     }
 
-    Rectangle {
-        id: rectangle
-        x: 172
-        y: 26
-        width: 218
-        height: 262
-        color: "#dddddd"
-        radius: 25
-        z: -1
-    }
-
-    Rectangle {
-        id: rectangle1
-        x: 409
-        y: 26
-        width: 327
-        height: 288
-        color: "#dddddd"
-        radius: 25
-        z: -1
-    }
-
-    Rectangle {
-        id: rectangle2
-        x: 172
-        y: 320
-        width: 470
-        height: 246
-        color: "#dddddd"
-        radius: 25
-        z: -1
-    }
-
-    Rectangle {
-        id: rectangle3
-        x: 0
-        y: 0
-        width: 750
-        height: 650
-        color: "#8b8b8b"
-        radius: 25
-        z: -2
-    }
-
     BytePreview{
         id:bytePreview
         raw:bms.byteStreamStr
