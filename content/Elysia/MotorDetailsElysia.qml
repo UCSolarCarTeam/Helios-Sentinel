@@ -105,7 +105,7 @@ Item {
     }
     FloatSpinBox {
         text: qsTr("Slip Speed")
-        inputValue: : motorDetailsElysia.SlipSpeed
+        inputValue: motorDetailsElysia.SlipSpeed
         onInputValueChanged: motorDetails.setSlipSpeed(value)
     }
 
