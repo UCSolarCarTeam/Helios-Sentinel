@@ -81,6 +81,7 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("Populated Cells")
+                        range: { "from": 0, "to": 255 }
                         value: battery.PopulatedCells
                         onValueChanged: battery.setPopulatedCells(value)
                     }
@@ -129,12 +130,14 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("High Temp")
+                        range: { "from": 0, "to": 255 }
                         value: battery.HighTemp
                         onValueChanged: battery.setHighTemp(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("High Thermistor ID")
+                        range: { "from": 0, "to": 255 }
                         value: battery.HighThermistorId
                         onValueChanged: battery.setHighThermistorId(value)
                     }
@@ -146,36 +149,42 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("Low Temp")
+                        range: { "from": 0, "to": 255 }
                         value: battery.LowTemp
                         onValueChanged: battery.setLowTemp(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Low Thermistor ID")
+                        range: { "from": 0, "to": 255 }
                         value: battery.LowThermistorId
                         onValueChanged: battery.setLowThermistorId(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Avg Temp")
+                        range: { "from": 0, "to": 255 }
                         value: battery.AvgTemp
                         onValueChanged: battery.setAvgTemp(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Internal Temp")
+                        range: { "from": 0, "to": 255 }
                         value: battery.InternalTemp
                         onValueChanged: battery.setInternalTemp(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Fan Speed")
+                        range: { "from": 0, "to": 255 }
                         value: battery.FanSpeed
                         onValueChanged: battery.setFanSpeed(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Req. Fan Speed")
+                        range: { "from": 0, "to": 255 }
                         value: battery.ReqFanSpeed
                         onValueChanged: battery.setReqFanSpeed(value)
                     }
@@ -188,6 +197,7 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("Low Cell Voltage ID")
+                        range: { "from": 0, "to": 255 }
                         value: battery.LowCellVoltageId
                         onValueChanged: battery.setLowCellVoltageId(value)
                     }
@@ -200,6 +210,7 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("High Cell Voltage ID")
+                        range: { "from": 0, "to": 255 }
                         value: battery.HighCellVoltageId
                         onValueChanged: battery.setHighCellVoltageId(value)
                     }
