@@ -35,6 +35,7 @@ Item {
                 IntSpinBox {
                     id: proximitySensor2
                     text: qsTr("GPS Month")
+                    range: { "from": 0, "to": 12 }
                     value: telemetry.GpsMonth
                     onValueChanged: telemetry.setGpsMonth(value)
                 }
@@ -42,6 +43,7 @@ Item {
                 IntSpinBox {
                     id: proximitySensor3
                     text: qsTr("GPS Day")
+                    range: { "from": 0, "to": 31 }
                     value: telemetry.GpsDay
                     onValueChanged: telemetry.setGpsDay(value)
                 }
@@ -49,6 +51,7 @@ Item {
                 IntSpinBox {
                     id: proximitySensor4
                     text: qsTr("GPS Hour")
+                    range: { "from": 0, "to": 23 }
                     value: telemetry.GpsHour
                     onValueChanged: telemetry.setGpsHour(value)
                 }
@@ -56,6 +59,7 @@ Item {
                 IntSpinBox {
                     id: proximitySensor5
                     text: qsTr("GPS Minute")
+                    range: { "from": 0, "to": 59 }
                     value: telemetry.GpsMinute
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setGpsMinute(value)
@@ -64,6 +68,7 @@ Item {
                 IntSpinBox {
                     id: proximitySensor6
                     text: qsTr("GPS Second")
+                    range: { "from": 0, "to": 59 }
                     value: telemetry.GpsSecond
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setGpsSecond(value)
@@ -72,6 +77,7 @@ Item {
                 IntSpinBox {
                     id: proximitySensor7
                     text: qsTr("Validity Flags")
+                    range: { "from": 0, "to": 255 }
                     value: telemetry.GpsValidityFlags
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setGpsValidityFlags(value)
@@ -80,6 +86,7 @@ Item {
                 IntSpinBox {
                     id: proximitySensor8
                     text: qsTr("Fix Status Flags")
+                    range: { "from": 0, "to": 255 }
                     value: telemetry.GpsFixStatusFlags
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setGpsFixStatusFlags(value)
@@ -88,6 +95,7 @@ Item {
                 IntSpinBox {
                     id: proximitySensor9
                     text: qsTr("Additional Flags")
+                    range: { "from": 0, "to": 255 }
                     value: telemetry.GpsAdditionalFlags
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setGpsAdditionalFlags(value)
@@ -102,6 +110,7 @@ Item {
                 IntSpinBox {
                     id: proximitySensor10
                     text: qsTr("Longitude")
+                    range: { "from": -2147483648, "to": 2147483647 }
                     value: telemetry.GpsLongitude
                     onValueChanged: telemetry.setGpsLongitude(value)
                 }
@@ -109,6 +118,7 @@ Item {
                 IntSpinBox {
                     id: proximitySensor11
                     text: qsTr("Latitude")
+                    range: { "from": -2147483648, "to": 2147483647 }
                     value: telemetry.GpsLatitude
                     onValueChanged: telemetry.setGpsLatitude(value)
                 }

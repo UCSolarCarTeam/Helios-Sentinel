@@ -34,6 +34,7 @@ Item {
             
             IntSpinBox {
                 id: spinBox
+                range: { "from": -32768, "to": 32767 }
                 text: qsTr("Control Value")
                 value: motorDetails.ControlValue
                 onValueChanged: motorDetails.setControlValue(value)
@@ -73,18 +74,21 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("Current Motor Torque")
+                        range: { "from": -32768, "to": 32767 }
                         value: motorDetails.CurrentMotorTorque
                         onValueChanged: motorDetails.setCurrentMotorTorque(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Current RPM")
+                        range: { "from": -32768, "to": 32767 }
                         value: motorDetails.CurrentRpmValue
                         onValueChanged: motorDetails.setCurrentRpmValue(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Motor Temperature")
+                        range: { "from": -128, "to": 127 }
                         value: motorDetails.MotorTemperature
                         onValueChanged: motorDetails.setMotorTemperature(value)
                     }
@@ -95,12 +99,14 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("Inverter Peak Current")
+                        range: { "from": -32768, "to": 32767 }
                         value: motorDetails.InverterPeakCurrent
                         onValueChanged: motorDetails.setInverterPeakCurrent(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Current Motor Power")
+                        range: { "from": -32768, "to": 32767 }
                         value: motorDetails.CurrentMotorPower
                         onValueChanged: motorDetails.setCurrentMotorPower(value)
                     }
