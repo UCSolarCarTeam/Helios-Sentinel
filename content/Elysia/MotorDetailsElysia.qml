@@ -2,6 +2,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Studio.Components 1.0
+import ".."
 
 
 Item {
@@ -9,369 +10,108 @@ Item {
     width: 660
     height: 620
 
-    Rectangle {
-        id: rectangle1
-        x: 0
-        y: 0
-        width: 660
-        height: 620
-        color: "#79ed8d"
-        radius: 25
-
-        Text {
-            id: text2
-            x: 267
-            y: 22
-            text: qsTr("Motor " + motorDetailsElysia.motorNum + " Details")
-            font.pixelSize: 20
-        }
-
-        GroupItem {
-            x: 47
-            y: 76
-
-            GroupItem {
-                x: 2
-                y: 0
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.PhaseCCurrent
-                    onValueChanged: motorDetailsElysia.setPhaseCCurrent(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("Phase C Current")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 2
-                y: 65
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.PhaseBCurrent
-                    onValueChanged: motorDetailsElysia.setPhaseBCurrent(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("Phase B Current")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 3
-                y: 133
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.MotorVoltageReal
-                    onValueChanged: motorDetailsElysia.setMotorVoltageReal(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("Motor Voltage Real")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 0
-                y: 197
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.MotorVoltageImag
-                    onValueChanged: motorDetailsElysia.setMotorVoltageImag(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("Motor Voltage Imaginary")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 0
-                y: 261
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.MotorCurrentReal
-                    onValueChanged: motorDetailsElysia.setMotorCurrentReal(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("Motor Current Real")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 0
-                y: 318
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.MotorCurrentImag
-                    onValueChanged: motorDetailsElysia.setMotorCurrentImag(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("Motor Current Imaginary")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 0
-                y: 374
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.BlackEMF
-                    onValueChanged: motorDetailsElysia.setBlackEMF(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("Black EMF")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 3
-                y: 436
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.VoltageRailSupply15
-                    onValueChanged: motorDetailsElysia.setVoltageRailSupply15(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("15V Voltage Rail Supply")
-                    font.pixelSize: 12
-                }
-            }
-        }
-
-        GroupItem {
-            x: 355
-            y: 76
-            GroupItem {
-                x: 2
-                y: 0
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.VoltageRailSupply3
-                    onValueChanged: motorDetailsElysia.setVoltageRailSupply3(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("3.3V Voltage Rail Supply")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 2
-                y: 65
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.VoltageRailSupply2
-                    onValueChanged: motorDetailsElysia.setVoltageRailSupply2(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("1.9V Voltage Rail Supply")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 3
-                y: 133
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.HeatSinkTemp
-                    onValueChanged: motorDetailsElysia.setHeatSinkTemp(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("Heat-sink Temperature")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 0
-                y: 197
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.MotorTemp
-                    onValueChanged: motorDetailsElysia.setMotorTemp(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("Motor Temperature")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 0
-                y: 261
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.DspBoardTemp
-                    onValueChanged: motorDetailsElysia.setDspBoardTemp(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("DSP Boaprd Tem")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 0
-                y: 318
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.DcBusAmpHours
-                    onValueChanged: motorDetailsElysia.setDcBusAmpHours(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("DC Bus AmpHours")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 0
-                y: 374
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.Odometer
-                    onValueChanged: motorDetailsElysia.setOdometer(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("Odometer")
-                    font.pixelSize: 12
-                }
-            }
-
-            GroupItem {
-                x: 3
-                y: 436
-                SpinBox {
-                    x: 0
-                    y: 0
-                    width: 99
-                    height: 30
-                    value: motorDetailsElysia.SlipSpeed
-                    onValueChanged: motorDetails.setSlipSpeed(value)
-                }
-
-                Text {
-                    x: 123
-                    y: 8
-                    text: qsTr("Slip Speed")
-                    font.pixelSize: 12
-                }
-            }
-        }
-    }
     Text {
-        id: text22
-        x: 43
-        y: 550
-        width: 442
-        height: 14
-        text: "Byte Stream: " + motorDetailsElysia.byteStreamStr
-        font.pixelSize: 16
+        id: text2
+        x: 267
+        y: 22
+        text: qsTr("Motor " + motorDetailsElysia.motorNum + " Details")
+        font.pixelSize: 20
     }
 
-    Text {
-        id: text23
-        x: 43
-        y: 580
-        width: 442
-        height: 14
-        text: "Encoded Stream: " + motorDetailsElysia.encodedByteStreamStr
-        font.pixelSize: 16
+    FloatSpinBox{
+          text: qsTr("Phase C Current")
+          inputValue: motorDetailsElysia.PhaseCCurrent
+          onInputValueChanged: motorDetailsElysia.setPhaseCCurrent(value)
+
+    }
+    FloatSpinBox{
+          text: qsTr("Phase B Current")
+          inputValue: mmotorDetailsElysia.PhaseBCurrent
+          onInputValueChanged: motorDetailsElysia.setPhaseBCurrent(value)
+
+    }
+    FloatSpinBox{
+        text:qsTr("Motor Voltage Real")
+        inputValue: motorDetailsElysia.MotorVoltageReal
+        onInputValueChanged: motorDetailsElysia.setMotorVoltageReal(value)
+    }
+    FloatSpinBox{
+        text: qsTr("Motor Voltage Imaginary")
+        inputValue: motorDetailsElysia.MotorVoltageImag
+        onInputValueChanged:motorDetailsElysia.setMotorVoltageImag(value)
+    }
+    FloatSpinBox{
+         text: qsTr("Motor Current Real")
+         inputValue:motorDetailsElysia.MotorCurrentReal
+         onInputValueChanged: motorDetailsElysia.setMotorCurrentReal(value)
+    }
+    FloatSpinBox{
+        text: qsTr("Motor Current Imaginary")
+        inputValue: motorDetailsElysia.MotorCurrentImag
+        onInputValueChanged:  motorDetailsElysia.setMotorCurrentImag(value)
+
+    }
+    FloatSpinBox{
+        text: qsTr("Black EMF")
+        inputValue: motorDetailsElysia.BlackEMF
+        onInputValueChanged: motorDetailsElysia.setBlackEMF(value)
+    }
+    FloatSpinBox{
+        text: qsTr("15V Voltage Rail Supply")
+        inputValue: motorDetailsElysia.VoltageRailSupply15
+        onInputValueChanged: motorDetailsElysia.setVoltageRailSupply15(value)
+    }
+
+    FloatSpinBox {
+        text: qsTr("3.3V Voltage Rail Supply")
+        inputValue: motorDetailsElysia.VoltageRailSupply3
+        onInputValueChanged:  motorDetailsElysia.setVoltageRailSupply3(value)
+    }
+    FloatSpinBox{
+        text:qsTr("1.9V Voltage Rail Supply")
+        inputValue:  motorDetailsElysia.VoltageRailSupply2
+        onInputValueChanged:motorDetailsElysia.setVoltageRailSupply2(value)
+    }
+    FloatSpinBox{
+        text: qsTr("Heat-sink Temperature")
+        inputValue:motorDetailsElysia.HeatSinkTemp
+        onInputValueChanged: motorDetailsElysia.setHeatSinkTemp(value)
+    }
+    FloatSpinBox {
+        text: qsTr("Motor Temperature")
+        inputValue: motorDetailsElysia.MotorTemp
+        onInputValueChanged: motorDetailsElysia.setMotorTemp(value)
+
+    }
+    FloatSpinBox {
+        text: qsTr("DSP Boaprd Tem")
+        inputValue: motorDetailsElysia.DspBoardTemp
+        onInputValueChanged: motorDetailsElysia.setDspBoardTemp(value)
+    }
+    FloatSpinBox{
+        text:qsTr("DC Bus AmpHours")
+        inputValue: motorDetailsElysia.DcBusAmpHours
+        onInputValueChanged: motorDetailsElysia.setDcBusAmpHours(value)
+    }
+    FloatSpinBox {
+        text: qsTr("DC Bus AmpHours")
+        inputValue: motorDetailsElysia.DcBusAmpHours
+        onInputValueChanged:motorDetailsElysia.setDcBusAmpHours(value)
+    }
+    FloatSpinBox {
+        text: qsTr("Odometer")
+        inputValue: motorDetailsElysia.Odometer
+        onInputValueChanged: motorDetailsElysia.setOdometer(value)
+    }
+    FloatSpinBox {
+        text: qsTr("Slip Speed")
+        inputValue: : motorDetailsElysia.SlipSpeed
+        onInputValueChanged: motorDetails.setSlipSpeed(value)
+    }
+
+    BytePreview {
+        id: bytePreview
+        raw:  motorDetailsElysia.byteStreamStr
+        encoded:  motorDetailsElysia.encodedByteStreamStr
     }
 }
