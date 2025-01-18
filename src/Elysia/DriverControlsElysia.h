@@ -1,6 +1,6 @@
-#ifndef DRIVERCONTROLS_H
-#define DRIVERCONTROLS_H
-#include "PropertyDefinition.h"
+#ifndef DRIVERCONTROLSELYSIA_H
+#define DRIVERCONTROLSELYSIA_H
+#include "../PropertyDefinition.h"
 #include <QObject>
 
 class DriverControls : public QObject
@@ -61,4 +61,4 @@ private:
 
 };
 
-#endif // DRIVERCONTROLS_H
+#endif // DRIVERCONTROLSELYSIA_H

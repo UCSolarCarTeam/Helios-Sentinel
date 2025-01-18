@@ -1,4 +1,4 @@
-#include "lights.h"
+#include "LightsElysia.h"
 #include "util.h"
 
 #include <QIODevice>
