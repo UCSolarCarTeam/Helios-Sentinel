@@ -1,6 +1,6 @@
-#ifndef LIGHTS_H
-#define LIGHTS_H
-#include "PropertyDefinition.h"
+#ifndef LIGHTSELYSIA_H
+#define LIGHTSELYSIA_H
+#include "../PropertyDefinition.h"
 #include <QObject>
 
 class Lights : public QObject
@@ -40,4 +40,4 @@ private:
 
 };
 
-#endif // LIGHTS_H
+#endif // LIGHTSELYSIA_H

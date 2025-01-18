@@ -1,6 +1,6 @@
-#ifndef MOTORFAULTS_H
-#define MOTORFAULTS_H
-#include "PropertyDefinition.h"
+#ifndef MOTORFAULTSELYSIA_H
+#define MOTORFAULTSELYSIA_H
+#include "../PropertyDefinition.h"
 #include <QObject>
 
 class MotorFaults : public QObject
@@ -73,4 +73,4 @@ private:
     void updateByteStream();
 
 };
-#endif // MOTORFAULTS_H
+#endif // MOTORFAULTSELYSIA_H

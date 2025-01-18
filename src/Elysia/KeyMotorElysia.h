@@ -1,6 +1,6 @@
 #ifndef KEYMOTORELYSIA_H
 #define KEYMOTORELYSIA_H
-#include "PropertyDefinition.h"
+#include "../PropertyDefinition.h"
 #include <QObject>
 
 class KeyMotorElysia : public QObject
