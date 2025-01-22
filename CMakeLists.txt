@@ -14,21 +14,27 @@ if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
 endif()
 
 qt_add_executable(Sentinel src/main.cpp
-    src/lights.h src/lights.cpp
+    src/Elysia/LightsElysia.h src/Elysia/LightsElysia.cpp
     src/SerialPortForwarder.cpp
     src/SerialPortForwarder.h
-    src/DriverControls.h src/DriverControls.cpp
+    src/Elysia/DriverControlsElysia.h src/Elysia/DriverControlsElysia.cpp
     src/util.h src/util.cpp
     src/BatteryFaults.h src/BatteryFaults.cpp
     src/KeyMotor.h src/KeyMotor.cpp
     src/Battery.h src/Battery.cpp
     src/MotorDetails.h src/MotorDetails.cpp
-    src/AuxBms.h src/AuxBms.cpp
+    src/Elysia/AuxBmsElysia.h src/Elysia/AuxBmsElysia.cpp
     src/Mppt.h src/Mppt.cpp
     src/B3.h src/B3.cpp
     src/ProximitySensors.h src/ProximitySensors.cpp
     src/Mbms.h src/Mbms.cpp
     src/Telemetry.h src/Telemetry.cpp
+    src/Elysia/KeyMotorElysia.h
+    src/Elysia/KeyMotorElysia.cpp
+    src/Elysia/MotorDetailsElysia.h
+    src/Elysia/MotorDetailsElysia.cpp
+    src/Elysia/MotorFaultsElysia.h
+    src/Elysia/MotorFaultsElysia.cpp
     src/PropertyDefinition.h
 
 

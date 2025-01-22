@@ -1,6 +1,6 @@
-#ifndef AUXBMS_H
-#define AUXBMS_H
-#include "PropertyDefinition.h"
+#ifndef AUXBMSELYSIA_H
+#define AUXBMSELYSIA_H
+#include "../PropertyDefinition.h"
 #include <QObject>
 
 class AuxBms : public QObject
@@ -76,4 +76,4 @@ private:
     void updateByteStream();
 };
 
-#endif // AUXBMS_H
+#endif // AUXBMSELYSIA_H

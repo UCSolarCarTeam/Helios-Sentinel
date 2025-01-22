@@ -1,4 +1,4 @@
-#include "AuxBms.h"
+#include "AuxBmsElysia.h"
 #include "util.h"
 
 AuxBms::AuxBms(QObject *parent)
