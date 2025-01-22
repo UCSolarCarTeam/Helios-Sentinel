@@ -11,6 +11,9 @@ Item {
     property alias value: spinBox.value
     signal customValueChanged(int newValue)
 
+    // Define default range as unsigned short
+    property var range: {"from": 0, "to": 65535}
+
     Text {
         id: text1
         y: 4
@@ -22,8 +25,8 @@ Item {
         y: 0
         width: 110
         height: 25
-        from: 0
-        to: 65535
+        from: range.from
+        to: range.to
         editable: true
         bottomPadding: 1
         topPadding: 1
