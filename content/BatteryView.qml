@@ -177,14 +177,14 @@ Item {
 
                     IntSpinBox {
                         text: qsTr("Fan Speed")
-                        range: { "from": 0, "to": 255 }
+                        range: { "from": 0, "to": 6 }
                         value: battery.FanSpeed
                         onValueChanged: battery.setFanSpeed(value)
                     }
 
                     IntSpinBox {
                         text: qsTr("Req. Fan Speed")
-                        range: { "from": 0, "to": 255 }
+                        range: { "from": 0, "to": 6 }
                         value: battery.ReqFanSpeed
                         onValueChanged: battery.setReqFanSpeed(value)
                     }
