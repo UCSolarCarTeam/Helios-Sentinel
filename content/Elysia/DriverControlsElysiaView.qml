@@ -10,42 +10,41 @@ Item {
         x: 8
         y: 60
         text: qsTr("Driver Controls")
-        checked: driverControls.DriverControlsAlive
-        onClicked: driverControls.setDriverControlsAlive(checked)
-
+        checked: driverControlElysia.DriverControlsAlive
+        onClicked: driverControlElysia.setDriverControlsAlive(checked)
     }
     FlagBox{
         title:"Lights Input"
         flags:[
             {
                 text: qsTr("Headlights Off"),
-                checked: driverControls.HeadlightsOff,
-                onClicked: function(checked) {driverControls.setHeadlightsOff(checked)}
+                checked: driverControlElysia.HeadlightsOff,
+                onClicked: function(checked) {driverControlElysia.setHeadlightsOff(checked)}
             },
             {
                 text: qsTr("Headlights Low"),
-                checked: driverControls.HeadlightsLow,
-                onClicked: function(checked) {driverControls.setHeadlightsLow(checked)}
+                checked: driverControlElysia.HeadlightsLow,
+                onClicked: function(checked) {driverControlElysia.setHeadlightsLow(checked)}
             },
             {
                 text: qsTr("Headlights High"),
-                checked: driverControls.HeadlightsHigh,
-                onClicked: function(checked) {driverControls.setHeadlightsHigh(checked)}
+                checked: driverControlElysia.HeadlightsHigh,
+                onClicked: function(checked) {driverControlElysia.setHeadlightsHigh(checked)}
             },
             {
                 text: qsTr("Signal Right"),
-                checked: driverControls.SignalRight,
-                onClicked: function(checked) {driverControls.setSignalRight(checked)}
+                checked: driverControlElysia.SignalRight,
+                onClicked: function(checked) {driverControlElysia.setSignalRight(checked)}
             },
             {
                 text: qsTr("Signal Left"),
-                checked: driverControls.SignalLeft,
-                onClicked: function(checked) {driverControls.setSignalLeft(checked)}
+                checked: driverControlElysia.SignalLeft,
+                onClicked: function(checked) {driverControlElysia.setSignalLeft(checked)}
             },
             {
                 text: qsTr("Interior"),
-                checked: driverControls.Interior,
-                onClicked: function(checked) {driverControls.setInterior(checked)}
+                checked: driverControlElysia.Interior,
+                onClicked: function(checked) {driverControlElysia.setInterior(checked)}
             }
         ]
     }
@@ -55,36 +54,36 @@ Item {
         flags:[
             {
                 text: qsTr("Volume Up"),
-                checked: driverControls.VolumeUp,
-                onClicked: function(checked) {driverControls.setVolumeUp(checked)}
+                checked: driverControlElysia.VolumeUp,
+                onClicked: function(checked) {driverControlElysia.setVolumeUp(checked)}
             },
             {
                 text: qsTr("Volume Down"),
-                checked: driverControls.VolumeDown,
-                onClicked: function(checked) {driverControls.setVolumeDown(checked)}
+                checked: driverControlElysia.VolumeDown,
+                onClicked: function(checked) {driverControlElysia.setVolumeDown(checked)}
             },
             {
                 text: qsTr("Next Song"),
-                checked: driverControls.Next,
-                onClicked: function(checked) {driverControls.setNext(checked)}
+                checked: driverControlElysia.Next,
+                onClicked: function(checked) {driverControlElysia.setNext(checked)}
             },
             {
                 text: qsTr("Prev Song"),
-                checked: driverControls.Prev,
-                onClicked: function(checked) {driverControls.setPrev(checked)}
+                checked: driverControlElysia.Prev,
+                onClicked: function(checked) {driverControlElysia.setPrev(checked)}
             }
         ]
     }
 
     IntSpinBox {
         text:qsTr("Acceleration")
-        value: driverControls.Acceleration
-        onValueChanged: driverControls.setAcceleration(value)
+        value: driverControlElysia.Acceleration
+        onValueChanged: driverControlElysia.setAcceleration(value)
     }
     IntSpinBox {
          text: qsTr("Regen Braking")
-         value: driverControls.RegenBraking
-         onValueChanged: driverControls.setRegenBraking(value)
+         value: driverControlElysia.RegenBraking
+         onValueChanged: driverControlElysia.setRegenBraking(value)
     }
 
     FlagBox{
@@ -92,50 +91,50 @@ Item {
         flags:[
             {
                 text: qsTr("Brakes"),
-                checked: driverControls.Brakes,
-                onClicked: function(checked) {driverControls.setBrakes(checked)}
+                checked: driverControlElysia.Brakes,
+                onClicked: function(checked) {driverControlElysia.setBrakes(checked)}
             },
             {
                 text: qsTr("Forward"),
-                checked: driverControls.Forward,
-                onClicked: function(checked) {driverControls.setForward(checked)}
+                checked: driverControlElysia.Forward,
+                onClicked: function(checked) {driverControlElysia.setForward(checked)}
             },
             {
                 text: qsTr("Reverse"),
-                checked: driverControls.Reverse,
-                onClicked: function(checked) {driverControls.setReverse(checked)}
+                checked: driverControlElysia.Reverse,
+                onClicked: function(checked) {driverControlElysia.setReverse(checked)}
             },
             {
                 text: qsTr("Push To Talk"),
-                checked: driverControls.PushToTalk,
-                onClicked: function(checked) {driverControls.setPushToTalk(checked)}
+                checked: driverControlElysia.PushToTalk,
+                onClicked: function(checked) {driverControlElysia.setPushToTalk(checked)}
             },
             {
                 text: qsTr("Horn"),
-                checked: driverControls.Horn,
-                onClicked: function(checked) {driverControls.setHorn(checked)}
+                checked: driverControlElysia.Horn,
+                onClicked: function(checked) {driverControlElysia.setHorn(checked)}
             },
             {
                 text: qsTr("Reset"),
-                checked: driverControls.Reset,
-                onClicked: function(checked) {driverControls.setReset(checked)}
+                checked: driverControlElysia.Reset,
+                onClicked: function(checked) {driverControlElysia.setReset(checked)}
             },
             {
                 text: qsTr("Aux"),
-                checked: driverControls.Aux,
-                onClicked: function(checked) {driverControls.setAux(checked)}
+                checked: driverControlElysia.Aux,
+                onClicked: function(checked) {driverControlElysia.setAux(checked)}
             },
             {
                 text: qsTr("Lap"),
-                checked: driverControls.Lap,
-                onClicked: function(checked) {driverControls.setLap(checked)}
+                checked: driverControlElysia.Lap,
+                onClicked: function(checked) {driverControlElysia.setLap(checked)}
             }
         ]
     }
 
     BytePreview {
         id: bytePreview
-        raw: driverControls.byteStreamStr
-        encoded:  driverControls.encodedByteStreamStr
+        raw: driverControlElysia.byteStreamStr
+        encoded:  driverControlElysia.encodedByteStreamStr
     }
 }

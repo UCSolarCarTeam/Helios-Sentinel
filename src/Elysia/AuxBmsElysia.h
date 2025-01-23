@@ -3,11 +3,11 @@
 #include "../PropertyDefinition.h"
 #include <QObject>
 
-class AuxBms : public QObject
+class AuxBmsElysia : public QObject
 {
     Q_OBJECT
 public:
-    explicit AuxBms(QObject *parent = nullptr);
+    explicit AuxBmsElysia(QObject *parent = nullptr);
 
     DEFINE_PROPERTY_WHOLE_NUMBER(int, PrechargeState,2,1 )
     DEFINE_PROPERTY_WHOLE_NUMBER(int, AuxVoltage, 3,1)

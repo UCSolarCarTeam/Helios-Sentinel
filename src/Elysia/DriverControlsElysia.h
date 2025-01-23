@@ -3,11 +3,11 @@
 #include "../PropertyDefinition.h"
 #include <QObject>
 
-class DriverControls : public QObject
+class DriverControlsElysia : public QObject
 {
     Q_OBJECT
 public:
-    explicit DriverControls(QObject *parent = nullptr);
+    explicit DriverControlsElysia(QObject *parent = nullptr);
 
     DEFINE_PROPERTY_BOOL(DriverControlsAlive, 1, 0x01)
     DEFINE_PROPERTY_BOOL(HeadlightsOff, 3, 0x01)

@@ -3,7 +3,7 @@
 
 #include <QDebug>
 
-DriverControls::DriverControls(QObject *parent)
+DriverControlsElysia::DriverControlsElysia(QObject *parent)
     : QObject{parent}
 {
     byteStream_.fill(0x00, 13);
@@ -13,24 +13,24 @@ DriverControls::DriverControls(QObject *parent)
     updateByteStream();
 }
 
-QByteArray DriverControls::byteStream() const{
+QByteArray DriverControlsElysia::byteStream() const{
     return byteStream_;
 }
 
-QByteArray DriverControls::encodedByteStream() const{
+QByteArray DriverControlsElysia::encodedByteStream() const{
     return encodedByteStream_;
 }
 
-QString DriverControls::byteStreamStr() const {
+QString DriverControlsElysia::byteStreamStr() const {
     return QString(byteStream_.toHex(' '));
 }
 
-QString DriverControls::encodedByteStreamStr() const{
+QString DriverControlsElysia::encodedByteStreamStr() const{
     return QString(encodedByteStream_.toHex(' '));
 }
 
 
-void DriverControls::updateByteStream(){
+void DriverControlsElysia::updateByteStream(){
     QByteArray checksum = Util::generateChecksum(byteStream_, 1, 9);
     byteStream_[10] = checksum.at(0);
     byteStream_[11] = checksum.at(1);

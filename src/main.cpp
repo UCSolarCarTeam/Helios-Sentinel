@@ -11,6 +11,10 @@
 #include "import_qml_plugins.h"
 
 #include "./SerialPortForwarder.h"
+
+#include "Elysia/AuxBmsElysia.h"
+#include "Elysia/DriverControlsElysia.h"
+
 #include "KeyMotor.h"
 #include "MotorDetails.h"
 #include "B3.h"
@@ -20,6 +24,7 @@
 #include "Mppt.h"
 #include "Mbms.h"
 #include "ProximitySensors.h"
+#include "setting.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,7 +32,7 @@ int main(int argc, char *argv[])
     /*************************************************
         SET PORT HERE
     */
-    SerialPortForwarder forwarder("/dev/pts/3");
+    SerialPortForwarder forwarder("/dev/ttys014");
 
     /*************************************************/
 
@@ -36,7 +41,12 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-
+    Setting settings;
+    engine.rootContext()->setContextProperty("settings",&settings);
+    AuxBmsElysia auxBmsElysia;
+    DriverControlsElysia driverControlElysia;
+    engine.rootContext()->setContextProperty("auxBmsElysia", &auxBmsElysia);
+    engine.rootContext()->setContextProperty("driverControlElysia", &driverControlElysia);
     KeyMotor keyMotor;
     engine.rootContext()->setContextProperty("keyMotor", &keyMotor);
 
@@ -91,21 +101,28 @@ int main(int argc, char *argv[])
 
     QTimer timer;
 
-    QObject::connect(&timer, &QTimer::timeout, [&forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
+    QObject::connect(&timer, &QTimer::timeout, [&auxBmsElysia, &driverControlElysia, &settings, &forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
         // Packet rotation subject to change
-        forwarder.forwardData(keyMotor.encodedByteStream());
-        forwarder.forwardData(b3.encodedByteStream());
-        forwarder.forwardData(telemetry.encodedByteStream());
-        forwarder.forwardData(batteryFaults.encodedByteStream());
-        forwarder.forwardData(mbms.encodedByteStream());
-        forwarder.forwardData(proximitySensors.encodedByteStream());
-        forwarder.forwardData(battery.encodedByteStream());
-        forwarder.forwardData(m1.encodedByteStream());
-        forwarder.forwardData(mppt2.encodedByteStream());
-        forwarder.forwardData(mppt3.encodedByteStream());
-        forwarder.forwardData(m0.encodedByteStream());
-        forwarder.forwardData(mppt0.encodedByteStream());
-        forwarder.forwardData(mppt1.encodedByteStream());
+        if (settings.getIsElysia()) {
+            qDebug() << "I AM SENDING ELYSIA";
+        }
+        else{
+            qDebug() << "IM NOT SENDING ELYSIA";
+            forwarder.forwardData(keyMotor.encodedByteStream());
+            forwarder.forwardData(b3.encodedByteStream());
+            forwarder.forwardData(telemetry.encodedByteStream());
+            forwarder.forwardData(batteryFaults.encodedByteStream());
+            forwarder.forwardData(mbms.encodedByteStream());
+            forwarder.forwardData(proximitySensors.encodedByteStream());
+            forwarder.forwardData(battery.encodedByteStream());
+            forwarder.forwardData(m1.encodedByteStream());
+            forwarder.forwardData(mppt2.encodedByteStream());
+            forwarder.forwardData(mppt3.encodedByteStream());
+            forwarder.forwardData(m0.encodedByteStream());
+            forwarder.forwardData(mppt0.encodedByteStream());
+            forwarder.forwardData(mppt1.encodedByteStream());
+        }
+
     });
     timer.start(500);
 

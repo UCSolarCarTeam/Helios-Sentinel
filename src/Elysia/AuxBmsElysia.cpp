@@ -1,7 +1,7 @@
 #include "AuxBmsElysia.h"
 #include "util.h"
 
-AuxBms::AuxBms(QObject *parent)
+AuxBmsElysia::AuxBmsElysia(QObject *parent)
     : QObject{parent}
 {
     byteStream_.fill(0x00, 15);
@@ -11,19 +11,19 @@ AuxBms::AuxBms(QObject *parent)
 }
 
 
-QByteArray AuxBms::byteStream() const{
+QByteArray AuxBmsElysia::byteStream() const{
     return byteStream_;
 }
 
-QByteArray AuxBms::encodedByteStream() const{
+QByteArray AuxBmsElysia::encodedByteStream() const{
     return encodedByteStream_;
 }
 
-QString AuxBms::byteStreamStr() const {
+QString AuxBmsElysia::byteStreamStr() const {
     return QString(byteStream_.toHex(' '));
 }
 
-QString AuxBms::encodedByteStreamStr() const{
+QString AuxBmsElysia::encodedByteStreamStr() const{
     return QString(encodedByteStream_.toHex(' '));
 }
 
@@ -36,25 +36,25 @@ find out if needed
 
 */
 
-void AuxBms::setOrionTimeout(bool on){
+void AuxBmsElysia::setOrionTimeout(bool on){
     //byteStream_[11] += on ? 0x80 : -0x80;
     orionTimeout_ = on;
     updateByteStream();
 }
 
-void AuxBms::setCncHighCurrent(bool on){
+void AuxBmsElysia::setCncHighCurrent(bool on){
     //byteStream_[12] += on ? 0x01 : -0x01;
     cncHighCurrent_ = on;
     updateByteStream();
 }
 
-void AuxBms::setDncHighCurrent(bool on){
+void AuxBmsElysia::setDncHighCurrent(bool on){
     //byteStream_[12] += on ? 0x02 : -0x02;
     dncHighCurrent_ = on;
     updateByteStream();
 }
 
-void AuxBms::setContactorDisconnected(bool on){
+void AuxBmsElysia::setContactorDisconnected(bool on){
     //byteStream_[12] += on ? 0x04 : -0x04;
     contactorDisconnected_ = on;
     updateByteStream();
@@ -68,7 +68,7 @@ find out if needed
 
 */
 
-void AuxBms::updateByteStream(){
+void AuxBmsElysia::updateByteStream(){
     QByteArray checksum = Util::generateChecksum(byteStream_, 1, 11);
     byteStream_[12] = checksum.at(0);
     byteStream_[13] = checksum.at(1);
