@@ -3,58 +3,67 @@ import QtQuick.Controls 2.15
 import ".."
 
 Item {
-    width: 600
-    height: 200
-    opacity: 1
-    visible: true
+    width: 750
+    height: 650
 
-    FlagBox{
-        title:"Light Status"
-        flags:[
-            {
-                title:qsTr("Lights Alive"),
-                checked: lights.LightsAlive,
-                onClicked: function(checked) {lights.setLightsAlive(checked)}
-            },
-            {
-                title:qsTr("Low Beams"),
-                checked: lights.LowBeams,
-                onClicked: function(checked) {lights.setLowBeams(checked)}
+    Column {
+        anchors.fill: parent
+        anchors.margins: 10
+        spacing: 20
 
-            },
-            {
-                title:qsTr("Left Signal"),
-                checked: lights.LeftSignal,
-                onClicked: function(checked){lights.setLeftSignal(checked)}
+        Text {
+            text: "Lights Packet"
+            font.family: "Verdana"
+            font.bold: true
+        }
+        FlagBox{
+            title:"Light Status"
+            flags:[
+                {
+                    text: qsTr("Lights Alive"),
+                    checked: lightsElysia.LightsAlive,
+                    onClicked: function(checked) {lightsElysia.setLightsAlive(checked)}
+                },
+                {
+                    text:qsTr("Low Beams"),
+                    checked: lightsElysia.LowBeams,
+                    onClicked: function(checked) {lightsElysia.setLowBeams(checked)}
 
-            },
-            {
-                title: qsTr("High Beams"),
-                checked: lights.HighBeams,
-                onClicked: function(checked){lights.setHighBeams(checked)}
-            },
-            {
-                title:qsTr("Right Signal"),
-                checked: lights.RightSignal,
-                onClicked: function(checked) {lights.setRightSignal(checked)}
-            },
-            {
-                title: qsTr("Brake Lights"),
-                checked: lights.BrakeLights,
-                onClicked: function(checked) {lights.setBrakeLights(checked)}
+                },
+                {
+                    text:qsTr("Left Signal"),
+                    checked: lightsElysia.LeftSignal,
+                    onClicked: function(checked){lightsElysia.setLeftSignal(checked)}
 
-            },
-            {
-                text: qsTr("BMS Light"),
-                checked: lights.BmsLight,
-                onClicked: function(checked) {lights.setBmsLight(checked)}
-            },
+                },
+                {
+                    text: qsTr("High Beams"),
+                    checked: lightsElysia.HighBeams,
+                    onClicked: function(checked){lightsElysia.setHighBeams(checked)}
+                },
+                {
+                    text:qsTr("Right Signal"),
+                    checked: lightsElysia.RightSignal,
+                    onClicked: function(checked) {lightsElysia.setRightSignal(checked)}
+                },
+                {
+                    text: qsTr("Brake Lights"),
+                    checked: lightsElysia.BrakeLights,
+                    onClicked: function(checked) {lightsElysia.setBrakeLights(checked)}
 
-        ]
-    }
-    BytePreview {
-        id: bytePreview
-        raw: lights.byteStreamStr
-        encoded: lights.encodedByteStreamStr
+                },
+                {
+                    text: qsTr("BMS Light"),
+                    checked: lightsElysia.BmsLight,
+                    onClicked: function(checked) {lightsElysia.setBmsLight(checked)}
+                },
+
+            ]
+        }
+        BytePreview {
+            id: bytePreview
+            raw: lightsElysia.byteStreamStr
+            encoded: lightsElysia.encodedByteStreamStr
+        }
     }
 }

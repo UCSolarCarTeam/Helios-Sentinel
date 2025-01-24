@@ -3,11 +3,11 @@
 #include "../PropertyDefinition.h"
 #include <QObject>
 
-class Lights : public QObject
+class LightsElysia : public QObject
 {
     Q_OBJECT
 public:
-    explicit Lights(QObject *parent = nullptr);
+    explicit LightsElysia(QObject *parent = nullptr);
 
     DEFINE_PROPERTY_BOOL(LightsAlive, 2, 0x01)
     DEFINE_PROPERTY_BOOL(LowBeams, 3, 0x01)

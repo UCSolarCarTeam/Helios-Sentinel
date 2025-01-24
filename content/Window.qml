@@ -55,7 +55,7 @@ Item {
             visible:!settings.getIsElysia
         }
         TabBtn {
-            id: keyMotorElysia
+            id: keyMotorElysiaButton
             buttonText: qsTr("Key Motor")
             isSelected: selectedButton === 2
             onClicked: selectedButton = 2
@@ -70,7 +70,7 @@ Item {
             visible:!settings.getIsElysia
         }
         TabBtn {
-            id:lightsElysia
+            id:lightsElysiaButton
             buttonText: qsTr("Lights")
             isSelected: selectedButton === 3
             onClicked: selectedButton = 3
