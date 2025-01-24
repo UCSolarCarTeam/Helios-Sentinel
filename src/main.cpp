@@ -14,6 +14,10 @@
 
 #include "Elysia/AuxBmsElysia.h"
 #include "Elysia/DriverControlsElysia.h"
+#include "Elysia/KeyMotorElysia.h"
+#include "Elysia/LightsElysia.h"
+#include "Elysia/MotorDetailsElysia.h"
+#include "Elysia/MotorFaultsElysia.h"
 
 #include "KeyMotor.h"
 #include "MotorDetails.h"
@@ -32,7 +36,7 @@ int main(int argc, char *argv[])
     /*************************************************
         SET PORT HERE
     */
-    SerialPortForwarder forwarder("/dev/ttys014");
+    SerialPortForwarder forwarder("/dev/ttys005");
 
     /*************************************************/
 
@@ -43,10 +47,20 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     Setting settings;
     engine.rootContext()->setContextProperty("settings",&settings);
+
     AuxBmsElysia auxBmsElysia;
     DriverControlsElysia driverControlElysia;
+    KeyMotorElysia keyMotorElysia;
+    LightsElysia lightsElysia;
+    MotorDetailsElysia motorDetailsElysia(0);
+    MotorFaultsElysia motorFaultsElysia;
     engine.rootContext()->setContextProperty("auxBmsElysia", &auxBmsElysia);
     engine.rootContext()->setContextProperty("driverControlElysia", &driverControlElysia);
+    engine.rootContext()->setContextProperty("keyMotorElysia", &keyMotorElysia);
+    engine.rootContext()->setContextProperty("lightsElysia", &lightsElysia);
+    engine.rootContext()->setContextProperty("motorDetailsElysia", &motorDetailsElysia);
+    engine.rootContext()->setContextProperty("motorFaultsElysia", &motorFaultsElysia);
+
     KeyMotor keyMotor;
     engine.rootContext()->setContextProperty("keyMotor", &keyMotor);
 
@@ -101,13 +115,20 @@ int main(int argc, char *argv[])
 
     QTimer timer;
 
-    QObject::connect(&timer, &QTimer::timeout, [&auxBmsElysia, &driverControlElysia, &settings, &forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
+    QObject::connect(&timer, &QTimer::timeout, [&auxBmsElysia,&motorDetailsElysia,&motorFaultsElysia, &lightsElysia, &driverControlElysia, &keyMotorElysia, &settings, &forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
         // Packet rotation subject to change
         if (settings.getIsElysia()) {
-            qDebug() << "I AM SENDING ELYSIA";
+            forwarder.forwardData(auxBmsElysia.encodedByteStream());
+            forwarder.forwardData(driverControlElysia.encodedByteStream());
+            forwarder.forwardData(keyMotorElysia.encodedByteStream());
+            forwarder.forwardData(lightsElysia.encodedByteStream());
+            forwarder.forwardData(motorDetailsElysia.encodedByteStream());
+            forwarder.forwardData(motorFaultsElysia.encodedByteStream());
+            forwarder.forwardData(batteryFaults.encodedByteStream());
+            forwarder.forwardData(battery.encodedByteStream());
+
         }
         else{
-            qDebug() << "IM NOT SENDING ELYSIA";
             forwarder.forwardData(keyMotor.encodedByteStream());
             forwarder.forwardData(b3.encodedByteStream());
             forwarder.forwardData(telemetry.encodedByteStream());
