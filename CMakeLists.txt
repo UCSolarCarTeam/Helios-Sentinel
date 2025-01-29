@@ -14,29 +14,16 @@ if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
 endif()
 
 qt_add_executable(Sentinel src/main.cpp
-    src/Elysia/LightsElysia.h src/Elysia/LightsElysia.cpp
-    src/SerialPortForwarder.cpp
-    src/SerialPortForwarder.h
-    src/Elysia/DriverControlsElysia.h src/Elysia/DriverControlsElysia.cpp
-    src/util.h src/util.cpp
-    src/BatteryFaults.h src/BatteryFaults.cpp
-    src/KeyMotor.h src/KeyMotor.cpp
-    src/Battery.h src/Battery.cpp
-    src/MotorDetails.h src/MotorDetails.cpp
-    src/Elysia/AuxBmsElysia.h src/Elysia/AuxBmsElysia.cpp
-    src/Mppt.h src/Mppt.cpp
-    src/B3.h src/B3.cpp
-    src/ProximitySensors.h src/ProximitySensors.cpp
-    src/Mbms.h src/Mbms.cpp
-    src/Telemetry.h src/Telemetry.cpp
-    src/Elysia/KeyMotorElysia.h
-    src/Elysia/KeyMotorElysia.cpp
-    src/Elysia/MotorDetailsElysia.h
-    src/Elysia/MotorDetailsElysia.cpp
-    src/Elysia/MotorFaultsElysia.h
-    src/Elysia/MotorFaultsElysia.cpp
-    src/PropertyDefinition.h
-    src/setting.h src/setting.cpp
+    src/Packets/Elysia/AuxBmsElysia.cpp src/Packets/Elysia/AuxBmsElysia.h src/Packets/Elysia/DriverControlsElysia.cpp
+    src/Packets/Elysia/DriverControlsElysia.h src/Packets/Elysia/KeyMotorElysia.cpp src/Packets/Elysia/KeyMotorElysia.h
+    src/Packets/Elysia/LightsElysia.cpp src/Packets/Elysia/LightsElysia.h src/Packets/Elysia/MotorDetailsElysia.cpp
+    src/Packets/Elysia/MotorDetailsElysia.h src/Packets/Elysia/MotorFaultsElysia.cpp src/Packets/Elysia/MotorFaultsElysia.h
+    src/Packets/B3.cpp src/Packets/B3.h src/Packets/Battery.cpp src/Packets/Battery.h src/Packets/BatteryFaults.cpp
+    src/Packets/BatteryFaults.h src/Packets/KeyMotor.cpp src/Packets/KeyMotor.h src/Packets/Mbms.cpp src/Packets/Mbms.h
+    src/Packets/MotorDetails.cpp src/Packets/MotorDetails.h src/Packets/Mppt.cpp src/Packets/Mppt.h src/Packets/ProximitySensors.cpp
+    src/Packets/ProximitySensors.h src/Packets/Telemetry.cpp src/Packets/Telemetry.h src/Utils/PropertyDefinition.h src/Utils/SerialPortForwarder.cpp
+    src/Utils/SerialPortForwarder.h src/Utils/setting.cpp src/Utils/setting.h src/Utils/util.cpp src/Utils/util.h
+
 
 
 )
