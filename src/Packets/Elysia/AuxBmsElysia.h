@@ -1,6 +1,6 @@
 #ifndef AUXBMSELYSIA_H
 #define AUXBMSELYSIA_H
-#include "../PropertyDefinition.h"
+#include "../../Utils/PropertyDefinition.h"
 #include <QObject>
 
 class AuxBmsElysia : public QObject

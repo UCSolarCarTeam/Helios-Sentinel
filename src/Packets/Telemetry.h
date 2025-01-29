@@ -1,7 +1,7 @@
 #ifndef TELEMETRY_H
 #define TELEMETRY_H
 
-#include "PropertyDefinition.h"
+#include "../Utils/PropertyDefinition.h"
 #include <QObject>
 
 

@@ -10,25 +10,25 @@
 #include "import_qml_components_plugins.h"
 #include "import_qml_plugins.h"
 
-#include "./SerialPortForwarder.h"
+#include "Utils/SerialPortForwarder.h"
 
-#include "Elysia/AuxBmsElysia.h"
-#include "Elysia/DriverControlsElysia.h"
-#include "Elysia/KeyMotorElysia.h"
-#include "Elysia/LightsElysia.h"
-#include "Elysia/MotorDetailsElysia.h"
-#include "Elysia/MotorFaultsElysia.h"
+#include "Packets/Elysia/AuxBmsElysia.h"
+#include "Packets/Elysia/DriverControlsElysia.h"
+#include "Packets/Elysia/KeyMotorElysia.h"
+#include "Packets/Elysia/LightsElysia.h"
+#include "Packets/Elysia/MotorDetailsElysia.h"
+#include "Packets/Elysia/MotorFaultsElysia.h"
 
-#include "KeyMotor.h"
-#include "MotorDetails.h"
-#include "B3.h"
-#include "Telemetry.h"
-#include "BatteryFaults.h"
-#include "Battery.h"
-#include "Mppt.h"
-#include "Mbms.h"
-#include "ProximitySensors.h"
-#include "setting.h"
+#include "Packets/KeyMotor.h"
+#include "Packets/MotorDetails.h"
+#include "Packets/B3.h"
+#include "Packets/Telemetry.h"
+#include "Packets/BatteryFaults.h"
+#include "Packets/Battery.h"
+#include "Packets/Mppt.h"
+#include "Packets/Mbms.h"
+#include "Packets/ProximitySensors.h"
+#include "Utils/setting.h"
 
 int main(int argc, char *argv[])
 {
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     /*************************************************
         SET PORT HERE
     */
-    SerialPortForwarder forwarder("/dev/ttys005");
+    SerialPortForwarder forwarder("/dev/ttys010");
 
     /*************************************************/
 

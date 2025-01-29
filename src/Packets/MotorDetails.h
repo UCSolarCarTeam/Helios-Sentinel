@@ -1,6 +1,6 @@
 #ifndef MOTORDETAILS_H
 #define MOTORDETAILS_H
-#include "PropertyDefinition.h"
+#include "../Utils/PropertyDefinition.h"
 #include <QObject>
 namespace {
 const char CONTROL_MODE_MASK = 0x01;

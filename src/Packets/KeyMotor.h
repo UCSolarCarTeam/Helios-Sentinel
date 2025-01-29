@@ -1,6 +1,6 @@
 #ifndef KEYMOTOR_H
 #define KEYMOTOR_H
-#include "PropertyDefinition.h"
+#include "../Utils/PropertyDefinition.h"
 #include <QObject>
 
 class KeyMotor : public QObject

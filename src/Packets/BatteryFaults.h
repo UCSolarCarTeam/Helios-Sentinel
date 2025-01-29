@@ -1,6 +1,6 @@
 #ifndef BATTERYFAULTS_H
 #define BATTERYFAULTS_H
-#include "PropertyDefinition.h"
+#include "../Utils/PropertyDefinition.h"
 #include <QObject>
 
 class BatteryFaults : public QObject

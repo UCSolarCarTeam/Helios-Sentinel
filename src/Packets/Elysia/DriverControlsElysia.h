@@ -1,6 +1,6 @@
 #ifndef DRIVERCONTROLSELYSIA_H
 #define DRIVERCONTROLSELYSIA_H
-#include "../PropertyDefinition.h"
+#include "../../Utils/PropertyDefinition.h"
 #include <QObject>
 
 class DriverControlsElysia : public QObject

@@ -1,6 +1,6 @@
 #ifndef MOTORFAULTSELYSIA_H
 #define MOTORFAULTSELYSIA_H
-#include "../PropertyDefinition.h"
+#include "../../Utils/PropertyDefinition.h"
 #include <QObject>
 
 class MotorFaultsElysia : public QObject

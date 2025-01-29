@@ -1,6 +1,6 @@
 #ifndef LIGHTSELYSIA_H
 #define LIGHTSELYSIA_H
-#include "../PropertyDefinition.h"
+#include "../../Utils/PropertyDefinition.h"
 #include <QObject>
 
 class LightsElysia : public QObject

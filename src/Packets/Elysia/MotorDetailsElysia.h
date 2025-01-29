@@ -1,6 +1,6 @@
 #ifndef MOTORDETAILSELYSIA_H
 #define MOTORDETAILSELYSIA_H
-#include "../PropertyDefinition.h"
+#include "../../Utils/PropertyDefinition.h"
 
 #include <QObject>
 

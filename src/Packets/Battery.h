@@ -2,7 +2,7 @@
 #define BATTERY_H
 
 #include <QObject>
-#include "PropertyDefinition.h"
+#include "../Utils/PropertyDefinition.h"
 class Battery : public QObject
 {
     Q_OBJECT
