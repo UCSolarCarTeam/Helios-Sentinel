@@ -13,12 +13,11 @@ Window {
     visible: true
     title: "Sentinel"
 
-    Screen01 {
-        id: mainScreen
-        Text {
-            id: label
-        }
+    Loader {
+            source: "Window.qml"
+            anchors.fill: parent
     }
+
 
 }
 

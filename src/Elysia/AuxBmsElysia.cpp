@@ -1,5 +1,5 @@
 #include "AuxBmsElysia.h"
-#include "util.h"
+#include "../util.h"
 
 AuxBms::AuxBms(QObject *parent)
     : QObject{parent}
