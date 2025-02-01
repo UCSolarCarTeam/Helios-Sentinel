@@ -5,8 +5,8 @@ import QtQuick 6.2
 import SentinelModule
 
 Window {
-    width: mainScreen.width
-    height: mainScreen.height
+    width: 575
+    height: 700
 
     maximumWidth: 575
 
@@ -14,8 +14,9 @@ Window {
     title: "Sentinel"
 
     Loader {
-            source: "Window.qml"
-            anchors.fill: parent
+        id: toolWinLoader
+        source: "Window.qml"
+        anchors.fill: parent
     }
 
 
