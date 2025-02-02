@@ -10,7 +10,7 @@ public:
     explicit Setting(QObject *parent = nullptr);
     Q_PROPERTY(bool isElysia READ isElysia WRITE setIsElysia NOTIFY isElysiaChanged FINAL)
 
-    bool getIsElysia() const {return isElysia_;};
+    bool isElysia() const {return isElysia_;}
 
 signals:
     void isElysiaChanged(bool on);
