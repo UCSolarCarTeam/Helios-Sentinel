@@ -19,7 +19,7 @@ public slots:
     void setIsElysia(bool value) {
         isElysia_ = value;
         emit isElysiaChanged(isElysia_);
-    };
+    }
 
 private:
     bool isElysia_ = false;
