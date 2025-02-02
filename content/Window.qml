@@ -174,10 +174,36 @@ Item {
             x: 10
             z:100
             width: parent.width - 20
-            sourceComponent: selectedButton === 0 && !settings.getIsElysia ? keyMotorView :
-                                selectedButton === 1 && !settings.getIsElysia ? motorDetailsView :
-                                selectedButton === 2 && !settings.getIsElysia ? b3View :
-                                selectedButton === 3 && !settings.getIsElysia ? telemetryView :
+            sourceComponent: {
+    if (!settings.getIsElysia) {
+        switch (selectedButton) {
+            case 0: return keyMotorView;
+            case 1: return motorDetailsView;
+            case 2: return b3View;
+            case 3: return telemetryView;
+            case 4: return batteryFaultsView;
+            case 5: return batteryView;
+            case 6: return mpptView;
+            case 7: return mbmsView;
+            case 8: return proximitySensorsView;
+            case 9: return settingsView;
+            default: return null;
+        }
+    } else {
+        switch (selectedButton) {
+            case 0: return auxBmsElysiaView;
+            case 1: return driverControlElysiaView;
+            case 2: return keyMotorElysiaView;
+            case 3: return lightElysiaView;
+            case 4: return batteryFaultsView;
+            case 5: return batteryView;
+            case 6: return motorDetailsElysiaView;
+            case 7: return motorFaultsElysiaView;
+            case 9: return settingsView;
+            default: return null;
+        }
+    }
+}
                                 selectedButton === 4 ? batteryFaultsView :
                                 selectedButton === 5 ? batteryView :
                                 selectedButton === 6 && !settings.getIsElysia ? mpptView :
