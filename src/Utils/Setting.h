@@ -8,18 +8,15 @@ class Setting : public QObject
     Q_OBJECT
 public:
     explicit Setting(QObject *parent = nullptr);
-    Q_PROPERTY(bool getIsElysia READ getIsElysia NOTIFY isElysiaChanged FINAL)
+    Q_PROPERTY(bool isElysia READ issElysia NOTIFY isElysiaChanged FINAL)
 
-    bool getIsElysia() const {return isElysia_;};
+    bool isElysia() const;
 
 signals:
     void isElysiaChanged(bool on);
 
 public slots:
-    void setIsElysia(bool value) {
-        isElysia_ = value;
-        emit isElysiaChanged(isElysia_);
-    };
+    void setIsElysia(bool value);
 
 private:
     bool isElysia_ = false;

@@ -22,7 +22,7 @@ qt_add_executable(Sentinel src/main.cpp
     src/Packets/BatteryFaults.h src/Packets/KeyMotor.cpp src/Packets/KeyMotor.h src/Packets/Mbms.cpp src/Packets/Mbms.h
     src/Packets/MotorDetails.cpp src/Packets/MotorDetails.h src/Packets/Mppt.cpp src/Packets/Mppt.h src/Packets/ProximitySensors.cpp
     src/Packets/ProximitySensors.h src/Packets/Telemetry.cpp src/Packets/Telemetry.h src/Utils/PropertyDefinition.h src/Utils/SerialPortForwarder.cpp
-    src/Utils/SerialPortForwarder.h src/Utils/setting.cpp src/Utils/setting.h src/Utils/util.cpp src/Utils/util.h
+    src/Utils/SerialPortForwarder.h src/Utils/Setting.cpp src/Utils/Setting.h src/Utils/util.cpp src/Utils/util.h
 
 
 
