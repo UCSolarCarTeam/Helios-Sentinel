@@ -1,19 +1,19 @@
-#ifndef PROXIMITYSENSORS_H
-#define PROXIMITYSENSORS_H
-
-#include "../Utils/PropertyDefinition.h"
+#ifndef MPPT_H
+#define MPPT_H
+#include "../../Utils/PropertyDefinition.h"
 #include <QObject>
 
-class ProximitySensors : public QObject
+class Mppt : public QObject
 {
     Q_OBJECT
 public:
-    explicit ProximitySensors(QObject *parent = nullptr);
+    explicit Mppt(int channel, QObject *parent = nullptr);
 
-    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, ProximitySensor1, 2, 2)
-    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, ProximitySensor2, 4, 2)
-    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, ProximitySensor3, 6, 2)
-    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, ProximitySensor4, 8, 2)
+    DEFINE_PROPERTY_BOOL(Alive,2, 0x80)
+    DEFINE_PROPERTY_WHOLE_NUMBER(int, ArrayVoltage, 3, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(int, ArrayCurrent, 5, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(int, BatteryVoltage, 7, 2)
+    DEFINE_PROPERTY_WHOLE_NUMBER(int, Temp, 9, 2)
 
 
     Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged FINAL)
@@ -24,17 +24,20 @@ public:
     QString byteStreamStr() const;
     QString encodedByteStreamStr() const;
 
+
+
 signals:
 
     void byteStreamStrChanged();
     void encodedByteStreamStrChanged();
 
-
 private:
+
     QByteArray byteStream_;
     QByteArray encodedByteStream_;
 
     void updateByteStream();
+
 };
 
-#endif // PROXIMITYSENSORS_H
+#endif // MPPT_H

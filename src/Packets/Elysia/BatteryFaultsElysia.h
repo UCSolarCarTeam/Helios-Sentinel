@@ -1,13 +1,13 @@
-#ifndef BATTERYFAULTS_H
-#define BATTERYFAULTS_H
-#include "../Utils/PropertyDefinition.h"
+#ifndef BATTERYFAULTSELYSIA_H
+#define BATTERYFAULTSELYSIA_H
+#include "../../Utils/PropertyDefinition.h"
 #include <QObject>
 
-class BatteryFaults : public QObject
+class BatteryFaultsElysia : public QObject
 {
     Q_OBJECT
 public:
-    explicit BatteryFaults(QObject *parent = nullptr);
+    explicit BatteryFaultsElysia(QObject *parent = nullptr);
     DEFINE_PROPERTY_BOOL(InternalCommunication, 2, 0x01)
     DEFINE_PROPERTY_BOOL(InternalConversion, 2, 0x02)
     DEFINE_PROPERTY_BOOL(WeakCell, 2, 0x04)
@@ -65,4 +65,4 @@ private:
     void updateByteStream();
 };
 
-#endif // BATTERYFAULTS_H
+#endif // BATTERYFAULTSELYSIA_H

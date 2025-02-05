@@ -1,6 +1,6 @@
 #ifndef B3_H
 #define B3_H
-#include "../Utils/PropertyDefinition.h"
+#include "../../Utils/PropertyDefinition.h"
 #include <QObject>
 
 class B3 : public QObject

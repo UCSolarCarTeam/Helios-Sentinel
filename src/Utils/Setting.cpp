@@ -3,10 +3,10 @@
 Setting::Setting(QObject *parent)
     : QObject{parent}
 {
-    bool isElysia() {return isElysia_;}
+}
+bool Setting::isElysia() const {return isElysia_;}
 
-    void setIsElysia(bool value) {
-        isElysia_ = value;
-        emit isElysiaChanged(isElysia_);
-    };
+void Setting::setIsElysia(bool value) {
+    isElysia_ = value;
+    emit isElysiaChanged(isElysia_);
 }

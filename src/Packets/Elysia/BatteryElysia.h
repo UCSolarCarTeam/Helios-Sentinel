@@ -1,13 +1,13 @@
-#ifndef BATTERY_H
-#define BATTERY_H
+#ifndef BATTERYELYSIA_H
+#define BATTERYELYSIA_H
 
 #include <QObject>
-#include "../Utils/PropertyDefinition.h"
-class Battery : public QObject
+#include "../../Utils/PropertyDefinition.h"
+class BatteryElysia : public QObject
 {
     Q_OBJECT
 public:
-    explicit Battery(QObject *parent = nullptr);
+    explicit BatteryElysia(QObject *parent = nullptr);
     DEFINE_PROPERTY_BOOL(BmuAlive, 2,0x01)
     DEFINE_PROPERTY_BOOL(DischargeRelay, 3, 0x01)
     DEFINE_PROPERTY_BOOL(ChargeRelay, 3, 0x02)
@@ -67,4 +67,4 @@ private:
 
 };
 
-#endif // BATTERY_H
+#endif // BATTERYELYSIA_H

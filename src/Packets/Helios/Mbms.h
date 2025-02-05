@@ -1,6 +1,6 @@
 #ifndef MBMS_H
 #define MBMS_H
-#include "../Utils/PropertyDefinition.h"
+#include "../../Utils/PropertyDefinition.h"
 #include <QObject>
 
 
