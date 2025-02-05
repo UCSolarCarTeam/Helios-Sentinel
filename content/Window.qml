@@ -21,14 +21,14 @@ Item {
             buttonText: qsTr("Key Motor")
             isSelected: selectedButton === 0
             onClicked: selectedButton = 0
-            visible:!settings.getIsElysia
+            visible:!settings.isElysia
         }
         TabBtn {
             id:auxButton
             buttonText: qsTr("Aux Bms")
             isSelected: selectedButton == 0
             onClicked: selectedButton = 0
-            visible:settings.getIsElysia
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -36,7 +36,7 @@ Item {
             buttonText: qsTr("Motor Details")
             isSelected: selectedButton === 1
             onClicked: selectedButton = 1
-            visible:!settings.getIsElysia
+            visible:!settings.isElysia
         }
 
         TabBtn {
@@ -44,7 +44,7 @@ Item {
             buttonText: qsTr("Driver Controls")
             isSelected: selectedButton == 1
             onClicked: selectedButton = 1
-            visible:settings.getIsElysia
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -52,14 +52,14 @@ Item {
             buttonText: qsTr("B^3")
             isSelected: selectedButton === 2
             onClicked: selectedButton = 2
-            visible:!settings.getIsElysia
+            visible:!settings.isElysia
         }
         TabBtn {
             id: keyMotorElysiaButton
             buttonText: qsTr("Key Motor")
             isSelected: selectedButton === 2
             onClicked: selectedButton = 2
-            visible:settings.getIsElysia
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -67,14 +67,14 @@ Item {
             buttonText: qsTr("Telemetry")
             isSelected: selectedButton === 3
             onClicked: selectedButton = 3
-            visible:!settings.getIsElysia
+            visible:!settings.isElysia
         }
         TabBtn {
             id:lightsElysiaButton
             buttonText: qsTr("Lights")
             isSelected: selectedButton === 3
             onClicked: selectedButton = 3
-            visible:settings.getIsElysia
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -103,7 +103,7 @@ Item {
             buttonText: qsTr("MPPT")
             isSelected: selectedButton === 6
             onClicked: selectedButton = 6
-            visible:!settings.getIsElysia
+            visible:!settings.isElysia
         }
 
         TabBtn {
@@ -111,7 +111,7 @@ Item {
             buttonText: qsTr("Motor Details")
             isSelected: selectedButton === 6
             onClicked: selectedButton = 6
-            visible:settings.getIsElysia
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -119,14 +119,14 @@ Item {
             buttonText: qsTr("MBMS")
             isSelected: selectedButton === 7
             onClicked: selectedButton = 7
-            visible:!settings.getIsElysia
+            visible:!settings.isElysia
         }
         TabBtn {
             id: motorFaultElysiaButton
             buttonText: qsTr("Motor Faults")
             isSelected: selectedButton === 7
             onClicked: selectedButton = 7
-            visible:settings.getIsElysia
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -134,7 +134,7 @@ Item {
             buttonText: qsTr("Proximity Sensors")
             isSelected: selectedButton === 8
             onClicked: selectedButton = 8
-            visible:!settings.getIsElysia
+            visible:!settings.isElysia
         }
         TabBtn {
             id: button9
