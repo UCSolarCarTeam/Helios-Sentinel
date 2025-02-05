@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
 
     QObject::connect(&timer, &QTimer::timeout, [&auxBmsElysia,&motorDetailsElysia,&motorFaultsElysia, &lightsElysia, &driverControlElysia, &keyMotorElysia, &settings, &forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
         // Packet rotation subject to change
-        if (settings.getIsElysia()) {
+        if (settings.isElysia()) {
             forwarder.forwardData(auxBmsElysia.encodedByteStream());
             forwarder.forwardData(driverControlElysia.encodedByteStream());
             forwarder.forwardData(keyMotorElysia.encodedByteStream());
