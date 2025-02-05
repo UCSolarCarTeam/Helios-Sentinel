@@ -15,7 +15,7 @@ Item {
         spacing: 20
 
         Text {
-            text: "Proximity Sensors Packet"
+            text: "Motor Details Packet"
             font.family: "Verdana"
             font.bold: true
         }

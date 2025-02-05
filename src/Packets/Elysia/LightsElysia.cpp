@@ -4,7 +4,7 @@
 #include <QIODevice>
 #include <QDebug>
 
-Lights::Lights(QObject *parent)
+LightsElysia::LightsElysia(QObject *parent)
     : QObject{parent}
 {
     byteStream_.fill(0x00, 7); //packet size 7 - fill zeros by defualt
@@ -16,17 +16,17 @@ Lights::Lights(QObject *parent)
 
 
 
-QByteArray Lights::byteStream() const{
+QByteArray LightsElysia::byteStream() const{
     return byteStream_;
 }
 
-QByteArray Lights::encodedByteStream() const{
+QByteArray LightsElysia::encodedByteStream() const{
     return encodedByteStream_;
 }
 
 
 
-void Lights::updateByteStream(){
+void LightsElysia::updateByteStream(){
     QByteArray checksum = Util::generateChecksum(byteStream_, 1, 3);
     byteStream_[4] = checksum.at(0);
     byteStream_[5] = checksum.at(1);
@@ -35,11 +35,11 @@ void Lights::updateByteStream(){
     emit byteStreamChangedStr();
 }
 
-QString Lights::encodedByteStreamStr() const {
+QString LightsElysia::encodedByteStreamStr() const {
     return(encodedByteStream_.toHex(' '));
 }
 
-QString Lights::byteStreamStr() const {
+QString LightsElysia::byteStreamStr() const {
     return QString(byteStream_.toHex(' '));
 }
 

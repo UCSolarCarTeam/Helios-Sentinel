@@ -14,28 +14,22 @@ if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
 endif()
 
 qt_add_executable(Sentinel src/main.cpp
-    src/Elysia/LightsElysia.h src/Elysia/LightsElysia.cpp
-    src/SerialPortForwarder.cpp
-    src/SerialPortForwarder.h
-    src/Elysia/DriverControlsElysia.h src/Elysia/DriverControlsElysia.cpp
-    src/util.h src/util.cpp
-    src/BatteryFaults.h src/BatteryFaults.cpp
-    src/KeyMotor.h src/KeyMotor.cpp
-    src/Battery.h src/Battery.cpp
-    src/MotorDetails.h src/MotorDetails.cpp
-    src/Elysia/AuxBmsElysia.h src/Elysia/AuxBmsElysia.cpp
-    src/Mppt.h src/Mppt.cpp
-    src/B3.h src/B3.cpp
-    src/ProximitySensors.h src/ProximitySensors.cpp
-    src/Mbms.h src/Mbms.cpp
-    src/Telemetry.h src/Telemetry.cpp
-    src/Elysia/KeyMotorElysia.h
-    src/Elysia/KeyMotorElysia.cpp
-    src/Elysia/MotorDetailsElysia.h
-    src/Elysia/MotorDetailsElysia.cpp
-    src/Elysia/MotorFaultsElysia.h
-    src/Elysia/MotorFaultsElysia.cpp
-    src/PropertyDefinition.h
+    src/Packets/Elysia/AuxBmsElysia.cpp src/Packets/Elysia/AuxBmsElysia.h src/Packets/Elysia/DriverControlsElysia.cpp
+    src/Packets/Elysia/DriverControlsElysia.h src/Packets/Elysia/KeyMotorElysia.cpp src/Packets/Elysia/KeyMotorElysia.h
+    src/Packets/Elysia/LightsElysia.cpp src/Packets/Elysia/LightsElysia.h src/Packets/Elysia/MotorDetailsElysia.cpp
+    src/Packets/Elysia/MotorDetailsElysia.h src/Packets/Elysia/MotorFaultsElysia.cpp src/Packets/Elysia/MotorFaultsElysia.h
+    src/Utils/PropertyDefinition.h src/Utils/SerialPortForwarder.cpp
+    src/Utils/SerialPortForwarder.h src/Utils/Setting.cpp src/Utils/Setting.h src/Utils/util.cpp src/Utils/util.h
+    src/Packets/Elysia/AuxBmsElysia.cpp src/Packets/Elysia/AuxBmsElysia.h src/Packets/Elysia/BatteryElysia.cpp src/Packets/Elysia/BatteryElysia.h
+    src/Packets/Elysia/BatteryFaultsElysia.cpp src/Packets/Elysia/BatteryFaultsElysia.h src/Packets/Elysia/DriverControlsElysia.cpp
+    src/Packets/Elysia/DriverControlsElysia.h src/Packets/Elysia/KeyMotorElysia.cpp src/Packets/Elysia/KeyMotorElysia.h
+    src/Packets/Elysia/LightsElysia.cpp src/Packets/Elysia/LightsElysia.h src/Packets/Elysia/MotorDetailsElysia.cpp
+    src/Packets/Elysia/MotorDetailsElysia.h src/Packets/Elysia/MotorFaultsElysia.cpp src/Packets/Elysia/MotorFaultsElysia.h
+    src/Packets/Helios/B3.cpp src/Packets/Helios/B3.h src/Packets/Helios/Battery.cpp src/Packets/Helios/Battery.h src/Packets/Helios/BatteryFaults.cpp
+    src/Packets/Helios/BatteryFaults.h src/Packets/Helios/KeyMotor.cpp src/Packets/Helios/KeyMotor.h src/Packets/Helios/Mbms.cpp src/Packets/Helios/Mbms.h
+    src/Packets/Helios/MotorDetails.cpp src/Packets/Helios/MotorDetails.h src/Packets/Helios/Mppt.cpp src/Packets/Helios/Mppt.h src/Packets/Helios/ProximitySensors.cpp
+    src/Packets/Helios/ProximitySensors.h src/Packets/Helios/Telemetry.cpp src/Packets/Helios/Telemetry.h
+
 
 
 )

@@ -1,13 +1,13 @@
 #ifndef MOTORFAULTSELYSIA_H
 #define MOTORFAULTSELYSIA_H
-#include "../PropertyDefinition.h"
+#include "../../Utils/PropertyDefinition.h"
 #include <QObject>
 
-class MotorFaults : public QObject
+class MotorFaultsElysia : public QObject
 {
     Q_OBJECT
 public:
-    explicit MotorFaults(QObject *parent = nullptr);
+    explicit MotorFaultsElysia(QObject *parent = nullptr);
 
     DEFINE_PROPERTY_BOOL(MotorOverSpeedM0, 2, 0x01)
     DEFINE_PROPERTY_BOOL(SoftwareOverCurrentM0, 2, 0x02)

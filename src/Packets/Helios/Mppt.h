@@ -1,6 +1,6 @@
 #ifndef MPPT_H
 #define MPPT_H
-#include "PropertyDefinition.h"
+#include "../../Utils/PropertyDefinition.h"
 #include <QObject>
 
 class Mppt : public QObject

@@ -1,6 +1,6 @@
 #ifndef MOTORDETAILSELYSIA_H
 #define MOTORDETAILSELYSIA_H
-#include "../PropertyDefinition.h"
+#include "../../Utils/PropertyDefinition.h"
 
 #include <QObject>
 
@@ -31,24 +31,6 @@ public:
     Q_PROPERTY(int motorNum READ motorNum WRITE setMotorNum NOTIFY motorNumChanged FINAL)
     Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged FINAL)
     Q_PROPERTY(QString encodedByteStreamStr READ encodedByteStreamStr NOTIFY encodedByteStreamStrChanged FINAL)
-
-    int phaseCCurrent() const;
-    int phaseBCurrent() const;
-    int motorVoltageReal() const;
-    int motorVoltageImag() const;
-    int motorCurrentReal() const;
-    int motorCurrentImag() const;
-    int blackEMF() const;
-    int voltageRailSupply15() const;
-
-    int voltageRailSupply3() const;
-    int voltageRailSupply2() const;
-    int heatSinkTemp() const;
-    int motorTemp() const;
-    int dspBoardTemp() const;
-    int dcBusAmpHours() const;
-    int odometer() const;
-    int slipSpeed() const;
 
     int motorNum() const;
     QByteArray byteStream() const;
