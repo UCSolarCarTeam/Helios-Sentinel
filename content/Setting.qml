@@ -5,13 +5,24 @@ Item {
     width: 550
     height: 850
 
-    Switch {
-        id: switch1
-        x: 8
-        y: 60
-        text: qsTr("Toggle between Elysia and Helios")
-        checked: settings.getIsElysia
-        onClicked: settings.setIsElysia(checked)
+    Row {
+        Text{
+            text:"Helios"
+            x:5
+            y:65
+        }
+        Switch {
+            id: switch1
+            x: 8
+            y: 60
+            checked: settings.isElysia
+            onClicked: settings.setIsElysia(checked)
 
+        }
+        Text{
+            text:"Elysia"
+            x:10
+            y:65
+        }
     }
 }
