@@ -1,5 +1,5 @@
 #include "LightsElysia.h"
-#include "util.h"
+#include "../util.h"
 
 #include <QIODevice>
 #include <QDebug>

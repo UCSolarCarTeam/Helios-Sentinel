@@ -1,5 +1,5 @@
 #include "MotorDetailsElysia.h"
-#include "util.h"
+#include "../util.h"
 
 #include <QIODevice>
 #include <QDebug>
