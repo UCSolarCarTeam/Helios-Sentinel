@@ -11,6 +11,7 @@ public:
     explicit SerialPortForwarder(const QString &portName, QObject *parent = nullptr);
      ~SerialPortForwarder() override;
     void forwardData(const QByteArray &data);
+     QSerialPort* getSerialPort() const;
 
 private:
     QSerialPort *serialPort_;

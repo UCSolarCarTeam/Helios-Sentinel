@@ -5,21 +5,29 @@
 SerialPortForwarder::SerialPortForwarder(const QString &portName, QObject *parent)
     : QObject{parent}
 {
-    serialPort_ = new QSerialPort(portName, this);
-    serialPort_->setBaudRate(QSerialPort::Baud115200);
-    serialPort_->setParity(QSerialPort::NoParity);
-    serialPort_->setStopBits(QSerialPort::OneStop);
-    serialPort_->setDataBits(QSerialPort::Data8);
+    if (!portName.isEmpty())
+    {
+        serialPort_ = new QSerialPort(portName, this);
+        serialPort_->setBaudRate(QSerialPort::Baud115200);
+        serialPort_->setParity(QSerialPort::NoParity);
+        serialPort_->setStopBits(QSerialPort::OneStop);
+        serialPort_->setDataBits(QSerialPort::Data8);
 
-    if (!serialPort_->open(QIODevice::ReadWrite)) {
-        qDebug() << "Failed to open port" << portName << ", error:" << serialPort_->errorString();
-        throw std::runtime_error("Failed to connect to serial port");
-    }else{
-        qDebug() << "Succefully opened Port";
+        if (!serialPort_->open(QIODevice::ReadWrite)) {
+            qDebug() << "Failed to open port" << portName << ", error:" << serialPort_->errorString();
+            throw std::runtime_error("Failed to connect to serial port");
+        }else{
+            qDebug() << "Succefully opened Port";
+        }
+    }
+    else {
+        serialPort_ = nullptr;
     }
 }
 
 SerialPortForwarder::~SerialPortForwarder() {}
+
+QSerialPort* SerialPortForwarder::getSerialPort() const { return serialPort_; }
 
 void SerialPortForwarder::forwardData(const QByteArray &data){
     if(serialPort_->isOpen()){

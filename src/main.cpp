@@ -33,13 +33,6 @@
 int main(int argc, char *argv[])
 {
 
-    /*************************************************
-        SET PORT HERE
-    */
-    SerialPortForwarder forwarder("/dev/ttys010");
-
-    /*************************************************/
-
     set_qt_environment();
 
     QGuiApplication app(argc, argv);
@@ -115,35 +108,40 @@ int main(int argc, char *argv[])
 
     QTimer timer;
 
-    QObject::connect(&timer, &QTimer::timeout, [&auxBmsElysia,&motorDetailsElysia,&motorFaultsElysia, &lightsElysia, &driverControlElysia, &keyMotorElysia, &settings, &forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
-        // Packet rotation subject to change
-        if (settings.getIsElysia()) {
-            forwarder.forwardData(auxBmsElysia.encodedByteStream());
-            forwarder.forwardData(driverControlElysia.encodedByteStream());
-            forwarder.forwardData(keyMotorElysia.encodedByteStream());
-            forwarder.forwardData(lightsElysia.encodedByteStream());
-            forwarder.forwardData(motorDetailsElysia.encodedByteStream());
-            forwarder.forwardData(motorFaultsElysia.encodedByteStream());
-            forwarder.forwardData(batteryFaults.encodedByteStream());
-            forwarder.forwardData(battery.encodedByteStream());
+    QObject::connect(&timer, &QTimer::timeout, [&auxBmsElysia,&motorDetailsElysia, &motorFaultsElysia, &lightsElysia,
+                                                &driverControlElysia, &keyMotorElysia, &settings, &keyMotor, &m0, &m1, &b3,
+                                                &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms,
+                                                &proximitySensors]() {
 
+        SerialPortForwarder *forwarder = settings.getForwarder();
+        if (forwarder->getSerialPort() != nullptr) {
+            // Packet rotation subject to change
+            if (settings.getIsElysia()) {
+                forwarder->forwardData(auxBmsElysia.encodedByteStream());
+                forwarder->forwardData(driverControlElysia.encodedByteStream());
+                forwarder->forwardData(keyMotorElysia.encodedByteStream());
+                forwarder->forwardData(lightsElysia.encodedByteStream());
+                forwarder->forwardData(motorDetailsElysia.encodedByteStream());
+                forwarder->forwardData(motorFaultsElysia.encodedByteStream());
+                forwarder->forwardData(batteryFaults.encodedByteStream());
+                forwarder->forwardData(battery.encodedByteStream());
+            }
+            else{
+                forwarder->forwardData(keyMotor.encodedByteStream());
+                forwarder->forwardData(b3.encodedByteStream());
+                forwarder->forwardData(telemetry.encodedByteStream());
+                forwarder->forwardData(batteryFaults.encodedByteStream());
+                forwarder->forwardData(mbms.encodedByteStream());
+                forwarder->forwardData(proximitySensors.encodedByteStream());
+                forwarder->forwardData(battery.encodedByteStream());
+                forwarder->forwardData(m1.encodedByteStream());
+                forwarder->forwardData(mppt2.encodedByteStream());
+                forwarder->forwardData(mppt3.encodedByteStream());
+                forwarder->forwardData(m0.encodedByteStream());
+                forwarder->forwardData(mppt0.encodedByteStream());
+                forwarder->forwardData(mppt1.encodedByteStream());
+            }
         }
-        else{
-            forwarder.forwardData(keyMotor.encodedByteStream());
-            forwarder.forwardData(b3.encodedByteStream());
-            forwarder.forwardData(telemetry.encodedByteStream());
-            forwarder.forwardData(batteryFaults.encodedByteStream());
-            forwarder.forwardData(mbms.encodedByteStream());
-            forwarder.forwardData(proximitySensors.encodedByteStream());
-            forwarder.forwardData(battery.encodedByteStream());
-            forwarder.forwardData(m1.encodedByteStream());
-            forwarder.forwardData(mppt2.encodedByteStream());
-            forwarder.forwardData(mppt3.encodedByteStream());
-            forwarder.forwardData(m0.encodedByteStream());
-            forwarder.forwardData(mppt0.encodedByteStream());
-            forwarder.forwardData(mppt1.encodedByteStream());
-        }
-
     });
     timer.start(500);
 
