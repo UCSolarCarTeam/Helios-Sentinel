@@ -1,6 +1,5 @@
 #include "DriverControlsElysia.h"
-#include "util.h"
-
+#include "../util.h"
 #include <QDebug>
 
 DriverControls::DriverControls(QObject *parent)
