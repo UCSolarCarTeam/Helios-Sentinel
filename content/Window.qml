@@ -1,14 +1,14 @@
 import QtQuick.Studio.Components
 import QtQuick 2.15
 import QtQuick.Controls 6.2
-
+import "Elysia"
 Item {
     id: toolWin
     width: 575
     height: 1065
     z: -2
 
-    property int selectedButton: 8
+    property int selectedButton: 9
 
     Row {
         id: row
@@ -21,6 +21,14 @@ Item {
             buttonText: qsTr("Key Motor")
             isSelected: selectedButton === 0
             onClicked: selectedButton = 0
+            visible:!settings.isElysia
+        }
+        TabBtn {
+            id:auxButton
+            buttonText: qsTr("Aux Bms")
+            isSelected: selectedButton == 0
+            onClicked: selectedButton = 0
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -28,6 +36,15 @@ Item {
             buttonText: qsTr("Motor Details")
             isSelected: selectedButton === 1
             onClicked: selectedButton = 1
+            visible:!settings.isElysia
+        }
+
+        TabBtn {
+            id:driverControlElysiaButton
+            buttonText: qsTr("Driver Controls")
+            isSelected: selectedButton == 1
+            onClicked: selectedButton = 1
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -35,6 +52,14 @@ Item {
             buttonText: qsTr("B^3")
             isSelected: selectedButton === 2
             onClicked: selectedButton = 2
+            visible:!settings.isElysia
+        }
+        TabBtn {
+            id: keyMotorElysiaButton
+            buttonText: qsTr("Key Motor")
+            isSelected: selectedButton === 2
+            onClicked: selectedButton = 2
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -42,6 +67,14 @@ Item {
             buttonText: qsTr("Telemetry")
             isSelected: selectedButton === 3
             onClicked: selectedButton = 3
+            visible:!settings.isElysia
+        }
+        TabBtn {
+            id:lightsElysiaButton
+            buttonText: qsTr("Lights")
+            isSelected: selectedButton === 3
+            onClicked: selectedButton = 3
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -70,6 +103,15 @@ Item {
             buttonText: qsTr("MPPT")
             isSelected: selectedButton === 6
             onClicked: selectedButton = 6
+            visible:!settings.isElysia
+        }
+
+        TabBtn {
+            id: motorDetailElysiaButton
+            buttonText: qsTr("Motor Details")
+            isSelected: selectedButton === 6
+            onClicked: selectedButton = 6
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -77,6 +119,14 @@ Item {
             buttonText: qsTr("MBMS")
             isSelected: selectedButton === 7
             onClicked: selectedButton = 7
+            visible:!settings.isElysia
+        }
+        TabBtn {
+            id: motorFaultElysiaButton
+            buttonText: qsTr("Motor Faults")
+            isSelected: selectedButton === 7
+            onClicked: selectedButton = 7
+            visible:settings.isElysia
         }
 
         TabBtn {
@@ -84,6 +134,7 @@ Item {
             buttonText: qsTr("Proximity Sensors")
             isSelected: selectedButton === 8
             onClicked: selectedButton = 8
+            visible:!settings.isElysia
         }
         TabBtn {
             id: button9
@@ -123,16 +174,37 @@ Item {
             x: 10
             z:100
             width: parent.width - 20
-            sourceComponent: selectedButton === 0 ? keyMotorView :
-                                selectedButton === 1 ? motorDetailsView :
-                                selectedButton === 2 ? b3View :
-                                selectedButton === 3 ? telemetryView :
-                                selectedButton === 4 ? batteryFaultsView :
-                                selectedButton === 5 ? batteryView :
-                                selectedButton === 6 ? mpptView :
-                                selectedButton === 7 ? mbmsView :
-                                selectedButton === 8 ? proximitySensorsView :
-                                selectedButton === 9 ? settingsView : null
+            sourceComponent: {
+    if (!settings.isElysia) {
+        switch (selectedButton) {
+            case 0: return keyMotorView;
+            case 1: return motorDetailsView;
+            case 2: return b3View;
+            case 3: return telemetryView;
+            case 4: return batteryFaultsView;
+            case 5: return batteryView;
+            case 6: return mpptView;
+            case 7: return mbmsView;
+            case 8: return proximitySensorsView;
+            case 9: return settingsView;
+            default: return null;
+        }
+    } else {
+        switch (selectedButton) {
+            case 0: return auxBmsElysiaView;
+            case 1: return driverControlElysiaView;
+            case 2: return keyMotorElysiaView;
+            case 3: return lightElysiaView;
+            case 4: return batteryFaultsView;
+            case 5: return batteryView;
+            case 6: return motorDetailsElysiaView;
+            case 7: return motorFaultsElysiaView;
+            case 9: return settingsView;
+            default: return null;
+        }
+    }
+}
+
         }
 
 
@@ -183,10 +255,31 @@ Item {
 
         Component {
             id: settingsView
-            Text {
-                id: name
-                text: qsTr("TODO")
-            }
+            Setting{}
+        }
+        Component {
+            id:auxBmsElysiaView
+            AuxBmsElysiaView{}
+        }
+        Component {
+            id:driverControlElysiaView
+            DriverControlsElysiaView{}
+        }
+        Component {
+            id:keyMotorElysiaView
+            KeyMotorElysiaView{}
+        }
+        Component {
+            id:lightElysiaView
+            LightsElysiaView{}
+        }
+        Component{
+            id:motorDetailsElysiaView
+            MotorDetailsElysia{}
+        }
+        Component{
+            id:motorFaultsElysiaView
+            MotorFaultsElysia{}
         }
     }
 

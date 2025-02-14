@@ -11,6 +11,14 @@
 #include "import_qml_plugins.h"
 
 #include "./SerialPortForwarder.h"
+
+#include "Elysia/AuxBmsElysia.h"
+#include "Elysia/DriverControlsElysia.h"
+#include "Elysia/KeyMotorElysia.h"
+#include "Elysia/LightsElysia.h"
+#include "Elysia/MotorDetailsElysia.h"
+#include "Elysia/MotorFaultsElysia.h"
+
 #include "KeyMotor.h"
 #include "MotorDetails.h"
 #include "B3.h"
@@ -20,6 +28,7 @@
 #include "Mppt.h"
 #include "Mbms.h"
 #include "ProximitySensors.h"
+#include "setting.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,7 +36,7 @@ int main(int argc, char *argv[])
     /*************************************************
         SET PORT HERE
     */
-    SerialPortForwarder forwarder("/dev/pts/3");
+    SerialPortForwarder forwarder("/dev/ttys005");
 
     /*************************************************/
 
@@ -36,6 +45,21 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+    Setting settings;
+    engine.rootContext()->setContextProperty("settings",&settings);
+
+    AuxBmsElysia auxBmsElysia;
+    DriverControlsElysia driverControlElysia;
+    KeyMotorElysia keyMotorElysia;
+    LightsElysia lightsElysia;
+    MotorDetailsElysia motorDetailsElysia(0);
+    MotorFaultsElysia motorFaultsElysia;
+    engine.rootContext()->setContextProperty("auxBmsElysia", &auxBmsElysia);
+    engine.rootContext()->setContextProperty("driverControlElysia", &driverControlElysia);
+    engine.rootContext()->setContextProperty("keyMotorElysia", &keyMotorElysia);
+    engine.rootContext()->setContextProperty("lightsElysia", &lightsElysia);
+    engine.rootContext()->setContextProperty("motorDetailsElysia", &motorDetailsElysia);
+    engine.rootContext()->setContextProperty("motorFaultsElysia", &motorFaultsElysia);
 
     KeyMotor keyMotor;
     engine.rootContext()->setContextProperty("keyMotor", &keyMotor);
@@ -91,21 +115,35 @@ int main(int argc, char *argv[])
 
     QTimer timer;
 
-    QObject::connect(&timer, &QTimer::timeout, [&forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
+    QObject::connect(&timer, &QTimer::timeout, [&auxBmsElysia,&motorDetailsElysia,&motorFaultsElysia, &lightsElysia, &driverControlElysia, &keyMotorElysia, &settings, &forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
         // Packet rotation subject to change
-        forwarder.forwardData(keyMotor.encodedByteStream());
-        forwarder.forwardData(b3.encodedByteStream());
-        forwarder.forwardData(telemetry.encodedByteStream());
-        forwarder.forwardData(batteryFaults.encodedByteStream());
-        forwarder.forwardData(mbms.encodedByteStream());
-        forwarder.forwardData(proximitySensors.encodedByteStream());
-        forwarder.forwardData(battery.encodedByteStream());
-        forwarder.forwardData(m1.encodedByteStream());
-        forwarder.forwardData(mppt2.encodedByteStream());
-        forwarder.forwardData(mppt3.encodedByteStream());
-        forwarder.forwardData(m0.encodedByteStream());
-        forwarder.forwardData(mppt0.encodedByteStream());
-        forwarder.forwardData(mppt1.encodedByteStream());
+        if (settings.isElysia()) {
+            forwarder.forwardData(auxBmsElysia.encodedByteStream());
+            forwarder.forwardData(driverControlElysia.encodedByteStream());
+            forwarder.forwardData(keyMotorElysia.encodedByteStream());
+            forwarder.forwardData(lightsElysia.encodedByteStream());
+            forwarder.forwardData(motorDetailsElysia.encodedByteStream());
+            forwarder.forwardData(motorFaultsElysia.encodedByteStream());
+            forwarder.forwardData(batteryFaults.encodedByteStream());
+            forwarder.forwardData(battery.encodedByteStream());
+
+        }
+        else{
+            forwarder.forwardData(keyMotor.encodedByteStream());
+            forwarder.forwardData(b3.encodedByteStream());
+            forwarder.forwardData(telemetry.encodedByteStream());
+            forwarder.forwardData(batteryFaults.encodedByteStream());
+            forwarder.forwardData(mbms.encodedByteStream());
+            forwarder.forwardData(proximitySensors.encodedByteStream());
+            forwarder.forwardData(battery.encodedByteStream());
+            forwarder.forwardData(m1.encodedByteStream());
+            forwarder.forwardData(mppt2.encodedByteStream());
+            forwarder.forwardData(mppt3.encodedByteStream());
+            forwarder.forwardData(m0.encodedByteStream());
+            forwarder.forwardData(mppt0.encodedByteStream());
+            forwarder.forwardData(mppt1.encodedByteStream());
+        }
+
     });
     timer.start(500);
 

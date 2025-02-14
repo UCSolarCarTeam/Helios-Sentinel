@@ -4,7 +4,7 @@
 #include <QIODevice>
 #include <QDebug>
 
-MotorFaults::MotorFaults(QObject *parent)
+MotorFaultsElysia::MotorFaultsElysia(QObject *parent)
     : QObject{parent}
 {
     byteStream_.fill(0x00, 13); // packet size 13 - fill zeros by defualt
@@ -15,20 +15,20 @@ MotorFaults::MotorFaults(QObject *parent)
 }
 
 
-QByteArray MotorFaults::byteStream() const { return byteStream_; }
+QByteArray MotorFaultsElysia::byteStream() const { return byteStream_; }
 
-QByteArray MotorFaults::encodedByteStream() const{ return encodedByteStream_; }
+QByteArray MotorFaultsElysia::encodedByteStream() const{ return encodedByteStream_; }
 
-QString MotorFaults::byteStreamStr() const {
+QString MotorFaultsElysia::byteStreamStr() const {
     return QString(byteStream_.toHex(' '));
 }
 
-QString MotorFaults::encodedByteStreamStr() const{
+QString MotorFaultsElysia::encodedByteStreamStr() const{
     return QString(encodedByteStream_.toHex(' '));
 }
 
 
-void MotorFaults::updateByteStream(){
+void MotorFaultsElysia::updateByteStream(){
     QByteArray checksum = Util::generateChecksum(byteStream_, 1, 9);
     byteStream_[10] = checksum.at(0);
     byteStream_[11] = checksum.at(1);
