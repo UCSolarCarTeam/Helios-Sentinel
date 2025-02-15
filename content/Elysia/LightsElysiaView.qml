@@ -3,7 +3,7 @@ import QtQuick.Controls 2.15
 import ".."
 
 Item {
-    width: 750
+    width: 550
     height: 650
 
     Column {

@@ -1,4 +1,3 @@
-
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Studio.Components 1.0
@@ -6,7 +5,7 @@ import ".."
 
 
 Item {
-    width: 750
+    width: 550
     height: 650
 
     Row{

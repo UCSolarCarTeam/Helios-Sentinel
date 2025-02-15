@@ -18,6 +18,7 @@
 #include "Elysia/LightsElysia.h"
 #include "Elysia/MotorDetailsElysia.h"
 #include "Elysia/MotorFaultsElysia.h"
+#include "Elysia/MpptElysia.h"
 
 #include "KeyMotor.h"
 #include "MotorDetails.h"
@@ -28,7 +29,7 @@
 #include "Mppt.h"
 #include "Mbms.h"
 #include "ProximitySensors.h"
-#include "setting.h"
+#include "Setting.h"
 
 int main(int argc, char *argv[])
 {
@@ -36,7 +37,7 @@ int main(int argc, char *argv[])
     /*************************************************
         SET PORT HERE
     */
-    SerialPortForwarder forwarder("/dev/ttys005");
+    SerialPortForwarder forwarder("/dev/pts/3");
 
     /*************************************************/
 
@@ -52,14 +53,24 @@ int main(int argc, char *argv[])
     DriverControlsElysia driverControlElysia;
     KeyMotorElysia keyMotorElysia;
     LightsElysia lightsElysia;
-    MotorDetailsElysia motorDetailsElysia(0);
+    MotorDetailsElysia motorDetailsElysia0(0);
+    MotorDetailsElysia motorDetailsElysia1(1);
     MotorFaultsElysia motorFaultsElysia;
+    MpptElysia mpptElysia0(0);
+    MpptElysia mpptElysia1(1);
+    MpptElysia mpptElysia2(2);
+    MpptElysia mpptElysia3(3);
     engine.rootContext()->setContextProperty("auxBmsElysia", &auxBmsElysia);
     engine.rootContext()->setContextProperty("driverControlElysia", &driverControlElysia);
     engine.rootContext()->setContextProperty("keyMotorElysia", &keyMotorElysia);
     engine.rootContext()->setContextProperty("lightsElysia", &lightsElysia);
-    engine.rootContext()->setContextProperty("motorDetailsElysia", &motorDetailsElysia);
+    engine.rootContext()->setContextProperty("motorDetailsElysia0", &motorDetailsElysia0);
+    engine.rootContext()->setContextProperty("motorDetailsElysia1", &motorDetailsElysia1);
     engine.rootContext()->setContextProperty("motorFaultsElysia", &motorFaultsElysia);
+    engine.rootContext()->setContextProperty("mpptElysia0", &mpptElysia0);
+    engine.rootContext()->setContextProperty("mpptElysia1", &mpptElysia1);
+    engine.rootContext()->setContextProperty("mpptElysia2", &mpptElysia2);
+    engine.rootContext()->setContextProperty("mpptElysia3", &mpptElysia3);
 
     KeyMotor keyMotor;
     engine.rootContext()->setContextProperty("keyMotor", &keyMotor);
@@ -115,18 +126,22 @@ int main(int argc, char *argv[])
 
     QTimer timer;
 
-    QObject::connect(&timer, &QTimer::timeout, [&auxBmsElysia,&motorDetailsElysia,&motorFaultsElysia, &lightsElysia, &driverControlElysia, &keyMotorElysia, &settings, &forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
+    QObject::connect(&timer, &QTimer::timeout, [&mpptElysia0,&mpptElysia1,&mpptElysia2,&mpptElysia3, &auxBmsElysia,&motorDetailsElysia0,&motorDetailsElysia1,&motorFaultsElysia, &lightsElysia, &driverControlElysia, &keyMotorElysia, &settings, &forwarder, &keyMotor, &m0, &m1, &b3, &telemetry, &batteryFaults, &battery, &mppt0, &mppt1, &mppt2, &mppt3, &mbms, &proximitySensors]() {
         // Packet rotation subject to change
         if (settings.isElysia()) {
-            forwarder.forwardData(auxBmsElysia.encodedByteStream());
-            forwarder.forwardData(driverControlElysia.encodedByteStream());
             forwarder.forwardData(keyMotorElysia.encodedByteStream());
             forwarder.forwardData(lightsElysia.encodedByteStream());
-            forwarder.forwardData(motorDetailsElysia.encodedByteStream());
             forwarder.forwardData(motorFaultsElysia.encodedByteStream());
             forwarder.forwardData(batteryFaults.encodedByteStream());
+            forwarder.forwardData(driverControlElysia.encodedByteStream());
             forwarder.forwardData(battery.encodedByteStream());
-
+            forwarder.forwardData(auxBmsElysia.encodedByteStream());
+            forwarder.forwardData(motorDetailsElysia1.encodedByteStream());
+            forwarder.forwardData(mpptElysia2.encodedByteStream());
+            forwarder.forwardData(mpptElysia3.encodedByteStream());
+            forwarder.forwardData(motorDetailsElysia0.encodedByteStream());
+            forwarder.forwardData(mpptElysia0.encodedByteStream());
+            forwarder.forwardData(mpptElysia1.encodedByteStream());
         }
         else{
             forwarder.forwardData(keyMotor.encodedByteStream());

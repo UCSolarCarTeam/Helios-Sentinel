@@ -1,6 +1,5 @@
 #ifndef SETTING_H
 #define SETTING_H
-
 #include <QObject>
 
 class Setting : public QObject
@@ -22,7 +21,7 @@ public slots:
     }
 
 private:
-    bool isElysia_ = false;
+    bool isElysia_;
 };
 
 #endif // SETTING_H

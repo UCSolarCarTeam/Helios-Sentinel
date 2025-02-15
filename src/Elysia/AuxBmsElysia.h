@@ -31,44 +31,28 @@ public:
     DEFINE_PROPERTY_BOOL(DtHighTempCurrent, 11, 0x10)
     DEFINE_PROPERTY_BOOL(DtPackCurrent, 11, 0x20)
     DEFINE_PROPERTY_BOOL(Protection, 11, 0x40)
+    DEFINE_PROPERTY_BOOL(OrionTimeout,11,0x80)
+    DEFINE_PROPERTY_BOOL(CncHighCurrent,12,0x10)
+    DEFINE_PROPERTY_BOOL(DncHighCurrent,12,0x20)
+    DEFINE_PROPERTY_BOOL(ContactorDisconnected,12,0x40)
 
     Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged FINAL)
     Q_PROPERTY(QString encodedByteStreamStr READ encodedByteStreamStr NOTIFY encodedByteStreamStrChanged FINAL)
 
-    bool orionTimeout() const;
-    bool cncHighCurrent() const;
-    bool dncHighCurrent() const;
-    bool contactorDisconnected() const;
 
     QByteArray byteStream() const;
     QByteArray encodedByteStream() const; //HERE
     QString byteStreamStr() const;
     QString encodedByteStreamStr() const; //HERE
 
-public slots:
-
-
-    void setOrionTimeout(bool on);
-    void setCncHighCurrent(bool on);
-    void setDncHighCurrent(bool on);
-    void setContactorDisconnected(bool on);
 
 
 signals:
-
-    void orionTimeoutChanged(bool on);
-    void cncHighCurrentChanged(bool on);
-    void dncHighCurrentChanged(bool on);
-    void contactorDisconnectedChanged(bool on);
 
     void byteStreamStrChanged();
     void encodedByteStreamStrChanged();
 
 private:
-    bool orionTimeout_ = false;
-    bool cncHighCurrent_ = false;
-    bool dncHighCurrent_ = false;
-    bool contactorDisconnected_ = false;
 
     QByteArray byteStream_;
     QByteArray encodedByteStream_;

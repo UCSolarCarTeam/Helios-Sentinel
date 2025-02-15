@@ -1,10 +1,10 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import ".."
-Item {
-    width: 750
-    height: 650
 
+Item {
+    width: 550
+    height: 650
     Column {
         anchors.fill: parent
         anchors.margins: 10

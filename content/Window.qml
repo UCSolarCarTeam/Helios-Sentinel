@@ -2,6 +2,7 @@ import QtQuick.Studio.Components
 import QtQuick 2.15
 import QtQuick.Controls 6.2
 import "Elysia"
+
 Item {
     id: toolWin
     width: 575
@@ -137,6 +138,13 @@ Item {
             visible:!settings.isElysia
         }
         TabBtn {
+            id: mpptElysia
+            buttonText: qsTr("MPPT")
+            isSelected: selectedButton === 8
+            onClicked: selectedButton = 8
+            visible:settings.isElysia
+        }
+        TabBtn {
             id: button9
             buttonText: qsTr("Settings")
             isSelected: selectedButton === 9
@@ -187,7 +195,7 @@ Item {
             case 7: return mbmsView;
             case 8: return proximitySensorsView;
             case 9: return settingsView;
-            default: return null;
+            default: return settingsView;
         }
     } else {
         switch (selectedButton) {
@@ -199,15 +207,13 @@ Item {
             case 5: return batteryView;
             case 6: return motorDetailsElysiaView;
             case 7: return motorFaultsElysiaView;
+            case 8:return mpptElysiaView;
             case 9: return settingsView;
-            default: return null;
+            default: return settingsView;
         }
     }
 }
-
         }
-
-
         Component {
             id: keyMotorView
             KeyMotorView{}
@@ -241,6 +247,10 @@ Item {
         Component {
             id: mpptView
             MpptView{}
+        }
+        Component {
+            id:mpptElysiaView
+            MpptElysiaView{}
         }
 
         Component {
