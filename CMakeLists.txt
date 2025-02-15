@@ -38,8 +38,6 @@ qt_add_executable(Sentinel src/main.cpp
     src/PropertyDefinition.h
     src/Setting.h src/Setting.cpp
     src/Elysia/MpptElysia.h src/Elysia/MpptElysia.cpp
-
-
 )
 
 qt_add_resources(Sentinel "configuration"
