@@ -5,20 +5,20 @@ import QtQuick 6.2
 import SentinelModule
 
 Window {
-    width: mainScreen.width
-    height: mainScreen.height
+    width: 575
+    height: 700
 
     maximumWidth: 575
 
     visible: true
     title: "Sentinel"
 
-    Screen01 {
-        id: mainScreen
-        Text {
-            id: label
-        }
+    Loader {
+        id: toolWinLoader
+        source: "Window.qml"
+        anchors.fill: parent
     }
+
 
 }
 

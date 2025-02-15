@@ -5,7 +5,7 @@ import QtQuick.Controls 6.2
 Item {
     id: toolWin
     width: 575
-    height: 1065
+    height: 700
     z: -2
 
     property int selectedButton: 8
