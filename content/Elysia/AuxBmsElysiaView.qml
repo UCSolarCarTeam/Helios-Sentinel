@@ -4,24 +4,30 @@ import ".."
 
 Item {
     width: 550
-    height: 650
+    height: 700
 
     Column {
+        spacing: 20
         anchors.fill: parent
         anchors.margins: 10
-        spacing: 20
 
         Text {
             text: "BMS Packet"
             font.family: "Verdana"
             font.bold: true
         }
-        IntSpinBox {
-            id: spinBox
-            text: qsTr("BMS PrechargeState")
-            value: auxBmsElysia.PrechargeState
-            onValueChanged: auxBmsElysia.setPrechargeState(value)
+
+        Column{
+            spacing:20
+
+            IntSpinBox {
+                id: spinBox
+                text: qsTr("BMS PrechargeState")
+                value: auxBmsElysia.PrechargeState
+                onValueChanged: auxBmsElysia.setPrechargeState(value)
+            }
         }
+
         Column{
             spacing:20
 

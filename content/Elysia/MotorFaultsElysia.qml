@@ -5,9 +5,16 @@ import ".."
 
 Item {
     width: 550
-    height: 650
+    height: 950
     Column{
         spacing:20
+
+        Text {
+            id: text2
+            text: qsTr("Motor Faults Packet")
+            font.pixelSize: 20
+        }
+
         FlagBox{
             title:"M0 Error Flags"
             flags:[
@@ -180,28 +187,33 @@ Item {
 
             ]
         }
-        IntSpinBox {
-            text: qsTr("M0 CAN RX Error Count ")
-            value: motorFaultsElysia.CANRXErrorCountM0
-            onValueChanged: motorFaultsElysia.setCANRXErrorCountM0(value)
-        }
 
-        IntSpinBox{
-            text: qsTr("M0 CAN TX Error Count ")
-            value: motorFaultsElysia.CANTXErrorCountM0
-            onValueChanged: motorFaultsElysia.setCANTXErrorCountM0(value)
-        }
+        Column{
+            spacing:20
 
-        IntSpinBox {
-            text: qsTr("M1 CAN RX Error Count ")
-            value: motorFaultsElysia.CANRXErrorCountM1
-            onValueChanged: motorFaultsElysia.setCANRXErrorCountM1(value)
-        }
+            IntSpinBox {
+                text: qsTr("M0 CAN RX Error Count ")
+                value: motorFaultsElysia.CANRXErrorCountM0
+                onValueChanged: motorFaultsElysia.setCANRXErrorCountM0(value)
+            }
 
-        IntSpinBox{
-            text: qsTr("M1 CAN TX Error Count ")
-            value: motorFaultsElysia.CANTXErrorCountM1
-            onValueChanged: motorFaultsElysia.setCANTXErrorCountM1(value)
+            IntSpinBox{
+                text: qsTr("M0 CAN TX Error Count ")
+                value: motorFaultsElysia.CANTXErrorCountM0
+                onValueChanged: motorFaultsElysia.setCANTXErrorCountM0(value)
+            }
+
+            IntSpinBox {
+                text: qsTr("M1 CAN RX Error Count ")
+                value: motorFaultsElysia.CANRXErrorCountM1
+                onValueChanged: motorFaultsElysia.setCANRXErrorCountM1(value)
+            }
+
+            IntSpinBox{
+                text: qsTr("M1 CAN TX Error Count ")
+                value: motorFaultsElysia.CANTXErrorCountM1
+                onValueChanged: motorFaultsElysia.setCANTXErrorCountM1(value)
+            }
         }
 
         BytePreview {

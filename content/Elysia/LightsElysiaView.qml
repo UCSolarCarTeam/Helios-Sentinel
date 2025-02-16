@@ -4,7 +4,7 @@ import ".."
 
 Item {
     width: 550
-    height: 650
+    height: 500
 
     Column {
         anchors.fill: parent

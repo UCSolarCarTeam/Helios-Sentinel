@@ -4,26 +4,32 @@ import ".."
 
 Item {
     width: 550
-    height: 650
+    height: 750
     Column {
         anchors.fill: parent
         anchors.margins: 10
         spacing: 20
 
         Text {
-            text: "Driver Controll Packet"
+            text: "Driver Control Packet"
             font.family: "Verdana"
             font.bold: true
         }
 
-        Switch {
-            id: switch1
-            x: 8
-            y: 60
-            text: qsTr("Driver Controls")
-            checked: driverControlElysia.DriverControlsAlive
-            onClicked: driverControlElysia.setDriverControlsAlive(checked)
+        Column{
+            spacing:20
+
+            Switch {
+                id: switch1
+                x: 8
+                y: 60
+                text: qsTr("Driver Controls")
+                checked: driverControlElysia.DriverControlsAlive
+                onClicked: driverControlElysia.setDriverControlsAlive(checked)
+            }
+
         }
+
         Column{
             spacing:20
 
@@ -89,15 +95,20 @@ Item {
                 ]
             }
 
-            IntSpinBox {
-                text:qsTr("Acceleration")
-                value: driverControlElysia.Acceleration
-                onValueChanged: driverControlElysia.setAcceleration(value)
-            }
-            IntSpinBox {
-                 text: qsTr("Regen Braking")
-                 value: driverControlElysia.RegenBraking
-                 onValueChanged: driverControlElysia.setRegenBraking(value)
+            Column {
+                spacing:20
+
+                IntSpinBox {
+                    text:qsTr("Acceleration")
+                    value: driverControlElysia.Acceleration
+                    onValueChanged: driverControlElysia.setAcceleration(value)
+                }
+
+                IntSpinBox {
+                     text: qsTr("Regen Braking")
+                     value: driverControlElysia.RegenBraking
+                     onValueChanged: driverControlElysia.setRegenBraking(value)
+                }
             }
 
             FlagBox{
