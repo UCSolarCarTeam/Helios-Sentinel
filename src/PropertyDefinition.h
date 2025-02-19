@@ -61,7 +61,7 @@ Q_SIGNALS:\
 \
     public Q_SLOTS: \
     void set##name(bool on){\
-        byteStream_[position] = on ?(byteStream_[position]| mask):(byteStream_[16]& ~mask);\
+        byteStream_[position] = on ?(byteStream_[position]| mask):(byteStream_[position] & ~mask);\
         name##_ = on; \
         updateByteStream(); \
 }; \
