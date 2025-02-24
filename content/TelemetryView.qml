@@ -107,20 +107,18 @@ Item {
                 spacing: 20
                 width: 245
 
-                IntSpinBox {
+                FloatSpinBox {
                     id: proximitySensor10
                     text: qsTr("Longitude")
-                    range: { "from": -2147483648, "to": 2147483647 }
-                    value: telemetry.GpsLongitude
-                    onValueChanged: telemetry.setGpsLongitude(value)
+                    inputValue: telemetry.GpsLongitude
+                    onInputValueUpdated: telemetry.setGpsLongitude(inputValue)
                 }
 
-                IntSpinBox {
+                FloatSpinBox {
                     id: proximitySensor11
                     text: qsTr("Latitude")
-                    range: { "from": -2147483648, "to": 2147483647 }
-                    value: telemetry.GpsLatitude
-                    onValueChanged: telemetry.setGpsLatitude(value)
+                    inputValue: telemetry.GpsLatitude
+                    onInputValueUpdated: telemetry.setGpsLatitude(inputValue)
                 }
 
                 IntSpinBox {
