@@ -42,7 +42,13 @@ Item {
                         text: qsTr("Headlights Switch"),
                         checked: b3.HeadlightsSwitch,
                         onClicked: function(checked) { b3.setHeadlightsSwitch(checked) }
-                    },
+                    }
+                ]
+            }
+
+            FlagBox {
+                title: "Driver Inputs"
+                flags: [
                     {
                         text: qsTr("Forward Switch"),
                         checked: b3.ForwardSwitch,
@@ -57,13 +63,7 @@ Item {
                         text: qsTr("Forward"),
                         checked: b3.Forward,
                         onClicked: function(checked) { b3.setForward(checked) }
-                    }
-                ]
-            }
-
-            FlagBox {
-                title: "Driver Inputs"
-                flags: [
+                    },
                     {
                         text: qsTr("Neutral"),
                         checked: b3.Neutral,
