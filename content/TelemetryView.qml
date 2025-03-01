@@ -28,35 +28,39 @@ Item {
                 IntSpinBox {
                     id: proximitySensor1
                     text: qsTr("GPS Year")
-                    value: telemetry.gpsYear
+                    value: telemetry.GpsYear
                     onValueChanged: telemetry.setGpsYear(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor2
                     text: qsTr("GPS Month")
-                    value: telemetry.gpsMonth
+                    range: { "from": 0, "to": 12 }
+                    value: telemetry.GpsMonth
                     onValueChanged: telemetry.setGpsMonth(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor3
                     text: qsTr("GPS Day")
-                    value: telemetry.gpsDay
+                    range: { "from": 0, "to": 31 }
+                    value: telemetry.GpsDay
                     onValueChanged: telemetry.setGpsDay(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor4
                     text: qsTr("GPS Hour")
-                    value: telemetry.gpsHour
+                    range: { "from": 0, "to": 23 }
+                    value: telemetry.GpsHour
                     onValueChanged: telemetry.setGpsHour(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor5
                     text: qsTr("GPS Minute")
-                    value: telemetry.gpsMinute
+                    range: { "from": 0, "to": 59 }
+                    value: telemetry.GpsMinute
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setGpsMinute(value)
                 }
@@ -64,7 +68,8 @@ Item {
                 IntSpinBox {
                     id: proximitySensor6
                     text: qsTr("GPS Second")
-                    value: telemetry.gpsSecond
+                    range: { "from": 0, "to": 59 }
+                    value: telemetry.GpsSecond
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setGpsSecond(value)
                 }
@@ -72,7 +77,8 @@ Item {
                 IntSpinBox {
                     id: proximitySensor7
                     text: qsTr("Validity Flags")
-                    value: telemetry.gpsValidityFlags
+                    range: { "from": 0, "to": 255 }
+                    value: telemetry.GpsValidityFlags
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setGpsValidityFlags(value)
                 }
@@ -80,7 +86,8 @@ Item {
                 IntSpinBox {
                     id: proximitySensor8
                     text: qsTr("Fix Status Flags")
-                    value: telemetry.gpsFixStatusFlags
+                    range: { "from": 0, "to": 255 }
+                    value: telemetry.GpsFixStatusFlags
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setGpsFixStatusFlags(value)
                 }
@@ -88,7 +95,8 @@ Item {
                 IntSpinBox {
                     id: proximitySensor9
                     text: qsTr("Additional Flags")
-                    value: telemetry.gpsAdditionalFlags
+                    range: { "from": 0, "to": 255 }
+                    value: telemetry.GpsAdditionalFlags
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setGpsAdditionalFlags(value)
                 }
@@ -102,63 +110,65 @@ Item {
                 IntSpinBox {
                     id: proximitySensor10
                     text: qsTr("Longitude")
-                    value: telemetry.gpsLongitude
+                    range: { "from": -2147483648, "to": 2147483647 }
+                    value: telemetry.GpsLongitude
                     onValueChanged: telemetry.setGpsLongitude(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor11
                     text: qsTr("Latitude")
-                    value: telemetry.gpsLatitude
+                    range: { "from": -2147483648, "to": 2147483647 }
+                    value: telemetry.GpsLatitude
                     onValueChanged: telemetry.setGpsLatitude(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor12
                     text: qsTr("MPU Temperature")
-                    value: telemetry.mpuTemperature
+                    value: telemetry.MpuTemperature
                     onValueChanged: telemetry.setMpuTemperature(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor13
                     text: qsTr("MPU Acceleration X")
-                    value: telemetry.mpuAccelerationX
+                    value: telemetry.MpuAccelerationX
                     onValueChanged: telemetry.setMpuAccelerationX(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor14
                     text: qsTr("MPU Acceleration Y")
-                    value: telemetry.mpuAccelerationY
+                    value: telemetry.MpuAccelerationY
                     onValueChanged: telemetry.setMpuAccelerationY(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor15
                     text: qsTr("MPU Acceleration Z")
-                    value: telemetry.mpuAccelerationZ
+                    value: telemetry.MpuAccelerationZ
                     onValueChanged: telemetry.setMpuAccelerationZ(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor16
                     text: qsTr("MPU Rotation X")
-                    value: telemetry.mpuRotationX
+                    value: telemetry.MpuRotationX
                     onValueChanged: telemetry.setMpuRotationX(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor17
                     text: qsTr("MPU Rotation Y")
-                    value: telemetry.mpuRotationY
+                    value: telemetry.MpuRotationY
                     onValueChanged: telemetry.setMpuRotationY(value)
                 }
 
                 IntSpinBox {
                     id: proximitySensor18
                     text: qsTr("MPU Rotation Z")
-                    value: telemetry.mpuRotationZ
+                    value: telemetry.MpuRotationZ
                     onValueChanged: telemetry.setMpuRotationZ(value)
                 }
             }

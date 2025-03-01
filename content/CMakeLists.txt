@@ -8,26 +8,28 @@ qt6_add_qml_module(content
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
         App.qml
-
+        BatteryFaultsView.qml
+        KeyMotorView.qml
+        BatteryView.qml
+        MotorDetailsView.qml
+        MpptView.qml
+        B3View.qml
+        ProximitySensorsView.qml
+        MbmsView.qml
+        TelemetryView.qml
+        FloatSpinBox.qml
+        BytePreview.qml 
+        IntSpinBox.qml 
+        TabBtn.qml 
+        Window.qml 
+        FlagBox.qml
+        Elysia/AuxBmsElysiaView.qml 
+        Elysia/DriverControlsElysiaView.qml 
+        Elysia/KeyMotorElysiaView.qml 
+        Elysia/LightsElysiaView.qml 
+        Elysia/MotorDetailsElysia.qml 
+        Elysia/MotorFaultsElysia.qml
     RESOURCES
         fonts/fonts.txt
-        QML_FILES
-        QML_FILES Screen01.ui.qml
-        QML_FILES LightsView.qml
-        QML_FILES DriverControlsView.qml
-        SOURCES
-        QML_FILES BatteryFaultsView.qml
-        QML_FILES KeyMotorView.qml
-        QML_FILES BatteryView.qml
-        QML_FILES MotorDetailsView.qml
-        SOURCES
-        QML_FILES AuxBmsView.qml
-        QML_FILES MpptView.qml
-        QML_FILES B3View.qml
-        QML_FILES ProximitySensorsView.qml
-        QML_FILES MbmsView.qml
-        QML_FILES TelemetryView.qml
-        QML_FILES FloatSpinBox.qml
-        QML_FILES BytePreview.qml IntSpinBox.qml TabBtn.qml Window.qml FlagBox.qml
-        RESOURCES images/solarCarLogo.png
+        images/solarCarLogo.png
 )
