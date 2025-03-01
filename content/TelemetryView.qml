@@ -110,6 +110,9 @@ Item {
                 FloatSpinBox {
                     id: longitude
                     text: qsTr("Longitude")
+                    range: { "from": -180, "to": 180 }
+                    isCustomRange: true
+                    decimals: 6;
                     inputValue: telemetry.GpsLongitude
                     onInputValueUpdated: telemetry.setGpsLongitude(inputValue)
                 }
@@ -117,6 +120,9 @@ Item {
                 FloatSpinBox {
                     id: latitude
                     text: qsTr("Latitude")
+                    range: { "from": -90, "to": 90 }
+                    isCustomRange: true
+                    decimals: 6;
                     inputValue: telemetry.GpsLatitude
                     onInputValueUpdated: telemetry.setGpsLatitude(inputValue)
                 }

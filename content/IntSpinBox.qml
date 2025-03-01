@@ -23,7 +23,7 @@ Item {
     SpinBox {
         id: spinBox
         y: 0
-        width: 110
+        width: 120
         height: 25
         from: range.from
         to: range.to
