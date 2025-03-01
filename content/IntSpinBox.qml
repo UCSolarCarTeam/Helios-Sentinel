@@ -23,8 +23,9 @@ Item {
     SpinBox {
         id: spinBox
         y: 0
-        width: 120
+        width: 110
         height: 25
+        font.pixelSize: 12
         from: range.from
         to: range.to
         editable: true

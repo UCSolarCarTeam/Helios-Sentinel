@@ -28,8 +28,9 @@ Item {
 
     SpinBox {
         id: spinBox
-        width: 120
+        width: 110
         height: 25
+        font.pixelSize: 12
         from: isCustomRange ? range.from * decimalFactor : range.from
         to: isCustomRange? range.to * decimalFactor : range.to
         editable: true
