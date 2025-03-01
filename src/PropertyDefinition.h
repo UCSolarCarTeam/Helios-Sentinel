@@ -68,7 +68,6 @@ Q_SIGNALS:\
     public: \
     Q_PROPERTY(bool name READ name WRITE set##name NOTIFY name##Changed);\
     bool name() const {return name##_;}
-
 /**
  * Defines int,unsigned char, unsigned int or short Packet Attribute Properties for linking of qml
  * Creates Q_PROPERTY with getter,setter, and signal.
