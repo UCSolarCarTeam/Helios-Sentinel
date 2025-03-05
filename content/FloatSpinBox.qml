@@ -8,6 +8,8 @@ Item {
     anchors.right: parent.right
     anchors.rightMargin: 0
 
+    property var range: {"from": -2147483648, "to": 2147483647}
+    property bool isCustomRange: range.from !== -2147483648 || range.to !== 2147483647
     property int decimals: 1
     readonly property int decimalFactor: Math.pow(10, decimals)
     property real inputValue: 0.0
@@ -28,13 +30,14 @@ Item {
         id: spinBox
         width: 110
         height: 25
-        from: -2147483648
-        to: 2147483647
+        font.pixelSize: 12
+        from: isCustomRange ? range.from * decimalFactor : range.from
+        to: isCustomRange? range.to * decimalFactor : range.to
         editable: true
         bottomPadding: 1
         topPadding: 1
         spacing: 5
-        wheelEnabled: true
+        wheelEnabled: false
         rightPadding: 25
         leftPadding: 25
         anchors.left: text1.right
