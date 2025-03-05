@@ -97,10 +97,10 @@ class MotorDetails : public QObject {
     Q_OBJECT
 
     DEFINE_PROPERTY_WHOLE_NUMBER(short, ControlValue, 2, 2)
-    DEFINE_PROPERTY_BOOL(ControlMode, 4, 0x01)
-    DEFINE_PROPERTY_BOOL(MotorMode, 4, 0x02)
-    DEFINE_PROPERTY_BOOL(SoftwareEnable, 4, 0x04)
-    DEFINE_PROPERTY_BOOL(DebugMode, 4, 0x08)
+    DEFINE_PROPERTY_BOOL(ControlMode, 4, CONTROL_MODE_MASK)
+    DEFINE_PROPERTY_BOOL(MotorMode, 4, MOTOR_MODE_MASK)
+    DEFINE_PROPERTY_BOOL(SoftwareEnable, 4, SOFTWARE_ENABLE_MASK)
+    DEFINE_PROPERTY_BOOL(DebugMode, 4, DEBUG_MODE_MASK)
 
     DEFINE_PROPERTY_WHOLE_NUMBER(short, CurrentMotorTorque, 5, 2)
     DEFINE_PROPERTY_WHOLE_NUMBER(short, CurrentRpmValue, 7, 2)
