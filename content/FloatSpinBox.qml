@@ -37,7 +37,7 @@ Item {
         bottomPadding: 1
         topPadding: 1
         spacing: 5
-        wheelEnabled: true
+        wheelEnabled: false
         rightPadding: 25
         leftPadding: 25
         anchors.left: text1.right
