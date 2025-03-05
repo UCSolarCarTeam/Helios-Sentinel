@@ -9,7 +9,7 @@ Item {
     anchors.rightMargin: 0
 
     property var range: {"from": -2147483648, "to": 2147483647}
-    property bool isCustomRange: false
+    property bool isCustomRange: range.from !== -2147483648 || range.to !== 2147483647
     property int decimals: 1
     readonly property int decimalFactor: Math.pow(10, decimals)
     property real inputValue: 0.0
