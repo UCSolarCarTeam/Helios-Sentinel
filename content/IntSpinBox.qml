@@ -25,6 +25,7 @@ Item {
         y: 0
         width: 110
         height: 25
+        font.pixelSize: 12
         from: range.from
         to: range.to
         editable: true
