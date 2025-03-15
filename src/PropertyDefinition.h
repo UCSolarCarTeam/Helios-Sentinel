@@ -3,6 +3,7 @@
 #include <QObject>
 #include "util.h"
 
+
 /**
  * Defines a Boolean Packet Attribute Property for QML integration.
  * Generates a Q_PROPERTY with a getter, setter, and signal for state tracking.
@@ -20,8 +21,7 @@
  * - Defines a private boolean member (`name##_`) initialized to `false`.
  *
 **/
-
-#define DEFINE_PROPERTY_BOOL(name, position, mask) \
+#define DEFINE_BOOL(name, position, mask) \
 Q_SIGNALS:\
     void name##Changed(bool on);\
 private:\
@@ -36,6 +36,7 @@ public Q_SLOTS: \
 public: \
 Q_PROPERTY(bool name READ name WRITE set##name NOTIFY name##Changed);\
 bool name() const {return name##_;}
+
 
 /**
  * Defines int,unsigned char, unsigned int or short Packet Attribute Properties for linking of qml
@@ -53,7 +54,7 @@ bool name() const {return name##_;}
  * private type name_ with default value of 0
  *
 **/
-#define DEFINE_PROPERTY_WHOLE_NUMBER(type, name, position, size)\
+#define DEFINE_WHOLE_NUMBER(type, name, position, size)\
 Q_SIGNALS:\
     void name##Changed(type on);\
     private:\
@@ -69,6 +70,8 @@ Q_SIGNALS:\
     public: \
     Q_PROPERTY(type name READ name WRITE set##name NOTIFY name##Changed);\
     type name() const {return name##_;}
+
+
 /**
  * Defines float Packet Attribute Properties for linking ot qml
  * Creates Q_PROPERTY with getter,setter, and signal.
@@ -85,9 +88,7 @@ Q_SIGNALS:\
  * private type name_ with default value of 0.0
  *
 **/
-
-
-#define DEFINE_PROPERTY_FLOAT(type, name, position, size)\
+#define DEFINE_FLOAT(type, name, position, size)\
 Q_SIGNALS:\
     void name##Changed(type on);\
     private:\

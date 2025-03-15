@@ -10,10 +10,10 @@ class ProximitySensors : public QObject
 public:
     explicit ProximitySensors(QObject *parent = nullptr);
 
-    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, ProximitySensor1, 2, 2)
-    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, ProximitySensor2, 4, 2)
-    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, ProximitySensor3, 6, 2)
-    DEFINE_PROPERTY_WHOLE_NUMBER(unsigned short, ProximitySensor4, 8, 2)
+    DEFINE_WHOLE_NUMBER(unsigned short, ProximitySensor1, 2, 2)
+    DEFINE_WHOLE_NUMBER(unsigned short, ProximitySensor2, 4, 2)
+    DEFINE_WHOLE_NUMBER(unsigned short, ProximitySensor3, 6, 2)
+    DEFINE_WHOLE_NUMBER(unsigned short, ProximitySensor4, 8, 2)
 
 
     Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged FINAL)
