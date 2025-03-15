@@ -9,13 +9,13 @@ class Lights : public QObject
 public:
     explicit Lights(QObject *parent = nullptr);
 
-    DEFINE_PROPERTY_BOOL(LightsAlive, 2, 0x01)
-    DEFINE_PROPERTY_BOOL(LowBeams, 3, 0x01)
-    DEFINE_PROPERTY_BOOL(HighBeams, 3, 0x02)
-    DEFINE_PROPERTY_BOOL(BrakeLights, 3, 0x04)
-    DEFINE_PROPERTY_BOOL(LeftSignal, 3, 0x08)
-    DEFINE_PROPERTY_BOOL(RightSignal, 3, 0x10)
-    DEFINE_PROPERTY_BOOL(BmsLight, 3, 0x20)
+    DEFINE_BOOL(LightsAlive, 2, 0x01)
+    DEFINE_BOOL(LowBeams, 3, 0x01)
+    DEFINE_BOOL(HighBeams, 3, 0x02)
+    DEFINE_BOOL(BrakeLights, 3, 0x04)
+    DEFINE_BOOL(LeftSignal, 3, 0x08)
+    DEFINE_BOOL(RightSignal, 3, 0x10)
+    DEFINE_BOOL(BmsLight, 3, 0x20)
     Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamChangedStr)
     Q_PROPERTY(QString encodedByteStreamStr READ encodedByteStreamStr NOTIFY encodedByteStreamStrChanged FINAL)
 
