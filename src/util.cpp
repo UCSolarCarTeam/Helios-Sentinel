@@ -35,7 +35,7 @@ QByteArray Util::generateChecksum(QByteArray bs, int bodyStartIndex, int bodyEnd
 
 QByteArray Util::formatInt(int num, int bytes){
     QByteArray res;
-    for(int i = 0; i < bytes; ++i){
+    for(int i = bytes - 1; i >= 0; --i){
         res.append(static_cast<char>((num >> (8 * i)) & 0xFF));
     }
 
@@ -44,7 +44,9 @@ QByteArray Util::formatInt(int num, int bytes){
 
 QByteArray Util::formatFloat(float num){
     QByteArray res(4, 0);
+
     std::memcpy(res.data(), &num, sizeof(float));
+    std::reverse(res.begin(), res.end());  // format as big-endian
 
     return res;
 }
