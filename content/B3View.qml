@@ -118,6 +118,7 @@ Item {
                         text: qsTr("Acceleration")
                         value: b3.Acceleration
                         onValueChanged: b3.setAcceleration(value)
+                        range: {"from": 0, "to": 255}
                     }
                 }
                 Column{
@@ -128,6 +129,7 @@ Item {
                             text: qsTr("Regen Braking")
                             value: b3.RegenBraking
                             onValueChanged: b3.setRegenBraking(value)
+                            range: {"from": 0, "to": 255}
                         }
                     }
             }

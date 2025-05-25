@@ -36,8 +36,6 @@ qt_add_executable(Sentinel src/main.cpp
     src/Elysia/MotorFaultsElysia.h
     src/Elysia/MotorFaultsElysia.cpp
     src/PropertyDefinition.h
-
-
 )
 
 qt_add_resources(Sentinel "configuration"
