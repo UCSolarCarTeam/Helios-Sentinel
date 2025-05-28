@@ -15,7 +15,6 @@ public:
     DEFINE_WHOLE_NUMBER(unsigned short, ProximitySensor3, 6, 2)
     DEFINE_WHOLE_NUMBER(unsigned short, ProximitySensor4, 8, 2)
 
-
     Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged FINAL)
     Q_PROPERTY(QString encodedByteStreamStr READ encodedByteStreamStr NOTIFY encodedByteStreamStrChanged FINAL)
 
@@ -25,10 +24,8 @@ public:
     QString encodedByteStreamStr() const;
 
 signals:
-
     void byteStreamStrChanged();
     void encodedByteStreamStrChanged();
-
 
 private:
     QByteArray byteStream_;
