@@ -44,6 +44,7 @@ public:
     QByteArray encodedByteStream() const;
     QString byteStreamStr() const;
     QString encodedByteStreamStr() const;
+
 signals:
     void byteStreamStrChanged();
     void encodedByteStreamStrChanged();
