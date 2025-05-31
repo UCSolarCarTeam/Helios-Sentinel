@@ -12,6 +12,7 @@ public:
     explicit Telemetry(QObject *parent = nullptr);
 
     DEFINE_WHOLE_NUMBER(unsigned short, GpsYear, 2, 2)
+
     DEFINE_WHOLE_NUMBER(unsigned char, GpsMonth, 4, 1)
     DEFINE_WHOLE_NUMBER(unsigned char, GpsDay, 5, 1)
     DEFINE_WHOLE_NUMBER(unsigned char, GpsHour, 6, 1)
@@ -20,8 +21,10 @@ public:
     DEFINE_WHOLE_NUMBER(unsigned char, GpsValidityFlags, 9, 1)
     DEFINE_WHOLE_NUMBER(unsigned char, GpsFixStatusFlags, 10, 1)
     DEFINE_WHOLE_NUMBER(unsigned char, GpsAdditionalFlags, 11, 1)
+
     DEFINE_FLOAT(float, GpsLongitude, 12, 4)
     DEFINE_FLOAT(float, GpsLatitude, 16, 4)
+
     DEFINE_WHOLE_NUMBER(unsigned short, MpuAccelerationX, 20, 2)
     DEFINE_WHOLE_NUMBER(unsigned short, MpuAccelerationY, 22, 2)
     DEFINE_WHOLE_NUMBER(unsigned short, MpuAccelerationZ, 24, 2)
@@ -43,9 +46,7 @@ signals:
     void byteStreamStrChanged();
     void encodedByteStreamStrChanged();
 
-
 private:
-
     QByteArray byteStream_;
     QByteArray encodedByteStream_;
 

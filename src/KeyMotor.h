@@ -10,6 +10,7 @@ public:
     explicit KeyMotor(QObject *parent = nullptr);
 
     DEFINE_WHOLE_NUMBER(unsigned short, MotorSetpoint, 2, 2)
+
     DEFINE_BOOL(ControlMode, 4, 0x01)
     DEFINE_BOOL(MotorMode, 4, 0x02)
     DEFINE_BOOL(SoftwareEnable, 4, 0x04)

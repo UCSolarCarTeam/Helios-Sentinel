@@ -8,7 +8,9 @@ class Battery : public QObject
     Q_OBJECT
 public:
     explicit Battery(QObject *parent = nullptr);
-    DEFINE_BOOL(BmuAlive, 2,0x01)
+
+    DEFINE_BOOL(BmuAlive, 2, 0x01)
+
     DEFINE_BOOL(DischargeRelay, 3, 0x01)
     DEFINE_BOOL(ChargeRelay, 3, 0x02)
     DEFINE_BOOL(ChargerSafety, 3, 0x04)
@@ -17,14 +19,17 @@ public:
     DEFINE_BOOL(AlwaysOnSignal, 3, 0x20)
     DEFINE_BOOL(IsReadySignal, 3, 0x40)
     DEFINE_BOOL(IsChargingSignal, 3, 0x80)
-    DEFINE_WHOLE_NUMBER(int, PopulatedCells,4,1 )
-    DEFINE_FLOAT(float, Input12V, 5,4)
+
+    DEFINE_WHOLE_NUMBER(int, PopulatedCells, 4, 1)
+
+    DEFINE_FLOAT(float, Input12V, 5, 4)
     DEFINE_FLOAT(float, FanVoltage, 9, 4)
     DEFINE_FLOAT(float, PackCurrent, 13, 4)
     DEFINE_FLOAT(float, PackVoltage, 17, 4)
     DEFINE_FLOAT(float, PackSoc, 21, 4)
     DEFINE_FLOAT(float, PackAmphours, 25, 4)
     DEFINE_FLOAT(float, PackDod, 29, 4)
+
     DEFINE_WHOLE_NUMBER(int, HighTemp, 33, 1)
     DEFINE_WHOLE_NUMBER(int, HighThermistorId, 34, 1)
     DEFINE_WHOLE_NUMBER(int, LowTemp, 35, 1)
@@ -39,32 +44,23 @@ public:
     DEFINE_WHOLE_NUMBER(int, HighCellVoltageId, 46, 1)
     DEFINE_WHOLE_NUMBER(int, AvgCellVoltage, 47, 2)
 
-
     Q_PROPERTY(QString byteStreamStr READ byteStreamStr NOTIFY byteStreamStrChanged FINAL)
     Q_PROPERTY(QString encodedByteStreamStr READ encodedByteStreamStr NOTIFY encodedByteStreamStrChanged FINAL)
 
-
     QByteArray byteStream() const;
-    QByteArray encodedByteStream() const; //HERE
+    QByteArray encodedByteStream() const;
     QString byteStreamStr() const;
-    QString encodedByteStreamStr() const; //HERE
-
-public slots:
-
-
-
+    QString encodedByteStreamStr() const;
 
 signals:
     void byteStreamStrChanged();
     void encodedByteStreamStrChanged();
 
 private:
-
     QByteArray byteStream_;
     QByteArray encodedByteStream_;
 
     void updateByteStream();
-
 };
 
 #endif // BATTERY_H
