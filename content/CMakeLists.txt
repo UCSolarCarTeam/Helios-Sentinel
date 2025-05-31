@@ -23,12 +23,6 @@ qt6_add_qml_module(content
         TabBtn.qml 
         Window.qml 
         FlagBox.qml
-        Elysia/AuxBmsElysiaView.qml 
-        Elysia/DriverControlsElysiaView.qml 
-        Elysia/KeyMotorElysiaView.qml 
-        Elysia/LightsElysiaView.qml 
-        Elysia/MotorDetailsElysia.qml 
-        Elysia/MotorFaultsElysia.qml
     RESOURCES
         fonts/fonts.txt
         images/solarCarLogo.png

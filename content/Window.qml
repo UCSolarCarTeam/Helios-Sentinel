@@ -123,71 +123,72 @@ Item {
             x: 10
             z:100
             width: parent.width - 20
-            sourceComponent: selectedButton === 0 ? keyMotorView :
-                                selectedButton === 1 ? motorDetailsView :
-                                selectedButton === 2 ? b3View :
-                                selectedButton === 3 ? telemetryView :
-                                selectedButton === 4 ? batteryFaultsView :
-                                selectedButton === 5 ? batteryView :
-                                selectedButton === 6 ? mpptView :
-                                selectedButton === 7 ? mbmsView :
-                                selectedButton === 8 ? proximitySensorsView :
-                                selectedButton === 9 ? settingsView : null
+            sourceComponent: selectedButton === 8 ? proximitySensorsView : null
+            // sourceComponent: selectedButton === 0 ? keyMotorView :
+            //                     selectedButton === 1 ? motorDetailsView :
+            //                     selectedButton === 2 ? b3View :
+            //                     selectedButton === 3 ? telemetryView :
+            //                     selectedButton === 4 ? batteryFaultsView :
+            //                     selectedButton === 5 ? batteryView :
+            //                     selectedButton === 6 ? mpptView :
+            //                     selectedButton === 7 ? mbmsView :
+            //                     selectedButton === 8 ? proximitySensorsView :
+            //                     selectedButton === 9 ? settingsView : null
         }
 
 
-        Component {
-            id: keyMotorView
-            KeyMotorView{}
-        }
+    //     Component {
+    //         id: keyMotorView
+    //         KeyMotorView{}
+    //     }
 
-        Component {
-            id: motorDetailsView
-            MotorDetailsView{}
-        }
+    //     Component {
+    //         id: motorDetailsView
+    //         MotorDetailsView{}
+    //     }
 
-        Component {
-            id: b3View
-            B3View{}
-        }
+    //     Component {
+    //         id: b3View
+    //         B3View{}
+    //     }
 
-        Component {
-            id: telemetryView
-            TelemetryView{}
-        }
+    //     Component {
+    //         id: telemetryView
+    //         TelemetryView{}
+    //     }
 
-        Component {
-            id: batteryFaultsView
-            BatteryFaultsView{}
-        }
+    //     Component {
+    //         id: batteryFaultsView
+    //         BatteryFaultsView{}
+    //     }
 
-        Component {
-            id: batteryView
-            BatteryView{}
-        }
+    //     Component {
+    //         id: batteryView
+    //         BatteryView{}
+    //     }
 
-        Component {
-            id: mpptView
-            MpptView{}
-        }
+    //     Component {
+    //         id: mpptView
+    //         MpptView{}
+    //     }
 
-        Component {
-            id: mbmsView
-            MbmsView{}
-        }
+    //     Component {
+    //         id: mbmsView
+    //         MbmsView{}
+    //     }
 
         Component {
             id: proximitySensorsView
             ProximitySensorsView{}
         }
 
-        Component {
-            id: settingsView
-            Text {
-                id: name
-                text: qsTr("TODO")
-            }
-        }
+    //     Component {
+    //         id: settingsView
+    //         Text {
+    //             id: name
+    //             text: qsTr("TODO")
+    //         }
+    //     }
     }
 
     Rectangle {
