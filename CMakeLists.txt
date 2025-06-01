@@ -15,9 +15,10 @@ endif()
 
 qt_add_executable(Sentinel
     src/main.cpp
-    src/Packets/ProximitySensors.h src/Packets/ProximitySensors.cpp
     src/Packets/IPacket.h
     src/Util/PropertyDefinitions.h
+    src/Packets/ProximitySensors.h src/Packets/ProximitySensors.cpp
+    src/Packets/Telemetry.h src/Packets/Telemetry.cpp
 )
 
 qt_add_resources(Sentinel "configuration"

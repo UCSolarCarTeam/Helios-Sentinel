@@ -12,6 +12,7 @@
 #include "import_qml_plugins.h"
 
 #include "Packets/ProximitySensors.h"
+#include "Packets/Telemetry.h"
 
 int main(int argc, char *argv[]){
     set_qt_environment();
@@ -45,6 +46,8 @@ int main(int argc, char *argv[]){
     ProximitySensors proximitySensors(canDevice);
     engine.rootContext()->setContextProperty("proximitySensors", &proximitySensors);
 
+    Telemetry telemetry(canDevice);
+    engine.rootContext()->setContextProperty("telemetry", &telemetry);
 
     const QUrl url(QStringLiteral("qml/Main/main.qml"));
 
