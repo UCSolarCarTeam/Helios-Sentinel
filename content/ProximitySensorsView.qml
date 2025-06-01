@@ -23,28 +23,28 @@ Item {
             IntSpinBox {
                 id: proximitySensor1
                 text: qsTr("Proximity Sensor 1")
-                value: proximitySensors.proximitySensor1
+                value: proximitySensors.ProximitySensor1
                 onValueChanged: proximitySensors.setProximitySensor1(value)
             }
 
             IntSpinBox {
                 id: proximitySensor2
                 text: qsTr("Proximity Sensor 2")
-                value: proximitySensors.proximitySensor2
+                value: proximitySensors.ProximitySensor2
                 onValueChanged: proximitySensors.setProximitySensor2(value)
             }
 
             IntSpinBox {
                 id: proximitySensor3
                 text: qsTr("Proximity Sensor 3")
-                value: proximitySensors.proximitySensor3
+                value: proximitySensors.ProximitySensor3
                 onValueChanged: proximitySensors.setProximitySensor3(value)
             }
 
             IntSpinBox {
                 id: proximitySensor4
                 text: qsTr("Proximity Sensor 4")
-                value: proximitySensors.proximitySensor4
+                value: proximitySensors.ProximitySensor4
                 onValueChanged: proximitySensors.setProximitySensor4(value)
             }
         }

@@ -43,7 +43,6 @@ int main(int argc, char *argv[]){
 
 
     ProximitySensors proximitySensors(canDevice);
-    proximitySensors.startSendingAtFrequency(500);
     engine.rootContext()->setContextProperty("proximitySensors", &proximitySensors);
 
 

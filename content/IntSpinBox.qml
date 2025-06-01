@@ -39,7 +39,6 @@ Item {
                 wheelEnabled: true
                 rightPadding: 25
                 leftPadding: 25
-                anchors.left: text1.right
                 anchors.leftMargin: 10
                 onValueChanged: customValueChanged(value)
             }
