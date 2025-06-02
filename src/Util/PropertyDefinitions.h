@@ -31,7 +31,10 @@ public Q_SLOTS:                                                                 
             std::memcpy(&ieee, &value, sizeof(float));                                      \
             parent##_ &= ~mask;                                                             \
             parent##_ |= (static_cast<decltype(parent##_)>(ieee) << parsedOffset);          \
-        }else{                                                                              \
+        } else if constexpr (std::is_same<type, bool>::value){                              \
+            if(value) parent##_ |= mask;                                                    \
+            else parent##_ &= ~mask;                                                        \
+        } else{                                                                             \
             parent##_ = (parent##_ & ~(mask << parsedOffset)) |                             \
                         (static_cast<decltype(parent##_)>(value) << parsedOffset);          \
         }                                                                                   \

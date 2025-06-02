@@ -34,11 +34,8 @@ public:
 
             frame.setPayload(payload);
 
-            if(canDevice_->writeFrame(frame)){
-                qDebug() << "wrote frame";
-            } else {
-                qDebug() << "failed write";
-            }
+            if(!canDevice_->writeFrame(frame)) qDebug() << "failed write";
+
         }else {
             qDebug() << "No Can (do)";
         }

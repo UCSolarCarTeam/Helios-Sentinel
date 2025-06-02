@@ -19,6 +19,7 @@ qt_add_executable(Sentinel
     src/Util/PropertyDefinitions.h
     src/Packets/ProximitySensors.h src/Packets/ProximitySensors.cpp
     src/Packets/Telemetry.h src/Packets/Telemetry.cpp
+    src/Packets/B3.h src/Packets/B3.cpp
 )
 
 qt_add_resources(Sentinel "configuration"

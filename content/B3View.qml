@@ -35,13 +35,13 @@ Item {
                     },
                     {
                         text: qsTr("Hazard Lights"),
-                        checked: b3.HazardLights,
-                        onClicked: function(checked) { b3.setHazardLights(checked) }
+                        checked: b3.HazardLightsIn,
+                        onClicked: function(checked) { b3.setHazardLightsIn(checked) }
                     },
                     {
                         text: qsTr("Headlights Switch"),
-                        checked: b3.HeadlightsSwitch,
-                        onClicked: function(checked) { b3.setHeadlightsSwitch(checked) }
+                        checked: b3.HeadlightsIn,
+                        onClicked: function(checked) { b3.setHeadlightsIn(checked) }
                     }
                 ]
             }
@@ -49,16 +49,6 @@ Item {
             FlagBox {
                 title: "Driver Inputs"
                 flags: [
-                    {
-                        text: qsTr("Forward Switch"),
-                        checked: b3.ForwardSwitch,
-                        onClicked: function(checked) { b3.setForwardSwitch(checked) }
-                    },
-                    {
-                        text: qsTr("Horn Switch"),
-                        checked: b3.HornSwitch,
-                        onClicked: function(checked) { b3.setHornSwitch(checked) }
-                    },
                     {
                         text: qsTr("Forward"),
                         checked: b3.Forward,
@@ -75,14 +65,20 @@ Item {
                         onClicked: function(checked) { b3.setReverse(checked) }
                     },
                     {
+                        text: qsTr("Horn Switch"),
+                        checked: b3.Horn,
+                        onClicked: function(checked) { b3.setHorn(checked) }
+                    },
+
+                    {
                         text: qsTr("Brake Switch"),
-                        checked: b3.BrakeSwitch,
-                        onClicked: function(checked) { b3.setBrakeSwitch(checked) }
+                        checked: b3.Brake,
+                        onClicked: function(checked) { b3.setBrake(checked) }
                     },
                     {
                         text: qsTr("Handbrake Switch"),
-                        checked: b3.HandbrakeSwitch,
-                        onClicked: function(checked) { b3.setHandbrakeSwitch(checked) }
+                        checked: b3.Handbrake,
+                        onClicked: function(checked) { b3.setHandbrake(checked) }
                     },
                     {
                         text: qsTr("Motor Reset"),
@@ -99,14 +95,8 @@ Item {
                         checked: b3.Lap,
                         onClicked: function(checked) { b3.setLap(checked) }
                     },
-                    {
-                        text: qsTr("Zoom Zoom"),
-                        checked: b3.ZoomZoom,
-                        onClicked: function(checked) { b3.setZoomZoom(checked) }
-                    }
                 ]
             }
-
 
             Row {
                 spacing: 20
@@ -134,49 +124,41 @@ Item {
                     }
             }
             
-            
-
             FlagBox {
                 title: "Lights Output"
                 flags: [
                     {
                         text: qsTr("Right Signal"),
-                        checked: b3.RightSignalOut,
-                        onClicked: function(checked) { b3.setRightSignalOut(checked) }
+                        checked: b3.RightSignalStatus,
+                        onClicked: function(checked) { b3.setRightSignalStatus(checked) }
                     },
                     {
                         text: qsTr("Left Signal"),
-                        checked: b3.LeftSignalOut,
-                        onClicked: function(checked) { b3.setLeftSignalOut(checked) }
+                        checked: b3.LeftSignalStatus,
+                        onClicked: function(checked) { b3.setLeftSignalStatus(checked) }
                     },
                     {
                         text: qsTr("Daytime Running Light Signal"),
-                        checked: b3.DaytimeRunningLightSignal,
-                        onClicked: function(checked) { b3.setDaytimeRunningLightSignal(checked) }
+                        checked: b3.DaytimeRunningLightStatus,
+                        onClicked: function(checked) { b3.setDaytimeRunningLightStatus(checked) }
                     },
                     {
                         text: qsTr("Headlight Signal"),
-                        checked: b3.HeadlightSignal,
-                        onClicked: function(checked) { b3.setHeadlightSignal(checked) }
+                        checked: b3.HeadlightStatus,
+                        onClicked: function(checked) { b3.setHeadlightStatus(checked) }
                     },
                     {
                         text: qsTr("Brake Light Signal"),
-                        checked: b3.BrakeLightSignal,
-                        onClicked: function(checked) { b3.setBrakeLightSignal(checked) }
+                        checked: b3.BrakeLightStatus,
+                        onClicked: function(checked) { b3.setBrakeLightStatus(checked) }
                     },
                     {
                         text: qsTr("Horn Signal"),
-                        checked: b3.HornSignal,
-                        onClicked: function(checked) { b3.setHornSignal(checked) }
+                        checked: b3.HornStatus,
+                        onClicked: function(checked) { b3.setHornStatus(checked) }
                     }
                 ]
             }
-        }
-
-        BytePreview {
-            id: bytePreview
-            raw: b3.byteStreamStr
-            encoded: b3.encodedByteStreamStr
         }
     }
 }

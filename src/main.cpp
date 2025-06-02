@@ -13,6 +13,7 @@
 
 #include "Packets/ProximitySensors.h"
 #include "Packets/Telemetry.h"
+#include "Packets/B3.h"
 
 int main(int argc, char *argv[]){
     set_qt_environment();
@@ -48,6 +49,9 @@ int main(int argc, char *argv[]){
 
     Telemetry telemetry(canDevice);
     engine.rootContext()->setContextProperty("telemetry", &telemetry);
+
+    B3 b3(canDevice);
+    engine.rootContext()->setContextProperty("b3", &b3);
 
     const QUrl url(QStringLiteral("qml/Main/main.qml"));
 
