@@ -24,11 +24,19 @@ class Telemetry : public IPacket {
     SUB_PROPERTY(unsigned char, AdditionalFlags, GpsFlags, 0xFF, 16)
 
     DEFINE_PROPERTY(unsigned long long, GpsPosition, 0x632)
-    SUB_PROPERTY(float, Longitude, GpsPosition, 0xFFFFFFFF00000000LL, 0)
-    SUB_PROPERTY(float, Latitude, GpsPosition, 0xFFFFFFFFLL, 32)
+    SUB_PROPERTY(float, Longitude, GpsPosition, 0xFFFFFFFF00000000ULL, 0)
+    SUB_PROPERTY(float, Latitude, GpsPosition, 0xFFFFFFFFULL, 32)
 
     DEFINE_PROPERTY(unsigned long long, MpuAcceleration, 0x633)
+    SUB_PROPERTY(unsigned short, AccelerationX, MpuAcceleration, 0xFFFFULL, 0)
+    SUB_PROPERTY(unsigned short, AccelerationY, MpuAcceleration, 0xFFFFULL, 16)
+    SUB_PROPERTY(unsigned short, AccelerationZ, MpuAcceleration, 0xFFFFULL, 32)
+
     DEFINE_PROPERTY(unsigned long long, MpuGyroscope, 0x634)
+    SUB_PROPERTY(unsigned short, RotationX, MpuGyroscope, 0xFFFFULL, 0)
+    SUB_PROPERTY(unsigned short, RotationY, MpuGyroscope, 0xFFFFULL, 16)
+    SUB_PROPERTY(unsigned short, RotationZ, MpuGyroscope, 0xFFFFULL, 32)
+
     DEFINE_PROPERTY(unsigned short, MpuTemperature, 0x635)
 
 public:
@@ -37,7 +45,10 @@ public:
         timerData_ = {
             {0x630, {500, [this]() { sendGpsTimeMessage(); }}},
             {0x631, {500, [this]() { sendGpsFlagsMessage(); }}},
-            {0x632, {500, [this]() { sendGpsPositionMessage(); }}}
+            {0x632, {500, [this]() { sendGpsPositionMessage(); }}},
+            {0x633, {500, [this]() { sendMpuAccelerationMessage(); }}},
+            {0x634, {500, [this]() { sendMpuGyroscopeMessage(); }}},
+            {0x635, {500, [this]() { sendMpuTemperatureMessage(); }}}
         };
 
         initAndStartTimers();

@@ -107,8 +107,6 @@ Item {
                 spacing: 20
                 width: 245
 
-               
-
                 FloatSpinBox {
                     id: longitude
                     text: qsTr("Longitude")
@@ -127,54 +125,54 @@ Item {
                     onInputValueUpdated: telemetry.setLatitude(inputValue)
                 }
 
-        //         IntSpinBox {
-        //             id: mpuTemperature
-        //             text: qsTr("MPU Temperature")
-        //             value: telemetry.MpuTemperature
-        //             onValueChanged: telemetry.setMpuTemperature(value)
-        //         }
+                IntSpinBox {
+                    id: mpuTemperature
+                    text: qsTr("MPU Temperature")
+                    value: telemetry.MpuTemperature
+                    onValueChanged: telemetry.setMpuTemperature(value)
+                }
 
-        //         IntSpinBox {
-        //             id: mpueAccelerationX
-        //             text: qsTr("MPU Acceleration X")
-        //             value: telemetry.MpuAccelerationX
-        //             onValueChanged: telemetry.setMpuAccelerationX(value)
-        //         }
+                IntSpinBox {
+                    id: mpueAccelerationX
+                    text: qsTr("MPU Acceleration X")
+                    value: telemetry.AccelerationX
+                    onValueChanged: telemetry.setAccelerationX(value)
+                }
 
-        //         IntSpinBox {
-        //             id: mpueAccelerationY
-        //             text: qsTr("MPU Acceleration Y")
-        //             value: telemetry.MpuAccelerationY
-        //             onValueChanged: telemetry.setMpuAccelerationY(value)
-        //         }
+                IntSpinBox {
+                    id: mpueAccelerationY
+                    text: qsTr("MPU Acceleration Y")
+                    value: telemetry.AccelerationY
+                    onValueChanged: telemetry.setAccelerationY(value)
+                }
 
-        //         IntSpinBox {
-        //             id: mpueAccelerationZ
-        //             text: qsTr("MPU Acceleration Z")
-        //             value: telemetry.MpuAccelerationZ
-        //             onValueChanged: telemetry.setMpuAccelerationZ(value)
-        //         }
+                IntSpinBox {
+                    id: mpueAccelerationZ
+                    text: qsTr("MPU Acceleration Z")
+                    value: telemetry.AccelerationZ
+                    onValueChanged: telemetry.setAccelerationZ(value)
+                }
 
-        //         IntSpinBox {
-        //             id: mpuRotationX
-        //             text: qsTr("MPU Rotation X")
-        //             value: telemetry.MpuRotationX
-        //             onValueChanged: telemetry.setMpuRotationX(value)
-        //         }
+                IntSpinBox {
+                    id: mpuRotationX
+                    text: qsTr("MPU Rotation X")
+                    value: telemetry.RotationX
+                    onValueChanged: telemetry.setRotationX(value)
+                }
 
-        //         IntSpinBox {
-        //             id: mpuRotationY
-        //             text: qsTr("MPU Rotation Y")
-        //             value: telemetry.MpuRotationY
-        //             onValueChanged: telemetry.setMpuRotationY(value)
-        //         }
+                IntSpinBox {
+                    id: mpuRotationY
+                    text: qsTr("MPU Rotation Y")
+                    value: telemetry.RotationY
+                    onValueChanged: telemetry.setRotationY(value)
+                }
 
-        //         IntSpinBox {
-        //             id: mpuRotationZ
-        //             text: qsTr("MPU Rotation Z")
-        //             value: telemetry.MpuRotationZ
-        //             onValueChanged: telemetry.setMpuRotationZ(value)
-        //         }
+                IntSpinBox {
+                    id: mpuRotationZ
+                    text: qsTr("MPU Rotation Z")
+                    value: telemetry.RotationZ
+                    onValueChanged: telemetry.setRotationZ(value)
+                }
             }
         // }
 
