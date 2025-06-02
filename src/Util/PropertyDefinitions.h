@@ -18,18 +18,27 @@ private:                                                                    \
     type name##_ = 0;
 
 
-#define SUB_PROPERTY(type, name, parent, mask, offset)                                                      \
-Q_PROPERTY(type name READ get##name WRITE set##name NOTIFY name##Changed)                                   \
-public:                                                                                                     \
-    type get##name() const { return name##_; }                                                              \
-public Q_SLOTS:                                                                                             \
-    void set##name(type value) {                                                                            \
-        name##_ = value;                                                                                    \
-        parent##_ = (parent##_ & ~(mask << offset)) | (static_cast<unsigned long long>(value) << offset);   \
-    }                                                                                                       \
-Q_SIGNALS:                                                                                                  \
-    void name##Changed(type newValue);                                                                      \
-private:                                                                                                    \
+#define SUB_PROPERTY(type, name, parent, mask, offset)                                      \
+Q_PROPERTY(type name READ get##name WRITE set##name NOTIFY name##Changed)                   \
+public:                                                                                     \
+    type get##name() const { return name##_; }                                              \
+public Q_SLOTS:                                                                             \
+    void set##name(type value) {                                                            \
+        name##_ = value;                                                                    \
+        constexpr int parsedOffset = (sizeof(parent##_) * 8 - offset - sizeof(type) * 8);   \
+        if constexpr (std::is_same<type, float>::value){                                    \
+            uint32_t ieee;                                                                  \
+            std::memcpy(&ieee, &value, sizeof(float));                                      \
+            parent##_ &= ~mask;                                                             \
+            parent##_ |= (static_cast<decltype(parent##_)>(ieee) << parsedOffset);          \
+        }else{                                                                              \
+            parent##_ = (parent##_ & ~(mask << parsedOffset)) |                             \
+                        (static_cast<decltype(parent##_)>(value) << parsedOffset);          \
+        }                                                                                   \
+    }                                                                                       \
+Q_SIGNALS:                                                                                  \
+    void name##Changed(type newValue);                                                      \
+private:                                                                                    \
     type name##_ = 0;
 
 

@@ -74,56 +74,58 @@ Item {
                     onValueChanged: telemetry.setSecond(value)
                 }
 
-                // IntSpinBox {
-                //     id: validityFlags
-                //     text: qsTr("Validity Flags")
-                //     range: { "from": 0, "to": 255 }
-                //     value: telemetry.GpsValidityFlags
-                //     anchors.rightMargin: 0
-                //     onValueChanged: telemetry.setGpsValidityFlags(value)
-                // }
+                IntSpinBox {
+                    id: validityFlags
+                    text: qsTr("Validity Flags")
+                    range: { "from": 0, "to": 255 }
+                    value: telemetry.ValidityFlags
+                    anchors.rightMargin: 0
+                    onValueChanged: telemetry.setValidityFlags(value)
+                }
 
-                // IntSpinBox {
-                //     id: fixStatusFlags
-                //     text: qsTr("Fix Status Flags")
-                //     range: { "from": 0, "to": 255 }
-                //     value: telemetry.GpsFixStatusFlags
-                //     anchors.rightMargin: 0
-                //     onValueChanged: telemetry.setGpsFixStatusFlags(value)
-                // }
+                IntSpinBox {
+                    id: fixStatusFlags
+                    text: qsTr("Fix Status Flags")
+                    range: { "from": 0, "to": 255 }
+                    value: telemetry.FixStatusFlags
+                    anchors.rightMargin: 0
+                    onValueChanged: telemetry.setFixStatusFlags(value)
+                }
 
-                // IntSpinBox {
-                //     id: additionalFlags
-                //     text: qsTr("Additional Flags")
-                //     range: { "from": 0, "to": 255 }
-                //     value: telemetry.GpsAdditionalFlags
-                //     anchors.rightMargin: 0
-                //     onValueChanged: telemetry.setGpsAdditionalFlags(value)
-                // }
+                IntSpinBox {
+                    id: additionalFlags
+                    text: qsTr("Additional Flags")
+                    range: { "from": 0, "to": 255 }
+                    value: telemetry.AdditionalFlags
+                    anchors.rightMargin: 0
+                    onValueChanged: telemetry.setAdditionalFlags(value)
+                }
             }
 
-        //     Column {
-        //         id: column
-        //         spacing: 20
-        //         width: 245
+            Column {
+                id: column
+                spacing: 20
+                width: 245
 
-        //         FloatSpinBox {
-        //             id: longitude
-        //             text: qsTr("Longitude")
-        //             range: { "from": -180, "to": 180 }
-        //             decimals: 6;
-        //             inputValue: telemetry.GpsLongitude
-        //             onInputValueUpdated: telemetry.setGpsLongitude(inputValue)
-        //         }
+               
 
-        //         FloatSpinBox {
-        //             id: latitude
-        //             text: qsTr("Latitude")
-        //             range: { "from": -90, "to": 90 }
-        //             decimals: 6;
-        //             inputValue: telemetry.GpsLatitude
-        //             onInputValueUpdated: telemetry.setGpsLatitude(inputValue)
-        //         }
+                FloatSpinBox {
+                    id: longitude
+                    text: qsTr("Longitude")
+                    range: { "from": -180, "to": 180 }
+                    decimals: 6;
+                    inputValue: telemetry.Longitude
+                    onInputValueUpdated: telemetry.setLongitude(inputValue)
+                }
+
+                FloatSpinBox {
+                    id: latitude
+                    text: qsTr("Latitude")
+                    range: { "from": -90, "to": 90 }
+                    decimals: 6;
+                    inputValue: telemetry.Latitude
+                    onInputValueUpdated: telemetry.setLatitude(inputValue)
+                }
 
         //         IntSpinBox {
         //             id: mpuTemperature
@@ -173,7 +175,7 @@ Item {
         //             value: telemetry.MpuRotationZ
         //             onValueChanged: telemetry.setMpuRotationZ(value)
         //         }
-        //     }
+            }
         // }
 
         // BytePreview {
