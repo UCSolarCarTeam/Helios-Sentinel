@@ -14,6 +14,7 @@
 #include "Packets/ProximitySensors.h"
 #include "Packets/Telemetry.h"
 #include "Packets/B3.h"
+#include "Packets/MotorDetails.h"
 
 int main(int argc, char *argv[]){
     set_qt_environment();
@@ -52,6 +53,9 @@ int main(int argc, char *argv[]){
 
     B3 b3(canDevice);
     engine.rootContext()->setContextProperty("b3", &b3);
+
+    MotorDetails motorDetails(canDevice);
+    engine.rootContext()->setContextProperty("motorDetails", &motorDetails);
 
     const QUrl url(QStringLiteral("qml/Main/main.qml"));
 

@@ -35,70 +35,78 @@ Item {
                 IntSpinBox {
                     id: gpsMonth
                     text: qsTr("GPS Month")
-                    range: { "from": 0, "to": 12 }
                     value: telemetry.Month
                     onValueChanged: telemetry.setMonth(value)
+                    min: 0
+                    max: 12
                 }
 
                 IntSpinBox {
                     id: gpsDay
                     text: qsTr("GPS Day")
-                    range: { "from": 0, "to": 31 }
                     value: telemetry.Day
                     onValueChanged: telemetry.setDay(value)
+                    min: 0
+                    max: 31
                 }
 
                 IntSpinBox {
                     id: gpsHour
                     text: qsTr("GPS Hour")
-                    range: { "from": 0, "to": 23 }
                     value: telemetry.Hour
                     onValueChanged: telemetry.setHour(value)
+                    min: 0
+                    max: 23
                 }
 
                 IntSpinBox {
                     id: gpsMinute
                     text: qsTr("GPS Minute")
-                    range: { "from": 0, "to": 59 }
                     value: telemetry.Minute
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setMinute(value)
+                    min: 0
+                    max: 59
                 }
 
                 IntSpinBox {
                     id: gpsSecond
                     text: qsTr("GPS Second")
-                    range: { "from": 0, "to": 59 }
                     value: telemetry.Second
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setSecond(value)
+                    min: 0
+                    max: 59
                 }
 
                 IntSpinBox {
                     id: validityFlags
                     text: qsTr("Validity Flags")
-                    range: { "from": 0, "to": 255 }
                     value: telemetry.ValidityFlags
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setValidityFlags(value)
+                    min: 0
+                    max: 255
                 }
 
                 IntSpinBox {
                     id: fixStatusFlags
                     text: qsTr("Fix Status Flags")
-                    range: { "from": 0, "to": 255 }
                     value: telemetry.FixStatusFlags
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setFixStatusFlags(value)
+                    min: 0
+                    max: 255
                 }
 
                 IntSpinBox {
                     id: additionalFlags
                     text: qsTr("Additional Flags")
-                    range: { "from": 0, "to": 255 }
                     value: telemetry.AdditionalFlags
                     anchors.rightMargin: 0
                     onValueChanged: telemetry.setAdditionalFlags(value)
+                    min: 0
+                    max: 255
                 }
             }
 
@@ -110,19 +118,21 @@ Item {
                 FloatSpinBox {
                     id: longitude
                     text: qsTr("Longitude")
-                    range: { "from": -180, "to": 180 }
                     decimals: 6;
                     inputValue: telemetry.Longitude
                     onInputValueUpdated: telemetry.setLongitude(inputValue)
+                    min: -180
+                    max: 180
                 }
 
                 FloatSpinBox {
                     id: latitude
                     text: qsTr("Latitude")
-                    range: { "from": -90, "to": 90 }
                     decimals: 6;
                     inputValue: telemetry.Latitude
                     onInputValueUpdated: telemetry.setLatitude(inputValue)
+                    min: -90
+                    max: 90
                 }
 
                 IntSpinBox {
@@ -174,13 +184,6 @@ Item {
                     onValueChanged: telemetry.setRotationZ(value)
                 }
             }
-        // }
-
-        // BytePreview {
-        //     id: bytePreview
-        //     raw: telemetry.byteStreamStr
-        //     encoded: telemetry.encodedByteStreamStr
-        // }
         }
     }
 }

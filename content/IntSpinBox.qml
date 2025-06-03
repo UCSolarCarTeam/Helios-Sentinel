@@ -11,8 +11,8 @@ Item {
     property alias value: spinBox.value
     signal customValueChanged(int newValue)
 
-    // Define default range as unsigned short
-    property var range: {"from": 0, "to": 65535}
+    property alias min: spinBox.from
+    property alias max: spinBox.to
 
     Column {
         spacing: 5
@@ -30,8 +30,8 @@ Item {
                 width: 110
                 height: 25
                 font.pixelSize: 12
-                from: range.from
-                to: range.to
+                from: intSpinBox.min
+                to: intSpinBox.max
                 editable: true
                 bottomPadding: 1
                 topPadding: 1
