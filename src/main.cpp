@@ -15,6 +15,7 @@
 #include "Packets/Telemetry.h"
 #include "Packets/B3.h"
 #include "Packets/MotorDetails.h"
+#include "Packets/Contactors.h"
 
 int main(int argc, char *argv[]){
     set_qt_environment();
@@ -53,6 +54,10 @@ int main(int argc, char *argv[]){
 
     B3 b3(canDevice);
     engine.rootContext()->setContextProperty("b3", &b3);
+
+    Contactors contactors(canDevice);
+    engine.rootContext()->setContextProperty("contactors", &contactors);
+
 
     MotorDetails motorDetails(canDevice);
     engine.rootContext()->setContextProperty("motorDetails", &motorDetails);

@@ -126,7 +126,8 @@ Item {
             sourceComponent: selectedButton === 1 ? motorDetailsView : 
                                 selectedButton === 2 ? b3View :
                                 selectedButton === 3 ? telemetryView :
-                                selectedButton === 8 ? proximitySensorsView : null
+                                selectedButton === 8 ? proximitySensorsView :
+                                selectedButton === 9 ? contactorsView : null
 
             // sourceComponent: selectedButton === 0 ? keyMotorView :    
             //                     selectedButton === 2 ? b3View :
@@ -158,6 +159,11 @@ Item {
         Component {
             id: telemetryView
             TelemetryView{}
+        }
+
+        Component {
+            id: contactorsView
+            ContactorsView{}
         }
 
     //     Component {

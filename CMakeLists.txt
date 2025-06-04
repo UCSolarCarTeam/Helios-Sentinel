@@ -22,6 +22,7 @@ qt_add_executable(Sentinel
     src/Packets/B3.h src/Packets/B3.cpp
     src/Packets/KeyMotor.h src/Packets/KeyMotor.cpp
     src/Packets/MotorDetails.h src/Packets/MotorDetails.cpp
+    src/Packets/Contactors.h src/Packets/Contactors.cpp
 )
 
 qt_add_resources(Sentinel "configuration"

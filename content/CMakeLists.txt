@@ -23,6 +23,7 @@ qt6_add_qml_module(content
         TabBtn.qml 
         Window.qml 
         FlagBox.qml
+        ContactorsView.qml
     RESOURCES
         fonts/fonts.txt
         images/solarCarLogo.png
