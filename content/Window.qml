@@ -2,6 +2,9 @@ import QtQuick.Studio.Components
 import QtQuick 2.15
 import QtQuick.Controls 6.2
 
+import "Components" 1.0
+import "PacketViews" 1.0
+
 Item {
     id: toolWin
     width: 575
@@ -87,7 +90,7 @@ Item {
         }
         TabBtn {
             id: button9
-            buttonText: qsTr("Settings")
+            buttonText: qsTr("Contactors")
             isSelected: selectedButton === 9
             onClicked: selectedButton = 9
         }
@@ -123,16 +126,15 @@ Item {
             x: 10
             z:100
             width: parent.width - 20
-            sourceComponent: selectedButton === 0 ? keyMotorView :
-                                selectedButton === 1 ? motorDetailsView :
+            sourceComponent: selectedButton === 0 ? keyMotorView : 
+                                selectedButton === 1 ? motorDetailsView : 
                                 selectedButton === 2 ? b3View :
                                 selectedButton === 3 ? telemetryView :
-                                selectedButton === 4 ? batteryFaultsView :
                                 selectedButton === 5 ? batteryView :
                                 selectedButton === 6 ? mpptView :
-                                selectedButton === 7 ? mbmsView :
                                 selectedButton === 8 ? proximitySensorsView :
-                                selectedButton === 9 ? settingsView : null
+                                selectedButton === 9 ? contactorsView : null
+                                // TODO: selectedButton === 7 ? mbmsView :
         }
 
 
@@ -157,8 +159,8 @@ Item {
         }
 
         Component {
-            id: batteryFaultsView
-            BatteryFaultsView{}
+            id: contactorsView
+            ContactorsView{}
         }
 
         Component {
@@ -172,21 +174,8 @@ Item {
         }
 
         Component {
-            id: mbmsView
-            MbmsView{}
-        }
-
-        Component {
             id: proximitySensorsView
             ProximitySensorsView{}
-        }
-
-        Component {
-            id: settingsView
-            Text {
-                id: name
-                text: qsTr("TODO")
-            }
         }
     }
 
