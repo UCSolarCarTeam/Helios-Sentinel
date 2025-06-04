@@ -87,7 +87,7 @@ Item {
         }
         TabBtn {
             id: button9
-            buttonText: qsTr("Settings")
+            buttonText: qsTr("Contactors")
             isSelected: selectedButton === 9
             onClicked: selectedButton = 9
         }
@@ -128,18 +128,10 @@ Item {
                                 selectedButton === 2 ? b3View :
                                 selectedButton === 3 ? telemetryView :
                                 selectedButton === 5 ? batteryView :
+                                selectedButton === 6 ? mpptView :
                                 selectedButton === 8 ? proximitySensorsView :
                                 selectedButton === 9 ? contactorsView : null
-
-            // sourceComponent:     
-            //                     selectedButton === 2 ? b3View :
-            //                     selectedButton === 3 ? telemetryView :
-            //                     selectedButton === 4 ? batteryFaultsView :
-                                
-            //                     selectedButton === 6 ? mpptView :
-            //                     selectedButton === 7 ? mbmsView :
-            //                     selectedButton === 8 ? proximitySensorsView :
-            //                     selectedButton === 9 ? settingsView : null
+                                // TODO: selectedButton === 7 ? mbmsView :
         }
 
 
@@ -168,38 +160,20 @@ Item {
             ContactorsView{}
         }
 
-    //     Component {
-    //         id: batteryFaultsView
-    //         BatteryFaultsView{}
-    //     }
-
         Component {
             id: batteryView
             BatteryView{}
         }
 
-    //     Component {
-    //         id: mpptView
-    //         MpptView{}
-    //     }
-
-    //     Component {
-    //         id: mbmsView
-    //         MbmsView{}
-    //     }
+        Component {
+            id: mpptView
+            MpptView{}
+        }
 
         Component {
             id: proximitySensorsView
             ProximitySensorsView{}
         }
-
-    //     Component {
-    //         id: settingsView
-    //         Text {
-    //             id: name
-    //             text: qsTr("TODO")
-    //         }
-    //     }
     }
 
     Rectangle {

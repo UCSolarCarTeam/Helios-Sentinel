@@ -2,9 +2,8 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 Item {
-    property var mppt : mppt0
     width: 550
-    height: 475
+    height: 1250
 
     Column {
         anchors.fill: parent
@@ -17,58 +16,340 @@ Item {
             font.bold: true
         }
 
-        ComboBox {
-            id: mpptSelector
-            width: 150
-            model: ["MPPT 0", "MPPT 1", "MPPT 2", "MPPT 3"]
-            onCurrentIndexChanged: {
-                mppt = currentIndex === 0 ? mppt0 : currentIndex === 1 ? mppt1 : currentIndex === 2 ? mppt2 : mppt3
-            }
+        Text {
+            text: "MPPT 0 Channel 0"
+            font.family: "Verdana"
+            font.bold: true
         }
 
-        Column{
+        Row {
             spacing: 20
 
-            Switch {
-                id: switch1
-                text: qsTr("Is Alive")
-                checked: mppt.Alive
-                onClicked: mppt.setAlive(checked)
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Array Voltage"
+                    value: mppt.M0C0ArrayVoltage
+                    onValueChanged: mppt.setM0C0ArrayVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Array Current"
+                    value: mppt.M0C0ArrayCurrent
+                    onValueChanged: mppt.setM0C0ArrayCurrent(value)
+                }
             }
 
-            IntSpinBox {
-                id: box1
-                text: qsTr("Array Voltage")
-                value: mppt.ArrayVoltage
-                onValueChanged: mppt.setArrayVoltage(value)
-            }
+            Column {
+                spacing: 20
 
-            IntSpinBox {
-                id: box2
-                text: qsTr("Array Current")
-                value: mppt.ArrayCurrent
-                onValueChanged: mppt.setArrayCurrent(value)
-            }
+                IntSpinBox {
+                    text: "Battery Voltage"
+                    value: mppt.M0C0BatteryVoltage
+                    onValueChanged: mppt.setM0C0BatteryVoltage(value)
+                }
 
-            IntSpinBox {
-                id: box3
-                text: qsTr("Battery Voltage")
-                value: mppt.BatteryVoltage
-                onValueChanged: mppt.setBatteryVoltage(value)
-            }
-
-            IntSpinBox {
-                id: box4
-                text: qsTr("Temperature")
-                value: mppt.Temp
-                onValueChanged: mppt.setTemp(value)
+                IntSpinBox {
+                    text: "Temperature"
+                    value: mppt.M0C0Temperature
+                    onValueChanged: mppt.setM0C0Temperature(value) 
+                }
             }
         }
 
-        BytePreview {
-            id: bytePreview
-            raw: mppt.byteStreamStr
-            encoded: mppt.encodedByteStreamStr
+        Text {
+            text: "MPPT 0 Channel 1"
+            font.family: "Verdana"
+            font.bold: true
+        }
+
+        Row {
+            spacing: 20
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Array Voltage"
+                    value: mppt.M0C1ArrayVoltage
+                    onValueChanged: mppt.setM0C1ArrayVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Array Current"
+                    value: mppt.M0C1ArrayCurrent
+                    onValueChanged: mppt.setM0C1ArrayCurrent(value)
+                }
+            }
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Battery Voltage"
+                    value: mppt.M0C1BatteryVoltage
+                    onValueChanged: mppt.setM0C1BatteryVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Temperature"
+                    value: mppt.M0C1Temperature
+                    onValueChanged: mppt.setM0C1Temperature(value) 
+                }
+            }
+        }
+
+        Text {
+            text: "MPPT 1 Channel 0"
+            font.family: "Verdana"
+            font.bold: true
+        }
+
+        Row {
+            spacing: 20
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Array Voltage"
+                    value: mppt.M1C0ArrayVoltage
+                    onValueChanged: mppt.setM1C0ArrayVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Array Current"
+                    value: mppt.M1C0ArrayCurrent
+                    onValueChanged: mppt.setM1C0ArrayCurrent(value)
+                }
+            }
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Battery Voltage"
+                    value: mppt.M1C0BatteryVoltage
+                    onValueChanged: mppt.setM1C0BatteryVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Temperature"
+                    value: mppt.M1C0Temperature
+                    onValueChanged: mppt.setM1C0Temperature(value) 
+                }
+            }
+        }
+
+        Text {
+            text: "MPPT 1 Channel 1"
+            font.family: "Verdana"
+            font.bold: true
+        }
+
+        Row {
+            spacing: 20
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Array Voltage"
+                    value: mppt.M1C1ArrayVoltage
+                    onValueChanged: mppt.setM1C1ArrayVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Array Current"
+                    value: mppt.M1C1ArrayCurrent
+                    onValueChanged: mppt.setM1C1ArrayCurrent(value)
+                }
+            }
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Battery Voltage"
+                    value: mppt.M1C1BatteryVoltage
+                    onValueChanged: mppt.setM1C1BatteryVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Temperature"
+                    value: mppt.M1C1Temperature
+                    onValueChanged: mppt.setM1C1Temperature(value) 
+                }
+            }
+        }
+
+        Text {
+            text: "MPPT 2 Channel 0"
+            font.family: "Verdana"
+            font.bold: true
+        }
+
+        Row {
+            spacing: 20
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Array Voltage"
+                    value: mppt.M2C0ArrayVoltage
+                    onValueChanged: mppt.setM2C0ArrayVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Array Current"
+                    value: mppt.M2C0ArrayCurrent
+                    onValueChanged: mppt.setM2C0ArrayCurrent(value)
+                }
+            }
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Battery Voltage"
+                    value: mppt.M2C0BatteryVoltage
+                    onValueChanged: mppt.setM2C0BatteryVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Temperature"
+                    value: mppt.M2C0Temperature
+                    onValueChanged: mppt.setM2C0Temperature(value) 
+                }
+            }
+        }
+
+        Text {
+            text: "MPPT 2 Channel 1"
+            font.family: "Verdana"
+            font.bold: true
+        }
+
+        Row {
+            spacing: 20
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Array Voltage"
+                    value: mppt.M2C1ArrayVoltage
+                    onValueChanged: mppt.setM2C1ArrayVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Array Current"
+                    value: mppt.M2C1ArrayCurrent
+                    onValueChanged: mppt.setM2C1ArrayCurrent(value)
+                }
+            }
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Battery Voltage"
+                    value: mppt.M2C1BatteryVoltage
+                    onValueChanged: mppt.setM2C1BatteryVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Temperature"
+                    value: mppt.M2C1Temperature
+                    onValueChanged: mppt.setM2C1Temperature(value) 
+                }
+            }
+        }
+
+        Text {
+            text: "MPPT 3 Channel 0"
+            font.family: "Verdana"
+            font.bold: true
+        }
+
+        Row {
+            spacing: 20
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Array Voltage"
+                    value: mppt.M3C0ArrayVoltage
+                    onValueChanged: mppt.setM3C0ArrayVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Array Current"
+                    value: mppt.M3C0ArrayCurrent
+                    onValueChanged: mppt.setM3C0ArrayCurrent(value)
+                }
+            }
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Battery Voltage"
+                    value: mppt.M3C0BatteryVoltage
+                    onValueChanged: mppt.setM3C0BatteryVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Temperature"
+                    value: mppt.M3C0Temperature
+                    onValueChanged: mppt.setM3C0Temperature(value) 
+                }
+            }
+        }
+
+        Text {
+            text: "MPPT 3 Channel 1"
+            font.family: "Verdana"
+            font.bold: true
+        }
+
+        Row {
+            spacing: 20
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Array Voltage"
+                    value: mppt.M3C1ArrayVoltage
+                    onValueChanged: mppt.setM3C1ArrayVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Array Current"
+                    value: mppt.M3C1ArrayCurrent
+                    onValueChanged: mppt.setM3C1ArrayCurrent(value)
+                }
+            }
+
+            Column {
+                spacing: 20
+
+                IntSpinBox {
+                    text: "Battery Voltage"
+                    value: mppt.M3C1BatteryVoltage
+                    onValueChanged: mppt.setM3C1BatteryVoltage(value)
+                }
+
+                IntSpinBox {
+                    text: "Temperature"
+                    value: mppt.M3C1Temperature
+                    onValueChanged: mppt.setM3C1Temperature(value) 
+                }
+            }
         }
     }
 }
