@@ -126,6 +126,7 @@ Item {
             sourceComponent: selectedButton === 1 ? motorDetailsView : 
                                 selectedButton === 2 ? b3View :
                                 selectedButton === 3 ? telemetryView :
+                                selectedButton === 5 ? batteryView :
                                 selectedButton === 8 ? proximitySensorsView :
                                 selectedButton === 9 ? contactorsView : null
 
@@ -133,7 +134,7 @@ Item {
             //                     selectedButton === 2 ? b3View :
             //                     selectedButton === 3 ? telemetryView :
             //                     selectedButton === 4 ? batteryFaultsView :
-            //                     selectedButton === 5 ? batteryView :
+                                
             //                     selectedButton === 6 ? mpptView :
             //                     selectedButton === 7 ? mbmsView :
             //                     selectedButton === 8 ? proximitySensorsView :
@@ -171,10 +172,10 @@ Item {
     //         BatteryFaultsView{}
     //     }
 
-    //     Component {
-    //         id: batteryView
-    //         BatteryView{}
-    //     }
+        Component {
+            id: batteryView
+            BatteryView{}
+        }
 
     //     Component {
     //         id: mpptView

@@ -11,8 +11,8 @@ Item {
     property alias value: spinBox.value
     signal customValueChanged(int newValue)
 
-    property alias min: spinBox.from
-    property alias max: spinBox.to
+    property int min: 0
+    property int max: 65535
 
     Column {
         spacing: 5
@@ -30,8 +30,8 @@ Item {
                 width: 110
                 height: 25
                 font.pixelSize: 12
-                from: intSpinBox.min
-                to: intSpinBox.max
+                from: min
+                to: max
                 editable: true
                 bottomPadding: 1
                 topPadding: 1
