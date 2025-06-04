@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 6.2
-import QtQuick.Studio.Components 1.0
+
+import "../Components"
 
 Item {
     width: 550

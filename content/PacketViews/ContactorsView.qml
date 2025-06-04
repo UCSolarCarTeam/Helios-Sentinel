@@ -1,5 +1,7 @@
 import QtQuick 2.15
 
+import "../Components"
+
 Item {
     width: 550
     height: 1250
