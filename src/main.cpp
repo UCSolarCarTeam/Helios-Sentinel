@@ -17,6 +17,7 @@
 #include "Packets/MotorDetails.h"
 #include "Packets/Contactors.h"
 #include "Packets/Battery.h"
+#include "Packets/KeyMotor.h"
 
 int main(int argc, char *argv[]){
     set_qt_environment();
@@ -66,6 +67,8 @@ int main(int argc, char *argv[]){
     Battery battery(canDevice);
     engine.rootContext()->setContextProperty("battery", &battery);
 
+    KeyMotor keyMotor(canDevice);
+    engine.rootContext()->setContextProperty("keyMotor", &keyMotor);
 
     const QUrl url(QStringLiteral("qml/Main/main.qml"));
 

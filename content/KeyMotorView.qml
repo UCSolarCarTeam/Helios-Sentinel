@@ -17,50 +17,48 @@ Item {
             font.bold: true
         }
 
+        IntSpinBox {
+            text: "Control Value"
+            value: keyMotor.ControlValue
+            onValueChanged: keyMotor.setControlValue(value)
+            min: -32768
+            max: 32767
+        }
+
         Column {
             spacing: 20
 
-            Column{
-                spacing: 20
-                IntSpinBox {
-                    id: spinBox
-                    text: qsTr("Motor Setpoint")
-                    value: keyMotor.MotorSetpoint
-                    onValueChanged: keyMotor.setMotorSetpoint(value)
-                }
+            IntSpinBox {
+                text: "Control Mode"
+                value: keyMotor.ControlMode
+                onValueChanged: keyMotor.setControlMode(value)
+                min: 0
+                max: 3
             }
-            
+
+            IntSpinBox {
+                text: "Motor Mode"
+                value: keyMotor.MotorMode
+                onValueChanged: keyMotor.setMotorMode(value)
+                min: 0
+                max: 7
+            }
+
             FlagBox {
-                title: "Control Flags"
+                title: "Misc Status"
                 flags: [
                     {
-                        text: qsTr("Control Mode"),
-                        checked: keyMotor.ControlMode,
-                        onClicked: function(checked) { keyMotor.setControlMode(checked) }
-                    },
-                    {
-                        text: qsTr("Motor Mode"),
-                        checked: keyMotor.MotorMode,
-                        onClicked: function(checked) { keyMotor.setMotorMode(checked) }
-                    },
-                    {
-                        text: qsTr("Software Enable"),
+                        text: "Software Enable",
                         checked: keyMotor.SoftwareEnable,
                         onClicked: function(checked) { keyMotor.setSoftwareEnable(checked) }
                     },
                     {
-                        text: qsTr("Debug Mode"),
+                        text: "Debug Mode",
                         checked: keyMotor.DebugMode,
                         onClicked: function(checked) { keyMotor.setDebugMode(checked) }
                     }
                 ]
-            }   
-        }
-
-        BytePreview {
-            id: bytePreview
-            raw: keyMotor.byteStreamStr
-            encoded: keyMotor.encodedByteStreamStr
+            }
         }
     }
 }

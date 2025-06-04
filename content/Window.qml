@@ -123,14 +123,15 @@ Item {
             x: 10
             z:100
             width: parent.width - 20
-            sourceComponent: selectedButton === 1 ? motorDetailsView : 
+            sourceComponent: selectedButton === 0 ? keyMotorView : 
+                                selectedButton === 1 ? motorDetailsView : 
                                 selectedButton === 2 ? b3View :
                                 selectedButton === 3 ? telemetryView :
                                 selectedButton === 5 ? batteryView :
                                 selectedButton === 8 ? proximitySensorsView :
                                 selectedButton === 9 ? contactorsView : null
 
-            // sourceComponent: selectedButton === 0 ? keyMotorView :    
+            // sourceComponent:     
             //                     selectedButton === 2 ? b3View :
             //                     selectedButton === 3 ? telemetryView :
             //                     selectedButton === 4 ? batteryFaultsView :
@@ -142,10 +143,10 @@ Item {
         }
 
 
-    //     Component {
-    //         id: keyMotorView
-    //         KeyMotorView{}
-    //     }
+        Component {
+            id: keyMotorView
+            KeyMotorView{}
+        }
 
         Component {
             id: motorDetailsView
