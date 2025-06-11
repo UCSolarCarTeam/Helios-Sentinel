@@ -141,6 +141,8 @@ Item {
                     text: qsTr("MPU Temperature")
                     value: telemetry.MpuTemperature
                     onValueChanged: telemetry.setMpuTemperature(value)
+                    min: -32768
+                    max: 32767
                 }
 
                 IntSpinBox {
@@ -148,6 +150,8 @@ Item {
                     text: qsTr("MPU Acceleration X")
                     value: telemetry.AccelerationX
                     onValueChanged: telemetry.setAccelerationX(value)
+                    min: -32768
+                    max: 32767
                 }
 
                 IntSpinBox {
@@ -155,6 +159,8 @@ Item {
                     text: qsTr("MPU Acceleration Y")
                     value: telemetry.AccelerationY
                     onValueChanged: telemetry.setAccelerationY(value)
+                    min: -32768
+                    max: 32767
                 }
 
                 IntSpinBox {
@@ -162,6 +168,8 @@ Item {
                     text: qsTr("MPU Acceleration Z")
                     value: telemetry.AccelerationZ
                     onValueChanged: telemetry.setAccelerationZ(value)
+                    min: -32768
+                    max: 32767
                 }
 
                 IntSpinBox {
@@ -169,6 +177,8 @@ Item {
                     text: qsTr("MPU Rotation X")
                     value: telemetry.RotationX
                     onValueChanged: telemetry.setRotationX(value)
+                    min: -32768
+                    max: 32767
                 }
 
                 IntSpinBox {
@@ -176,6 +186,8 @@ Item {
                     text: qsTr("MPU Rotation Y")
                     value: telemetry.RotationY
                     onValueChanged: telemetry.setRotationY(value)
+                    min: -32768
+                    max: 32767
                 }
 
                 IntSpinBox {
@@ -183,6 +195,8 @@ Item {
                     text: qsTr("MPU Rotation Z")
                     value: telemetry.RotationZ
                     onValueChanged: telemetry.setRotationZ(value)
+                    min: -32768
+                    max: 32767
                 }
             }
         }

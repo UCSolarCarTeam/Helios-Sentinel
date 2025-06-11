@@ -28,16 +28,16 @@ class Telemetry : public IPacket {
     SUB_PROPERTY(float, Latitude, GpsPosition, 0xFFFFFFFFULL, 32)
 
     DEFINE_PROPERTY(unsigned long long, MpuAcceleration, 0x633)
-    SUB_PROPERTY(unsigned short, AccelerationX, MpuAcceleration, 0xFFFFULL, 0)
-    SUB_PROPERTY(unsigned short, AccelerationY, MpuAcceleration, 0xFFFFULL, 16)
-    SUB_PROPERTY(unsigned short, AccelerationZ, MpuAcceleration, 0xFFFFULL, 32)
+    SUB_PROPERTY(short, AccelerationX, MpuAcceleration, 0xFFFFULL, 0)
+    SUB_PROPERTY(short, AccelerationY, MpuAcceleration, 0xFFFFULL, 16)
+    SUB_PROPERTY(short, AccelerationZ, MpuAcceleration, 0xFFFFULL, 32)
 
     DEFINE_PROPERTY(unsigned long long, MpuGyroscope, 0x634)
-    SUB_PROPERTY(unsigned short, RotationX, MpuGyroscope, 0xFFFFULL, 0)
-    SUB_PROPERTY(unsigned short, RotationY, MpuGyroscope, 0xFFFFULL, 16)
-    SUB_PROPERTY(unsigned short, RotationZ, MpuGyroscope, 0xFFFFULL, 32)
+    SUB_PROPERTY(short, RotationX, MpuGyroscope, 0xFFFFULL, 0)
+    SUB_PROPERTY(short, RotationY, MpuGyroscope, 0xFFFFULL, 16)
+    SUB_PROPERTY(short, RotationZ, MpuGyroscope, 0xFFFFULL, 32)
 
-    DEFINE_PROPERTY(unsigned short, MpuTemperature, 0x635)
+    DEFINE_PROPERTY(short, MpuTemperature, 0x635)
 
 public:
     Telemetry(QCanBusDevice* canDevice);
