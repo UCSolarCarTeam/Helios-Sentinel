@@ -7,10 +7,11 @@ project(Sentinel LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt6 6.2 REQUIRED COMPONENTS Core Gui Qml Quick SerialBus)
+find_package(Qt6 6.8 REQUIRED COMPONENTS Core Gui Qml Quick SerialBus)
 
-if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
+if (Qt6_VERSION VERSION_GREATER_EQUAL 6.8)
     qt_standard_project_setup()
+    qt_policy(SET QTP0004 NEW)
 endif()
 
 qt_add_executable(Sentinel
