@@ -28,7 +28,8 @@ public:
             frame.setFrameId(id);
 
             QByteArray payload;
-            for(int i = sizeof(T) - 1; i >= 0; --i){
+            // Organize payloads in little endian
+            for(int i = 0; i < sizeof(T); ++i){
                 payload.append(static_cast<char>((data >> (8 * i)) & 0xFF));
             }
 
