@@ -9,14 +9,12 @@
 class KeyMotor : public IPacket{
     Q_OBJECT
 
-    DEFINE_PROPERTY(short, ControlValue, 0x550)
-
-    DEFINE_PROPERTY(unsigned char, MiscStatus, 0x551)
-    SUB_PROPERTY(unsigned char, ControlMode, MiscStatus, 0x03, 0)
-    SUB_PROPERTY(unsigned char, MotorMode, MiscStatus, 0x07, -2)
-    SUB_PROPERTY(bool, SoftwareEnable, MiscStatus, 0x20, 0)
-    //ignored 0x40
-    SUB_PROPERTY(bool, DebugMode, MiscStatus, 0x80, 0)
+    DEFINE_PROPERTY(unsigned long long, DriveCommand, 0x501)
+    SUB_PROPERTY(float, Velocity, DriveCommand, 0xFFFFFFFFULL, 0)
+    SUB_PROPERTY(float, Current, DriveCommand, 0xFFFFFFFFULL, 32)
+    
+    DEFINE_PROPERTY(unsigned long long, PowerCommand, 0x502) //empty from 0-31
+    SUB_PROPERTY(float, BusCurrentOut, PowerCommand, 0xFFFFFFFFULL, 32)
 
 public:
    KeyMotor(QCanBusDevice* canDevice);
