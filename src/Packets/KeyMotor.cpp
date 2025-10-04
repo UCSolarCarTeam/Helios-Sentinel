@@ -2,8 +2,8 @@
 
 KeyMotor::KeyMotor(QCanBusDevice* canDevice) : IPacket(canDevice) {
     timerData_ = {
-        {0x550, {100, [this]() { sendControlValueMessage(); }}},
-        {0x551, {100, [this]() { sendMiscStatusMessage(); }}}
+        {0x501, {100, [this]() { sendDriveCommandMessage(); }}},
+        {0x502, {100, [this]() { sendPowerCommandMessage(); }}}
     };
 
     initAndStartTimers();
