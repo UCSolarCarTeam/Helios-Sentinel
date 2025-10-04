@@ -12,10 +12,10 @@
 class ProximitySensors : public IPacket {
     Q_OBJECT
 
-    DEFINE_PROPERTY(unsigned short, ProximitySensor1, 0x700)
-    DEFINE_PROPERTY(unsigned short, ProximitySensor2, 0x701)
-    DEFINE_PROPERTY(unsigned short, ProximitySensor3, 0x702)
-    DEFINE_PROPERTY(unsigned short, ProximitySensor4, 0x703)
+    DEFINE_PROPERTY(unsigned short, ProximitySensor1)
+    DEFINE_PROPERTY(unsigned short, ProximitySensor2)
+    DEFINE_PROPERTY(unsigned short, ProximitySensor3)
+    DEFINE_PROPERTY(unsigned short, ProximitySensor4)
 
 public:
     ProximitySensors(QCanBusDevice* canDevice);

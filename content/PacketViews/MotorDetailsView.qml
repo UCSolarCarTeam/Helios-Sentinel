@@ -8,6 +8,9 @@ Item {
     height: 875
     x: 0
     y: 0
+
+    property var motorDetails: motorSelector.currentIndex === 0 ? motorDetails0 : motorDetails1
+
     Column {
         anchors.fill: parent
         anchors.margins: 10
@@ -17,6 +20,13 @@ Item {
             text: "Motor Details Packet"
             font.family: "Verdana"
             font.bold: true
+        }
+
+        ComboBox {
+            id: motorSelector
+            model: ["Motor 0", "Motor 1"]
+            currentIndex: 0
+            width: 150
         }
 
         Row {

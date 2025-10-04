@@ -1,7 +1,7 @@
 #ifndef PROPERTYDEFINITIONS_H
 #define PROPERTYDEFINITIONS_H
 
-#define DEFINE_PROPERTY(type, name, id)                                     \
+#define DEFINE_PROPERTY(type, name)                                         \
 Q_PROPERTY(type name READ get##name WRITE set##name NOTIFY name##Changed)   \
 public:                                                                     \
     type get##name() const { return name##_; }                              \
@@ -9,7 +9,7 @@ public Q_SLOTS:                                                             \
     void set##name(type value){                                             \
         name##_ = value;                                                    \
     }                                                                       \
-    void send##name##Message(){                                             \
+    void send##name##Message(int id){                                       \
         sendCanMessage(id, name##_);                                        \
     }                                                                       \
 Q_SIGNALS:                                                                  \

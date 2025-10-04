@@ -9,11 +9,11 @@
 class KeyMotor : public IPacket{
     Q_OBJECT
 
-    DEFINE_PROPERTY(unsigned long long, DriveCommand, 0x501)
+    DEFINE_PROPERTY(unsigned long long, DriveCommand)
     SUB_PROPERTY(float, Velocity, DriveCommand, 0xFFFFFFFFULL, 0)
     SUB_PROPERTY(float, Current, DriveCommand, 0xFFFFFFFFULL, 32)
     
-    DEFINE_PROPERTY(unsigned long long, PowerCommand, 0x502) //empty from 0-31
+    DEFINE_PROPERTY(unsigned long long, PowerCommand) //empty from 0-31
     SUB_PROPERTY(float, BusCurrentOut, PowerCommand, 0xFFFFFFFFULL, 32)
 
 public:
