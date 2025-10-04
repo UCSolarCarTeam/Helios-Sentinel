@@ -62,8 +62,10 @@ int main(int argc, char *argv[]){
     engine.rootContext()->setContextProperty("contactors", &contactors);
 
 
-    MotorDetails motorDetails(canDevice);
-    engine.rootContext()->setContextProperty("motorDetails", &motorDetails);
+    MotorDetails motorDetails0(canDevice, -0x20);
+    MotorDetails motorDetails1(canDevice, 0x00);
+    engine.rootContext()->setContextProperty("motorDetails0", &motorDetails0);
+    engine.rootContext()->setContextProperty("motorDetails1", &motorDetails1);
 
     Battery battery(canDevice);
     engine.rootContext()->setContextProperty("battery", &battery);

@@ -75,7 +75,7 @@ class MotorDetails : public IPacket{
     SUB_PROPERTY(unsigned int, ReservedSlipSpeed, SlipSpeedMeasurement, 0xFFFFFFFFULL, 32)
 
 public:
-    MotorDetails(QCanBusDevice* canDevice);
+    MotorDetails(QCanBusDevice* canDevice, const unsigned int idOffset);
 };
 
 #endif // MOTORDETAILS_H
