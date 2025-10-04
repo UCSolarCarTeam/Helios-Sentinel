@@ -25,18 +25,17 @@ public:                                                                         
 public Q_SLOTS:                                                                             \
     void set##name(type value) {                                                            \
         name##_ = value;                                                                    \
-        constexpr int parsedOffset = (sizeof(parent##_) * 8 - offset - sizeof(type) * 8);   \
         if constexpr (std::is_same<type, float>::value){                                    \
             uint32_t ieee;                                                                  \
             std::memcpy(&ieee, &value, sizeof(float));                                      \
-            parent##_ &= ~mask;                                                             \
-            parent##_ |= (static_cast<decltype(parent##_)>(ieee) << parsedOffset);          \
+            parent##_ &= ~(mask << offset);                                                 \
+            parent##_ |= (static_cast<decltype(parent##_)>(ieee) << offset);                \
         } else if constexpr (std::is_same<type, bool>::value){                              \
             if(value) parent##_ |= mask;                                                    \
             else parent##_ &= ~mask;                                                        \
         } else{                                                                             \
-            parent##_ = (parent##_ & ~(mask << parsedOffset)) |                             \
-                        (static_cast<decltype(parent##_)>(value) << parsedOffset);          \
+            parent##_ = (parent##_ & ~(mask << offset)) |                                   \
+                        (static_cast<decltype(parent##_)>(value) << offset);                \
         }                                                                                   \
     }                                                                                       \
 Q_SIGNALS:                                                                                  \

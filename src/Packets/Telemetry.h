@@ -24,7 +24,7 @@ class Telemetry : public IPacket {
     SUB_PROPERTY(unsigned char, AdditionalFlags, GpsFlags, 0xFF, 16)
 
     DEFINE_PROPERTY(unsigned long long, GpsPosition, 0x632)
-    SUB_PROPERTY(float, Longitude, GpsPosition, 0xFFFFFFFF00000000ULL, 0)
+    SUB_PROPERTY(float, Longitude, GpsPosition, 0xFFFFFFFFULL, 0)
     SUB_PROPERTY(float, Latitude, GpsPosition, 0xFFFFFFFFULL, 32)
 
     DEFINE_PROPERTY(unsigned long long, MpuAcceleration, 0x633)
