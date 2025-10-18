@@ -19,6 +19,7 @@
 #include "Packets/Battery.h"
 #include "Packets/KeyMotor.h"
 #include "Packets/Mppt.h"
+#include "Packets/Mbms.h"
 
 int main(int argc, char *argv[]){
     set_qt_environment();
@@ -61,7 +62,6 @@ int main(int argc, char *argv[]){
     Contactors contactors(canDevice);
     engine.rootContext()->setContextProperty("contactors", &contactors);
 
-
     MotorDetails motorDetails0(canDevice, 0x00);
     MotorDetails motorDetails1(canDevice, 0x20);
     engine.rootContext()->setContextProperty("motorDetails0", &motorDetails0);
@@ -75,6 +75,9 @@ int main(int argc, char *argv[]){
 
     Mppt mppt(canDevice);
     engine.rootContext()->setContextProperty("mppt", &mppt);
+
+    Mbms mbms(canDevice);
+    engine.rootContext()->setContextProperty("mbms", &mbms);
 
     const QUrl url(QStringLiteral("qml/Main/main.qml"));
 
