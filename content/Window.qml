@@ -132,11 +132,10 @@ Item {
                                 selectedButton === 3 ? telemetryView :
                                 selectedButton === 5 ? batteryView :
                                 selectedButton === 6 ? mpptView :
+                                selectedButton === 7 ? mbmsView :
                                 selectedButton === 8 ? proximitySensorsView :
                                 selectedButton === 9 ? contactorsView : null
-                                // TODO: selectedButton === 7 ? mbmsView :
         }
-
 
         Component {
             id: keyMotorView
@@ -171,6 +170,11 @@ Item {
         Component {
             id: mpptView
             MpptView{}
+        }
+
+        Component {
+            id: mbmsView
+            MbmsView{}
         }
 
         Component {
