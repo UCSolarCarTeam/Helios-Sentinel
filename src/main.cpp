@@ -73,8 +73,23 @@ int main(int argc, char *argv[]){
     KeyMotor keyMotor(canDevice);
     engine.rootContext()->setContextProperty("keyMotor", &keyMotor);
 
-    Mppt mppt(canDevice);
-    engine.rootContext()->setContextProperty("mppt", &mppt);
+    Mppt mppt0C0(canDevice, 0x00);
+    Mppt mppt0C1(canDevice, 0x01);
+    Mppt mppt1C0(canDevice, 0x02);
+    Mppt mppt1C1(canDevice, 0x03);
+    Mppt mppt2C0(canDevice, 0x04);
+    Mppt mppt2C1(canDevice, 0x05);
+    Mppt mppt3C0(canDevice, 0x06);
+    Mppt mppt3C1(canDevice, 0x07);
+
+    engine.rootContext()->setContextProperty("mppt0C0", &mppt0C0);
+    engine.rootContext()->setContextProperty("mppt0C1", &mppt0C1);
+    engine.rootContext()->setContextProperty("mppt1C0", &mppt1C0);
+    engine.rootContext()->setContextProperty("mppt1C1", &mppt1C1);
+    engine.rootContext()->setContextProperty("mppt2C0", &mppt2C0);
+    engine.rootContext()->setContextProperty("mppt2C1", &mppt2C1);
+    engine.rootContext()->setContextProperty("mppt3C0", &mppt3C0);
+    engine.rootContext()->setContextProperty("mppt3C1", &mppt3C1);
 
     Mbms mbms(canDevice);
     engine.rootContext()->setContextProperty("mbms", &mbms);
