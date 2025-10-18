@@ -20,6 +20,7 @@
 #include "Packets/KeyMotor.h"
 #include "Packets/Mppt.h"
 #include "Packets/Mbms.h"
+#include "Packets/BatteryFaults.h"
 
 int main(int argc, char *argv[]){
     set_qt_environment();
@@ -81,7 +82,6 @@ int main(int argc, char *argv[]){
     Mppt mppt2C1(canDevice, 0x05);
     Mppt mppt3C0(canDevice, 0x06);
     Mppt mppt3C1(canDevice, 0x07);
-
     engine.rootContext()->setContextProperty("mppt0C0", &mppt0C0);
     engine.rootContext()->setContextProperty("mppt0C1", &mppt0C1);
     engine.rootContext()->setContextProperty("mppt1C0", &mppt1C0);
@@ -93,6 +93,9 @@ int main(int argc, char *argv[]){
 
     Mbms mbms(canDevice);
     engine.rootContext()->setContextProperty("mbms", &mbms);
+
+    BatteryFaults batteryFaults(canDevice);
+    engine.rootContext()->setContextProperty("batteryFaults", &batteryFaults);
 
     const QUrl url(QStringLiteral("qml/Main/main.qml"));
 

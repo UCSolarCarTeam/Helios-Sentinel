@@ -27,6 +27,7 @@ qt_add_executable(Sentinel
     src/Packets/Battery.h src/Packets/Battery.cpp
     src/Packets/Mppt.h src/Packets/Mppt.cpp
     src/Packets/Mbms.h src/Packets/Mbms.cpp
+    src/Packets/BatteryFaults.h src/Packets/BatteryFaults.cpp
 )
 
 qt_add_resources(Sentinel "configuration"

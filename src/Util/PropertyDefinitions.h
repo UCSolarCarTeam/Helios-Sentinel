@@ -31,8 +31,8 @@ public Q_SLOTS:                                                                 
             parent##_ &= ~(mask << offset);                                                 \
             parent##_ |= (static_cast<decltype(parent##_)>(ieee) << offset);                \
         } else if constexpr (std::is_same<type, bool>::value){                              \
-            if(value) parent##_ |= (mask << offset);                                        \
-            else parent##_ &= ~(mask << offset);                                            \
+            if(value) parent##_ |= (static_cast<decltype(parent##_)>(mask) << offset);      \
+            else parent##_ &= ~(static_cast<decltype(parent##_)>(mask) << offset);          \
         } else{                                                                             \
             parent##_ = (parent##_ & ~(mask << offset)) |                                   \
                         (static_cast<decltype(parent##_)>(value) << offset);                \
