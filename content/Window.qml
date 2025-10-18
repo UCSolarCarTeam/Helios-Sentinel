@@ -130,6 +130,7 @@ Item {
                                 selectedButton === 1 ? motorDetailsView : 
                                 selectedButton === 2 ? b3View :
                                 selectedButton === 3 ? telemetryView :
+                                selectedButton === 4 ? batteryFaultsView :
                                 selectedButton === 5 ? batteryView :
                                 selectedButton === 6 ? mpptView :
                                 selectedButton === 7 ? mbmsView :
@@ -160,6 +161,11 @@ Item {
         Component {
             id: contactorsView
             ContactorsView{}
+        }
+
+        Component {
+            id: batteryFaultsView
+            BatteryFaultsView{}
         }
 
         Component {
