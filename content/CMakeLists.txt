@@ -13,6 +13,7 @@ qt6_add_qml_module(content
         Components/FloatSpinBox.qml
         Components/IntSpinBox.qml
         Components/TabBtn.qml
+        Components/SideMenu.qml
         PacketViews/B3View.qml
         PacketViews/BatteryView.qml
         PacketViews/ContactorsView.qml
@@ -26,4 +27,18 @@ qt6_add_qml_module(content
     RESOURCES
         fonts/fonts.txt
         images/solarCarLogo.png 
+        images/SentinelLogo.png
+        images/B3Icon.png
+        images/BatteryFaultsIcon.png
+        images/BatteryIcon.png
+        images/KeyMotorIcon.png
+        images/MbmsIcon.png
+        images/MotorIcon.png
+        images/MpptIcon.png
+        images/ProximityIcon.png
+        images/TelemetryIcon.png
+        images/ContactorsIcon.png
+        images/SolarCarLogoLong.png
+        images/SolarCarLogoShort.png
+        images/CollapseIcon.png
 )
