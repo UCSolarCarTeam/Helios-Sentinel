@@ -8,6 +8,8 @@ Rectangle {
 
     color: "#000"
 
+    property alias itemList: menuRepeater.model
+
     // Colors
     property color red1: "#e7000b"
     property color red2: "#c10007"
@@ -141,21 +143,6 @@ Rectangle {
         }
     }
 
-    // List of Menu Items to be displayed
-    ListModel {
-        id: menuModel
-        ListElement {icon: "../images/KeyMotorIcon.png"; title: "Key Motor" }
-        ListElement {icon: "../images/MotorIcon.png"; title: "Motor Details" }
-        ListElement {icon: "../images/B3Icon.png"; title: "B^3" }
-        ListElement {icon: "../images/TelemetryIcon.png"; title: "Telemetry" }
-        ListElement {icon: "../images/BatteryFaultsIcon.png"; title: "BatteryFaults" }
-        ListElement {icon: "../images/BatteryIcon.png"; title: "Battery" }
-        ListElement {icon: "../images/MpptIcon.png"; title: "MPPT" }
-        ListElement {icon: "../images/MbmsIcon.png"; title: "MBMS" }
-        ListElement {icon: "../images/ProximityIcon.png"; title: "Proximity Sensors" }
-        ListElement {icon: "../images/ContactorsIcon.png"; title: "Contactors" }
-    }
-
     // Column Display of Menu Items from menuModel
     Column {
         id: menuItems
@@ -168,7 +155,7 @@ Rectangle {
 
         Repeater {
             id: menuRepeater
-            model: menuModel
+            model: ""
 
             Rectangle {
                 width: sideMenu.isCollapsed ? 40 : 207
