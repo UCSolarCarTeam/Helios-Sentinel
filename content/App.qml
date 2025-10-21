@@ -6,7 +6,7 @@ import SentinelModule
 
 Window {
     width: 575
-    height: 700
+    height: 1000
 
     maximumWidth: 575
 
@@ -19,6 +19,9 @@ Window {
         anchors.fill: parent
     }
 
+    Loader {
+        source: "Components/SideMenu.qml"
+    }
 
 }
 
