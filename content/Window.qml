@@ -29,8 +29,46 @@ Rectangle {
                 {
                     name: "Sensor 1",
                     units: "cm",
+                    min: 0,
+                    max: 255,
+                    children: 0,
+                    parent: false,
+                    type: "num",
                     getter: function() { return proximitySensors.ProximitySensor1 },
                     setter: function(v) { proximitySensors.setProximitySensor1(v) }
+                },
+                {
+                    name: "Sensor 2",
+                    units: "cm",
+                    min: 0,
+                    max: 255,
+                    children: 0,
+                    parent: false,
+                    type: "num",
+                    getter: function() { return proximitySensors.ProximitySensor2 },
+                    setter: function(v) { proximitySensors.setProximitySensor2(v) }
+                },
+                {
+                    name: "Sensor 3",
+                    units: "cm",
+                    min: 0,
+                    max: 255,
+                    children: 0,
+                    parent: false,
+                    type: "num",
+                    getter: function() { return proximitySensors.ProximitySensor3 },
+                    setter: function(v) { proximitySensors.setProximitySensor3(v) }
+                },
+                {
+                    name: "Sensor 4",
+                    units: "cm",
+                    min: 0,
+                    max: 255,
+                    children: 0,
+                    parent: false,
+                    type: "num",
+                    getter: function() { return proximitySensors.ProximitySensor4 },
+                    setter: function(v) { proximitySensors.setProximitySensor4(v) }
                 }
             ]
         },
@@ -54,23 +92,6 @@ Rectangle {
         anchors {
             left: menu.right
             right: win.right
-        }
-    }
-
-    Repeater {
-        model: win.menuModel[8].fields
-        Column {
-            Text{
-                text: modelData.name + ": " + modelData.getter()
-                color: "red"
-            }
-
-            Button {
-                text: "Increase"
-                onClicked: {
-                    modelData.setter(modelData.getter() + 1)
-                }
-            }
         }
     }
 }
