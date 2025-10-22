@@ -5,10 +5,11 @@ import QtQuick 6.2
 import SentinelModule
 
 Window {
-    width: 575
-    height: 1000
+    width: 900
+    height: 900
 
-    maximumWidth: 575
+    maximumWidth: 900
+    minimumHeight: 650
 
     visible: true
     title: "Sentinel"
@@ -18,10 +19,5 @@ Window {
         source: "Window.qml"
         anchors.fill: parent
     }
-
-    Loader {
-        source: "Components/SideMenu.qml"
-    }
-
 }
 

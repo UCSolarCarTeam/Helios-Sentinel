@@ -24,6 +24,7 @@ qt6_add_qml_module(content
         PacketViews/ProximitySensorsView.qml
         PacketViews/TelemetryView.qml
         PacketViews/BatteryFaultsView.qml
+        Components/Header.qml
     RESOURCES
         fonts/fonts.txt
         images/solarCarLogo.png 
