@@ -13,10 +13,33 @@ Rectangle {
     color: "#f6f9fb"
 
     property string activeMenuItem: "Key Motor"
+    property var menuModel: [
+        { title: "Key Motor", icon: "../images/KeyMotorIcon.png"},
+        { title: "Motor Details", icon: "../images/MotorIcon.png"},
+        { title: "B^3", icon: "../images/B3Icon.png"},
+        { title: "Telemetry", icon: "../images/TelemetryIcon.png"},
+        { title: "Battery Faults", icon: "../images/BatteryFaultsIcon.png"},
+        { title: "Battery", icon: "../images/BatteryIcon.png"},
+        { title: "MPPT", icon: "../images/MpptIcon.png"},
+        { title: "MBMS", icon: "../images/MbmsIcon.png"},
+        {
+            title: "Proximity Sensors",
+            icon: "../images/ProximityIcon.png",
+            fields: [
+                {
+                    name: "Sensor 1",
+                    units: "cm",
+                    getter: function() { return proximitySensors.ProximitySensor1 },
+                    setter: function(v) { proximitySensors.setProximitySensor1(v) }
+                }
+            ]
+        },
+        { title: "Contactors", icon: "../images/ContactorsIcon.png" }
+    ]
 
     SideMenu {
         id: menu
-        itemList: menuModel
+        menuModel: win.menuModel
         activeMenuItem: win.activeMenuItem
         onActiveMenuItemChanged: win.activeMenuItem = activeMenuItem
         anchors {
@@ -34,17 +57,20 @@ Rectangle {
         }
     }
 
-    ListModel {
-        id: menuModel
-        ListElement {icon: "../images/KeyMotorIcon.png"; title: "Key Motor" }
-        ListElement {icon: "../images/MotorIcon.png"; title: "Motor Details" }
-        ListElement {icon: "../images/B3Icon.png"; title: "B^3" }
-        ListElement {icon: "../images/TelemetryIcon.png"; title: "Telemetry" }
-        ListElement {icon: "../images/BatteryFaultsIcon.png"; title: "Battery Faults" }
-        ListElement {icon: "../images/BatteryIcon.png"; title: "Battery" }
-        ListElement {icon: "../images/MpptIcon.png"; title: "MPPT" }
-        ListElement {icon: "../images/MbmsIcon.png"; title: "MBMS" }
-        ListElement {icon: "../images/ProximityIcon.png"; title: "Proximity Sensors" }
-        ListElement {icon: "../images/ContactorsIcon.png"; title: "Contactors" }
+    Repeater {
+        model: win.menuModel[8].fields
+        Column {
+            Text{
+                text: modelData.name + ": " + modelData.getter()
+                color: "red"
+            }
+
+            Button {
+                text: "Increase"
+                onClicked: {
+                    modelData.setter(modelData.getter() + 1)
+                }
+            }
+        }
     }
 }
