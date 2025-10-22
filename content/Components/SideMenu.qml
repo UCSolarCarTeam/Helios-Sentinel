@@ -18,7 +18,7 @@ Rectangle {
     property color hoverColor: "#1d293d"
 
     // Menu Properties
-    property string activeMenuItem: "Key Motor"
+    property string activeMenuItem
     property bool isCollapsed: false
 
     // Sentinel Logo at the top of menu
@@ -51,7 +51,6 @@ Rectangle {
             width: 40
             height: 40
             radius: 7.5
-
         }
 
         Image {

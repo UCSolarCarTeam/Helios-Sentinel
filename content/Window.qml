@@ -18,6 +18,7 @@ Rectangle {
         id: menu
         itemList: menuModel
         activeMenuItem: win.activeMenuItem
+        onActiveMenuItemChanged: win.activeMenuItem = activeMenuItem
         anchors {
             top: parent.top
             bottom: parent.bottom
@@ -26,6 +27,7 @@ Rectangle {
     }
 
     Header {
+        activePacket: win.activeMenuItem
         anchors {
             left: menu.right
             right: win.right

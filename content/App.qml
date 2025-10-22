@@ -8,7 +8,7 @@ Window {
     width: 900
     height: 900
 
-    maximumWidth: 900
+    minimumWidth: 750
     minimumHeight: 650
 
     visible: true

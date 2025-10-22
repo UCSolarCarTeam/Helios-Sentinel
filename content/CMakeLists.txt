@@ -42,4 +42,5 @@ qt6_add_qml_module(content
         images/SolarCarLogoLong.png
         images/SolarCarLogoShort.png
         images/CollapseIcon.png
+        images/SearchIcon.png
 )
