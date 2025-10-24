@@ -54,6 +54,10 @@ Rectangle {
             top: header.bottom
             right: win.right
             bottom: win.bottom
+            leftMargin: 24
+            rightMargin: 24
+            topMargin: 24
+            bottomMargin: 24
         }
     }
 }
