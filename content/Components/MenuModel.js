@@ -46,49 +46,77 @@ var menuModel = [
                 icon: "../images/ProximityIcon.png",
                 fields: [
                     {
-                        name: "Sensor 1",
-                        units: "cm",
-                        min: 0,
-                        max: 255,
-                        children: 0,
-                        parent: false,
-                        type: "num",
+                        name: "Proximity Sensor 1",
                         getter: function() { return proximitySensors.ProximitySensor1 },
-                        setter: function(v) { proximitySensors.setProximitySensor1(v) }
+                        freq: "2",
+                        id: "0x700",
+                        messageLength: 2,
+                        children: [
+                            {
+                                name: "Distance 1",
+                                units: "cm",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: function() { return proximitySensors.ProximitySensor1 },
+                                setter: function(v) { proximitySensors.setProximitySensor1(v) }
+                            }
+                        ],
                     },
                     {
-                        name: "Sensor 2",
-                        units: "cm",
-                        min: 0,
-                        max: 255,
-                        children: 0,
-                        parent: false,
-                        type: "num",
+                        name: "Proximity Sensor 2",
                         getter: function() { return proximitySensors.ProximitySensor2 },
-                        setter: function(v) { proximitySensors.setProximitySensor2(v) }
+                        freq: "2",
+                        id: "0x700",
+                        messageLength: 2,
+                        children: [
+                            {
+                                name: "Distance 2",
+                                units: "cm",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: function() { return proximitySensors.ProximitySensor2 },
+                                setter: function(v) { proximitySensors.setProximitySensor2(v) }
+                            }
+                        ],
                     },
                     {
-                        name: "Sensor 3",
-                        units: "cm",
-                        min: 0,
-                        max: 255,
-                        children: 0,
-                        parent: false,
-                        type: "num",
+                        name: "Proximity Sensor 3",
                         getter: function() { return proximitySensors.ProximitySensor3 },
-                        setter: function(v) { proximitySensors.setProximitySensor3(v) }
+                        freq: "2",
+                        id: "0x700",
+                        messageLength: 2,
+                        children: [
+                            {
+                                name: "Distance 3",
+                                units: "cm",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: function() { return proximitySensors.ProximitySensor3 },
+                                setter: function(v) { proximitySensors.setProximitySensor3(v) }
+                            }
+                        ],
                     },
                     {
-                        name: "Sensor 4",
-                        units: "cm",
-                        min: 0,
-                        max: 255,
-                        children: 0,
-                        parent: false,
-                        type: "num",
-                        getter: function() { return proximitySensors.ProximitySensor4 },
-                        setter: function(v) { proximitySensors.setProximitySensor4(v) }
-                    }
+                        name: "Proximity Sensor 3",
+                        getter: function() { return proximitySensors.ProximitySensor3 },
+                        freq: "2",
+                        id: "0x700",
+                        messageLength: 2,
+                        children: [
+                            {
+                                name: "Distance 3",
+                                units: "cm",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: function() { return proximitySensors.ProximitySensor3 },
+                                setter: function(v) { proximitySensors.setProximitySensor3(v) }
+                            }
+                        ],
+                    },
                 ]
             },
             {
