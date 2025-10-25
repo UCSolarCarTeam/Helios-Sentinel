@@ -5,10 +5,10 @@ import QtQuick 6.2
 import SentinelModule
 
 Window {
-    width: 900
+    width: 825
     height: 900
 
-    maximumWidth: 900
+    minimumWidth: 825
     minimumHeight: 650
 
     visible: true

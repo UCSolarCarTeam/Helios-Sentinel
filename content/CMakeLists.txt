@@ -25,6 +25,8 @@ qt6_add_qml_module(content
         PacketViews/TelemetryView.qml
         PacketViews/BatteryFaultsView.qml
         Components/Header.qml
+        Components/PageContent.qml
+        Components/MenuModel.js
     RESOURCES
         fonts/fonts.txt
         images/solarCarLogo.png 
@@ -42,4 +44,6 @@ qt6_add_qml_module(content
         images/SolarCarLogoLong.png
         images/SolarCarLogoShort.png
         images/CollapseIcon.png
+        images/SearchIcon.png
+        images/ArrowIcon.png
 )

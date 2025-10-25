@@ -8,6 +8,7 @@ public:                                                                     \
 public Q_SLOTS:                                                             \
     void set##name(type value){                                             \
         name##_ = value;                                                    \
+        emit name##Changed(name##_);                                        \
     }                                                                       \
     void send##name##Message(int id){                                       \
         sendCanMessage(id, name##_);                                        \
@@ -37,6 +38,7 @@ public Q_SLOTS:                                                                 
             parent##_ = (parent##_ & ~(mask << offset)) |                                   \
                         (static_cast<decltype(parent##_)>(value) << offset);                \
         }                                                                                   \
+        emit name##Changed(name##_);                                                        \
     }                                                                                       \
 Q_SIGNALS:                                                                                  \
     void name##Changed(type newValue);                                                      \

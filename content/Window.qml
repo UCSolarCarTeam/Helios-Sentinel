@@ -4,6 +4,7 @@ import QtQuick.Controls 6.2
 
 import "Components" 1.0
 import "PacketViews" 1.0
+import "Components/MenuModel.js" as MenuModel
 
 Rectangle {
     id: win
@@ -12,12 +13,42 @@ Rectangle {
     z: -20
     color: "#f6f9fb"
 
-    property string activeMenuItem: "Key Motor"
+    property var menuModel: MenuModel.menuModel
+    property string activeMenuItem: menuModel[0].title
+    property var fields: menuModel[0].fields
+    property var activePacket
+
+    onActiveMenuItemChanged: {
+        switch (activeMenuItem) {
+            case "Key Motor":
+                activePacket = keyMotor; break;
+            case "Motor Details":
+                activePacket = "TODO"; break;
+            case "B^3":
+                activePacket = b3; break;
+            case "Telemetry":
+                activePacket = telemetry; break;
+            case "Battery Faults":
+                activePacket = batteryFaults; break;
+            case "Battery":
+                activePacket = battery; break;
+            case "MPPT":
+                activePacket = "TODO"; break;
+            case "Proximity Sensors":
+                activePacket = proximitySensors; break;
+            case "Contactors":
+                activePacket = proximitySensors; break;
+        }
+        var item = menuModel.find(function(obj) { return obj.title === activeMenuItem })
+        fields = item ? item.fields : []
+    }
 
     SideMenu {
         id: menu
-        itemList: menuModel
+        z:3
+        menuModel: win.menuModel
         activeMenuItem: win.activeMenuItem
+        onActiveMenuItemChanged: win.activeMenuItem = activeMenuItem
         anchors {
             top: parent.top
             bottom: parent.bottom
@@ -26,23 +57,42 @@ Rectangle {
     }
 
     Header {
+        id: header
+        z:2
+        activePacket: win.activeMenuItem
         anchors {
             left: menu.right
             right: win.right
         }
     }
 
-    ListModel {
-        id: menuModel
-        ListElement {icon: "../images/KeyMotorIcon.png"; title: "Key Motor" }
-        ListElement {icon: "../images/MotorIcon.png"; title: "Motor Details" }
-        ListElement {icon: "../images/B3Icon.png"; title: "B^3" }
-        ListElement {icon: "../images/TelemetryIcon.png"; title: "Telemetry" }
-        ListElement {icon: "../images/BatteryFaultsIcon.png"; title: "Battery Faults" }
-        ListElement {icon: "../images/BatteryIcon.png"; title: "Battery" }
-        ListElement {icon: "../images/MpptIcon.png"; title: "MPPT" }
-        ListElement {icon: "../images/MbmsIcon.png"; title: "MBMS" }
-        ListElement {icon: "../images/ProximityIcon.png"; title: "Proximity Sensors" }
-        ListElement {icon: "../images/ContactorsIcon.png"; title: "Contactors" }
+    ScrollView {
+        anchors {
+            left: menu.right
+            top: header.bottom
+            right: win.right
+            bottom: win.bottom
+            leftMargin: 24
+            rightMargin: 24
+            topMargin: 24
+        }
+
+        ScrollBar.vertical.policy: ScrollBar.AlwaysOff
+
+        Flickable {
+            id: flick
+            contentWidth: width
+            contentHeight: pageContent.height
+            clip: true
+
+            PageContent {
+                z: 1
+                id: pageContent
+                fields: win.fields
+                packet: win.activePacket
+            }
+        }
     }
+
+
 }

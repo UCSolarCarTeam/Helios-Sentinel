@@ -8,7 +8,7 @@ Rectangle {
 
     color: "#000"
 
-    property alias itemList: menuRepeater.model
+    property var menuModel
 
     // Colors
     property color red1: "#e7000b"
@@ -18,7 +18,7 @@ Rectangle {
     property color hoverColor: "#1d293d"
 
     // Menu Properties
-    property string activeMenuItem: "Key Motor"
+    property string activeMenuItem
     property bool isCollapsed: false
 
     // Sentinel Logo at the top of menu
@@ -51,7 +51,6 @@ Rectangle {
             width: 40
             height: 40
             radius: 7.5
-
         }
 
         Image {
@@ -155,13 +154,13 @@ Rectangle {
 
         Repeater {
             id: menuRepeater
-            model: ""
+            model: sideMenu.menuModel
 
             Rectangle {
                 width: sideMenu.isCollapsed ? 40 : 207
                 height: 40
                 radius: 10
-                color: sideMenu.activeMenuItem === title ? sideMenu.red1 : hovered ? sideMenu.hoverColor : "#000"
+                color: sideMenu.activeMenuItem === modelData.title ? sideMenu.red1 : hovered ? sideMenu.hoverColor : "#000"
                 property bool hovered: false
 
                 MouseArea {
@@ -169,11 +168,11 @@ Rectangle {
                     hoverEnabled: true
                     onEntered: parent.hovered = true
                     onExited: parent.hovered = false
-                    onClicked: sideMenu.activeMenuItem = title
+                    onClicked: sideMenu.activeMenuItem = modelData.title
                 }
 
                 Image {
-                    source: model.icon
+                    source: modelData.icon
                     fillMode: Image.PreserveAspectFit
                     sourceSize.height: 32
                     sourceSize.width: 32
@@ -187,7 +186,7 @@ Rectangle {
                 }
 
                 Text {
-                    text: model.title
+                    text: modelData.title
                     visible: !sideMenu.isCollapsed
                     color: sideMenu.lightGrey
                     font.pixelSize: 16
