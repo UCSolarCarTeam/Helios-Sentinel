@@ -67,7 +67,7 @@ var menuModel = [
                         name: "Proximity Sensor 2",
                         getter: "ProximitySensor2",
                         freq: "2",
-                        id: "0x700",
+                        id: "0x701",
                         messageLength: 2,
                         children: [
                             {
@@ -85,7 +85,7 @@ var menuModel = [
                         name: "Proximity Sensor 3",
                         getter: "ProximitySensor3",
                         freq: "2",
-                        id: "0x700",
+                        id: "0x702",
                         messageLength: 2,
                         children: [
                             {
@@ -103,7 +103,7 @@ var menuModel = [
                         name: "Proximity Sensor 4",
                         getter: "ProximitySensor4",
                         freq: "2",
-                        id: "0x700",
+                        id: "0x703",
                         messageLength: 2,
                         children: [
                             {
