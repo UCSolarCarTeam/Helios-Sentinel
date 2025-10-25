@@ -8,85 +8,18 @@ Item {
     width: parent.width
     height: cardColumn.height
 
-    property var fields: [
-                            {
-                                name: "Proximity Sensor 1",
-                                getter: "ProximitySensor1",
-                                freq: "2",
-                                id: "0x700",
-                                messageLength: 2,
-                                children: [
-                                    {
-                                        name: "Distance 1",
-                                        units: "cm",
-                                        min: 0,
-                                        max: 255,
-                                        type: "num",
-                                        getter: function() { return proximitySensors.ProximitySensor1 },
-                                        setter: function(v) { proximitySensors.setProximitySensor1(v) }
-                                    }
-                                ],
-                            },
-                            {
-                                name: "Proximity Sensor 2",
-                                getter: function() { return proximitySensors.ProximitySensor2 },
-                                freq: "2",
-                                id: "0x700",
-                                messageLength: 2,
-                                children: [
-                                    {
-                                        name: "Distance 2",
-                                        units: "cm",
-                                        min: 0,
-                                        max: 255,
-                                        type: "num",
-                                        getter: function() { return proximitySensors.ProximitySensor2 },
-                                        setter: function(v) { proximitySensors.setProximitySensor2(v) }
-                                    }
-                                ],
-                            },
-                            {
-                                name: "Proximity Sensor 3",
-                                getter: function() { return proximitySensors.ProximitySensor3 },
-                                freq: "2",
-                                id: "0x700",
-                                messageLength: 2,
-                                children: [
-                                    {
-                                        name: "Distance 3",
-                                        units: "cm",
-                                        min: 0,
-                                        max: 255,
-                                        type: "num",
-                                        getter: function() { return proximitySensors.ProximitySensor3 },
-                                        setter: function(v) { proximitySensors.setProximitySensor3(v) }
-                                    }
-                                ],
-                            },
-                            {
-                                name: "Proximity Sensor 3",
-                                getter: function() { return proximitySensors.ProximitySensor3 },
-                                freq: "2",
-                                id: "0x700",
-                                messageLength: 2,
-                                children: [
-                                    {
-                                        name: "Distance 3",
-                                        units: "cm",
-                                        min: 0,
-                                        max: 255,
-                                        type: "num",
-                                        getter: function() { return proximitySensors.ProximitySensor3 },
-                                        setter: function(v) { proximitySensors.setProximitySensor3(v) }
-                                    }
-                                ],
-                            },
-                        ]
+    // list of fields for a packet
+    property var fields
 
+    // active packet context
+    property var packet
+
+    //Column display of can message cards
     Column {
         id: cardColumn
         spacing: 20
 
+        // Make a card for every can message
         Repeater {
             model: pageContent.fields
 
@@ -94,6 +27,9 @@ Item {
                 id: card
                 width: pageContent.width
                 height: cardBack.height + 5
+
+                // Is the can message preview open or closed
+                property bool isPreviewCollapsed: true
 
                 Rectangle {
                     id: cardBack
@@ -112,6 +48,7 @@ Item {
                     }
                 }
 
+                // Border line
                 Rectangle {
                     color: cardBack.border.color
                     z:10
@@ -123,6 +60,7 @@ Item {
                     }
                 }
 
+                // Background for card title header section
                 Rectangle {
                     id: topRect
                     height: 75
@@ -162,6 +100,7 @@ Item {
                     }
                 }
 
+                // Hides bottom radius of topRect
                 Rectangle {
                     id: hideBottomRadius
                     color: "#FFF"
@@ -176,6 +115,7 @@ Item {
                     }
                 }
 
+                //Grid display for user input fields, displays 2 per row
                 Grid {
                     id: inputGrid
                     columns: 2
@@ -191,6 +131,7 @@ Item {
                         topMargin: 24
                     }
 
+                    // Generate an (num, float, or bool) input field for each field in can message
                     Repeater {
                         model: modelData.children
                         delegate: Item {
@@ -199,14 +140,13 @@ Item {
                             Component.onCompleted: {
                                 const map = { num: numInput, float: floatInput, bool: boolInput }
                                 const comp = map[modelData.type]
-                                if (comp) comp.createObject(this, { fieldData: modelData })
+                                if (comp) comp.createObject(this, { fieldData: modelData, packet: pageContent.packet })
                             }
                         }
                     }
                 }
 
-                property bool isPreviewCollapsed: false
-
+                // Button for expanding and collapsing CAN preview
                 Rectangle {
                     id: previewBtn
                     height: 35
@@ -223,8 +163,8 @@ Item {
                         topMargin: 24
                     }
 
+                    //Tracks if button is hovered over in Mouse area
                     property bool hovered: false
-
 
                     MouseArea {
                         anchors.fill: parent
@@ -258,6 +198,7 @@ Item {
                     }
                 }
 
+                //CAN message preview Item - Displays CAN message information and can be hidden via previewBtn
                 Item {
                     id: preview
                     height: card.isPreviewCollapsed ? 0 : 100
@@ -272,6 +213,7 @@ Item {
                         rightMargin: 24
                     }
 
+                    //CAN information to be displayed
                     property var previewItems: [
                         {
                             attr: "Message ID:",
@@ -335,6 +277,7 @@ Item {
                         }
                     }
 
+                    //CAN message byte display
                     Rectangle {
                         id: payloadDisplay
                         height: 45
@@ -349,7 +292,8 @@ Item {
 
                         Text {
                             text: {
-                                var val = proximitySensors[modelData.getter];
+                                //Formats the value into bytes
+                                var val = pageContent.packet[modelData.getter];
                                 var hex = ("0000000000000000" + Number(val).toString(16).toUpperCase()).slice(-(modelData.messageLength * 2));
                                 var formattedHex = hex.match(/.{2}/g).reverse().join(" ");
                                 return formattedHex;
@@ -379,10 +323,11 @@ Item {
             color: "#f8fafc"
             anchors.fill: parent
             property var fieldData
+            property var packet
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: proximitySensors[parent.fieldData.setter](proximitySensors[fieldData.getter] +1)
+                onClicked: packet[parent.fieldData.setter](packet[fieldData.getter] +1)
             }
 
             Text {

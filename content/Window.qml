@@ -16,8 +16,29 @@ Rectangle {
     property var menuModel: MenuModel.menuModel
     property string activeMenuItem: menuModel[0].title
     property var fields: menuModel[0].fields
+    property var activePacket
 
     onActiveMenuItemChanged: {
+        switch (activeMenuItem) {
+            case "Key Motor":
+                activePacket = keyMotor; break;
+            case "Motor Details":
+                activePacket = "TODO"; break;
+            case "B^3":
+                activePacket = b3; break;
+            case "Telemetry":
+                activePacket = telemetry; break;
+            case "Battery Faults":
+                activePacket = batteryFaults; break;
+            case "Battery":
+                activePacket = battery; break;
+            case "MPPT":
+                activePacket = "TODO"; break;
+            case "Proximity Sensors":
+                activePacket = proximitySensors; break;
+            case "Contactors":
+                activePacket = proximitySensors; break;
+        }
         var item = menuModel.find(function(obj) { return obj.title === activeMenuItem })
         fields = item ? item.fields : []
     }
@@ -68,6 +89,7 @@ Rectangle {
                 z: 1
                 id: pageContent
                 fields: win.fields
+                packet: win.activePacket
             }
         }
     }
