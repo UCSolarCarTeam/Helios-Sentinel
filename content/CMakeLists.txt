@@ -9,27 +9,12 @@ qt6_add_qml_module(content
     QML_FILES
         App.qml
         Window.qml
-        Components/FlagBox.qml
-        Components/FloatSpinBox.qml
-        Components/IntSpinBox.qml
-        Components/TabBtn.qml
         Components/SideMenu.qml
-        PacketViews/B3View.qml
-        PacketViews/BatteryView.qml
-        PacketViews/ContactorsView.qml
-        PacketViews/KeyMotorView.qml
-        PacketViews/MbmsView.qml
-        PacketViews/MotorDetailsView.qml
-        PacketViews/MpptView.qml
-        PacketViews/ProximitySensorsView.qml
-        PacketViews/TelemetryView.qml
-        PacketViews/BatteryFaultsView.qml
         Components/Header.qml
         Components/PageContent.qml
         Components/MenuModel.js
     RESOURCES
         fonts/fonts.txt
-        images/solarCarLogo.png 
         images/SentinelLogo.png
         images/B3Icon.png
         images/BatteryFaultsIcon.png
