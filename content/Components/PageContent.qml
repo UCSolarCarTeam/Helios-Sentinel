@@ -5,9 +5,9 @@ import QtQuick.Layouts
 Item {
     id: pageContent
 
-    width: 750
-    height: 650
-    // property var fields: [{name: "ERROR"}]
+    width: parent.width
+    height: cardColumn.height
+
     property var fields: [
                             {
                                 name: "Proximity Sensor 1",
@@ -84,6 +84,7 @@ Item {
                         ]
 
     Column {
+        id: cardColumn
         spacing: 20
 
         Repeater {
@@ -124,7 +125,7 @@ Item {
 
                 Rectangle {
                     id: topRect
-                    height: 115
+                    height: 75
                     radius: 15
 
                     gradient: Gradient {
@@ -349,7 +350,7 @@ Item {
                         Text {
                             text: {
                                 var val = proximitySensors[modelData.getter];
-                                var hex = ("0000000000000000" + Number(val).toString(16).toUpperCase()).slice(-16);
+                                var hex = ("0000000000000000" + Number(val).toString(16).toUpperCase()).slice(-(modelData.messageLength * 2));
                                 var formattedHex = hex.match(/.{2}/g).reverse().join(" ");
                                 return formattedHex;
                             }

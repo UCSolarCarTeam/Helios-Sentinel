@@ -45,10 +45,7 @@ Rectangle {
         }
     }
 
-    PageContent {
-        z: 1
-        id: pageContent
-        fields: win.fields
+    ScrollView {
         anchors {
             left: menu.right
             top: header.bottom
@@ -57,7 +54,23 @@ Rectangle {
             leftMargin: 24
             rightMargin: 24
             topMargin: 24
-            bottomMargin: 24
+        }
+
+        ScrollBar.vertical.policy: ScrollBar.AlwaysOff
+
+        Flickable {
+            id: flick
+            contentWidth: width
+            contentHeight: pageContent.height
+            clip: true
+
+            PageContent {
+                z: 1
+                id: pageContent
+                fields: win.fields
+            }
         }
     }
+
+
 }
