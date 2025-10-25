@@ -11,7 +11,7 @@ Item {
     property var fields: [
                             {
                                 name: "Proximity Sensor 1",
-                                getter: function() { return proximitySensors.ProximitySensor1 },
+                                getter: "ProximitySensor1",
                                 freq: "2",
                                 id: "0x700",
                                 messageLength: 2,
@@ -198,7 +198,7 @@ Item {
                             Component.onCompleted: {
                                 const map = { num: numInput, float: floatInput, bool: boolInput }
                                 const comp = map[modelData.type]
-                                if (comp) comp.createObject(this, { fieldData: modelData})
+                                if (comp) comp.createObject(this, { fieldData: modelData })
                             }
                         }
                     }
@@ -336,14 +336,33 @@ Item {
 
                     Rectangle {
                         id: payloadDisplay
-                        height: 50
+                        height: 45
                         color: "black"
-                        radius: 15
+                        radius: 10
                         anchors {
                             right: preview.right
                             left: preview.left
                             top: preview.top
                             topMargin: 32
+                        }
+
+                        Text {
+                            text: {
+                                var val = proximitySensors[modelData.getter];
+                                var hex = ("0000000000000000" + Number(val).toString(16).toUpperCase()).slice(-16);
+                                var formattedHex = hex.match(/.{2}/g).reverse().join(" ");
+                                return formattedHex;
+                            }
+
+                            font.pixelSize: 16
+                            font.family: "Courier"
+                            color: "#ff6467"
+
+                            anchors {
+                                left: payloadDisplay.left
+                                verticalCenter: payloadDisplay.verticalCenter
+                                leftMargin: 24
+                            }
                         }
                     }
                 }
@@ -359,6 +378,11 @@ Item {
             color: "#f8fafc"
             anchors.fill: parent
             property var fieldData
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: proximitySensors[parent.fieldData.setter](proximitySensors[fieldData.getter] +1)
+            }
 
             Text {
                 id: text1
