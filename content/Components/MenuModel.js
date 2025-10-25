@@ -47,7 +47,7 @@ var menuModel = [
                 fields: [
                     {
                         name: "Proximity Sensor 1",
-                        getter: function() { return proximitySensors.ProximitySensor1 },
+                        getter: "ProximitySensor1",
                         freq: "2",
                         id: "0x700",
                         messageLength: 2,
@@ -58,14 +58,14 @@ var menuModel = [
                                 min: 0,
                                 max: 255,
                                 type: "num",
-                                getter: function() { return proximitySensors.ProximitySensor1 },
-                                setter: function(v) { proximitySensors.setProximitySensor1(v) }
+                                getter: "ProximitySensor1",
+                                setter: "setProximitySensor1"
                             }
                         ],
                     },
                     {
                         name: "Proximity Sensor 2",
-                        getter: function() { return proximitySensors.ProximitySensor2 },
+                        getter: "ProximitySensor2",
                         freq: "2",
                         id: "0x700",
                         messageLength: 2,
@@ -76,14 +76,14 @@ var menuModel = [
                                 min: 0,
                                 max: 255,
                                 type: "num",
-                                getter: function() { return proximitySensors.ProximitySensor2 },
-                                setter: function(v) { proximitySensors.setProximitySensor2(v) }
+                                getter: "ProximitySensor2",
+                                setter: "setProximitySensor2"
                             }
                         ],
                     },
                     {
                         name: "Proximity Sensor 3",
-                        getter: function() { return proximitySensors.ProximitySensor3 },
+                        getter: "ProximitySensor3",
                         freq: "2",
                         id: "0x700",
                         messageLength: 2,
@@ -94,14 +94,14 @@ var menuModel = [
                                 min: 0,
                                 max: 255,
                                 type: "num",
-                                getter: function() { return proximitySensors.ProximitySensor3 },
-                                setter: function(v) { proximitySensors.setProximitySensor3(v) }
+                                getter: "ProximitySensor3",
+                                setter: "setProximitySensor3"
                             }
                         ],
                     },
                     {
-                        name: "Proximity Sensor 3",
-                        getter: function() { return proximitySensors.ProximitySensor3 },
+                        name: "Proximity Sensor 4",
+                        getter: "ProximitySensor4",
                         freq: "2",
                         id: "0x700",
                         messageLength: 2,
@@ -112,8 +112,8 @@ var menuModel = [
                                 min: 0,
                                 max: 255,
                                 type: "num",
-                                getter: function() { return proximitySensors.ProximitySensor3 },
-                                setter: function(v) { proximitySensors.setProximitySensor3(v) }
+                                getter: "ProximitySensor4",
+                                setter: "setProximitySensor4"
                             }
                         ],
                     },
