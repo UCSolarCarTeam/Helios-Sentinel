@@ -318,29 +318,8 @@ Item {
     Component {
         id: numInput
 
-        Rectangle {
-            radius: 10
-            color: "#f8fafc"
-            anchors.fill: parent
-            property var fieldData
-            property var packet
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: packet[parent.fieldData.setter](packet[fieldData.getter] +1)
-            }
-
-            Text {
-                id: text1
-                color: "red"
-                z:200
-                text: parent.fieldData.name
-            }
-
-            Text {
-                text: "NUMBER TODO"
-                anchors.top: text1.bottom
-            }
+        NumInput {
+            width: parent.width
         }
     }
 

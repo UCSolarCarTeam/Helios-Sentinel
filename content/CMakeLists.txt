@@ -13,6 +13,7 @@ qt6_add_qml_module(content
         Components/Header.qml
         Components/PageContent.qml
         Components/MenuModel.js
+        Components/NumInput.qml
     RESOURCES
         fonts/fonts.txt
         images/SentinelLogo.png
@@ -31,4 +32,6 @@ qt6_add_qml_module(content
         images/CollapseIcon.png
         images/SearchIcon.png
         images/ArrowIcon.png
+        images/MinusIcon.png
+        images/PlusIcon.png
 )
