@@ -345,19 +345,8 @@ Item {
     Component {
         id: boolInput
 
-        Rectangle {
-            property var data
-
-            radius: 10
-            color: "#f8fafc"
-
-            Text {
-                text: data.name
-            }
-
-            Text {
-                text: "BOOL TODO"
-            }
+        BoolInput {
+            width: parent.width
         }
     }
 }

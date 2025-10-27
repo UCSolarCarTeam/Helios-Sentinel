@@ -14,6 +14,7 @@ qt6_add_qml_module(content
         Components/PageContent.qml
         Components/MenuModel.js
         Components/NumInput.qml
+        Components/BoolInput.qml
     RESOURCES
         fonts/fonts.txt
         images/SentinelLogo.png
