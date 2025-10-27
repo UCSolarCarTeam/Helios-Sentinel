@@ -14,7 +14,176 @@ var menuModel = [
             {
                 title: "B^3",
                 icon: "../images/B3Icon.png",
-                fields: [{name: "test"}]
+                fields: [
+                    {
+                        name: "Light Inputs",
+                        getter: "LightsInputs",
+                        freq: "10",
+                        id: "0x610",
+                        messageLength: 1,
+                        children: [
+                            {
+                                name: "Right Signal",
+                                type: "bool",
+                                getter: "RightSignalIn",
+                                setter: "setRightSignalIn"
+                            },
+                            {
+                                name: "Left Signal",
+                                type: "bool",
+                                getter: "LeftSignalIn",
+                                setter: "setLeftSignalIn"
+                            },
+                            {
+                                name: "Hazard Lights",
+                                type: "bool",
+                                getter: "HazardLightsIn",
+                                setter: "setHazardLightsIn"
+                            },
+                            {
+                                name: "Headlights",
+                                type: "bool",
+                                getter: "HeadlightsIn",
+                                setter: "setHeadlightsIn"
+                            },
+                        ],
+                    },
+                    {
+                        name: "Digital Inputs",
+                        getter: "DigitalInputs",
+                        freq: "20",
+                        id: "0x611",
+                        messageLength: 2,
+                        children: [
+                            {
+                                name: "Foward",
+                                type: "bool",
+                                getter: "Forward",
+                                setter: "setForward"
+                            },
+                            {
+                                name: "Neutral",
+                                type: "bool",
+                                getter: "Neutral",
+                                setter: "setNeutral"
+                            },
+                            {
+                                name: "Reverse",
+                                type: "bool",
+                                getter: "Reverse",
+                                setter: "setReverse"
+                            },
+                            {
+                                name: "Horn",
+                                type: "bool",
+                                getter: "Horn",
+                                setter: "setHorn"
+                            },
+                            {
+                                name: "Brake",
+                                type: "bool",
+                                getter: "Brake",
+                                setter: "setBrake"
+                            },
+                            {
+                                name: "Handbrake",
+                                type: "bool",
+                                getter: "Handbrake",
+                                setter: "setHandbrake"
+                            },
+                            {
+                                name: "Motor Reset",
+                                type: "bool",
+                                getter: "MotorReset",
+                                setter: "setMotorReset"
+                            },
+                            {
+                                name: "Race Mode",
+                                type: "bool",
+                                getter: "RaceMode",
+                                setter: "setRaceMode"
+                            },
+                            {
+                                name: "Lap",
+                                type: "bool",
+                                getter: "Lap",
+                                setter: "setLap"
+                            },
+                        ],
+                    },
+                    {
+                        name: "Analog Inputs",
+                        getter: "AnalogInputs",
+                        freq: "20",
+                        id: "0x612",
+                        messageLength: 2,
+                        children: [
+                            {
+                                name: "Acceleration",
+                                units: "%",
+                                min: 0,
+                                max: 100,
+                                type: "num",
+                                getter: "Acceleration",
+                                setter: "setAcceleration"
+                            },
+                            {
+                                name: "Regen Braking",
+                                units: "%",
+                                min: 0,
+                                max: 100,
+                                type: "num",
+                                getter: "RegenBraking",
+                                setter: "setRegenBraking"
+                            }
+                        ],
+                    },
+                    {
+                        name: "Lights Status",
+                        getter: "LightsStatus",
+                        freq: "5",
+                        id: "0x620",
+                        messageLength: 1,
+                        children: [
+                            {
+                                name: "Right Signal",
+                                type: "bool",
+                                getter: "RightSignalStatus",
+                                setter: "setRightSignalStatus"
+                            },
+                            {
+                                name: "Left Signal",
+                                type: "bool",
+                                getter: "LeftSignalStatus",
+                                setter: "setLeftSignalStatus"
+                            },
+                            {
+                                name: "Daytime Running Lights",
+                                type: "bool",
+                                getter: "DaytimeRunningLightStatus",
+                                setter: "setDaytimeRunningLightsStatus"
+                            },
+                            {
+                                name: "Headlights",
+                                type: "bool",
+                                getter: "HeadlightStatus",
+                                setter: "setHeadlightStatus"
+                            },
+                            {
+                                name: "Brake Lights",
+                                type: "bool",
+                                getter: "BrakeLightStatus",
+                                setter: "setBrakeLightsStatus"
+                            },
+                            {
+                                name: "Horn",
+                                type: "bool",
+                                getter: "HornStatus",
+                                setter: "setHornStatus"
+                            },
+                        ],
+                    }
+                ]
             },
             {
                 title: "Telemetry",
