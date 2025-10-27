@@ -135,8 +135,8 @@ Item {
                     Repeater {
                         model: modelData.children
                         delegate: Item {
-                            width: (inputGrid.width - inputGrid.columnSpacing - 24) / inputGrid.columns
-                            height: 45
+                            width: (inputGrid.width - inputGrid.columnSpacing) / inputGrid.columns
+                            height: 76
                             Component.onCompleted: {
                                 const map = { num: numInput, float: floatInput, bool: boolInput }
                                 const comp = map[modelData.type]

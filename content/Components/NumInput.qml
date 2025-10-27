@@ -2,40 +2,35 @@ import QtQuick
 
 Rectangle {
     id: numInput
-    radius: 10
-    color: "Red"//"#f8fafc"
-    //anchors.fill: parent
+    radius: 5
+    color: "#f8fafc"
 
-    width: 200
     height: 76
 
-    property var fieldData : {
-                name: "Distance 1";
-                units: "cm";
-                min: 0;
-                max: 255;
-                type: "num";
-                getter: "ProximitySensor1";
-                setter: "setProximitySensor1";
-            }
-
+    property var fieldData
     property var packet
 
     Column {
         spacing: 12
         width: parent.width
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+            bottom: parent.bottom
+            margins: 8
+        }
 
         Text {
             id: text1
             color: "#314158"
-            z:200
             text: numInput.fieldData.name + " (" + numInput.fieldData.units + ")"
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Item {
             width: parent.width
-            height: 50
+            height: 30
             Row {
                 width: parent.width
                 spacing: 12
@@ -43,8 +38,8 @@ Rectangle {
                 Rectangle {
                     id: decreaseBtn
                     color: isHovered ? "#e9ebef": "#FFF"
-                    width: 36
-                    height: 36
+                    width: 30
+                    height: 30
                     border.color: "#1a000000"
                     radius: 5
 
@@ -66,14 +61,14 @@ Rectangle {
                         source: "../images/MinusIcon.png"
                         anchors {
                             fill: parent
-                            margins: 10
+                            margins: 9
                         }
                     }
                 }
 
                 Rectangle {
-                    width: numInput.width - decreaseBtn.width - increaseBtn.height - 24
-                    height: 36
+                    width: numInput.width - decreaseBtn.width - increaseBtn.height - 48
+                    height: 30
                     color: "#f3f3f5"
                     radius: 5
 
@@ -107,8 +102,8 @@ Rectangle {
                 Rectangle {
                     id: increaseBtn
                     color: isHovered ? "#e9ebef": "#FFF"
-                    width: 36
-                    height: 36
+                    width: 30
+                    height: 30
                     border.color: "#1a000000"
                     radius: 5
 
@@ -130,7 +125,7 @@ Rectangle {
                         source: "../images/PlusIcon.png"
                         anchors {
                             fill: parent
-                            margins: 10
+                            margins: 9
                         }
                     }
                 }
