@@ -3,7 +3,6 @@ import QtQuick 2.15
 import QtQuick.Controls 6.2
 
 import "Components" 1.0
-import "PacketViews" 1.0
 import "Components/MenuModel.js" as MenuModel
 
 Rectangle {
