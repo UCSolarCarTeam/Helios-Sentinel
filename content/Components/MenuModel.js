@@ -161,7 +161,7 @@ var menuModel = [
                                 name: "Daytime Running Lights",
                                 type: "bool",
                                 getter: "DaytimeRunningLightStatus",
-                                setter: "setDaytimeRunningLightsStatus"
+                                setter: "setDaytimeRunningLightStatus"
                             },
                             {
                                 name: "Headlights",
@@ -173,7 +173,7 @@ var menuModel = [
                                 name: "Brake Lights",
                                 type: "bool",
                                 getter: "BrakeLightStatus",
-                                setter: "setBrakeLightsStatus"
+                                setter: "setBrakeLightStatus"
                             },
                             {
                                 name: "Horn",
