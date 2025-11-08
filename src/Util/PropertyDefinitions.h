@@ -39,6 +39,7 @@ public Q_SLOTS:                                                                 
                         (static_cast<decltype(parent##_)>(value) << offset);                \
         }                                                                                   \
         emit name##Changed(name##_);                                                        \
+        emit parent##Changed(parent##_);                                                    \
     }                                                                                       \
 Q_SIGNALS:                                                                                  \
     void name##Changed(type newValue);                                                      \
