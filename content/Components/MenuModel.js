@@ -476,7 +476,398 @@ var menuModel = [
             {
                 title: "MBMS",
                 icon: "../images/MbmsIcon.png",
-                fields: [{name: "test"}]
+                fields: [
+                    {
+                        name: "Contactor Commands",
+                        getter: "ContactorCommand",
+                        freq: "10",
+                        id: "0x101",
+                        messageLength: 1,
+                        children: [
+                            {
+                                name: "Common Contactor Command",
+                                type: "bool",
+                                getter: "CommonContactorCommand",
+                                setter: "setCommonContactorCommand"
+                            },
+                            {
+                                name: "Motor Contactor Command",
+                                type: "bool",
+                                getter: "MotorContactorCommand",
+                                setter: "setMotorContactorCommand"
+                            },
+                            {
+                                name: "Array Contactor Command",
+                                type: "bool",
+                                getter: "ArrayContactorCommand",
+                                setter: "setArrayContactorCommand"
+                            },
+                            {
+                                name: "LV Contactor Command",
+                                type: "bool",
+                                getter: "LvContactorCommand",
+                                setter: "setLvContactorCommand"
+                            },
+                            {
+                                name: "Charge Contactor Command",
+                                type: "bool",
+                                getter: "ChargeContactorCommand",
+                                setter: "setChargeContactorCommand"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Statuses",
+                        getter: "Status",
+                        freq: "10",
+                        id: "0x102",
+                        messageLength: 4,
+                        children: [
+                            {
+                                name: "Auxillary Battery Voltage",
+                                units: "V",
+                                min: 0,
+                                max: 31,
+                                type: "num",
+                                getter: "AuxillaryBatteryVoltage",
+                                setter: "setAuxillaryBatteryVoltage"
+                            },
+                            {
+                                name: "Strobe BMS Light",
+                                type: "bool",
+                                getter: "StrobeBmsLight",
+                                setter: "setStrobeBmsLight"
+                            },
+                            {
+                                name: "Charge Enable",
+                                type: "bool",
+                                getter: "ChargeEnable",
+                                setter: "setChargeEnable"
+                            },
+                            {
+                                name: "N Charge Safety",
+                                type: "bool",
+                                getter: "NChargeSafety",
+                                setter: "setNChargeSafety"
+                            },
+                            {
+                                name: "Discharge Enable",
+                                type: "bool",
+                                getter: "DischargeEnable",
+                                setter: "setDischargeEnable"
+                            },
+                            {
+                                name: "Orion Can Received Recently",
+                                type: "bool",
+                                getter: "OrionCanReceivedRecently",
+                                setter: "setOrionCanReceivedRecently"
+                            },
+                            {
+                                name: "Discharge Should Trip",
+                                type: "bool",
+                                getter: "DischargeShouldTrip",
+                                setter: "setDischargeShouldTrip"
+                            },
+                            {
+                                name: "Charge Should Trip",
+                                type: "bool",
+                                getter: "ChargeShouldTrip",
+                                setter: "setChargeShouldTrip"
+                            },
+                            {
+                                name: "Startup State",
+                                units: "n/a",
+                                min: 0,
+                                max: 31,
+                                type: "num",
+                                getter: "StartupState",
+                                setter: "setStartupState"
+                            },
+                            {
+                                name: "System State",
+                                units: "n/a",
+                                min: 0,
+                                max: 15,
+                                type: "num",
+                                getter: "SystemState",
+                                setter: "setSystemState"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Power Selection Statuses",
+                        getter: "PowerSelectionStatus",
+                        freq: "10",
+                        id: "0x103",
+                        messageLength: 2,
+                        children: [
+                            {
+                                name: "N Main Power Switch",
+                                type: "bool",
+                                getter: "NMainPowerSwitch",
+                                setter: "setNMainPowerSwitch"
+                            },
+                            {
+                                name: "External Shutdown",
+                                type: "bool",
+                                getter: "ExternalShutdown",
+                                setter: "setExternalShutdown"
+                            },
+                            {
+                                name: "En1",
+                                type: "bool",
+                                getter: "En1",
+                                setter: "setEn1"
+                            },
+                            {
+                                name: "N DCDC Fault",
+                                type: "bool",
+                                getter: "NDcdcFault",
+                                setter: "setNDcdcFault"
+                            },
+                            {
+                                name: "N 3AOC",
+                                type: "bool",
+                                getter: "N3Aoc",
+                                setter: "setN3Aoc"
+                            },
+                            {
+                                name: "N DCDC On",
+                                type: "bool",
+                                getter: "NDcdcOn",
+                                setter: "setNDcdcOn"
+                            },
+                            {
+                                name: "N Charge Fault",
+                                type: "bool",
+                                getter: "NChgFault",
+                                setter: "setNChgFault"
+                            },
+                            {
+                                name: "N Charge On",
+                                type: "bool",
+                                getter: "NChgOn",
+                                setter: "setNChgOn"
+                            },
+                            {
+                                name: "N Charge LV Enable",
+                                type: "bool",
+                                getter: "NChgLvEn",
+                                setter: "setNChgLvEn"
+                            },
+                            {
+                                name: "ABatt Disable",
+                                type: "bool",
+                                getter: "AbattDisable",
+                                setter: "setAbattDisable"
+                            },
+                            {
+                                name: "Key",
+                                type: "bool",
+                                getter: "Key",
+                                setter: "setKey"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Trips",
+                        getter: "Trip",
+                        freq: "10",
+                        id: "0x104",
+                        messageLength: 4,
+                        children: [
+                            {
+                                name: "High Cell Voltage Trip",
+                                type: "bool",
+                                getter: "HighCellVoltageTrip",
+                                setter: "setHighCellVoltageTrip"
+                            },
+                            {
+                                name: "Low Cell Voltage Trip",
+                                type: "bool",
+                                getter: "LowCellVoltageTrip",
+                                setter: "setLowCellVoltageTrip"
+                            },
+                            {
+                                name: "Common High Current Trip",
+                                type: "bool",
+                                getter: "CommonHighCurrentTrip",
+                                setter: "setCommonHighCurrentTrip"
+                            },
+                            {
+                                name: "Motor High Current Trip",
+                                type: "bool",
+                                getter: "MotorHighCurrentTrip",
+                                setter: "setMotorHighCurrentTrip"
+                            },
+                            {
+                                name: "Array High Current Trip",
+                                type: "bool",
+                                getter: "ArrayHighCurrentTrip",
+                                setter: "setArrayHighCurrentTrip"
+                            },
+                            {
+                                name: "Lv High Current Trip",
+                                type: "bool",
+                                getter: "LvHighCurrentTrip",
+                                setter: "setLvHighCurrentTrip"
+                            },
+                            {
+                                name: "Charge High Current Trip",
+                                type: "bool",
+                                getter: "ChargeHighCurrentTrip",
+                                setter: "setChargeHighCurrentTrip"
+                            },
+                            {
+                                name: "Protection Trip",
+                                type: "bool",
+                                getter: "ProtectionTrip",
+                                setter: "setProtectionTrip"
+                            },
+                            {
+                                name: "Orion Message Timeout Trip",
+                                type: "bool",
+                                getter: "OrionMessageTimeoutTrip",
+                                setter: "setOrionMessageTimeoutTrip"
+                            },
+                            {
+                                name: "Contactor Disconnected Unexpectedly Trip",
+                                type: "bool",
+                                getter: "ContactorDisconnectedUnexpectedlyTrip",
+                                setter: "setContactorDisconnectedUnexpectedlyTrip"
+                            },
+                            {
+                                name: "Contactor Connected Unexpectedly Trip",
+                                type: "bool",
+                                getter: "ContactorConnectedUnexpectelyTrip",
+                                setter: "setContactorConnectedUnexpectelyTrip"
+                            },
+                            {
+                                name: "Common Heartbeat Dead Trip",
+                                type: "bool",
+                                getter: "CommonHeartbeatDeadTrip",
+                                setter: "setCommonHeartbeatDeadTrip"
+                            },
+                            {
+                                name: "Motor Heartbeat Dead Trip",
+                                type: "bool",
+                                getter: "MotorHeartbeatDeadTrip",
+                                setter: "setMotorHeartbeatDeadTrip"
+                            },
+                            {
+                                name: "Array Heartbeat Dead Trip",
+                                type: "bool",
+                                getter: "ArrayHeartbeatDeadTrip",
+                                setter: "setArrayHeartbeatDeadTrip"
+                            },
+                            {
+                                name: "Lv Heartbeat Dead Trip",
+                                type: "bool",
+                                getter: "LvHeartbeatDeadTrip",
+                                setter: "setLvHeartbeatDeadTrip"
+                            },
+                            {
+                                name: "Charge Heartbeat Dead Trip",
+                                type: "bool",
+                                getter: "ChargeHeartbeatDeadTrip",
+                                setter: "setChargeHeartbeatDeadTrip"
+                            },
+                            {
+                                name: "Mps Disabled Trip",
+                                type: "bool",
+                                getter: "MpsDisabledTrip",
+                                setter: "setMpsDisabledTrip"
+                            },
+                            {
+                                name: "Esd Enabled Trip",
+                                type: "bool",
+                                getter: "EsdEnabledTrip",
+                                setter: "setEsdEnabledTrip"
+                            },
+                            {
+                                name: "High Temperature Trip",
+                                type: "bool",
+                                getter: "HighTemperatureTrip",
+                                setter: "setHighTemperatureTrip"
+                            },
+                            {
+                                name: "Low Temperature Trip",
+                                type: "bool",
+                                getter: "LowTemperatureTrip",
+                                setter: "setLowTemperatureTrip"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Soft Battery Limit Warnings",
+                        getter: "SoftBatteryLimitWarning",
+                        freq: "10",
+                        id: "0x105",
+                        messageLength: 2,
+                        children: [
+                            {
+                                name: "High Cell Voltage Warning",
+                                type: "bool",
+                                getter: "HighCellVoltageWarning",
+                                setter: "setHighCellVoltageWarning"
+                            },
+                            {
+                                name: "Low Cell Voltage Warning",
+                                type: "bool",
+                                getter: "LowCellVoltageWarning",
+                                setter: "setLowCellVoltageWarning"
+                            },
+                            {
+                                name: "Common High Current Warning",
+                                type: "bool",
+                                getter: "CommonHighCurrentWarning",
+                                setter: "setCommonHighCurrentWarning"
+                            },
+                            {
+                                name: "Motor High Current Warning",
+                                type: "bool",
+                                getter: "MotorHighCurrentWarning",
+                                setter: "setMotorHighCurrentWarning"
+                            },
+                            {
+                                name: "Array High Current Warning",
+                                type: "bool",
+                                getter: "ArrayHighCurrentWarning",
+                                setter: "setArrayHighCurrentWarning"
+                            },
+                            {
+                                name: "Lv High Current Warning",
+                                type: "bool",
+                                getter: "LvHighCurrentWarning",
+                                setter: "setLvHighCurrentWarning"
+                            },
+                            {
+                                name: "Charge High Current Warning",
+                                type: "bool",
+                                getter: "ChargeHighCurrentWarning",
+                                setter: "setChargeHighCurrentWarning"
+                            },
+                            {
+                                name: "High Temperature Warning",
+                                type: "bool",
+                                getter: "HighTemperatureWarning",
+                                setter: "setHighTemperatureWarning"
+                            },
+                            {
+                                name: "Low Temperature Warning",
+                                type: "bool",
+                                getter: "LowTemperatureWarning",
+                                setter: "setLowTemperatureWarning"
+                            },
+                            {
+                                name: "Can Oc12V Warning",
+                                type: "bool",
+                                getter: "CanOc12VWarning",
+                                setter: "setCanOc12VWarning"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 title: "Proximity Sensors",
