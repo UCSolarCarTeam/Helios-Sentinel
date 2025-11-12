@@ -57,8 +57,469 @@ var menuModel = [
             },
             {
                 title: "Motor Details",
+                subTitles: ["Motor 0", "Motor 1"],
                 icon: "../images/MotorIcon.png",
-                fields: [{name: "test"}]
+                fields: [
+                    {
+                        name: "ID Info",
+                        getter: "IdInfo",
+                        freq: "5",
+                        id: ["0x400", "0x420"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Tritium ID",
+                                units: "n/a",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "TritiumId",
+                                setter: "setTritiumId"
+                            },
+                            {
+                                name: "Serial Number",
+                                units: "n/a",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "SerialNumber",
+                                setter: "setSerialNumber"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Status",
+                        getter: "Status",
+                        freq: "5",
+                        id: ["0x401", "0x421"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Limit Flags",
+                                units: "n/a",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "LimitFlags",
+                                setter: "setLimitFlags"
+                            },
+                            {
+                                name: "Error Flags",
+                                units: "n/a",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "ErrorFlags",
+                                setter: "setErrorFlags"
+                            },
+                            {
+                                name: "Active Motor",
+                                units: "n/a",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "ActiveMotor",
+                                setter: "setActiveMotor"
+                            },
+                            {
+                                name: "Tx Error Count",
+                                units: "n/a",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "TxErrorCount",
+                                setter: "setTxErrorCount"
+                            },
+                            {
+                                name: "Rx Error Count",
+                                units: "n/a",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "RxErrorCount",
+                                setter: "setRxErrorCount"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Bus Measurement",
+                        getter: "BusMeasurement",
+                        freq: "10",
+                        id: ["0x402", "0x422"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Bus Voltage",
+                                units: "V",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "BusVoltage",
+                                setter: "setBusVoltage"
+                            },
+                            {
+                                name: "Bus Current",
+                                units: "A",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "BusCurrent",
+                                setter: "setBusCurrent"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Velocity Measurement",
+                        getter: "VelocityMeasurement",
+                        freq: "10",
+                        id: ["0x403", "0x423"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Motor Velocity",
+                                units: "RPM",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "MotorVelocity",
+                                setter: "setMotorVelocity"
+                            },
+                            {
+                                name: "Vehicle Velocity",
+                                units: "m/s",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "VehicleVelocity",
+                                setter: "setVehicleVelocity"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Phase Current Measurement",
+                        getter: "PhaseCurrentMeasurement",
+                        freq: "10",
+                        id: ["0x404", "0x424"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Phase Current B",
+                                units: "A_rms",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "PhaseCurrentB",
+                                setter: "setPhaseCurrentB"
+                            },
+                            {
+                                name: "Phase Current C",
+                                units: "A_rms",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "PhaseCurrentC",
+                                setter: "setPhaseCurrentC"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Motor Voltage Vector Measurement",
+                        getter: "MotorVoltageVectorMeasurement",
+                        freq: "10",
+                        id: ["0x405", "0x425"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Vq",
+                                units: "V",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Vq",
+                                setter: "setVq"
+                            },
+                            {
+                                name: "Vd",
+                                units: "V",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Vd",
+                                setter: "setVd"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Motor Current Vector Measurement",
+                        getter: "MotorCurrentVectorMeasurement",
+                        freq: "10",
+                        id: ["0x406", "0x426"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Iq",
+                                units: "A",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Iq",
+                                setter: "setIq"
+                            },
+                            {
+                                name: "Id",
+                                units: "A",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Id",
+                                setter: "setId"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Motor Back Emf Measurement Prediction",
+                        getter: "MotorBackEmfMeasurementPrediction",
+                        freq: "10",
+                        id: ["0x407", "0x427"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Bemfq",
+                                units: "V",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Bemfq",
+                                setter: "setBemfq"
+                            },
+                            {
+                                name: "Bemfd",
+                                units: "V",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Bemfd",
+                                setter: "setBemfd"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Voltage Rail 15V Measurement",
+                        getter: "VoltageRail15VMeasurement",
+                        freq: "10",
+                        id: ["0x408", "0x428"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Supply 15V",
+                                units: "V",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Supply15V",
+                                setter: "setSupply15V"
+                            },
+                            {
+                                name: "Reserved Supply 15V",
+                                units: "V",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "ReservedSupply15V",
+                                setter: "setReservedSupply15V"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Voltage Rail 3V3 1V9 Measurement",
+                        getter: "VoltageRail3V31V9Measurement",
+                        freq: "10",
+                        id: ["0x409", "0x429"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Supply 1V9",
+                                units: "V",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Supply1V9",
+                                setter: "setSupply1V9"
+                            },
+                            {
+                                name: "Supply 3V3",
+                                units: "V",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Supply3V3",
+                                setter: "setSupply3V3"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Reserved 0A",
+                        getter: "Reserved0A",
+                        freq: "10",
+                        id: ["0x40A", "0x42A"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Reserved 0A0",
+                                units: "n/a",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Reserved0A0",
+                                setter: "setReserved0A0"
+                            },
+                            {
+                                name: "Reserved 0A1",
+                                units: "n/a",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Reserved0A1",
+                                setter: "setReserved0A1"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Heatsink & Motor Temp Measurement",
+                        getter: "HeatsinkMotorTempMeasurement",
+                        freq: "10",
+                        id: ["0x40B", "0x42B"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Motor Temp",
+                                units: "°C",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "MotorTemp",
+                                setter: "setMotorTemp"
+                            },
+                            {
+                                name: "Heatsink Temp",
+                                units: "°C",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "HeatsinkTemp",
+                                setter: "setHeatsinkTemp"
+                            }
+                        ]
+                    },
+                    {
+                        name: "DSP Board Temp Measurement",
+                        getter: "DspBoardTempMeasurement",
+                        freq: "10",
+                        id: ["0x40C", "0x42C"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "DSP Board Temp",
+                                units: "°C",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "DspBoardTemp",
+                                setter: "setDspBoardTemp"
+                            },
+                            {
+                                name: "Reserved DSP Board Temp",
+                                units: "n/a",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "ReservedDspBoardTemp",
+                                setter: "setReservedDspBoardTemp"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Reserved 0D",
+                        getter: "Reserved0D",
+                        freq: "10",
+                        id: ["0x40D", "0x42D"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Reserved 0D0",
+                                units: "n/a",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Reserved0D0",
+                                setter: "setReserved0D0"
+                            },
+                            {
+                                name: "Reserved 0D1",
+                                units: "n/a",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Reserved0D1",
+                                setter: "setReserved0D1"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Odometer & Bus Ah Measurement",
+                        getter: "OdometerBusAhMeasurement",
+                        freq: "10",
+                        id: ["0x40E", "0x42E"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Odometer",
+                                units: "m",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "Odometer",
+                                setter: "setOdometer"
+                            },
+                            {
+                                name: "DC Bus Ah",
+                                units: "Ah",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "DCBusAh",
+                                setter: "setDCBusAh"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Slip Speed Measurement",
+                        getter: "SlipSpeedMeasurement",
+                        freq: "10",
+                        id: ["0x40F", "0x42F"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Slip Speed",
+                                units: "Hz",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "SlipSpeed",
+                                setter: "setSlipSpeed"
+                            },
+                            {
+                                name: "Reserved Slip Speed",
+                                units: "n/a",
+                                min: 0,
+                                max: 4294967295,
+                                type: "num",
+                                getter: "ReservedSlipSpeed",
+                                setter: "setReservedSlipSpeed"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 title: "B^3",
@@ -1009,8 +1470,55 @@ var menuModel = [
             },
             {
                 title: "MPPT",
+                subTitles: ["MPPT 0 Channel 0", "MPPT 0 Channel 1", "MPPT 1 Channel 0", "MPPT 1 Channel 1", "MPPT 2 Channel 0", "MPPT 2 Channel 1", "MPPT 3 Channel 0", "MPPT 3 Channel 1"],
                 icon: "../images/MpptIcon.png",
-                fields: [{name: "test"}]
+                fields: [
+                    {
+                        name: "MPPT Data",
+                        getter: "Data",
+                        freq: "5",
+                        id: ["0x600", "0x601", "0x602", "0x603", "0x604", "0x605", "0x606", "0x607"],
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Array Voltage",
+                                units: "10mV",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "ArrayVoltage",
+                                setter: "setArrayVoltage"
+                            },
+                            {
+                                name: "Array Current",
+                                units: "1mA",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "ArrayCurrent",
+                                setter: "setArrayCurrent"
+                            },
+                            {
+                                name: "Battery Voltage",
+                                units: "10mV",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "BatteryVoltage",
+                                setter: "setBatteryVoltage"
+                            },
+                            {
+                                name: "Temperature",
+                                units: "10m°C",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "Temperature",
+                                setter: "setTemperature"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 title: "MBMS",
