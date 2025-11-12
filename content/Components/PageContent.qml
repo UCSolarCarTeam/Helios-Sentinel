@@ -138,7 +138,7 @@ Item {
                             width: (inputGrid.width - inputGrid.columnSpacing) / inputGrid.columns
                             height: 76
                             Component.onCompleted: {
-                                const map = { num: numInput, float: floatInput, bool: boolInput }
+                                const map = { num: numInput, float: numInput, bool: boolInput }
                                 const comp = map[modelData.type]
                                 if (comp) comp.createObject(this, { fieldData: modelData, packet: pageContent.packet })
                             }
@@ -320,25 +320,6 @@ Item {
 
         NumInput {
             width: parent.width
-        }
-    }
-
-    Component {
-        id: floatInput
-
-        Rectangle {
-            property var data
-
-            radius: 10
-            color: "#f8fafc"
-
-            Text {
-                text: data.name
-            }
-
-            Text {
-                text: "FLOAT TODO"
-            }
         }
     }
 

@@ -9,6 +9,12 @@ Rectangle {
 
     property var fieldData
     property var packet
+    property int decimalPlaces: 0
+
+    onFieldDataChanged: {
+        if (fieldData && fieldData.type === "float")
+            decimalPlaces = fieldData ? fieldData.decimalPlaces : 0
+    }
 
     Column {
         spacing: 12
@@ -51,9 +57,15 @@ Rectangle {
                         onEntered: parent.isHovered = true
                         onExited: parent.isHovered = false
                         onClicked: {
-                                if(numInput.packet[numInput.fieldData.getter] > numInput.fieldData.min){
-                                    numInput.packet[numInput.fieldData.setter](numInput.packet[numInput.fieldData.getter] - 1);
-                                }
+                                let current = numInput.packet[numInput.fieldData.getter]
+                                let newVal = current - (1 / Math.pow(10, numInput.decimalPlaces))
+
+                                if (newVal < numInput.fieldData.min)
+                                    newVal = numInput.fieldData.min
+
+                                numInput.packet[numInput.fieldData.setter](
+                                    parseFloat(newVal.toFixed(numInput.decimalPlaces))
+                                )
                             }
                     }
 
@@ -74,14 +86,14 @@ Rectangle {
 
                     TextInput {
                         color:"#0a0a0a"
-                        text: numInput.packet[numInput.fieldData.getter].toString()
+                        text: numInput.packet[numInput.fieldData.getter].toFixed(numInput.decimalPlaces)
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                         inputMethodHints: Qt.ImhFormattedNumbersOnly
                         font.pixelSize: 14
 
                         onAccepted: {
-                            let value = parseInt(text)
+                            let value = parseFloat(text)
 
                             // Clamp between min and max
                             if (value < numInput.fieldData.min)
@@ -91,7 +103,7 @@ Rectangle {
 
                             // Update the source and text display
                             numInput.packet[numInput.fieldData.setter](value)
-                            text = value.toString()
+                            text = value.toFixed(numInput.decimalPlaces)
                         }
                         anchors {
                             fill: parent
@@ -115,9 +127,15 @@ Rectangle {
                         onEntered: parent.isHovered = true
                         onExited: parent.isHovered = false
                         onClicked: {
-                                if(numInput.packet[numInput.fieldData.getter] < numInput.fieldData.max){
-                                    numInput.packet[numInput.fieldData.setter](numInput.packet[numInput.fieldData.getter] + 1);
-                                }
+                                let current = numInput.packet[numInput.fieldData.getter]
+                                let newVal = current + (1 / Math.pow(10, numInput.decimalPlaces))
+
+                                if (newVal > numInput.fieldData.max)
+                                    newVal = numInput.fieldData.max
+
+                                numInput.packet[numInput.fieldData.setter](
+                                    parseFloat(newVal.toFixed(numInput.decimalPlaces))
+                                )
                             }
                     }
 

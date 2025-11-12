@@ -188,7 +188,226 @@ var menuModel = [
             {
                 title: "Telemetry",
                 icon: "../images/TelemetryIcon.png",
-                fields: [{name: "test"}]
+                fields: [
+                    {
+                        name: "GPS Time",
+                        getter: "GpsTime",
+                        freq: "2",
+                        id: "0x630",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Year",
+                                units: "n/a",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "Year",
+                                setter: "setYear"
+                            },
+                            {
+                                name: "Month",
+                                units: "n/a",
+                                min: 1,
+                                max: 12,
+                                type: "num",
+                                getter: "Month",
+                                setter: "setMonth"
+                            },
+                            {
+                                name: "Day",
+                                units: "n/a",
+                                min: 1,
+                                max: 31,
+                                type: "num",
+                                getter: "Day",
+                                setter: "setDay"
+                            },
+                            {
+                                name: "Hour",
+                                units: "n/a",
+                                min: 0,
+                                max: 23,
+                                type: "num",
+                                getter: "Hour",
+                                setter: "setHour"
+                            },
+                            {
+                                name: "Minute",
+                                units: "n/a",
+                                min: 0,
+                                max: 59,
+                                type: "num",
+                                getter: "Minute",
+                                setter: "setMinute"
+                            },
+                            {
+                                name: "Second",
+                                units: "n/a",
+                                min: 0,
+                                max: 59,
+                                type: "num",
+                                getter: "Second",
+                                setter: "setSecond"
+                            }
+                        ]
+                    },
+                    {
+                        name: "GPS Flags",
+                        getter: "GpsFlags",
+                        freq: "2",
+                        id: "0x631",
+                        messageLength: 4,
+                        children: [
+                            {
+                                name: "Validity Flags",
+                                units: "n/a",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "ValidityFlags",
+                                setter: "setValidityFlags"
+                            },
+                            {
+                                name: "Fix Status Flags",
+                                units: "n/a",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "FixStatusFlags",
+                                setter: "setFixStatusFlags"
+                            },
+                            {
+                                name: "Additional Flags",
+                                units: "n/a",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "AdditionalFlags",
+                                setter: "setAdditionalFlags"
+                            }
+                        ]
+                    },
+                    {
+                        name: "GPS Position",
+                        getter: "GpsPosition",
+                        freq: "2",
+                        id: "0x632",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Longitude",
+                                units: "degrees",
+                                min: -180,
+                                max: 180,
+                                type: "float",
+                                decimalPlaces: 6,
+                                getter: "Longitude",
+                                setter: "setLongitude"
+                            },
+                            {
+                                name: "Latitude",
+                                units: "degrees",
+                                min: -90,
+                                max: 90,
+                                type: "float",
+                                decimalPlaces: 6,
+                                getter: "Latitude",
+                                setter: "setLatitude"
+                            }
+                        ]
+                    },
+                    {
+                        name: "MPU Acceleration",
+                        getter: "MpuAcceleration",
+                        freq: "2",
+                        id: "0x633",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "X Acceleration",
+                                units: "m/s²",
+                                min: -32768,
+                                max: 32767,
+                                type: "num",
+                                getter: "AccelerationX",
+                                setter: "setAccelerationX"
+                            },
+                            {
+                                name: "Y Acceleration",
+                                units: "m/s²",
+                                min: -32768,
+                                max: 32767,
+                                type: "num",
+                                getter: "AccelerationY",
+                                setter: "setAccelerationY"
+                            },
+                            {
+                                name: "Z Acceleration",
+                                units: "m/s²",
+                                min: -32768,
+                                max: 32767,
+                                type: "num",
+                                getter: "AccelerationZ",
+                                setter: "setAccelerationZ"
+                            }
+                        ]
+                    },
+                    {
+                        name: "MPU Gyroscope",
+                        getter: "MpuGyroscope",
+                        freq: "2",
+                        id: "0x634",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "X Rotation",
+                                units: "°/s",
+                                min: -32768,
+                                max: 32767,
+                                type: "num",
+                                getter: "RotationX",
+                                setter: "setRotationX"
+                            },
+                            {
+                                name: "Y Rotation",
+                                units: "°/s",
+                                min: -32768,
+                                max: 32767,
+                                type: "num",
+                                getter: "RotationY",
+                                setter: "setRotationY"
+                            },
+                            {
+                                name: "Z Rotation",
+                                units: "°/s",
+                                min: -32768,
+                                max: 32767,
+                                type: "num",
+                                getter: "RotationZ",
+                                setter: "setRotationZ"
+                            }
+                        ]
+                    },
+                    {
+                        name: "MPU Temperature",
+                        getter: "MpuTemperature",
+                        freq: "2",
+                        id: "0x635",
+                        messageLength: 2,
+                        children: [
+                            {
+                                name: "Temperature",
+                                units: "°C",
+                                min: -32768,
+                                max: 32767,
+                                type: "num",
+                                getter: "MpuTemperature",
+                                setter: "setMpuTemperature"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 title: "Battery Faults",
