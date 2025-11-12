@@ -686,7 +686,326 @@ var menuModel = [
             {
                 title: "Battery",
                 icon: "../images/BatteryIcon.png",
-                fields: [{name: "test"}]
+                fields: [
+                    {
+                        name: "Startup Info",
+                        getter: "StartupInfo",
+                        freq: "5",
+                        id: "0x301",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Discharge Relay Enabled",
+                                type: "bool",
+                                getter: "DischargeRelayEnabled",
+                                setter: "setDischargeRelayEnabled"
+                            },
+                            {
+                                name: "Charge Relay Enabled",
+                                type: "bool",
+                                getter: "ChargeRelayEnabled",
+                                setter: "setChargeRelayEnabled"
+                            },
+                            {
+                                name: "Charger Safety Enabled",
+                                type: "bool",
+                                getter: "ChargerSafetyEnabled",
+                                setter: "setChargerSafetyEnabled"
+                            },
+                            {
+                                name: "Malfunction Indicator Enabled",
+                                type: "bool",
+                                getter: "MalfunctionIndicatorEnabled",
+                                setter: "setMalfunctionIndicatorEnabled"
+                            },
+                            {
+                                name: "Multi Purpose Input Signal",
+                                type: "bool",
+                                getter: "MultiPurposeInputSignal",
+                                setter: "setMultiPurposeInputSignal"
+                            },
+                            {
+                                name: "Always On Signal",
+                                type: "bool",
+                                getter: "AlwaysOnSignal",
+                                setter: "setAlwaysOnSignal"
+                            },
+                            {
+                                name: "Is Ready Signal",
+                                type: "bool",
+                                getter: "IsReadySignal",
+                                setter: "setIsReadySignal"
+                            },
+                            {
+                                name: "Is Charging Signal",
+                                type: "bool",
+                                getter: "IsChargingSignal",
+                                setter: "setIsChargingSignal"
+                            },
+                            {
+                                name: "Populated Cells",
+                                units: "#",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "PopulatedCells",
+                                setter: "setPopulatedCells"
+                            },
+                            {
+                                name: "Input 12V",
+                                units: "0.1V",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "Input12V",
+                                setter: "setInput12V"
+                            },
+                            {
+                                name: "Fan Voltage",
+                                units: "0.01V",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "FanVoltage",
+                                setter: "setFanVoltage"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Pack Info",
+                        getter: "PackInfo",
+                        freq: "1",
+                        id: "0x302",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Pack Current",
+                                units: "0.1A",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "PackCurrent",
+                                setter: "setPackCurrent"
+                            },
+                            {
+                                name: "Pack Voltage",
+                                units: "0.1V",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "PackVoltage",
+                                setter: "setPackVoltage"
+                            },
+                            {
+                                name: "Pack State Of Charge",
+                                units: "0.5%",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "PackStateOfCharge",
+                                setter: "setPackStateOfCharge"
+                            },
+                            {
+                                name: "Pack Amphours",
+                                units: "0.1Ah",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "PackAmphours",
+                                setter: "setPackAmphours"
+                            },
+                            {
+                                name: "Pack Depth Of Discharge",
+                                units: "0.5%",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "PackDepthOfDischarge",
+                                setter: "setPackDepthOfDischarge"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Temp Info",
+                        getter: "TempInfo",
+                        freq: "5",
+                        id: "0x304",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "High Temperature",
+                                units: "°C",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "HighTemperature",
+                                setter: "setHighTemperature"
+                            },
+                            {
+                                name: "High Thermistor Id",
+                                units: "#",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "HighThermistorId",
+                                setter: "setHighThermistorId"
+                            },
+                            {
+                                name: "Low Temperature",
+                                units: "°C",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "LowTemperature",
+                                setter: "setLowTemperature"
+                            },
+                            {
+                                name: "Low Thermistor Id",
+                                units: "#",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "LowThermistorId",
+                                setter: "setLowThermistorId"
+                            },
+                            {
+                                name: "Average Temperature",
+                                units: "°C",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "AverageTemperature",
+                                setter: "setAverageTemperature"
+                            },
+                            {
+                                name: "Internal Temperature",
+                                units: "°C",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "InternalTemperature",
+                                setter: "setInternalTemperature"
+                            },
+                            {
+                                name: "Fan Speed",
+                                units: "#",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "FanSpeed",
+                                setter: "setFanSpeed"
+                            },
+                            {
+                                name: "Requested Fan Speed",
+                                units: "#",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "RequestedFanSpeed",
+                                setter: "setRequestedFanSpeed"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Cell Voltages",
+                        getter: "CellVoltages",
+                        freq: "5",
+                        id: "0x305",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Low Cell Voltage",
+                                units: "0.1mV",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "LowCellVoltage",
+                                setter: "setLowCellVoltage"
+                            },
+                            {
+                                name: "Low Cell Voltage Id",
+                                units: "#",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "LowCellVoltageId",
+                                setter: "setLowCellVoltageId"
+                            },
+                            {
+                                name: "High Cell Voltage",
+                                units: "0.1mV",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "HighCellVoltage",
+                                setter: "setHighCellVoltage"
+                            },
+                            {
+                                name: "High Cell Voltage Id",
+                                units: "#",
+                                min: 0,
+                                max: 255,
+                                type: "num",
+                                getter: "HighCellVoltageId",
+                                setter: "setHighCellVoltageId"
+                            },
+                            {
+                                name: "Average Cell Voltage",
+                                units: "0.1mV",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "AverageCellVoltage",
+                                setter: "setAverageCellVoltage"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Max Min Voltages",
+                        getter: "MaxMinVoltages",
+                        freq: "0.5",
+                        id: "0x30A",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Max Cell Voltage",
+                                units: "Unknown",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "MaxCellVoltage",
+                                setter: "setMaxCellVoltage"
+                            },
+                            {
+                                name: "Min Cell Voltage",
+                                units: "Unknown",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "MinCellVoltage",
+                                setter: "setMinCellVoltage"
+                            },
+                            {
+                                name: "Max Pack Voltage",
+                                units: "Unknown",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "MaxPackVoltage",
+                                setter: "setMaxPackVoltage"
+                            },
+                            {
+                                name: "Min Pack Voltage",
+                                units: "Unknown",
+                                min: 0,
+                                max: 65535,
+                                type: "num",
+                                getter: "MinPackVoltage",
+                                setter: "setMinPackVoltage"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 title: "MPPT",
