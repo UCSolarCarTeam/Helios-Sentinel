@@ -461,7 +461,227 @@ var menuModel = [
             {
                 title: "Battery Faults",
                 icon: "../images/BatteryFaultsIcon.png",
-                fields: [{name: "test"}]
+                fields: [
+                    {
+                        name: "Errors",
+                        getter: "Errors",
+                        freq: "1.95",
+                        id: "0x303",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Dcl Reduced Due To Low Soc",
+                                type: "bool",
+                                getter: "DclReducedDueToLowSoc",
+                                setter: "setDclReducedDueToLowSoc"
+                            },
+                            {
+                                name: "Dcl Reduced Due To High Cell Resistance",
+                                type: "bool",
+                                getter: "DclReducedDueToHighCellResistance",
+                                setter: "setDclReducedDueToHighCellResistance"
+                            },
+                            {
+                                name: "Dcl Reduced Due To Temperature",
+                                type: "bool",
+                                getter: "DclReducedDueToTemperature",
+                                setter: "setDclReducedDueToTemperature"
+                            },
+                            {
+                                name: "Dcl Reduced Due To Low Cell Voltage",
+                                type: "bool",
+                                getter: "DclReducedDueToLowCellVoltage",
+                                setter: "setDclReducedDueToLowCellVoltage"
+                            },
+                            {
+                                name: "Dcl Reduced Due To Low Pack Voltage",
+                                type: "bool",
+                                getter: "DclReducedDueToLowPackVoltage",
+                                setter: "setDclReducedDueToLowPackVoltage"
+                            },
+                            {
+                                name: "Dcl And Ccl Reduced Due To Voltage Failsafe",
+                                type: "bool",
+                                getter: "DclAndCclReducedDueToVoltageFailsafe",
+                                setter: "setDclAndCclReducedDueToVoltageFailsafe"
+                            },
+                            {
+                                name: "Dcl And Ccl Reduced Due To Communication Failsafe",
+                                type: "bool",
+                                getter: "DclAndCclReducedDueToCommunicationFailsafe",
+                                setter: "setDclAndCclReducedDueToCommunicationFailsafe"
+                            },
+                            {
+                                name: "Ccl Reduced Due To High Soc",
+                                type: "bool",
+                                getter: "CclReducedDueToHighSoc",
+                                setter: "setCclReducedDueToHighSoc"
+                            },
+                            {
+                                name: "Ccl Reduced Due To High Cell Resistance",
+                                type: "bool",
+                                getter: "CclReducedDueToHighCellResistance",
+                                setter: "setCclReducedDueToHighCellResistance"
+                            },
+                            {
+                                name: "Ccl Reduced Due To Temperature",
+                                type: "bool",
+                                getter: "CclReducedDueToTemperature",
+                                setter: "setCclReducedDueToTemperature"
+                            },
+                            {
+                                name: "Ccl Reduced Due To High Cell Voltage",
+                                type: "bool",
+                                getter: "CclReducedDueToHighCellVoltage",
+                                setter: "setCclReducedDueToHighCellVoltage"
+                            },
+                            {
+                                name: "Ccl Reduced Due To High Pack Voltage",
+                                type: "bool",
+                                getter: "CclReducedDueToHighPackVoltage",
+                                setter: "setCclReducedDueToHighPackVoltage"
+                            },
+                            {
+                                name: "Ccl Reduced Due To Charger Latch",
+                                type: "bool",
+                                getter: "CclReducedDueToChargerLatch",
+                                setter: "setCclReducedDueToChargerLatch"
+                            },
+                            {
+                                name: "Ccl Reduced Due To Alternate Current Limit",
+                                type: "bool",
+                                getter: "CclReducedDueToAlternateCurrentLimit",
+                                setter: "setCclReducedDueToAlternateCurrentLimit"
+                            },
+                            {
+                                name: "Internal Communication Fault",
+                                type: "bool",
+                                getter: "InternalCommunicationFault",
+                                setter: "setInternalCommunicationFault"
+                            },
+                            {
+                                name: "Internal Conversion Fault",
+                                type: "bool",
+                                getter: "InternalConversionFault",
+                                setter: "setInternalConversionFault"
+                            },
+                            {
+                                name: "Weak Cell Fault",
+                                type: "bool",
+                                getter: "WeakCellFault",
+                                setter: "setWeakCellFault"
+                            },
+                            {
+                                name: "Low Cell Voltage Fault",
+                                type: "bool",
+                                getter: "LowCellVoltageFault",
+                                setter: "setLowCellVoltageFault"
+                            },
+                            {
+                                name: "Open Wiring Fault",
+                                type: "bool",
+                                getter: "OpenWiringFault",
+                                setter: "setOpenWiringFault"
+                            },
+                            {
+                                name: "Current Sensor Fault",
+                                type: "bool",
+                                getter: "CurrentSensorFault",
+                                setter: "setCurrentSensorFault"
+                            },
+                            {
+                                name: "Pack Voltage Sensor Fault",
+                                type: "bool",
+                                getter: "PackVoltageSensorFault",
+                                setter: "setPackVoltageSensorFault"
+                            },
+                            {
+                                name: "Weak Pack Fault",
+                                type: "bool",
+                                getter: "WeakPackFault",
+                                setter: "setWeakPackFault"
+                            },
+                            {
+                                name: "Voltage Redundancy Fault",
+                                type: "bool",
+                                getter: "VoltageRedundancyFault",
+                                setter: "setVoltageRedundancyFault"
+                            },
+                            {
+                                name: "Fan Monitor Fault",
+                                type: "bool",
+                                getter: "FanMonitorFault",
+                                setter: "setFanMonitorFault"
+                            },
+                            {
+                                name: "Thermistor Fault",
+                                type: "bool",
+                                getter: "ThermistorFault",
+                                setter: "setThermistorFault"
+                            },
+                            {
+                                name: "Canbus Communications Fault",
+                                type: "bool",
+                                getter: "CanbusCommunicationsFault",
+                                setter: "setCanbusCommunicationsFault"
+                            },
+                            {
+                                name: "Always On Supply Fault",
+                                type: "bool",
+                                getter: "AlwaysOnSupplyFault",
+                                setter: "setAlwaysOnSupplyFault"
+                            },
+                            {
+                                name: "High Voltage Isolation Fault",
+                                type: "bool",
+                                getter: "HighVoltageIsolationFault",
+                                setter: "setHighVoltageIsolationFault"
+                            },
+                            {
+                                name: "Power Supply Fault",
+                                type: "bool",
+                                getter: "PowerSupplyFault",
+                                setter: "setPowerSupplyFault"
+                            },
+                            {
+                                name: "Charge Limit Enforcement Fault",
+                                type: "bool",
+                                getter: "ChargeLimitEnforcementFault",
+                                setter: "setChargeLimitEnforcementFault"
+                            },
+                            {
+                                name: "Discharge Limit Enforcement Fault",
+                                type: "bool",
+                                getter: "DischargeLimitEnforcementFault",
+                                setter: "setDischargeLimitEnforcementFault"
+                            },
+                            {
+                                name: "Charger Safety Relay Fault",
+                                type: "bool",
+                                getter: "ChargerSafetyRelayFault",
+                                setter: "setChargerSafetyRelayFault"
+                            },
+                            {
+                                name: "Internal Memory Fault",
+                                type: "bool",
+                                getter: "InternalMemoryFault",
+                                setter: "setInternalMemoryFault"
+                            },
+                            {
+                                name: "Internal Thermistor Fault",
+                                type: "bool",
+                                getter: "InternalThermistorFault",
+                                setter: "setInternalThermistorFault"
+                            },
+                            {
+                                name: "Internal Logic Fault",
+                                type: "bool",
+                                getter: "InternalLogicFault",
+                                setter: "setInternalLogicFault"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 title: "Battery",
