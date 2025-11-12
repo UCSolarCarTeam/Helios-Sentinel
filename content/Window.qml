@@ -37,6 +37,8 @@ Rectangle {
                 activePacket = proximitySensors; break;
             case "Contactors":
                 activePacket = contactors; break;
+            case "MBMS":
+                activePacket = mbms; break;
         }
         var item = menuModel.find(function(obj) { return obj.title === activeMenuItem })
         fields = item ? item.fields : []
