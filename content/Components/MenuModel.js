@@ -544,7 +544,7 @@ var menuModel = [
                         messageLength: 2,
                         children: [
                             {
-                                name: "Distance 3",
+                                name: "Distance 4",
                                 units: "cm",
                                 min: 0,
                                 max: 255,
@@ -559,6 +559,352 @@ var menuModel = [
             {
                 title: "Contactors",
                 icon: "../images/ContactorsIcon.png",
-                fields: [{name: "test"}]
+                fields: [
+                    {
+                        name: "Common Contactor",
+                        getter: "Common",
+                        freq: "10",
+                        id: "0x210",
+                        messageLength: 4,
+                        children: [
+                            {
+                                name: "Is Precharger Closed",
+                                type: "bool",
+                                getter: "CommonIsPrechargerClosed",
+                                setter: "setCommonIsPrechargerClosed"
+                            },
+                            {
+                                name: "Is Precharger Closing",
+                                type: "bool",
+                                getter: "CommonIsPrechargerClosing",
+                                setter: "setCommonIsPrechargerClosing"
+                            },
+                            {
+                                name: "Precharger Error",
+                                type: "bool",
+                                getter: "CommonPrechargerError",
+                                setter: "setCommonPrechargerError"
+                            },
+                            {
+                                name: "Is Contactor Closed",
+                                type: "bool",
+                                getter: "CommonIsContactorClosed",
+                                setter: "setCommonIsContactorClosed"
+                            },
+                            {
+                                name: "Is Contactor Closing",
+                                type: "bool",
+                                getter: "CommonIsContactorClosing",
+                                setter: "setCommonIsContactorClosing"
+                            },
+                            {
+                                name: "Contactor Error",
+                                type: "bool",
+                                getter: "CommonContactorError",
+                                setter: "setCommonContactorError"
+                            },
+                            {
+                                name: "Line Current",
+                                units: "0.1A",
+                                min: 0,
+                                max: 4095,
+                                type: "num",
+                                getter: "CommonLineCurrent",
+                                setter: "setCommonLineCurrent"
+                            },
+                            {
+                                name: "Charge Current",
+                                units: "Unknown",
+                                min: 0,
+                                max: 4095,
+                                type: "num",
+                                getter: "CommonChargeCurrent",
+                                setter: "setCommonChargeCurrent"
+                            },
+                            {
+                                name: "Contactor Opening Error",
+                                type: "bool",
+                                getter: "CommonContactorOpeningError",
+                                setter: "setCommonContactorOpeningError"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Motor Contactor",
+                        getter: "Motor",
+                        freq: "10",
+                        id: "0x211",
+                        messageLength: 4,
+                        children: [
+                            {
+                                name: "Is Precharger Closed",
+                                type: "bool",
+                                getter: "MotorIsPrechargerClosed",
+                                setter: "setMotorIsPrechargerClosed"
+                            },
+                            {
+                                name: "Is Precharger Closing",
+                                type: "bool",
+                                getter: "MotorIsPrechargerClosing",
+                                setter: "setMotorIsPrechargerClosing"
+                            },
+                            {
+                                name: "Precharger Error",
+                                type: "bool",
+                                getter: "MotorPrechargerError",
+                                setter: "setMotorPrechargerError"
+                            },
+                            {
+                                name: "Is Contactor Closed",
+                                type: "bool",
+                                getter: "MotorIsContactorClosed",
+                                setter: "setMotorIsContactorClosed"
+                            },
+                            {
+                                name: "Is Contactor Closing",
+                                type: "bool",
+                                getter: "MotorIsContactorClosing",
+                                setter: "setMotorIsContactorClosing"
+                            },
+                            {
+                                name: "Contactor Error",
+                                type: "bool",
+                                getter: "MotorContactorError",
+                                setter: "setMotorContactorError"
+                            },
+                            {
+                                name: "Line Current",
+                                units: "0.1A",
+                                min: 0,
+                                max: 4095,
+                                type: "num",
+                                getter: "MotorLineCurrent",
+                                setter: "setMotorLineCurrent"
+                            },
+                            {
+                                name: "Charge Current",
+                                units: "Unknown",
+                                min: 0,
+                                max: 4095,
+                                type: "num",
+                                getter: "MotorChargeCurrent",
+                                setter: "setMotorChargeCurrent"
+                            },
+                            {
+                                name: "BPS Error",
+                                type: "bool",
+                                getter: "MotorBpsError",
+                                setter: "setMotorBpsError"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Array Contactor",
+                        getter: "Array",
+                        freq: "10",
+                        id: "0x212",
+                        messageLength: 4,
+                        children: [
+                            {
+                                name: "Is Precharger Closed",
+                                type: "bool",
+                                getter: "ArrayIsPrechargerClosed",
+                                setter: "setArrayIsPrechargerClosed"
+                            },
+                            {
+                                name: "Is Precharger Closing",
+                                type: "bool",
+                                getter: "ArrayIsPrechargerClosing",
+                                setter: "setArrayIsPrechargerClosing"
+                            },
+                            {
+                                name: "Precharger Error",
+                                type: "bool",
+                                getter: "ArrayPrechargerError",
+                                setter: "setArrayPrechargerError"
+                            },
+                            {
+                                name: "Is Contactor Closed",
+                                type: "bool",
+                                getter: "ArrayIsContactorClosed",
+                                setter: "setArrayIsContactorClosed"
+                            },
+                            {
+                                name: "Is Contactor Closing",
+                                type: "bool",
+                                getter: "ArrayIsContactorClosing",
+                                setter: "setArrayIsContactorClosing"
+                            },
+                            {
+                                name: "Contactor Error",
+                                type: "bool",
+                                getter: "ArrayContactorError",
+                                setter: "setArrayContactorError"
+                            },
+                            {
+                                name: "Line Current",
+                                units: "0.1A",
+                                min: 0,
+                                max: 4095,
+                                type: "num",
+                                getter: "ArrayLineCurrent",
+                                setter: "setArrayLineCurrent"
+                            },
+                            {
+                                name: "Charge Current",
+                                units: "Unknown",
+                                min: 0,
+                                max: 4095,
+                                type: "num",
+                                getter: "ArrayChargeCurrent",
+                                setter: "setArrayChargeCurrent"
+                            },
+                            {
+                                name: "BPS Error",
+                                type: "bool",
+                                getter: "ArrayBpsError",
+                                setter: "setArrayBpsError"
+                            }
+                        ]
+                    },
+                    {
+                        name: "LV Contactor",
+                        getter: "Lv",
+                        freq: "10",
+                        id: "0x213",
+                        messageLength: 4,
+                        children: [
+                            {
+                                name: "Is Precharger Closed",
+                                type: "bool",
+                                getter: "LvIsPrechargerClosed",
+                                setter: "setLvIsPrechargerClosed"
+                            },
+                            {
+                                name: "Is Precharger Closing",
+                                type: "bool",
+                                getter: "LvIsPrechargerClosing",
+                                setter: "setLvIsPrechargerClosing"
+                            },
+                            {
+                                name: "Precharger Error",
+                                type: "bool",
+                                getter: "LvPrechargerError",
+                                setter: "setLvPrechargerError"
+                            },
+                            {
+                                name: "Is Contactor Closed",
+                                type: "bool",
+                                getter: "LvIsContactorClosed",
+                                setter: "setLvIsContactorClosed"
+                            },
+                            {
+                                name: "Is Contactor Closing",
+                                type: "bool",
+                                getter: "LvIsContactorClosing",
+                                setter: "setLvIsContactorClosing"
+                            },
+                            {
+                                name: "Contactor Error",
+                                type: "bool",
+                                getter: "LvContactorError",
+                                setter: "setLvContactorError"
+                            },
+                            {
+                                name: "Line Current",
+                                units: "0.1A",
+                                min: 0,
+                                max: 4095,
+                                type: "num",
+                                getter: "LvLineCurrent",
+                                setter: "setLvLineCurrent"
+                            },
+                            {
+                                name: "Charge Current",
+                                units: "Unknown",
+                                min: 0,
+                                max: 4095,
+                                type: "num",
+                                getter: "LvChargeCurrent",
+                                setter: "setLvChargeCurrent"
+                            },
+                            {
+                                name: "BPS Error",
+                                type: "bool",
+                                getter: "LvBpsError",
+                                setter: "setLvBpsError"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Charge Contactor",
+                        getter: "Charge",
+                        freq: "10",
+                        id: "0x214",
+                        messageLength: 4,
+                        children: [
+                            {
+                                name: "Is Precharger Closed",
+                                type: "bool",
+                                getter: "ChargeIsPrechargerClosed",
+                                setter: "setChargeIsPrechargerClosed"
+                            },
+                            {
+                                name: "Is Precharger Closing",
+                                type: "bool",
+                                getter: "ChargeIsPrechargerClosing",
+                                setter: "setChargeIsPrechargerClosing"
+                            },
+                            {
+                                name: "Precharger Error",
+                                type: "bool",
+                                getter: "ChargePrechargerError",
+                                setter: "setChargePrechargerError"
+                            },
+                            {
+                                name: "Is Contactor Closed",
+                                type: "bool",
+                                getter: "ChargeIsContactorClosed",
+                                setter: "setChargeIsContactorClosed"
+                            },
+                            {
+                                name: "Is Contactor Closing",
+                                type: "bool",
+                                getter: "ChargeIsContactorClosing",
+                                setter: "setChargeIsContactorClosing"
+                            },
+                            {
+                                name: "Contactor Error",
+                                type: "bool",
+                                getter: "ChargeContactorError",
+                                setter: "setChargeContactorError"
+                            },
+                            {
+                                name: "Line Current",
+                                units: "0.1A",
+                                min: 0,
+                                max: 4095,
+                                type: "num",
+                                getter: "ChargeLineCurrent",
+                                setter: "setChargeLineCurrent"
+                            },
+                            {
+                                name: "Charge Current",
+                                units: "Unknown",
+                                min: 0,
+                                max: 4095,
+                                type: "num",
+                                getter: "ChargeChargeCurrent",
+                                setter: "setChargeChargeCurrent"
+                            },
+                            {
+                                name: "BPS Error",
+                                type: "bool",
+                                getter: "ChargeBpsError",
+                                setter: "setChargeBpsError"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
