@@ -4,7 +4,56 @@ var menuModel = [
             {
                 title: "Key Motor",
                 icon: "../images/KeyMotorIcon.png",
-                fields: [{name: "test"}]
+                fields: [
+                    {
+                        name: "Drive Commands",
+                        getter: "DriveCommand",
+                        freq: "10",
+                        id: "0x501",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Motor Velocity",
+                                units: "RPM",
+                                min: -10000,
+                                max: 10000,
+                                type: "float",
+                                decimalPlaces: 2,
+                                getter: "Velocity",
+                                setter: "setVelocity"
+                            },
+                            {
+                                name: "Motor Current",
+                                units: "%",
+                                min: -100,
+                                max: 100,
+                                type: "float",
+                                decimalPlaces: 2,
+                                getter: "Current",
+                                setter: "setCurrent"
+                            }
+                        ]
+                    },
+                    {
+                        name: "Power Commands",
+                        getter: "PowerCommand",
+                        freq: "10",
+                        id: "0x502",
+                        messageLength: 8,
+                        children: [
+                            {
+                                name: "Bus Current Out",
+                                units: "%",
+                                min: 0,
+                                max: 100,
+                                type: "float",
+                                decimalPlaces: 2,
+                                getter: "BusCurrentOut",
+                                setter: "setBusCurrentOut"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 title: "Motor Details",
