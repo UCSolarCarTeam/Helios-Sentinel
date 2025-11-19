@@ -26,14 +26,22 @@ Item {
             Item {
                 id: card
                 width: pageContent.width
-                height: cardBack.height + 5
+                height: !card.isHeaderPreviewCollapsed
+                        ? topRect.height
+                        : topRect.height
+                          + inputGrid.height + 25
+                          + previewBtn.height + 25
+                          + (card.isPreviewCollapsed ? 0 : preview.height)
+                // height: cardBack.height + 5
 
                 // Is the can message preview open or closed
+                property bool isHeaderPreviewCollapsed: true
                 property bool isPreviewCollapsed: true
+
 
                 Rectangle {
                     id: cardBack
-
+                    visible: card.isHeaderPreviewCollapsed
                     color: "white"
                     radius: 15
                     border.color: "#1a000000"
@@ -50,6 +58,7 @@ Item {
 
                 // Border line
                 Rectangle {
+                    visible: card.isHeaderPreviewCollapsed
                     color: cardBack.border.color
                     z:10
                     height: 1
@@ -98,6 +107,29 @@ Item {
                             leftMargin: 24
                         }
                     }
+                    property bool hovered: false
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onEntered: parent.hovered = true
+                        onExited: parent.hovered = false
+                        onClicked: card.isHeaderPreviewCollapsed = !card.isHeaderPreviewCollapsed
+                    }
+
+                    Image {
+                        source: "../images/ArrowIcon.png"
+                        sourceSize.height: 16
+                        sourceSize.width: 16
+                        width: 16
+                        height: 16
+                        anchors {
+                            verticalCenter: topRect.verticalCenter
+                            verticalCenterOffset: -7.5
+                            right: topRect.right
+                            rightMargin: 24
+                        }
+                        rotation: card.isHeaderPreviewCollapsed ? 0 : 180
+                    }
                 }
 
                 // Hides bottom radius of topRect
@@ -117,6 +149,7 @@ Item {
 
                 //Grid display for user input fields, displays 2 per row
                 Grid {
+                    visible: card.isHeaderPreviewCollapsed
                     id: inputGrid
                     columns: 2
                     rowSpacing: 10
@@ -148,6 +181,7 @@ Item {
 
                 // Button for expanding and collapsing CAN preview
                 Rectangle {
+                    visible: card.isHeaderPreviewCollapsed
                     id: previewBtn
                     height: 35
                     color: hovered ? "#e9ebef" : "#FFF"
@@ -202,7 +236,7 @@ Item {
                 Item {
                     id: preview
                     height: card.isPreviewCollapsed ? 0 : 100
-                    visible: !card.isPreviewCollapsed
+                    visible: !card.isPreviewCollapsed & card.isHeaderPreviewCollapsed
 
                     anchors {
                         top: previewBtn.bottom
