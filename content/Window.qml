@@ -21,8 +21,10 @@ Rectangle {
         switch (activeMenuItem) {
             case "Key Motor":
                 activePacket = keyMotor; break;
-            case "Motor Details":
-                activePacket = "TODO"; break;
+            case "Motor 0":
+                activePacket = motorDetails0; break;
+            case "Motor 1":
+                activePacket = motorDetails1; break;
             case "B^3":
                 activePacket = b3; break;
             case "Telemetry":
@@ -31,8 +33,22 @@ Rectangle {
                 activePacket = batteryFaults; break;
             case "Battery":
                 activePacket = battery; break;
-            case "MPPT":
-                activePacket = "TODO"; break;
+            case "MPPT 0 Channel 0":
+                activePacket = mppt0C0; break;
+            case "MPPT 0 Channel 1":
+                activePacket = mppt0C1; break;
+            case "MPPT 1 Channel 0":
+                activePacket = mppt1C0; break;
+            case "MPPT 1 Channel 1":
+                activePacket = mppt1C1; break;
+            case "MPPT 2 Channel 0":
+                activePacket = mppt2C0; break;
+            case "MPPT 2 Channel 1":
+                activePacket = mppt2C1; break;
+            case "MPPT 3 Channel 0":
+                activePacket = mppt3C0; break;
+            case "MPPT 3 Channel 1":
+                activePacket = mppt3C1; break;
             case "Proximity Sensors":
                 activePacket = proximitySensors; break;
             case "Contactors":
